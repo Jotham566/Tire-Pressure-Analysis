@@ -1,0 +1,407 @@
+2024-12-11 20:58:00,853 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-11 20:58:00,855 - INFO - Total original CSV files found: 205
+
+2024-12-11 20:58:37,000 - INFO - Starting processing of standalone data...
+2024-12-11 20:58:37,000 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-11 20:58:37,001 - INFO - Total standalone CSV files found: 58
+2024-12-11 20:58:42,194 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-11 20:58:42,194 - INFO - All processing completed successfully.
+2024-12-12 18:02:03,625 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 18:02:03,627 - INFO - Total original CSV files found: 205
+
+2024-12-12 18:02:39,626 - INFO - Starting processing of standalone data...
+2024-12-12 18:02:39,626 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 18:02:39,627 - INFO - Total standalone CSV files found: 58
+2024-12-12 18:02:44,859 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 18:02:44,859 - INFO - All processing completed successfully.
+2024-12-12 18:12:02,584 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 18:12:02,586 - INFO - Total original CSV files found: 205
+
+2024-12-12 18:12:38,685 - INFO - Starting processing of standalone data...
+2024-12-12 18:12:38,685 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 18:12:38,686 - INFO - Total standalone CSV files found: 58
+2024-12-12 18:12:43,984 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 18:12:43,984 - INFO - All processing completed successfully.
+2024-12-12 18:19:21,970 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 18:19:21,972 - INFO - Total original CSV files found: 205
+
+2024-12-12 18:19:57,979 - INFO - Starting processing of standalone data...
+2024-12-12 18:19:57,979 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 18:19:57,979 - INFO - Total standalone CSV files found: 58
+2024-12-12 18:20:03,395 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 18:20:03,396 - INFO - All processing completed successfully.
+2024-12-12 18:48:14,514 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 18:48:14,516 - INFO - Total original CSV files found: 205
+
+2024-12-12 18:48:50,469 - INFO - Starting processing of standalone data...
+2024-12-12 18:48:50,469 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 18:48:50,470 - INFO - Total standalone CSV files found: 58
+2024-12-12 18:48:55,923 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 18:48:55,923 - INFO - All processing completed successfully.
+2024-12-12 18:53:19,988 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 18:53:19,990 - INFO - Total original CSV files found: 205
+
+2024-12-12 18:53:55,886 - INFO - Starting processing of standalone data...
+2024-12-12 18:53:55,886 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 18:53:55,886 - INFO - Total standalone CSV files found: 58
+2024-12-12 18:54:01,293 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 18:54:01,294 - INFO - All processing completed successfully.
+2024-12-12 18:57:16,002 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 18:57:16,004 - INFO - Total original CSV files found: 205
+
+2024-12-12 18:57:51,952 - INFO - Starting processing of standalone data...
+2024-12-12 18:57:51,952 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 18:57:51,953 - INFO - Total standalone CSV files found: 58
+2024-12-12 18:57:57,235 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 18:57:57,235 - INFO - All processing completed successfully.
+2024-12-12 18:59:55,917 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 18:59:55,919 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:00:32,483 - INFO - Starting processing of standalone data...
+2024-12-12 19:00:32,483 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:00:32,484 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:00:37,811 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:00:37,812 - INFO - All processing completed successfully.
+2024-12-12 19:03:18,627 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:03:18,629 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:03:54,765 - INFO - Starting processing of standalone data...
+2024-12-12 19:03:54,766 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:03:54,766 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:04:00,113 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:04:00,113 - INFO - All processing completed successfully.
+2024-12-12 19:07:15,509 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:07:15,511 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:07:53,433 - INFO - Starting processing of standalone data...
+2024-12-12 19:07:53,433 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:07:53,434 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:07:58,821 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:07:58,821 - INFO - All processing completed successfully.
+2024-12-12 19:09:22,313 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:09:22,315 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:09:59,412 - INFO - Starting processing of standalone data...
+2024-12-12 19:09:59,412 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:09:59,413 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:10:04,763 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:10:04,763 - INFO - All processing completed successfully.
+2024-12-12 19:11:46,790 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:11:46,792 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:12:23,492 - INFO - Starting processing of standalone data...
+2024-12-12 19:12:23,492 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:12:23,493 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:12:28,848 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:12:28,848 - INFO - All processing completed successfully.
+2024-12-12 19:13:26,689 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:13:26,691 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:14:02,694 - INFO - Starting processing of standalone data...
+2024-12-12 19:14:02,695 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:14:02,695 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:14:08,310 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:14:08,311 - INFO - All processing completed successfully.
+2024-12-12 19:16:07,459 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:16:07,460 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:16:43,667 - INFO - Starting processing of standalone data...
+2024-12-12 19:16:43,667 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:16:43,668 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:16:49,044 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:16:49,044 - INFO - All processing completed successfully.
+2024-12-12 19:21:59,170 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:21:59,172 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:22:35,038 - INFO - Starting processing of standalone data...
+2024-12-12 19:22:35,038 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:22:35,039 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:22:40,341 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:22:40,341 - INFO - All processing completed successfully.
+2024-12-12 19:23:30,892 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:23:30,893 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:24:06,809 - INFO - Starting processing of standalone data...
+2024-12-12 19:24:06,809 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:24:06,810 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:24:12,181 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:24:12,181 - INFO - All processing completed successfully.
+2024-12-12 19:48:48,300 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:48:48,301 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:49:23,977 - INFO - Starting processing of standalone data...
+2024-12-12 19:49:23,977 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:49:23,978 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:49:29,295 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:49:29,295 - INFO - All processing completed successfully.
+2024-12-12 19:50:51,511 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:50:51,513 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:51:28,988 - INFO - Starting processing of standalone data...
+2024-12-12 19:51:28,989 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:51:28,989 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:51:34,249 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:51:34,249 - INFO - All processing completed successfully.
+2024-12-12 19:52:24,236 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 19:52:24,237 - INFO - Total original CSV files found: 205
+
+2024-12-12 19:53:01,843 - INFO - Starting processing of standalone data...
+2024-12-12 19:53:01,843 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 19:53:01,844 - INFO - Total standalone CSV files found: 58
+2024-12-12 19:53:07,418 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 19:53:07,418 - INFO - All processing completed successfully.
+2024-12-12 20:08:05,159 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:08:05,161 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:08:41,976 - INFO - Starting processing of standalone data...
+2024-12-12 20:08:41,976 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:08:41,977 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:08:47,289 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:08:47,289 - INFO - All processing completed successfully.
+2024-12-12 20:14:23,041 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:14:23,043 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:15:00,446 - INFO - Starting processing of standalone data...
+2024-12-12 20:15:00,446 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:15:00,447 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:15:05,735 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:15:05,735 - INFO - All processing completed successfully.
+2024-12-12 20:17:09,947 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:17:09,949 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:17:46,576 - INFO - Starting processing of standalone data...
+2024-12-12 20:17:46,576 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:17:46,577 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:17:51,898 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:17:51,898 - INFO - All processing completed successfully.
+2024-12-12 20:19:03,627 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:19:03,629 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:19:40,485 - INFO - Starting processing of standalone data...
+2024-12-12 20:19:40,485 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:19:40,486 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:19:45,873 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:19:45,873 - INFO - All processing completed successfully.
+2024-12-12 20:21:51,238 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:21:51,240 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:22:27,817 - INFO - Starting processing of standalone data...
+2024-12-12 20:22:27,817 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:22:27,818 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:22:33,095 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:22:33,095 - INFO - All processing completed successfully.
+2024-12-12 20:30:56,572 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:30:56,573 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:31:33,064 - INFO - Starting processing of standalone data...
+2024-12-12 20:31:33,064 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:31:33,064 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:31:38,342 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:31:38,342 - INFO - All processing completed successfully.
+2024-12-12 20:33:25,986 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:33:25,988 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:34:02,104 - INFO - Starting processing of standalone data...
+2024-12-12 20:34:02,105 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:34:02,105 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:34:07,460 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:34:07,460 - INFO - All processing completed successfully.
+2024-12-12 20:34:32,908 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:34:32,909 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:35:09,209 - INFO - Starting processing of standalone data...
+2024-12-12 20:35:09,209 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:35:09,209 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:35:14,660 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:35:14,660 - INFO - All processing completed successfully.
+2024-12-12 20:38:46,037 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:38:46,039 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:39:23,157 - INFO - Starting processing of standalone data...
+2024-12-12 20:39:23,158 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:39:23,158 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:39:28,474 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:39:28,474 - INFO - All processing completed successfully.
+2024-12-12 20:46:00,714 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:46:00,715 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:46:36,894 - INFO - Starting processing of standalone data...
+2024-12-12 20:46:36,894 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:46:36,895 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:46:42,159 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:46:42,159 - INFO - All processing completed successfully.
+2024-12-12 20:47:29,327 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:47:29,329 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:48:05,513 - INFO - Starting processing of standalone data...
+2024-12-12 20:48:05,514 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:48:05,514 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:48:10,809 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:48:10,809 - INFO - All processing completed successfully.
+2024-12-12 20:48:30,799 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:48:30,802 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:49:11,607 - INFO - Starting processing of standalone data...
+2024-12-12 20:49:11,607 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:49:11,608 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:49:16,964 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:49:16,965 - INFO - All processing completed successfully.
+2024-12-12 20:50:23,918 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:50:23,920 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:51:00,599 - INFO - Starting processing of standalone data...
+2024-12-12 20:51:00,599 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:51:00,599 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:51:05,938 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:51:05,938 - INFO - All processing completed successfully.
+2024-12-12 20:52:26,796 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:52:26,798 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:53:03,700 - INFO - Starting processing of standalone data...
+2024-12-12 20:53:03,700 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:53:03,701 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:53:08,963 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:53:08,963 - INFO - All processing completed successfully.
+2024-12-12 20:56:30,910 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 20:56:30,912 - INFO - Total original CSV files found: 205
+
+2024-12-12 20:57:07,273 - INFO - Starting processing of standalone data...
+2024-12-12 20:57:07,273 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 20:57:07,274 - INFO - Total standalone CSV files found: 58
+2024-12-12 20:57:12,564 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 20:57:12,564 - INFO - All processing completed successfully.
+2024-12-12 21:03:11,895 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 21:03:11,897 - INFO - Total original CSV files found: 205
+
+2024-12-12 21:03:48,235 - INFO - Starting processing of standalone data...
+2024-12-12 21:03:48,235 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 21:03:48,236 - INFO - Total standalone CSV files found: 58
+2024-12-12 21:03:53,559 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 21:03:53,559 - INFO - All processing completed successfully.
+2024-12-12 21:05:32,917 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 21:05:32,919 - INFO - Total original CSV files found: 205
+
+2024-12-12 21:06:09,166 - INFO - Starting processing of standalone data...
+2024-12-12 21:06:09,166 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 21:06:09,167 - INFO - Total standalone CSV files found: 58
+2024-12-12 21:06:14,804 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 21:06:14,804 - INFO - All processing completed successfully.
+2024-12-12 21:07:41,126 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-12 21:07:41,128 - INFO - Total original CSV files found: 205
+
+2024-12-12 21:08:18,185 - INFO - Starting processing of standalone data...
+2024-12-12 21:08:18,185 - INFO - Processing standalone files from: Stand Alone Data
+2024-12-12 21:08:18,185 - INFO - Total standalone CSV files found: 58
+2024-12-12 21:08:23,650 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-12 21:08:23,650 - INFO - All processing completed successfully.
