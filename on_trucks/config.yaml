@@ -1,10 +1,10 @@
 # config.yaml
 
-# Parameters for new_main.py
+# Parameters for pulse_width_calculator.py
 # Configuration file for TireSoundProcessor
 # Contains parameters for signal processing and rise point detection
 
-new_main:
+pulse_width_calculator:
   # Default noise threshold for regular (non-standalone) processing
   # Used in Processed and Processed_Trimmed directories
   noise_threshold: 0.03
@@ -21,28 +21,25 @@ new_main:
   # Parameters for dynamic noise threshold in standalone processing:
 
   # Number of initial points used to establish baseline noise level
-  # Larger values provide more stable baseline but might include signal
   # Recommended range: 5-20 points
   baseline_window_size: 10
 
   # Multiplier for standard deviation in threshold calculation
-  # Higher values make detection more conservative
   # Recommended range: 2.0-5.0
-  std_dev_multiplier: 3.0
+  std_dev_multiplier: 5.0
 
   # Minimum threshold as percentage of signal range
-  # Helps prevent false detections in very quiet segments
-  # Lower values are more sensitive to small changes
   # Recommended range: 0.001-0.05 (0.1%-5%)
-  min_threshold_percentage: 0.001
+  min_threshold_percentage: 0.05
 
   # Number of consecutive points required above threshold
-  # to confirm a sustained rise
-  # Higher values reduce false positives but might miss quick rises
   # Recommended range: 2-5 points
   sustained_rise_points: 3
 
-  # Future parameters can be added here with appropriate documentation
+  # Number of points to look back when checking for gradual rises
+  # Higher values detect more gradual rises but may include noise
+  # Recommended range: 2-5 points
+  lookback_window_size: 3
 
 # Parameters for new_visualizer.py
 new_visualizer:

@@ -34,7 +34,7 @@ def load_config():
                 st.warning("Invalid hitting_type. Using Both.")
                 hitting_type_filter = ['Tread', 'Side']
 
-            intensity_thresholds = config.get('new_main', {}).get('intensity_thresholds', [0.5, 0.7, 0.8, 0.9])
+            intensity_thresholds = config.get('pulse_width_calculator', {}).get('intensity_thresholds', [0.5, 0.7, 0.8, 0.9])
             if not isinstance(intensity_thresholds, list):
                 intensity_thresholds = [intensity_thresholds]
 
@@ -102,7 +102,7 @@ def main():
         try:
             with open('config.yaml', 'r') as f:
                 config = yaml.safe_load(f)
-            selected_dims_after_rise_point = config.get('new_main', {}).get('selected_dims_after_rise_point', 32)
+            selected_dims_after_rise_point = config.get('pulse_width_calculator', {}).get('selected_dims_after_rise_point', 32)
         except:
             selected_dims_after_rise_point = 32
     else:  # St-Alone
@@ -1088,6 +1088,66 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
                     name='Waveform',
                     line=dict(width=2)
                 ))
+
+                # Read rise point from Step3_DataPts_0.5
+                df_step3_base = pd.read_excel(selected_file, sheet_name='Step3_DataPts_0.5', index_col='Segment_ID')
+                
+                if selected_segment in df_step3_base.index:
+                    # Add rise point annotation
+                    rise_index = df_step3_base.loc[selected_segment, 'First_Noticeable_Increase_Index']
+                    if not pd.isna(rise_index):
+                        rise_index = int(rise_index)
+                        # Add vertical line at rise point
+                        fig_wave.add_shape(
+                            type='line',
+                            x0=rise_index, x1=rise_index,
+                            y0=min(waveform_data), y1=max(waveform_data),
+                            line=dict(color='red', dash='dot'),
+                        )
+                        # Add annotation for rise point
+                        fig_wave.add_annotation(
+                            x=rise_index,
+                            y=max(waveform_data),
+                            text=f"Rise at {rise_index}",
+                            showarrow=True,
+                            arrowhead=2, 
+                            font=dict(color='red'),
+                            arrowcolor='red'
+                        )
+
+                        # Add percentile points using Step3 data sheets
+                        thresholds = [0.5, 0.7, 0.8, 0.9]
+                        colors = ['blue', 'green', 'purple', 'orange']
+                        
+                        for threshold, color in zip(thresholds, colors):
+                            sheet_name = f'Step3_DataPts_{threshold}'
+                            try:
+                                df_step3 = pd.read_excel(selected_file, sheet_name=sheet_name, index_col='Segment_ID')
+                                if selected_segment in df_step3.index:
+                                    percentile_index = df_step3.loc[selected_segment, 'Point_Exceeds_Index']
+                                    
+                                    if not pd.isna(percentile_index):
+                                        percentile_index = int(percentile_index)
+                                        # Add vertical line at percentile point
+                                        fig_wave.add_shape(
+                                            type='line',
+                                            x0=percentile_index, x1=percentile_index,
+                                            y0=min(waveform_data), y1=max(waveform_data),
+                                            line=dict(color=color, dash='dot'),
+                                        )
+                                        # Add annotation for percentile point
+                                        fig_wave.add_annotation(
+                                            x=percentile_index,
+                                            y=max(waveform_data) * (0.9 - (thresholds.index(threshold) * 0.15)),  # Stagger annotations
+                                            text=f"{int(threshold*100)}th point<br>at {percentile_index}",
+                                            showarrow=True,
+                                            arrowhead=2,
+                                            font=dict(color=color),
+                                            arrowcolor=color
+                                        )
+                            except Exception as e:
+                                st.warning(f"Could not read data for {int(threshold*100)}th percentile: {e}")
+
                 fig_wave.update_layout(
                     title=f"Waveform for Tire {selected_tire}, Pressure {selected_pressure}, {selected_segment}",
                     xaxis_title="Signal Value",

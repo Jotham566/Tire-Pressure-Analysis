@@ -1265,7 +1265,7 @@ def main():
                 print("Invalid hitting_type in config.yaml. Must be 'Tread', 'Side', or 'Both'. Using 'Both' as default.")
                 hitting_type_filter = ['Tread', 'Side']
             # Read intensity_thresholds from config.yaml
-            intensity_thresholds = config.get('new_main', {}).get('intensity_thresholds', [0.5, 0.7, 0.8, 0.9])
+            intensity_thresholds = config.get('pulse_width_calculator', {}).get('intensity_thresholds', [0.5, 0.7, 0.8, 0.9])
 
             # Ensure intensity_thresholds is a list for consistency
             if isinstance(intensity_thresholds, (list, tuple)):
