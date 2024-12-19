@@ -18590,3 +18590,427 @@ Output Directory: .
 2024-12-19 16:09:17,659 - INFO - Total standalone CSV files found: 58
 2024-12-19 16:09:21,476 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
 2024-12-19 16:09:21,476 - INFO - All processing completed successfully.
+2024-12-19 17:10:45,843 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 17:10:45,844 - INFO - Total original CSV files found: 205
+
+2024-12-19 17:11:24,694 - INFO - Starting processing of standalone data...
+2024-12-19 17:11:24,694 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 17:11:24,694 - INFO - Total standalone CSV files found: 58
+2024-12-19 17:11:24,703 - INFO - Applying enhanced processing to 47_225-80R17.5-500-710R.csv
+2024-12-19 17:11:24,703 - ERROR - Error processing standalone file '47_225-80R17.5-500-710R.csv': Failed to process standalone file 47_225-80R17.5-500-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,712 - INFO - Applying enhanced processing to 39_11R22.5-600-903ZW.csv
+2024-12-19 17:11:24,712 - ERROR - Error processing standalone file '39_11R22.5-600-903ZW.csv': Failed to process standalone file 39_11R22.5-600-903ZW.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,721 - INFO - Applying enhanced processing to 14_245-70R19.5-700-710R.csv
+2024-12-19 17:11:24,721 - ERROR - Error processing standalone file '14_245-70R19.5-700-710R.csv': Failed to process standalone file 14_245-70R19.5-700-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,729 - INFO - Applying enhanced processing to 48_455-55R22.5-900-716R.csv
+2024-12-19 17:11:24,729 - ERROR - Error processing standalone file '48_455-55R22.5-900-716R.csv': Failed to process standalone file 48_455-55R22.5-900-716R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,737 - INFO - Applying enhanced processing to 40_11R22.5-600-MY377.csv
+2024-12-19 17:11:24,737 - ERROR - Error processing standalone file '40_11R22.5-600-MY377.csv': Failed to process standalone file 40_11R22.5-600-MY377.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,746 - INFO - Applying enhanced processing to 54_11R22.5-900-710Rバフ50.csv
+2024-12-19 17:11:24,746 - ERROR - Error processing standalone file '54_11R22.5-900-710Rバフ50.csv': Failed to process standalone file 54_11R22.5-900-710Rバフ50.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,755 - INFO - Applying enhanced processing to 61_11R22.5-700-710Rバフ100.csv
+2024-12-19 17:11:24,755 - ERROR - Error processing standalone file '61_11R22.5-700-710Rバフ100.csv': Failed to process standalone file 61_11R22.5-700-710Rバフ100.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,763 - INFO - Applying enhanced processing to 59_11R22.5-900-710Rバフ100.csv
+2024-12-19 17:11:24,763 - ERROR - Error processing standalone file '59_11R22.5-900-710Rバフ100.csv': Failed to process standalone file 59_11R22.5-900-710Rバフ100.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,772 - INFO - Applying enhanced processing to 56_11R22.5-700-710Rバフ50.csv
+2024-12-19 17:11:24,772 - ERROR - Error processing standalone file '56_11R22.5-700-710Rバフ50.csv': Failed to process standalone file 56_11R22.5-700-710Rバフ50.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,782 - INFO - Applying enhanced processing to 58_11R22.5-500-710Rバフ50.csv
+2024-12-19 17:11:24,782 - ERROR - Error processing standalone file '58_11R22.5-500-710Rバフ50.csv': Failed to process standalone file 58_11R22.5-500-710Rバフ50.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,791 - INFO - Applying enhanced processing to 12_455-55R22.5-800-716U.csv
+2024-12-19 17:11:24,791 - ERROR - Error processing standalone file '12_455-55R22.5-800-716U.csv': Failed to process standalone file 12_455-55R22.5-800-716U.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,799 - INFO - Applying enhanced processing to 22_245-70R19.5-500-710R.csv
+2024-12-19 17:11:24,799 - ERROR - Error processing standalone file '22_245-70R19.5-500-710R.csv': Failed to process standalone file 22_245-70R19.5-500-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,807 - INFO - Applying enhanced processing to 28_11R22.5-900-MY377.csv
+2024-12-19 17:11:24,807 - ERROR - Error processing standalone file '28_11R22.5-900-MY377.csv': Failed to process standalone file 28_11R22.5-900-MY377.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,815 - INFO - Applying enhanced processing to 03_225-80R17.5-900-710R.csv
+2024-12-19 17:11:24,815 - ERROR - Error processing standalone file '03_225-80R17.5-900-710R.csv': Failed to process standalone file 03_225-80R17.5-900-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,824 - INFO - Applying enhanced processing to 49_455-55R22.5-850-716R.csv
+2024-12-19 17:11:24,824 - ERROR - Error processing standalone file '49_455-55R22.5-850-716R.csv': Failed to process standalone file 49_455-55R22.5-850-716R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,857 - INFO - Applying enhanced processing to 27_11R22.5-900-903ZW.csv
+2024-12-19 17:11:24,857 - ERROR - Error processing standalone file '27_11R22.5-900-903ZW.csv': Failed to process standalone file 27_11R22.5-900-903ZW.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,866 - INFO - Applying enhanced processing to 24_455-55R22.5-500-716U.csv
+2024-12-19 17:11:24,866 - ERROR - Error processing standalone file '24_455-55R22.5-500-716U.csv': Failed to process standalone file 24_455-55R22.5-500-716U.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,874 - INFO - Applying enhanced processing to 17_11R22.5-600-710R.csv
+2024-12-19 17:11:24,874 - ERROR - Error processing standalone file '17_11R22.5-600-710R.csv': Failed to process standalone file 17_11R22.5-600-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,882 - INFO - Applying enhanced processing to 19_225-80R17.5-600-710R.csv
+2024-12-19 17:11:24,882 - ERROR - Error processing standalone file '19_225-80R17.5-600-710R.csv': Failed to process standalone file 19_225-80R17.5-600-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,890 - INFO - Applying enhanced processing to 34_11R22.5-700-101LZ.csv
+2024-12-19 17:11:24,890 - ERROR - Error processing standalone file '34_11R22.5-700-101LZ.csv': Failed to process standalone file 34_11R22.5-700-101LZ.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,899 - INFO - Applying enhanced processing to 30_11R22.5-800-101LZ.csv
+2024-12-19 17:11:24,899 - ERROR - Error processing standalone file '30_11R22.5-800-101LZ.csv': Failed to process standalone file 30_11R22.5-800-101LZ.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,907 - INFO - Applying enhanced processing to 50_455-55R22.5-800-716R.csv
+2024-12-19 17:11:24,907 - ERROR - Error processing standalone file '50_455-55R22.5-800-716R.csv': Failed to process standalone file 50_455-55R22.5-800-716R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,915 - INFO - Applying enhanced processing to 10_245-70R19.5-800-710R.csv
+2024-12-19 17:11:24,915 - ERROR - Error processing standalone file '10_245-70R19.5-800-710R.csv': Failed to process standalone file 10_245-70R19.5-800-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,923 - INFO - Applying enhanced processing to 60_11R22.5-800-710Rバフ100.csv
+2024-12-19 17:11:24,923 - ERROR - Error processing standalone file '60_11R22.5-800-710Rバフ100.csv': Failed to process standalone file 60_11R22.5-800-710Rバフ100.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,935 - INFO - Applying enhanced processing to 01_11R22.5-900-710R.csv
+2024-12-19 17:11:24,935 - ERROR - Error processing standalone file '01_11R22.5-900-710R.csv': Failed to process standalone file 01_11R22.5-900-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,944 - INFO - Applying enhanced processing to 51_455-55R22.5-700-716R.csv
+2024-12-19 17:11:24,944 - ERROR - Error processing standalone file '51_455-55R22.5-700-716R.csv': Failed to process standalone file 51_455-55R22.5-700-716R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,952 - INFO - Applying enhanced processing to 09_11R22.5-800-710R.csv
+2024-12-19 17:11:24,952 - ERROR - Error processing standalone file '09_11R22.5-800-710R.csv': Failed to process standalone file 09_11R22.5-800-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,961 - INFO - Applying enhanced processing to 05_11R22.5-850-710R.csv
+2024-12-19 17:11:24,961 - ERROR - Error processing standalone file '05_11R22.5-850-710R.csv': Failed to process standalone file 05_11R22.5-850-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,969 - INFO - Applying enhanced processing to 63_11R22.5-500-710Rバフ100.csv
+2024-12-19 17:11:24,969 - ERROR - Error processing standalone file '63_11R22.5-500-710Rバフ100.csv': Failed to process standalone file 63_11R22.5-500-710Rバフ100.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,977 - INFO - Applying enhanced processing to 07_225-80R17.5-850-710R.csv
+2024-12-19 17:11:24,977 - ERROR - Error processing standalone file '07_225-80R17.5-850-710R.csv': Failed to process standalone file 07_225-80R17.5-850-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,986 - INFO - Applying enhanced processing to 52_455-55R22.5-600-716R.csv
+2024-12-19 17:11:24,986 - ERROR - Error processing standalone file '52_455-55R22.5-600-716R.csv': Failed to process standalone file 52_455-55R22.5-600-716R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:24,995 - INFO - Applying enhanced processing to 16_455-55R22.5-700-716U.csv
+2024-12-19 17:11:24,995 - ERROR - Error processing standalone file '16_455-55R22.5-700-716U.csv': Failed to process standalone file 16_455-55R22.5-700-716U.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,003 - INFO - Applying enhanced processing to 46_225-80R17.5-600-710R.csv
+2024-12-19 17:11:25,003 - ERROR - Error processing standalone file '46_225-80R17.5-600-710R.csv': Failed to process standalone file 46_225-80R17.5-600-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,012 - INFO - Applying enhanced processing to 55_11R22.5-800-710Rバフ50.csv
+2024-12-19 17:11:25,012 - ERROR - Error processing standalone file '55_11R22.5-800-710Rバフ50.csv': Failed to process standalone file 55_11R22.5-800-710Rバフ50.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,019 - INFO - Applying enhanced processing to 06_245-70R19.5-850-710R.csv
+2024-12-19 17:11:25,020 - ERROR - Error processing standalone file '06_245-70R19.5-850-710R.csv': Failed to process standalone file 06_245-70R19.5-850-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,028 - INFO - Applying enhanced processing to 45_225-80R17.5-700-710R.csv
+2024-12-19 17:11:25,028 - ERROR - Error processing standalone file '45_225-80R17.5-700-710R.csv': Failed to process standalone file 45_225-80R17.5-700-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,036 - INFO - Applying enhanced processing to 04_455-55R22.5-900-716U.csv
+2024-12-19 17:11:25,036 - ERROR - Error processing standalone file '04_455-55R22.5-900-716U.csv': Failed to process standalone file 04_455-55R22.5-900-716U.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,044 - INFO - Applying enhanced processing to 44_225-80R17.5-800-710R.csv
+2024-12-19 17:11:25,044 - ERROR - Error processing standalone file '44_225-80R17.5-800-710R.csv': Failed to process standalone file 44_225-80R17.5-800-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,052 - INFO - Applying enhanced processing to 38_11R22.5-600-101LZ.csv
+2024-12-19 17:11:25,052 - ERROR - Error processing standalone file '38_11R22.5-600-101LZ.csv': Failed to process standalone file 38_11R22.5-600-101LZ.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,060 - INFO - Applying enhanced processing to 13_11R22.5-700-710R.csv
+2024-12-19 17:11:25,060 - ERROR - Error processing standalone file '13_11R22.5-700-710R.csv': Failed to process standalone file 13_11R22.5-700-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,068 - INFO - Applying enhanced processing to 20_455-55R22.5-600-716U.csv
+2024-12-19 17:11:25,068 - ERROR - Error processing standalone file '20_455-55R22.5-600-716U.csv': Failed to process standalone file 20_455-55R22.5-600-716U.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,076 - INFO - Applying enhanced processing to 18_245-70R19.5-600-710R.csv
+2024-12-19 17:11:25,076 - ERROR - Error processing standalone file '18_245-70R19.5-600-710R.csv': Failed to process standalone file 18_245-70R19.5-600-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,084 - INFO - Applying enhanced processing to 11_225-80R17.5-800-710R.csv
+2024-12-19 17:11:25,084 - ERROR - Error processing standalone file '11_225-80R17.5-800-710R.csv': Failed to process standalone file 11_225-80R17.5-800-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,092 - INFO - Applying enhanced processing to 57_11R22.5-600-710Rバフ50.csv
+2024-12-19 17:11:25,092 - ERROR - Error processing standalone file '57_11R22.5-600-710Rバフ50.csv': Failed to process standalone file 57_11R22.5-600-710Rバフ50.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,100 - INFO - Applying enhanced processing to 32_11R22.5-800-MY377.csv
+2024-12-19 17:11:25,100 - ERROR - Error processing standalone file '32_11R22.5-800-MY377.csv': Failed to process standalone file 32_11R22.5-800-MY377.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,108 - INFO - Applying enhanced processing to 62_11R22.5-600-710Rバフ100.csv
+2024-12-19 17:11:25,108 - ERROR - Error processing standalone file '62_11R22.5-600-710Rバフ100.csv': Failed to process standalone file 62_11R22.5-600-710Rバフ100.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,116 - INFO - Applying enhanced processing to 36_11R22.5-700-MY377.csv
+2024-12-19 17:11:25,116 - ERROR - Error processing standalone file '36_11R22.5-700-MY377.csv': Failed to process standalone file 36_11R22.5-700-MY377.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,124 - INFO - Applying enhanced processing to 23_225-80R17.5-500-710R.csv
+2024-12-19 17:11:25,124 - ERROR - Error processing standalone file '23_225-80R17.5-500-710R.csv': Failed to process standalone file 23_225-80R17.5-500-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,132 - INFO - Applying enhanced processing to 42_225-80R17.5-900-710R.csv
+2024-12-19 17:11:25,132 - ERROR - Error processing standalone file '42_225-80R17.5-900-710R.csv': Failed to process standalone file 42_225-80R17.5-900-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,139 - INFO - Applying enhanced processing to 02_245-70R19.5-900-710R.csv
+2024-12-19 17:11:25,139 - ERROR - Error processing standalone file '02_245-70R19.5-900-710R.csv': Failed to process standalone file 02_245-70R19.5-900-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,148 - INFO - Applying enhanced processing to 26_11R22.5-900-101LZ.csv
+2024-12-19 17:11:25,148 - ERROR - Error processing standalone file '26_11R22.5-900-101LZ.csv': Failed to process standalone file 26_11R22.5-900-101LZ.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,156 - INFO - Applying enhanced processing to 15_225-80R17.5-700-710R.csv
+2024-12-19 17:11:25,156 - ERROR - Error processing standalone file '15_225-80R17.5-700-710R.csv': Failed to process standalone file 15_225-80R17.5-700-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,164 - INFO - Applying enhanced processing to 31_11R22.5-800-903ZW.csv
+2024-12-19 17:11:25,164 - ERROR - Error processing standalone file '31_11R22.5-800-903ZW.csv': Failed to process standalone file 31_11R22.5-800-903ZW.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,171 - INFO - Applying enhanced processing to 21_11R22.5-500-710R.csv
+2024-12-19 17:11:25,171 - ERROR - Error processing standalone file '21_11R22.5-500-710R.csv': Failed to process standalone file 21_11R22.5-500-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,180 - INFO - Applying enhanced processing to 53_455-55R22.5-500-716R.csv
+2024-12-19 17:11:25,180 - ERROR - Error processing standalone file '53_455-55R22.5-500-716R.csv': Failed to process standalone file 53_455-55R22.5-500-716R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,187 - INFO - Applying enhanced processing to 08_455-55R22.5-850-716U.csv
+2024-12-19 17:11:25,187 - ERROR - Error processing standalone file '08_455-55R22.5-850-716U.csv': Failed to process standalone file 08_455-55R22.5-850-716U.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,195 - INFO - Applying enhanced processing to 35_11R22.5-700-903ZW.csv
+2024-12-19 17:11:25,195 - ERROR - Error processing standalone file '35_11R22.5-700-903ZW.csv': Failed to process standalone file 35_11R22.5-700-903ZW.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,203 - INFO - Applying enhanced processing to 43_225-80R17.5-850-710R.csv
+2024-12-19 17:11:25,203 - ERROR - Error processing standalone file '43_225-80R17.5-850-710R.csv': Failed to process standalone file 43_225-80R17.5-850-710R.csv: 'TireSoundProcessor' object has no attribute 'enhanced_processor'
+2024-12-19 17:11:25,204 - INFO - All processing completed successfully.
+2024-12-19 17:13:34,907 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 17:13:34,908 - INFO - Total original CSV files found: 205
+
+2024-12-19 17:14:12,526 - INFO - Starting processing of standalone data...
+2024-12-19 17:14:12,526 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 17:14:12,526 - INFO - Total standalone CSV files found: 58
+2024-12-19 17:14:12,535 - INFO - Applying enhanced processing to 47_225-80R17.5-500-710R.csv
+2024-12-19 17:14:12,582 - INFO - Applying enhanced processing to 39_11R22.5-600-903ZW.csv
+2024-12-19 17:14:12,626 - INFO - Applying enhanced processing to 14_245-70R19.5-700-710R.csv
+2024-12-19 17:14:12,669 - INFO - Applying enhanced processing to 48_455-55R22.5-900-716R.csv
+2024-12-19 17:14:12,712 - INFO - Applying enhanced processing to 40_11R22.5-600-MY377.csv
+2024-12-19 17:14:12,754 - INFO - Applying enhanced processing to 54_11R22.5-900-710Rバフ50.csv
+2024-12-19 17:14:12,797 - INFO - Applying enhanced processing to 61_11R22.5-700-710Rバフ100.csv
+2024-12-19 17:14:12,840 - INFO - Applying enhanced processing to 59_11R22.5-900-710Rバフ100.csv
+2024-12-19 17:14:12,908 - INFO - Applying enhanced processing to 56_11R22.5-700-710Rバフ50.csv
+2024-12-19 17:14:12,952 - INFO - Applying enhanced processing to 58_11R22.5-500-710Rバフ50.csv
+2024-12-19 17:14:12,996 - INFO - Applying enhanced processing to 12_455-55R22.5-800-716U.csv
+2024-12-19 17:14:13,040 - INFO - Applying enhanced processing to 22_245-70R19.5-500-710R.csv
+2024-12-19 17:14:13,085 - INFO - Applying enhanced processing to 28_11R22.5-900-MY377.csv
+2024-12-19 17:14:13,130 - INFO - Applying enhanced processing to 03_225-80R17.5-900-710R.csv
+2024-12-19 17:14:13,172 - INFO - Applying enhanced processing to 49_455-55R22.5-850-716R.csv
+2024-12-19 17:14:13,218 - INFO - Applying enhanced processing to 27_11R22.5-900-903ZW.csv
+2024-12-19 17:14:13,262 - INFO - Applying enhanced processing to 24_455-55R22.5-500-716U.csv
+2024-12-19 17:14:13,305 - INFO - Applying enhanced processing to 17_11R22.5-600-710R.csv
+2024-12-19 17:14:13,348 - INFO - Applying enhanced processing to 19_225-80R17.5-600-710R.csv
+2024-12-19 17:14:13,391 - INFO - Applying enhanced processing to 34_11R22.5-700-101LZ.csv
+2024-12-19 17:14:13,433 - INFO - Applying enhanced processing to 30_11R22.5-800-101LZ.csv
+2024-12-19 17:14:13,478 - INFO - Applying enhanced processing to 50_455-55R22.5-800-716R.csv
+2024-12-19 17:14:13,522 - INFO - Applying enhanced processing to 10_245-70R19.5-800-710R.csv
+2024-12-19 17:14:13,568 - INFO - Applying enhanced processing to 60_11R22.5-800-710Rバフ100.csv
+2024-12-19 17:14:13,612 - INFO - Applying enhanced processing to 01_11R22.5-900-710R.csv
+2024-12-19 17:14:13,656 - INFO - Applying enhanced processing to 51_455-55R22.5-700-716R.csv
+2024-12-19 17:14:13,701 - INFO - Applying enhanced processing to 09_11R22.5-800-710R.csv
+2024-12-19 17:14:13,744 - INFO - Applying enhanced processing to 05_11R22.5-850-710R.csv
+2024-12-19 17:14:13,788 - INFO - Applying enhanced processing to 63_11R22.5-500-710Rバフ100.csv
+2024-12-19 17:14:13,831 - INFO - Applying enhanced processing to 07_225-80R17.5-850-710R.csv
+2024-12-19 17:14:13,876 - INFO - Applying enhanced processing to 52_455-55R22.5-600-716R.csv
+2024-12-19 17:14:13,920 - INFO - Applying enhanced processing to 16_455-55R22.5-700-716U.csv
+2024-12-19 17:14:13,963 - INFO - Applying enhanced processing to 46_225-80R17.5-600-710R.csv
+2024-12-19 17:14:14,005 - INFO - Applying enhanced processing to 55_11R22.5-800-710Rバフ50.csv
+2024-12-19 17:14:14,048 - INFO - Applying enhanced processing to 06_245-70R19.5-850-710R.csv
+2024-12-19 17:14:14,090 - INFO - Applying enhanced processing to 45_225-80R17.5-700-710R.csv
+2024-12-19 17:14:14,134 - INFO - Applying enhanced processing to 04_455-55R22.5-900-716U.csv
+2024-12-19 17:14:14,177 - INFO - Applying enhanced processing to 44_225-80R17.5-800-710R.csv
+2024-12-19 17:14:14,220 - INFO - Applying enhanced processing to 38_11R22.5-600-101LZ.csv
+2024-12-19 17:14:14,262 - INFO - Applying enhanced processing to 13_11R22.5-700-710R.csv
+2024-12-19 17:14:14,306 - INFO - Applying enhanced processing to 20_455-55R22.5-600-716U.csv
+2024-12-19 17:14:14,349 - INFO - Applying enhanced processing to 18_245-70R19.5-600-710R.csv
+2024-12-19 17:14:14,393 - INFO - Applying enhanced processing to 11_225-80R17.5-800-710R.csv
+2024-12-19 17:14:14,441 - INFO - Applying enhanced processing to 57_11R22.5-600-710Rバフ50.csv
+2024-12-19 17:14:14,485 - INFO - Applying enhanced processing to 32_11R22.5-800-MY377.csv
+2024-12-19 17:14:14,533 - INFO - Applying enhanced processing to 62_11R22.5-600-710Rバフ100.csv
+2024-12-19 17:14:14,578 - INFO - Applying enhanced processing to 36_11R22.5-700-MY377.csv
+2024-12-19 17:14:14,620 - INFO - Applying enhanced processing to 23_225-80R17.5-500-710R.csv
+2024-12-19 17:14:14,715 - INFO - Applying enhanced processing to 42_225-80R17.5-900-710R.csv
+2024-12-19 17:14:14,759 - INFO - Applying enhanced processing to 02_245-70R19.5-900-710R.csv
+2024-12-19 17:14:14,802 - INFO - Applying enhanced processing to 26_11R22.5-900-101LZ.csv
+2024-12-19 17:14:14,846 - INFO - Applying enhanced processing to 15_225-80R17.5-700-710R.csv
+2024-12-19 17:14:14,889 - INFO - Applying enhanced processing to 31_11R22.5-800-903ZW.csv
+2024-12-19 17:14:14,957 - INFO - Applying enhanced processing to 21_11R22.5-500-710R.csv
+2024-12-19 17:14:15,000 - INFO - Applying enhanced processing to 53_455-55R22.5-500-716R.csv
+2024-12-19 17:14:15,051 - INFO - Applying enhanced processing to 08_455-55R22.5-850-716U.csv
+2024-12-19 17:14:15,101 - INFO - Applying enhanced processing to 35_11R22.5-700-903ZW.csv
+2024-12-19 17:14:15,153 - INFO - Applying enhanced processing to 43_225-80R17.5-850-710R.csv
+2024-12-19 17:14:16,692 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 17:14:16,692 - INFO - All processing completed successfully.
+2024-12-19 17:39:37,210 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 17:39:37,211 - INFO - Total original CSV files found: 205
+
+2024-12-19 17:40:14,937 - INFO - Starting processing of standalone data...
+2024-12-19 17:40:14,937 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 17:40:14,937 - INFO - Total standalone CSV files found: 58
+2024-12-19 17:40:14,946 - INFO - Applying enhanced processing to 47_225-80R17.5-500-710R.csv
+2024-12-19 17:40:14,992 - INFO - Applying enhanced processing to 39_11R22.5-600-903ZW.csv
+2024-12-19 17:40:15,035 - INFO - Applying enhanced processing to 14_245-70R19.5-700-710R.csv
+2024-12-19 17:40:15,081 - INFO - Applying enhanced processing to 48_455-55R22.5-900-716R.csv
+2024-12-19 17:40:15,126 - INFO - Applying enhanced processing to 40_11R22.5-600-MY377.csv
+2024-12-19 17:40:15,169 - INFO - Applying enhanced processing to 54_11R22.5-900-710Rバフ50.csv
+2024-12-19 17:40:15,213 - INFO - Applying enhanced processing to 61_11R22.5-700-710Rバフ100.csv
+2024-12-19 17:40:15,257 - INFO - Applying enhanced processing to 59_11R22.5-900-710Rバフ100.csv
+2024-12-19 17:40:15,321 - INFO - Applying enhanced processing to 56_11R22.5-700-710Rバフ50.csv
+2024-12-19 17:40:15,365 - INFO - Applying enhanced processing to 58_11R22.5-500-710Rバフ50.csv
+2024-12-19 17:40:15,410 - INFO - Applying enhanced processing to 12_455-55R22.5-800-716U.csv
+2024-12-19 17:40:15,453 - INFO - Applying enhanced processing to 22_245-70R19.5-500-710R.csv
+2024-12-19 17:40:15,499 - INFO - Applying enhanced processing to 28_11R22.5-900-MY377.csv
+2024-12-19 17:40:15,545 - INFO - Applying enhanced processing to 03_225-80R17.5-900-710R.csv
+2024-12-19 17:40:15,591 - INFO - Applying enhanced processing to 49_455-55R22.5-850-716R.csv
+2024-12-19 17:40:15,638 - INFO - Applying enhanced processing to 27_11R22.5-900-903ZW.csv
+2024-12-19 17:40:15,682 - INFO - Applying enhanced processing to 24_455-55R22.5-500-716U.csv
+2024-12-19 17:40:15,725 - INFO - Applying enhanced processing to 17_11R22.5-600-710R.csv
+2024-12-19 17:40:15,769 - INFO - Applying enhanced processing to 19_225-80R17.5-600-710R.csv
+2024-12-19 17:40:15,814 - INFO - Applying enhanced processing to 34_11R22.5-700-101LZ.csv
+2024-12-19 17:40:15,858 - INFO - Applying enhanced processing to 30_11R22.5-800-101LZ.csv
+2024-12-19 17:40:15,902 - INFO - Applying enhanced processing to 50_455-55R22.5-800-716R.csv
+2024-12-19 17:40:15,957 - INFO - Applying enhanced processing to 10_245-70R19.5-800-710R.csv
+2024-12-19 17:40:16,002 - INFO - Applying enhanced processing to 60_11R22.5-800-710Rバフ100.csv
+2024-12-19 17:40:16,046 - INFO - Applying enhanced processing to 01_11R22.5-900-710R.csv
+2024-12-19 17:40:16,091 - INFO - Applying enhanced processing to 51_455-55R22.5-700-716R.csv
+2024-12-19 17:40:16,135 - INFO - Applying enhanced processing to 09_11R22.5-800-710R.csv
+2024-12-19 17:40:16,177 - INFO - Applying enhanced processing to 05_11R22.5-850-710R.csv
+2024-12-19 17:40:16,223 - INFO - Applying enhanced processing to 63_11R22.5-500-710Rバフ100.csv
+2024-12-19 17:40:16,266 - INFO - Applying enhanced processing to 07_225-80R17.5-850-710R.csv
+2024-12-19 17:40:16,311 - INFO - Applying enhanced processing to 52_455-55R22.5-600-716R.csv
+2024-12-19 17:40:16,355 - INFO - Applying enhanced processing to 16_455-55R22.5-700-716U.csv
+2024-12-19 17:40:16,398 - INFO - Applying enhanced processing to 46_225-80R17.5-600-710R.csv
+2024-12-19 17:40:16,442 - INFO - Applying enhanced processing to 55_11R22.5-800-710Rバフ50.csv
+2024-12-19 17:40:16,494 - INFO - Applying enhanced processing to 06_245-70R19.5-850-710R.csv
+2024-12-19 17:40:16,540 - INFO - Applying enhanced processing to 45_225-80R17.5-700-710R.csv
+2024-12-19 17:40:16,586 - INFO - Applying enhanced processing to 04_455-55R22.5-900-716U.csv
+2024-12-19 17:40:16,631 - INFO - Applying enhanced processing to 44_225-80R17.5-800-710R.csv
+2024-12-19 17:40:16,675 - INFO - Applying enhanced processing to 38_11R22.5-600-101LZ.csv
+2024-12-19 17:40:16,720 - INFO - Applying enhanced processing to 13_11R22.5-700-710R.csv
+2024-12-19 17:40:16,765 - INFO - Applying enhanced processing to 20_455-55R22.5-600-716U.csv
+2024-12-19 17:40:16,809 - INFO - Applying enhanced processing to 18_245-70R19.5-600-710R.csv
+2024-12-19 17:40:16,854 - INFO - Applying enhanced processing to 11_225-80R17.5-800-710R.csv
+2024-12-19 17:40:16,899 - INFO - Applying enhanced processing to 57_11R22.5-600-710Rバフ50.csv
+2024-12-19 17:40:16,944 - INFO - Applying enhanced processing to 32_11R22.5-800-MY377.csv
+2024-12-19 17:40:16,990 - INFO - Applying enhanced processing to 62_11R22.5-600-710Rバフ100.csv
+2024-12-19 17:40:17,035 - INFO - Applying enhanced processing to 36_11R22.5-700-MY377.csv
+2024-12-19 17:40:17,079 - INFO - Applying enhanced processing to 23_225-80R17.5-500-710R.csv
+2024-12-19 17:40:17,124 - INFO - Applying enhanced processing to 42_225-80R17.5-900-710R.csv
+2024-12-19 17:40:17,168 - INFO - Applying enhanced processing to 02_245-70R19.5-900-710R.csv
+2024-12-19 17:40:17,217 - INFO - Applying enhanced processing to 26_11R22.5-900-101LZ.csv
+2024-12-19 17:40:17,285 - INFO - Applying enhanced processing to 15_225-80R17.5-700-710R.csv
+2024-12-19 17:40:17,330 - INFO - Applying enhanced processing to 31_11R22.5-800-903ZW.csv
+2024-12-19 17:40:17,409 - INFO - Applying enhanced processing to 21_11R22.5-500-710R.csv
+2024-12-19 17:40:17,454 - INFO - Applying enhanced processing to 53_455-55R22.5-500-716R.csv
+2024-12-19 17:40:17,500 - INFO - Applying enhanced processing to 08_455-55R22.5-850-716U.csv
+2024-12-19 17:40:17,581 - INFO - Applying enhanced processing to 35_11R22.5-700-903ZW.csv
+2024-12-19 17:40:17,698 - INFO - Applying enhanced processing to 43_225-80R17.5-850-710R.csv
+2024-12-19 17:40:19,300 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 17:40:19,300 - INFO - All processing completed successfully.
+2024-12-19 17:49:24,893 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 17:49:24,895 - INFO - Total original CSV files found: 205
+
+2024-12-19 17:50:05,365 - INFO - Starting processing of standalone data...
+2024-12-19 17:50:05,366 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 17:50:05,366 - INFO - Total standalone CSV files found: 58
+2024-12-19 17:50:05,376 - INFO - Applying enhanced processing to 47_225-80R17.5-500-710R.csv
+2024-12-19 17:50:05,429 - INFO - Applying enhanced processing to 39_11R22.5-600-903ZW.csv
+2024-12-19 17:50:05,473 - INFO - Applying enhanced processing to 14_245-70R19.5-700-710R.csv
+2024-12-19 17:50:05,522 - INFO - Applying enhanced processing to 48_455-55R22.5-900-716R.csv
+2024-12-19 17:50:05,569 - INFO - Applying enhanced processing to 40_11R22.5-600-MY377.csv
+2024-12-19 17:50:05,616 - INFO - Applying enhanced processing to 54_11R22.5-900-710Rバフ50.csv
+2024-12-19 17:50:05,664 - INFO - Applying enhanced processing to 61_11R22.5-700-710Rバフ100.csv
+2024-12-19 17:50:05,716 - INFO - Applying enhanced processing to 59_11R22.5-900-710Rバフ100.csv
+2024-12-19 17:50:05,796 - INFO - Applying enhanced processing to 56_11R22.5-700-710Rバフ50.csv
+2024-12-19 17:50:05,842 - INFO - Applying enhanced processing to 58_11R22.5-500-710Rバフ50.csv
+2024-12-19 17:50:05,887 - INFO - Applying enhanced processing to 12_455-55R22.5-800-716U.csv
+2024-12-19 17:50:05,933 - INFO - Applying enhanced processing to 22_245-70R19.5-500-710R.csv
+2024-12-19 17:50:05,978 - INFO - Applying enhanced processing to 28_11R22.5-900-MY377.csv
+2024-12-19 17:50:06,025 - INFO - Applying enhanced processing to 03_225-80R17.5-900-710R.csv
+2024-12-19 17:50:06,071 - INFO - Applying enhanced processing to 49_455-55R22.5-850-716R.csv
+2024-12-19 17:50:06,119 - INFO - Applying enhanced processing to 27_11R22.5-900-903ZW.csv
+2024-12-19 17:50:06,173 - INFO - Applying enhanced processing to 24_455-55R22.5-500-716U.csv
+2024-12-19 17:50:06,223 - INFO - Applying enhanced processing to 17_11R22.5-600-710R.csv
+2024-12-19 17:50:06,272 - INFO - Applying enhanced processing to 19_225-80R17.5-600-710R.csv
+2024-12-19 17:50:06,322 - INFO - Applying enhanced processing to 34_11R22.5-700-101LZ.csv
+2024-12-19 17:50:06,368 - INFO - Applying enhanced processing to 30_11R22.5-800-101LZ.csv
+2024-12-19 17:50:06,416 - INFO - Applying enhanced processing to 50_455-55R22.5-800-716R.csv
+2024-12-19 17:50:06,461 - INFO - Applying enhanced processing to 10_245-70R19.5-800-710R.csv
+2024-12-19 17:50:06,505 - INFO - Applying enhanced processing to 60_11R22.5-800-710Rバフ100.csv
+2024-12-19 17:50:06,552 - INFO - Applying enhanced processing to 01_11R22.5-900-710R.csv
+2024-12-19 17:50:06,598 - INFO - Applying enhanced processing to 51_455-55R22.5-700-716R.csv
+2024-12-19 17:50:06,643 - INFO - Applying enhanced processing to 09_11R22.5-800-710R.csv
+2024-12-19 17:50:06,686 - INFO - Applying enhanced processing to 05_11R22.5-850-710R.csv
+2024-12-19 17:50:06,730 - INFO - Applying enhanced processing to 63_11R22.5-500-710Rバフ100.csv
+2024-12-19 17:50:06,773 - INFO - Applying enhanced processing to 07_225-80R17.5-850-710R.csv
+2024-12-19 17:50:06,819 - INFO - Applying enhanced processing to 52_455-55R22.5-600-716R.csv
+2024-12-19 17:50:06,868 - INFO - Applying enhanced processing to 16_455-55R22.5-700-716U.csv
+2024-12-19 17:50:06,917 - INFO - Applying enhanced processing to 46_225-80R17.5-600-710R.csv
+2024-12-19 17:50:06,970 - INFO - Applying enhanced processing to 55_11R22.5-800-710Rバフ50.csv
+2024-12-19 17:50:07,018 - INFO - Applying enhanced processing to 06_245-70R19.5-850-710R.csv
+2024-12-19 17:50:07,063 - INFO - Applying enhanced processing to 45_225-80R17.5-700-710R.csv
+2024-12-19 17:50:07,109 - INFO - Applying enhanced processing to 04_455-55R22.5-900-716U.csv
+2024-12-19 17:50:07,158 - INFO - Applying enhanced processing to 44_225-80R17.5-800-710R.csv
+2024-12-19 17:50:07,210 - INFO - Applying enhanced processing to 38_11R22.5-600-101LZ.csv
+2024-12-19 17:50:07,264 - INFO - Applying enhanced processing to 13_11R22.5-700-710R.csv
+2024-12-19 17:50:07,314 - INFO - Applying enhanced processing to 20_455-55R22.5-600-716U.csv
+2024-12-19 17:50:07,359 - INFO - Applying enhanced processing to 18_245-70R19.5-600-710R.csv
+2024-12-19 17:50:07,403 - INFO - Applying enhanced processing to 11_225-80R17.5-800-710R.csv
+2024-12-19 17:50:07,448 - INFO - Applying enhanced processing to 57_11R22.5-600-710Rバフ50.csv
+2024-12-19 17:50:07,496 - INFO - Applying enhanced processing to 32_11R22.5-800-MY377.csv
+2024-12-19 17:50:07,543 - INFO - Applying enhanced processing to 62_11R22.5-600-710Rバフ100.csv
+2024-12-19 17:50:07,591 - INFO - Applying enhanced processing to 36_11R22.5-700-MY377.csv
+2024-12-19 17:50:07,639 - INFO - Applying enhanced processing to 23_225-80R17.5-500-710R.csv
+2024-12-19 17:50:07,687 - INFO - Applying enhanced processing to 42_225-80R17.5-900-710R.csv
+2024-12-19 17:50:07,734 - INFO - Applying enhanced processing to 02_245-70R19.5-900-710R.csv
+2024-12-19 17:50:07,782 - INFO - Applying enhanced processing to 26_11R22.5-900-101LZ.csv
+2024-12-19 17:50:07,830 - INFO - Applying enhanced processing to 15_225-80R17.5-700-710R.csv
+2024-12-19 17:50:07,876 - INFO - Applying enhanced processing to 31_11R22.5-800-903ZW.csv
+2024-12-19 17:50:07,949 - INFO - Applying enhanced processing to 21_11R22.5-500-710R.csv
+2024-12-19 17:50:07,998 - INFO - Applying enhanced processing to 53_455-55R22.5-500-716R.csv
+2024-12-19 17:50:08,050 - INFO - Applying enhanced processing to 08_455-55R22.5-850-716U.csv
+2024-12-19 17:50:08,096 - INFO - Applying enhanced processing to 35_11R22.5-700-903ZW.csv
+2024-12-19 17:50:08,142 - INFO - Applying enhanced processing to 43_225-80R17.5-850-710R.csv
+2024-12-19 17:50:10,229 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 17:50:10,231 - INFO - All processing completed successfully.
+2024-12-19 17:55:55,752 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 17:55:55,753 - INFO - Total original CSV files found: 205
+
+2024-12-19 17:56:34,211 - INFO - Starting processing of standalone data...
+2024-12-19 17:56:34,211 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 17:56:34,211 - INFO - Total standalone CSV files found: 58
+2024-12-19 17:56:34,220 - INFO - Applying enhanced processing to 47_225-80R17.5-500-710R.csv
+2024-12-19 17:56:34,268 - INFO - Applying enhanced processing to 39_11R22.5-600-903ZW.csv
+2024-12-19 17:56:34,312 - INFO - Applying enhanced processing to 14_245-70R19.5-700-710R.csv
+2024-12-19 17:56:34,355 - INFO - Applying enhanced processing to 48_455-55R22.5-900-716R.csv
+2024-12-19 17:56:34,399 - INFO - Applying enhanced processing to 40_11R22.5-600-MY377.csv
+2024-12-19 17:56:34,442 - INFO - Applying enhanced processing to 54_11R22.5-900-710Rバフ50.csv
+2024-12-19 17:56:34,488 - INFO - Applying enhanced processing to 61_11R22.5-700-710Rバフ100.csv
+2024-12-19 17:56:34,532 - INFO - Applying enhanced processing to 59_11R22.5-900-710Rバフ100.csv
+2024-12-19 17:56:34,597 - INFO - Applying enhanced processing to 56_11R22.5-700-710Rバフ50.csv
+2024-12-19 17:56:34,640 - INFO - Applying enhanced processing to 58_11R22.5-500-710Rバフ50.csv
+2024-12-19 17:56:34,683 - INFO - Applying enhanced processing to 12_455-55R22.5-800-716U.csv
+2024-12-19 17:56:34,726 - INFO - Applying enhanced processing to 22_245-70R19.5-500-710R.csv
+2024-12-19 17:56:34,771 - INFO - Applying enhanced processing to 28_11R22.5-900-MY377.csv
+2024-12-19 17:56:34,816 - INFO - Applying enhanced processing to 03_225-80R17.5-900-710R.csv
+2024-12-19 17:56:34,858 - INFO - Applying enhanced processing to 49_455-55R22.5-850-716R.csv
+2024-12-19 17:56:34,901 - INFO - Applying enhanced processing to 27_11R22.5-900-903ZW.csv
+2024-12-19 17:56:34,945 - INFO - Applying enhanced processing to 24_455-55R22.5-500-716U.csv
+2024-12-19 17:56:34,988 - INFO - Applying enhanced processing to 17_11R22.5-600-710R.csv
+2024-12-19 17:56:35,033 - INFO - Applying enhanced processing to 19_225-80R17.5-600-710R.csv
+2024-12-19 17:56:35,076 - INFO - Applying enhanced processing to 34_11R22.5-700-101LZ.csv
+2024-12-19 17:56:35,119 - INFO - Applying enhanced processing to 30_11R22.5-800-101LZ.csv
+2024-12-19 17:56:35,161 - INFO - Applying enhanced processing to 50_455-55R22.5-800-716R.csv
+2024-12-19 17:56:35,209 - INFO - Applying enhanced processing to 10_245-70R19.5-800-710R.csv
+2024-12-19 17:56:35,255 - INFO - Applying enhanced processing to 60_11R22.5-800-710Rバフ100.csv
+2024-12-19 17:56:35,301 - INFO - Applying enhanced processing to 01_11R22.5-900-710R.csv
+2024-12-19 17:56:35,345 - INFO - Applying enhanced processing to 51_455-55R22.5-700-716R.csv
+2024-12-19 17:56:35,389 - INFO - Applying enhanced processing to 09_11R22.5-800-710R.csv
+2024-12-19 17:56:35,432 - INFO - Applying enhanced processing to 05_11R22.5-850-710R.csv
+2024-12-19 17:56:35,475 - INFO - Applying enhanced processing to 63_11R22.5-500-710Rバフ100.csv
+2024-12-19 17:56:35,519 - INFO - Applying enhanced processing to 07_225-80R17.5-850-710R.csv
+2024-12-19 17:56:35,562 - INFO - Applying enhanced processing to 52_455-55R22.5-600-716R.csv
+2024-12-19 17:56:35,604 - INFO - Applying enhanced processing to 16_455-55R22.5-700-716U.csv
+2024-12-19 17:56:35,647 - INFO - Applying enhanced processing to 46_225-80R17.5-600-710R.csv
+2024-12-19 17:56:35,690 - INFO - Applying enhanced processing to 55_11R22.5-800-710Rバフ50.csv
+2024-12-19 17:56:35,735 - INFO - Applying enhanced processing to 06_245-70R19.5-850-710R.csv
+2024-12-19 17:56:35,778 - INFO - Applying enhanced processing to 45_225-80R17.5-700-710R.csv
+2024-12-19 17:56:35,821 - INFO - Applying enhanced processing to 04_455-55R22.5-900-716U.csv
+2024-12-19 17:56:35,864 - INFO - Applying enhanced processing to 44_225-80R17.5-800-710R.csv
+2024-12-19 17:56:35,907 - INFO - Applying enhanced processing to 38_11R22.5-600-101LZ.csv
+2024-12-19 17:56:35,950 - INFO - Applying enhanced processing to 13_11R22.5-700-710R.csv
+2024-12-19 17:56:35,993 - INFO - Applying enhanced processing to 20_455-55R22.5-600-716U.csv
+2024-12-19 17:56:36,036 - INFO - Applying enhanced processing to 18_245-70R19.5-600-710R.csv
+2024-12-19 17:56:36,079 - INFO - Applying enhanced processing to 11_225-80R17.5-800-710R.csv
+2024-12-19 17:56:36,124 - INFO - Applying enhanced processing to 57_11R22.5-600-710Rバフ50.csv
+2024-12-19 17:56:36,166 - INFO - Applying enhanced processing to 32_11R22.5-800-MY377.csv
+2024-12-19 17:56:36,209 - INFO - Applying enhanced processing to 62_11R22.5-600-710Rバフ100.csv
+2024-12-19 17:56:36,254 - INFO - Applying enhanced processing to 36_11R22.5-700-MY377.csv
+2024-12-19 17:56:36,297 - INFO - Applying enhanced processing to 23_225-80R17.5-500-710R.csv
+2024-12-19 17:56:36,340 - INFO - Applying enhanced processing to 42_225-80R17.5-900-710R.csv
+2024-12-19 17:56:36,383 - INFO - Applying enhanced processing to 02_245-70R19.5-900-710R.csv
+2024-12-19 17:56:36,427 - INFO - Applying enhanced processing to 26_11R22.5-900-101LZ.csv
+2024-12-19 17:56:36,470 - INFO - Applying enhanced processing to 15_225-80R17.5-700-710R.csv
+2024-12-19 17:56:36,513 - INFO - Applying enhanced processing to 31_11R22.5-800-903ZW.csv
+2024-12-19 17:56:36,580 - INFO - Applying enhanced processing to 21_11R22.5-500-710R.csv
+2024-12-19 17:56:36,623 - INFO - Applying enhanced processing to 53_455-55R22.5-500-716R.csv
+2024-12-19 17:56:36,667 - INFO - Applying enhanced processing to 08_455-55R22.5-850-716U.csv
+2024-12-19 17:56:36,710 - INFO - Applying enhanced processing to 35_11R22.5-700-903ZW.csv
+2024-12-19 17:56:36,754 - INFO - Applying enhanced processing to 43_225-80R17.5-850-710R.csv
+2024-12-19 17:56:38,228 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 17:56:38,228 - INFO - All processing completed successfully.
+2024-12-19 18:01:43,908 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 18:01:43,909 - INFO - Total original CSV files found: 205
+
+2024-12-19 18:02:24,716 - INFO - Starting processing of standalone data...
+2024-12-19 18:02:24,717 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 18:02:24,717 - INFO - Total standalone CSV files found: 58
+2024-12-19 18:02:28,340 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 18:02:28,341 - INFO - All processing completed successfully.
+2024-12-19 18:18:17,777 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 18:18:17,778 - INFO - Total original CSV files found: 205
+
+2024-12-19 18:18:57,531 - INFO - Starting processing of standalone data...
+2024-12-19 18:18:57,532 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 18:18:57,532 - INFO - Total standalone CSV files found: 58
+2024-12-19 18:19:01,201 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 18:19:01,201 - INFO - All processing completed successfully.

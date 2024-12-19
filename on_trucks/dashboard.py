@@ -80,7 +80,7 @@ def main():
         ["Truck-full", "Truck-trim", "St-Alone"]
     )
 
-    menu = ["Home", "Single Segments", "Tire Analysis"]
+    menu = ["Home", "Tire Analysis"]
     choice = st.sidebar.radio("Go to", menu)
 
     hitting_type_filter, intensity_threshold_filter = load_config()
@@ -114,9 +114,6 @@ def main():
 
     if choice == "Home":
         display_home_page()
-    elif choice == "Single Segments":
-        visualize_individual_segments(data_dir, intensity_threshold_filter, step3_prefix, step2sj_name, 
-                                data_type == "Truck-trim", selected_dims_after_rise_point)
     elif choice == "Tire Analysis":
         if data_type == "St-Alone":
             plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_widths_file, 
@@ -187,162 +184,6 @@ def display_home_page():
             <li>Trend lines for specified tire pairings per wheel type.</li>
         </ul>
         """, unsafe_allow_html=True)
-
-def visualize_individual_segments(data_dir, intensity_threshold_filter, step3_prefix, step2sj_name, trim_option, selected_dims_after_rise_point):
-    st.markdown("<h2 style='color: #1f77b4;'>Visualize Individual Segments</h2>", unsafe_allow_html=True)
-
-    excel_files = [file for file in new_visualizer.list_excel_files(data_dir) if file.name not in ["Median_Pulse_Widths.xlsx", "Median_Pulse_Widths_Trim.xlsx"]]
-    if not excel_files:
-        st.warning("No Excel files found for visualization.")
-        return
-
-    excel_file_options = [str(file.relative_to(data_dir)) for file in excel_files]
-    selected_file_option = st.selectbox("Select an Excel file:", excel_file_options)
-    selected_file = data_dir / selected_file_option
-
-    required_sheets = ['Step1_Data', step2sj_name]
-    try:
-        with pd.ExcelFile(selected_file) as xls:
-            sheet_names = xls.sheet_names
-        missing_sheets = [s for s in required_sheets if s not in sheet_names]
-        if missing_sheets:
-            st.error(f"The selected file is missing required sheets: {missing_sheets}")
-            return
-
-        step2_cumulative = pd.read_excel(selected_file, sheet_name=step2sj_name, index_col='Segment_ID')
-    except Exception as e:
-        st.error(f"Error reading Excel file: {e}")
-        return
-
-    segments = step2_cumulative.index.tolist()
-    selected_segments = st.multiselect("Select Signal Segments:", segments, default=segments[:1])
-    if not selected_segments:
-        st.warning("No segments selected.")
-        return
-
-    # Identify available thresholds for Step3 sheets
-    try:
-        with pd.ExcelFile(selected_file) as xls:
-            step3_sheets = [s for s in xls.sheet_names if s.startswith(step3_prefix + "_")]
-        step3_thresholds_file = [float(s.replace(step3_prefix + "_", "")) for s in step3_sheets]
-        if step3_thresholds_file:
-            st.write(f"Available Intensity Thresholds in this file: {', '.join(map(str, step3_thresholds_file))}")
-        else:
-            st.warning(f"No {step3_prefix}_xxx sheets found.")
-    except Exception as e:
-        st.error(f"Error reading Step3 sheets: {e}")
-        return
-
-    num_thresholds = len(intensity_threshold_filter)
-    if num_thresholds == 0:
-        st.warning("No intensity thresholds configured.")
-        return
-
-    fig = make_subplots(
-        rows=1,
-        cols=num_thresholds,
-        subplot_titles=[f'Intensity Threshold: {th}' for th in intensity_threshold_filter],
-        horizontal_spacing=0.05
-    )
-
-    step3_dfs = {}
-    try:
-        with pd.ExcelFile(selected_file) as xls:
-            for threshold in intensity_threshold_filter:
-                sheet_name = f'{step3_prefix}_{threshold}'
-                if sheet_name in xls.sheet_names:
-                    df_step3 = pd.read_excel(xls, sheet_name=sheet_name, index_col='Segment_ID')
-                    step3_dfs[threshold] = df_step3
-                else:
-                    step3_dfs[threshold] = None
-    except Exception as e:
-        st.error(f"Error reading Step3 sheets: {e}")
-        return
-
-    for idx, threshold in enumerate(intensity_threshold_filter, start=1):
-        df_step3 = step3_dfs.get(threshold)
-        if df_step3 is None:
-            continue
-
-        for segment in selected_segments:
-            if segment not in step2_cumulative.index:
-                continue
-
-            cumulative_values = step2_cumulative.loc[segment].values
-            x_values = list(range(1, len(cumulative_values) + 1))
-
-            fig.add_trace(go.Scatter(
-                x=x_values,
-                y=cumulative_values,
-                mode='lines',
-                name=f'Segment {segment}',
-                line=dict(width=2),
-                legendgroup=segment,
-                customdata=[[segment]] * len(x_values),
-                hovertemplate='Segment: %{customdata[0]}<br>Signal Value: %{x}<br>Cumulative Sum: %{y:.4f}<extra></extra>',
-                showlegend=(idx == 1)
-            ), row=1, col=idx)
-
-            if segment in df_step3.index:
-                first_increase_val = df_step3.loc[segment, 'First_Noticeable_Increase_Cumulative_Value']
-                point_exceeds_val = df_step3.loc[segment, 'Point_Exceeds_Cumulative_Value'] if 'Point_Exceeds_Cumulative_Value' in df_step3.columns else np.nan
-
-                x_first_increase = df_step3.loc[segment, 'First_Noticeable_Increase_Index']
-                x_point_exceeds = df_step3.loc[segment, 'Point_Exceeds_Index'] if 'Point_Exceeds_Index' in df_step3.columns else np.nan
-
-                # Annotate first increase
-                if not pd.isna(x_first_increase) and not pd.isna(first_increase_val):
-                    fig.add_trace(go.Scatter(
-                        x=[x_first_increase],
-                        y=[first_increase_val],
-                        mode='markers',
-                        marker=dict(color='red', size=10),
-                        showlegend=False,
-                        hoverinfo='skip'
-                    ), row=1, col=idx)
-                    fig.add_annotation(
-                        x=x_first_increase, y=first_increase_val,
-                        text=f"First Increase<br>({int(x_first_increase)}, {first_increase_val:.4f})",
-                        showarrow=True, arrowhead=2,
-                        ax=0, ay=-40,
-                        font=dict(color='red'),
-                        arrowcolor='red',
-                        xref=f'x{idx}', yref=f'y{idx}'
-                    )
-
-                # Annotate exceeds point
-                if not pd.isna(x_point_exceeds) and not pd.isna(point_exceeds_val):
-                    fig.add_trace(go.Scatter(
-                        x=[x_point_exceeds],
-                        y=[point_exceeds_val],
-                        mode='markers',
-                        marker=dict(color='green', size=10),
-                        showlegend=False,
-                        hoverinfo='skip'
-                    ), row=1, col=idx)
-                    fig.add_annotation(
-                        x=x_point_exceeds, y=point_exceeds_val,
-                        text=f"Exceeds {threshold}<br>({int(x_point_exceeds)}, {point_exceeds_val:.4f})",
-                        showarrow=True, arrowhead=2,
-                        ax=0, ay=40,
-                        font=dict(color='green'),
-                        arrowcolor='green',
-                        xref=f'x{idx}', yref=f'y{idx}'
-                    )
-
-        fig.update_xaxes(title_text='Signal Value', row=1, col=idx)
-        fig.update_yaxes(title_text='Denoised Cumulative Sum (Sj)', row=1, col=idx)
-
-    fig.update_layout(
-        title=f'Denoised Cumulative Sum for Selected Segments<br><sup>File: {selected_file.relative_to(data_dir)}</sup>',
-        legend_title="Segments",
-        hovermode='x unified',
-        template='plotly_white',
-        width=500 * num_thresholds + 100,
-        height=600
-    )
-
-    st.plotly_chart(fig, use_container_width=True)
 
 def plot_median_pulse_width_by_tire_pairing(data_dir, hitting_type_filter, intensity_threshold_filter, median_pulse_widths_file, step3_prefix, step2sj_name, trim_option, selected_dims_after_rise_point):
     st.markdown("<h2 style='color: #1f77b4;'>Median Pulse Width vs Air Pressure by Tire Pairing</h2>", unsafe_allow_html=True)
