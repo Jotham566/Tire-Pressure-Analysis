@@ -18535,3 +18535,58 @@ Output Directory: .
 2024-12-18 16:17:55,533 - INFO - Total standalone CSV files found: 58
 2024-12-18 16:17:59,116 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
 2024-12-18 16:17:59,116 - INFO - All processing completed successfully.
+2024-12-19 14:58:23,312 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 14:58:23,314 - INFO - Total original CSV files found: 205
+
+2024-12-19 14:59:02,006 - INFO - Starting processing of standalone data...
+2024-12-19 14:59:02,007 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 14:59:02,008 - INFO - Total standalone CSV files found: 58
+2024-12-19 14:59:05,530 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 14:59:05,530 - INFO - All processing completed successfully.
+2024-12-19 15:07:08,797 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 15:07:08,798 - INFO - Total original CSV files found: 205
+
+2024-12-19 15:07:45,711 - INFO - Starting processing of standalone data...
+2024-12-19 15:07:45,711 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 15:07:45,712 - INFO - Total standalone CSV files found: 58
+2024-12-19 15:07:49,240 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 15:07:49,240 - INFO - All processing completed successfully.
+2024-12-19 16:05:00,670 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 16:05:00,672 - INFO - Total original CSV files found: 205
+
+2024-12-19 16:05:40,156 - INFO - Starting processing of standalone data...
+2024-12-19 16:05:40,156 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 16:05:40,156 - INFO - Total standalone CSV files found: 58
+2024-12-19 16:05:44,007 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 16:05:44,007 - INFO - All processing completed successfully.
+2024-12-19 16:06:50,220 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 16:06:50,220 - INFO - Total original CSV files found: 205
+
+2024-12-19 16:07:26,961 - INFO - Starting processing of standalone data...
+2024-12-19 16:07:26,961 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 16:07:26,961 - INFO - Total standalone CSV files found: 58
+2024-12-19 16:07:30,590 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 16:07:30,590 - INFO - All processing completed successfully.
+2024-12-19 16:08:40,614 - INFO - Starting processing original data.
+Input Directory: Attenuation Analysis on TD data
+Output Directory: .
+
+2024-12-19 16:08:40,615 - INFO - Total original CSV files found: 205
+
+2024-12-19 16:09:17,658 - INFO - Starting processing of standalone data...
+2024-12-19 16:09:17,658 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files
+2024-12-19 16:09:17,659 - INFO - Total standalone CSV files found: 58
+2024-12-19 16:09:21,476 - INFO - Standalone median pulse widths saved to Processed_Stand_Alone/Median_Pulse_Widths_StandAlone.xlsx
+2024-12-19 16:09:21,476 - INFO - All processing completed successfully.

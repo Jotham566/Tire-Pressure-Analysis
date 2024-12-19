@@ -41,6 +41,11 @@ pulse_width_calculator:
   # Recommended range: 2-5 points
   lookback_window_size: 3
 
+  # Wavelet Denoising Parameters
+  use_wavelet_denoising: True # Set to true to enable wavelet denoising
+  wavelet_type: 'db4' # Wavelet type to use for denoising
+  decomposition_level: 6 # Number of decomposition levels for wavelet denoising
+
 # Parameters for new_visualizer.py
 new_visualizer:
   hitting_type: Both  # Options: Tread, Side, Both

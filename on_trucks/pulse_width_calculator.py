@@ -6,7 +6,8 @@ from tqdm import tqdm
 import re
 import yaml
 import logging
-from typing import Tuple
+import pywt
+from typing import Union, Tuple
 
 class TireSoundProcessor:
     def __init__(self, input_dir: str, standalone_dir: str, output_dir: str,
@@ -16,7 +17,12 @@ class TireSoundProcessor:
                  baseline_window_size: int = 10,
                  std_dev_multiplier: float = 3.0,
                  min_threshold_percentage: float = 0.01,
-                 sustained_rise_points: int = 3):
+                 sustained_rise_points: int = 3,
+                 use_wavelet_denoising: bool = False,
+                 wavelet_type: str = 'db4',
+                 decomposition_level: int = 4):
+        
+        # Parameters for wavform processing 
         self.input_dir = Path(input_dir)
         self.standalone_dir = Path(standalone_dir)
         self.output_dir = Path(output_dir)
@@ -29,6 +35,11 @@ class TireSoundProcessor:
         self.std_dev_multiplier = std_dev_multiplier
         self.min_threshold_percentage = min_threshold_percentage
         self.sustained_rise_points = sustained_rise_points
+
+        # Parameters for Wavelet Denoising
+        self.use_wavelet_denoising = use_wavelet_denoising
+        self.wavelet_type = wavelet_type
+        self.decomposition_level = decomposition_level
 
         # Directories for different data types
         self.processed_dir = self.output_dir / 'Processed'
@@ -101,6 +112,53 @@ class TireSoundProcessor:
         df_step2 = df_step1.cumsum(axis=1)
 
         return df_step1, df_step2
+
+    def denoise_signal(self, signal: np.ndarray) -> np.ndarray:
+        """
+        Apply wavelet denoising to a signal.
+        
+        Parameters:
+        -----------
+        signal : np.ndarray
+            Input signal to be denoised
+            
+        Returns:
+        --------
+        np.ndarray
+            Denoised signal
+        """
+        try:
+            # Perform wavelet decomposition
+            coeffs = pywt.wavedec(signal, self.wavelet_type, level=self.decomposition_level)
+            
+            # Estimate noise level from finest detail coefficients
+            noise_est = np.median(np.abs(coeffs[-1])) / 0.6745
+            
+            # Calculate threshold using universal threshold
+            threshold = noise_est * np.sqrt(2 * np.log(len(signal)))
+            
+            # Apply thresholding to detail coefficients only (preserve approximation)
+            modified_coeffs = list(coeffs)
+            for i in range(1, len(modified_coeffs)):  # Skip approximation coefficients
+                modified_coeffs[i] = pywt.threshold(coeffs[i], 
+                                                  threshold,
+                                                  mode='soft')
+            
+            # Reconstruct signal
+            denoised_signal = pywt.waverec(modified_coeffs, self.wavelet_type)
+            
+            # Ensure the output length matches input length (wavelet transform can affect length)
+            denoised_signal = denoised_signal[:len(signal)]
+            
+            # Preserve signal energy
+            energy_ratio = np.sqrt(np.sum(signal**2) / np.sum(denoised_signal**2))
+            denoised_signal *= energy_ratio
+            
+            return denoised_signal
+            
+        except Exception as e:
+            self.logger.error(f"Error in wavelet denoising: {e}")
+            return signal  # Return original signal if denoising fails
 
     def create_step2sj_trim(self, step1_data: pd.DataFrame, step2_data: pd.DataFrame) -> pd.DataFrame:
         # Identify first rise point index for each segment
@@ -451,6 +509,8 @@ class TireSoundProcessor:
             
             # Convert to numeric and normalize (Step 1)
             df_signals = df_signals.apply(pd.to_numeric, errors='coerce').fillna(0)
+
+            # Normalize so sum of each row is 1 (Step 1)
             step1_normalized = df_signals.div(df_signals.sum(axis=1).replace(0, 1), axis=0)
             
             # Cumulative sum (Step 2)
@@ -779,6 +839,12 @@ if __name__ == "__main__":
         std_dev_multiplier = config.get('pulse_width_calculator', {}).get('std_dev_multiplier', 3.0)
         min_threshold_percentage = config.get('pulse_width_calculator', {}).get('min_threshold_percentage', 0.01)
         sustained_rise_points = config.get('pulse_width_calculator', {}).get('sustained_rise_points', 3)
+
+        # Wavelet denoising parameters
+        use_wavelet_denoising = config.get('pulse_width_calculator', {}).get('use_wavelet_denoising', False)
+        wavelet_type = config.get('pulse_width_calculator', {}).get('wavelet_type', 'db4')
+        decomposition_level = config.get('pulse_width_calculator', {}).get('decomposition_level', 4)
+
     except FileNotFoundError:
         print(f"Configuration file '{config_file}' not found. Using default parameters.")
         noise_threshold = 0.03
@@ -788,6 +854,10 @@ if __name__ == "__main__":
         std_dev_multiplier = 3.0
         min_threshold_percentage = 0.01
         sustained_rise_points = 3
+        use_wavelet_denoising = False
+        wavelet_type = 'db4'
+        decomposition_level = 4
+
     except Exception as e:
         print(f"Error reading configuration file '{config_file}': {e}")
         print("Using default parameters.")
@@ -806,7 +876,10 @@ if __name__ == "__main__":
         baseline_window_size=baseline_window_size,
         std_dev_multiplier=std_dev_multiplier,
         min_threshold_percentage=min_threshold_percentage,
-        sustained_rise_points=sustained_rise_points
+        sustained_rise_points=sustained_rise_points,
+        use_wavelet_denoising=use_wavelet_denoising,
+        wavelet_type=wavelet_type,
+        decomposition_level=decomposition_level
     )
 
     # Start the processing
