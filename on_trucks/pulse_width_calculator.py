@@ -18,7 +18,8 @@ class TireSoundProcessor:
                  std_dev_multiplier: float = 3.0,
                  min_threshold_percentage: float = 0.01,
                  sustained_rise_points: int = 3,
-                 lookback_window_size: int = 3):
+                 lookback_window_size: int = 3,
+                 zero_before_threshold: bool = False):
         
         # Parameters for wavform processing 
         self.input_dir = Path(input_dir)
@@ -34,6 +35,7 @@ class TireSoundProcessor:
         self.min_threshold_percentage = min_threshold_percentage
         self.sustained_rise_points = sustained_rise_points
         self.lookback_window_size = lookback_window_size
+        self.zero_before_threshold = zero_before_threshold
 
         # Directories for different data types
         self.processed_dir = self.output_dir / 'Processed'
@@ -79,10 +81,60 @@ class TireSoundProcessor:
         else:
             return 'Unknown'
 
+    def apply_noise_floor_threshold(self, data: pd.DataFrame, threshold: float) -> pd.DataFrame:
+        """
+        Sets all values to zero BEFORE the first crossing of the noise threshold.
+        
+        Args:
+            data (pd.DataFrame): Input signal data
+            threshold (float): Noise threshold
+            
+        Returns:
+            pd.DataFrame: Data with values before first threshold crossing set to zero
+        """
+        thresholded_data = data.copy()
+        
+        for idx in thresholded_data.index:
+            row_values = thresholded_data.loc[idx]
+            # Find first index where value exceeds threshold
+            threshold_crossing = np.where(row_values > threshold)[0]
+            if len(threshold_crossing) > 0:
+                first_crossing = threshold_crossing[0]
+                # Zero out everything before the threshold crossing
+                if first_crossing > 0:  # Only if there are values before crossing
+                    thresholded_data.loc[idx, thresholded_data.columns[:first_crossing]] = 0
+                    
+        return thresholded_data
+
+    def apply_first_rise_threshold(self, data: pd.DataFrame, first_rise_indices: pd.Series) -> pd.DataFrame:
+        """
+        Sets all values to zero BEFORE the first rise point for each segment.
+        
+        Args:
+            data (pd.DataFrame): Input signal data
+            first_rise_indices (pd.Series): Series containing first rise index for each segment
+            
+        Returns:
+            pd.DataFrame: Data with values before first rise point set to zero
+        """
+        thresholded_data = data.copy()
+        
+        for idx in thresholded_data.index:
+            first_rise = first_rise_indices.get(idx)
+            if pd.notna(first_rise):
+                # Convert to 0-based index and ensure it's an integer
+                first_rise_idx = int(first_rise) - 1
+                # Zero out everything before the first rise point
+                if first_rise_idx > 0:  # Only if there are values before first rise
+                    thresholded_data.loc[idx, thresholded_data.columns[:first_rise_idx]] = 0
+                    
+        return thresholded_data
+
     def process_file_step1_step2(self, file_path: Path) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """
         Processes a single CSV file by selecting the first 256 signal values,
         normalizing (Step1_Data), and creating the cumulative sum (Step2_Sj).
+        Step2_Sj will have values before noise threshold set to zero.
         """
         try:
             df = pd.read_csv(file_path, header=None, skiprows=1, dtype=str)
@@ -99,11 +151,15 @@ class TireSoundProcessor:
         df_selected[signal_columns] = df_selected[signal_columns].apply(pd.to_numeric, errors='coerce').fillna(0)
         df_selected.set_index('Segment_ID', inplace=True)
 
-        # Step1: Normalize so sum of each row is 1
+        # Step1: Normalize so sum of each row is 1 (keep original)
         df_step1 = df_selected.div(df_selected.sum(axis=1).replace(0, 1), axis=0)
 
-        # Step2: Cumulative sum
-        df_step2 = df_step1.cumsum(axis=1)
+        # Step2: Apply noise threshold to normalized data before cumsum
+        if self.zero_before_threshold:
+            df_step2_base = self.apply_noise_floor_threshold(df_step1, self.noise_threshold)
+            df_step2 = df_step2_base.cumsum(axis=1)
+        else:
+            df_step2 = df_step1.cumsum(axis=1)
 
         return df_step1, df_step2
 
@@ -311,20 +367,23 @@ class TireSoundProcessor:
             # Calculate signal statistics
             signal_range = segment_values.max() - segment_values.min()
             
-            # Calculate thresholds using configured parameters
-            statistical_threshold = baseline_mean + (self.std_dev_multiplier * baseline_std)
+            # Make threshold more sensitive for initial detection
+            statistical_threshold = baseline_mean + (self.std_dev_multiplier * baseline_std * 0.5)  # Reduced multiplier
             minimum_threshold = signal_range * self.min_threshold_percentage
             
-            # Add validation checks
-            if statistical_threshold < baseline_mean:
-                statistical_threshold = baseline_mean + (signal_range * 0.1) # 10% of signal range
+            # Calculate moving average for validation
+            window_size = 3
+            moving_avg = pd.Series(segment_values).rolling(window=window_size, center=True).mean()
             
-            # Use the larger of the thresholds
-            dynamic_threshold = max(statistical_threshold, minimum_threshold)
+            # If moving average shows significant trend, lower threshold further
+            if not moving_avg.empty and moving_avg.std() > baseline_std:
+                statistical_threshold *= 0.5
             
-            # Additional validation
-            if dynamic_threshold < baseline_mean + (2 * baseline_std):
-                dynamic_threshold = baseline_mean + (3 * baseline_std)
+            # Use the larger of the thresholds, but ensure it's not too high
+            dynamic_threshold = min(
+                max(statistical_threshold, minimum_threshold),
+                baseline_mean + (signal_range * 0.15)  # Cap at 15% of range
+            )
             
             return dynamic_threshold
             
@@ -369,7 +428,7 @@ class TireSoundProcessor:
                     # Look backwards from threshold crossing to find potential gradual rise start
                     if first_rise_idx > 1:
                         # Define window to look back for gradual rise
-                        lookback_window = 2 
+                        lookback_window = self.lookback_window_size 
                         start_idx = max(0, first_rise_idx - lookback_window)
                         
                         # Calculate slopes in the lookback window
@@ -454,14 +513,23 @@ class TireSoundProcessor:
             df_signals = signal_data.copy()
             df_signals.index = df['Segment ID / Value index']
             
-            # Convert to numeric and normalize (Step 1)
+            # Convert to numeric and normalize
             df_signals = df_signals.apply(pd.to_numeric, errors='coerce').fillna(0)
-
-            # Normalize so sum of each row is 1 (Step 1)
+            
+            # Step1: Normalize (keep original)
             step1_normalized = df_signals.div(df_signals.sum(axis=1).replace(0, 1), axis=0)
             
-            # Cumulative sum (Step 2)
-            step2_cumulative = step1_normalized.cumsum(axis=1)
+            if self.zero_before_threshold:
+                # Calculate first rise points
+                first_rise_indices = df_signals.apply(
+                    lambda row: self.get_first_increase_index_standalone(row), axis=1
+                )
+            
+                # Step2: Apply first rise point thresholding before cumsum
+                step2_base = self.apply_first_rise_threshold(step1_normalized, first_rise_indices)
+                step2_cumulative = step2_base.cumsum(axis=1)
+            else:
+                step2_cumulative = step1_normalized.cumsum(axis=1)
             
             # Set index names
             step1_normalized.index.name = 'Segment_ID'
@@ -787,6 +855,7 @@ if __name__ == "__main__":
         min_threshold_percentage = config.get('pulse_width_calculator', {}).get('min_threshold_percentage', 0.01)
         sustained_rise_points = config.get('pulse_width_calculator', {}).get('sustained_rise_points', 3)
         lookback_window_size = config.get('pulse_width_calculator', {}).get('lookback_window_size', 3)
+        zero_before_threshold = config.get('pulse_width_calculator', {}).get('zero_before_threshold', False)
 
     except FileNotFoundError:
         print(f"Configuration file '{config_file}' not found. Using default parameters.")
@@ -798,6 +867,7 @@ if __name__ == "__main__":
         min_threshold_percentage = 0.01
         sustained_rise_points = 3
         lookback_window_size = 3
+        zero_before_threshold = False
 
     except Exception as e:
         print(f"Error reading configuration file '{config_file}': {e}")
@@ -818,7 +888,8 @@ if __name__ == "__main__":
         std_dev_multiplier=std_dev_multiplier,
         min_threshold_percentage=min_threshold_percentage,
         sustained_rise_points=sustained_rise_points,
-        lookback_window_size=lookback_window_size
+        lookback_window_size=lookback_window_size,
+        zero_before_threshold=zero_before_threshold
     )
 
     # Start the processing

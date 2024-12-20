@@ -21,30 +21,32 @@ pulse_width_calculator:
   # Parameters for dynamic noise threshold in standalone processing:
 
   # Number of initial points used to establish baseline noise level
-  # Recommended range: 5-20 points
-  baseline_window_size: 10
+  # If too small: Might not capture enough baseline noise characteristics
+  # If too large: Might include part of the actual signal
+  baseline_window_size: 2
 
   # Multiplier for standard deviation in threshold calculation
-  # Recommended range: 2.0-5.0
-  std_dev_multiplier: 5.0
+  # If too small: More false positives (noise detected as signal)
+  # If too large: More false negatives (signal detected as noise)
+  std_dev_multiplier: 2.0
 
   # Minimum threshold as percentage of signal range
-  # Recommended range: 0.001-0.05 (0.1%-5%)
-  min_threshold_percentage: 0.05
+  # If too small: More false positives (noise detected as signal)
+  # If too large: More false negatives (signal detected as noise)
+  min_threshold_percentage: 0.08
 
   # Number of consecutive points required above threshold
-  # Recommended range: 2-5 points
-  sustained_rise_points: 3
+  # If too small: Might include noise
+  # If too large: Might miss parts of the signal
+  sustained_rise_points: 1
 
   # Number of points to look back when checking for gradual rises
   # Higher values detect more gradual rises but may include noise
   # Recommended range: 2-5 points
-  lookback_window_size: 3
+  lookback_window_size: 4
 
-  # Wavelet Denoising Parameters
-  use_wavelet_denoising: True # Set to true to enable wavelet denoising
-  wavelet_type: 'db4' # Wavelet type to use for denoising
-  decomposition_level: 6 # Number of decomposition levels for wavelet denoising
+  # Set first dimensions before the rise point or noise_threshold to zero
+  zero_before_threshold: false  # Set to true to zero out the first dimensions before the rise point or noise_threshold
 
 # Parameters for new_visualizer.py
 new_visualizer:
