@@ -19,7 +19,17 @@ class TireSoundProcessor:
                  min_threshold_percentage: float = 0.01,
                  sustained_rise_points: int = 3,
                  lookback_window_size: int = 3,
-                 zero_before_threshold: bool = False):
+                 #zero_before_threshold: bool = False,
+                 use_adaptive_baseline_subtraction: bool = True,
+                 baseline_computation: str = 'median',
+                 sliding_window_min_size: int = 5,
+                 sliding_window_max_size: int = 20,
+                 quietness_metric: str = 'std',
+                 volatility_threshold: float = 0.5,
+                 high_volatility_percentile: int = 75,
+                 low_volatility_percentile: int = 25,
+                 max_threshold_factor: float = 0.3,
+                 ):
         
         # Parameters for wavform processing 
         self.input_dir = Path(input_dir)
@@ -35,7 +45,20 @@ class TireSoundProcessor:
         self.min_threshold_percentage = min_threshold_percentage
         self.sustained_rise_points = sustained_rise_points
         self.lookback_window_size = lookback_window_size
-        self.zero_before_threshold = zero_before_threshold
+        #self.zero_before_threshold = zero_before_threshold
+
+        # Parameters for Adaptive Baseline Subtraction
+        self.use_adaptive_baseline_subtraction = use_adaptive_baseline_subtraction
+        self.baseline_computation = baseline_computation
+        self.sliding_window_min_size = sliding_window_min_size
+        self.sliding_window_max_size = sliding_window_max_size
+        self.quietness_metric = quietness_metric
+
+        # Parameters for Volatility-based Threshold Selection
+        self.volatility_threshold = volatility_threshold
+        self.high_volatility_percentile = high_volatility_percentile
+        self.low_volatility_percentile = low_volatility_percentile
+        self.max_threshold_factor = max_threshold_factor
 
         # Directories for different data types
         self.processed_dir = self.output_dir / 'Processed'
@@ -81,54 +104,68 @@ class TireSoundProcessor:
         else:
             return 'Unknown'
 
-    def apply_noise_floor_threshold(self, data: pd.DataFrame, threshold: float) -> pd.DataFrame:
+    def find_adaptive_baseline_offset(self, row_values: np.ndarray) -> float:
         """
-        Sets all values to zero BEFORE the first crossing of the noise threshold.
-        
-        Args:
-            data (pd.DataFrame): Input signal data
-            threshold (float): Noise threshold
-            
-        Returns:
-            pd.DataFrame: Data with values before first threshold crossing set to zero
+        Finds a baseline offset using a sliding window approach.
+        Scans subwindows near the start of the row to find the "quietest" segment.
+        Returns the median of that chosen subwindow.
         """
-        thresholded_data = data.copy()
-        
-        for idx in thresholded_data.index:
-            row_values = thresholded_data.loc[idx]
-            # Find first index where value exceeds threshold
-            threshold_crossing = np.where(row_values > threshold)[0]
-            if len(threshold_crossing) > 0:
-                first_crossing = threshold_crossing[0]
-                # Zero out everything before the threshold crossing
-                if first_crossing > 0:  # Only if there are values before crossing
-                    thresholded_data.loc[idx, thresholded_data.columns[:first_crossing]] = 0
-                    
-        return thresholded_data
 
-    def apply_first_rise_threshold(self, data: pd.DataFrame, first_rise_indices: pd.Series) -> pd.DataFrame:
-        """
-        Sets all values to zero BEFORE the first rise point for each segment.
-        
-        Args:
-            data (pd.DataFrame): Input signal data
-            first_rise_indices (pd.Series): Series containing first rise index for each segment
+        n_samples = len(row_values)
+        min_size = min(self.sliding_window_min_size, n_samples)
+        max_size = min(self.sliding_window_max_size, n_samples)
+
+        best_metric = float('inf')
+        best_offset = 0.0
+
+        # Slide from index 0 up to max_size - min_size
+        for start_idx in range(0, max_size - min_size + 1):
+            end_idx = start_idx + min_size  # subwindow length = min_size
+            subwindow = row_values[start_idx:end_idx]
+
+            # Compute the baseline offset candidate (median or mean)
+            if self.baseline_computation.lower() == 'median':
+                offset_candidate = np.median(subwindow)
+            else:
+                offset_candidate = np.mean(subwindow)
             
-        Returns:
-            pd.DataFrame: Data with values before first rise point set to zero
+            # Evaluate "quietness" based on self.quietness_metric
+            if self.quietness_metric.lower() == 'std':
+                metric_val = np.std(subwindow)
+            elif self.quietness_metric.lower() == 'mean':
+                metric_val = np.mean(subwindow)
+            else:
+                # Example: a mix, or fallback to std
+                metric_val = np.std(subwindow)
+
+            # If this subwindow is quieter, update best
+            if metric_val < best_metric:
+                best_metric = metric_val
+                best_offset = offset_candidate
+
+        return best_offset
+
+    def apply_adaptive_baseline_subtraction(self, df_signals: pd.DataFrame) -> pd.DataFrame:
         """
-        thresholded_data = data.copy()
+        For each row in df_signals, find a baseline offset using a sliding
+        window "quietness" check. Subtract that offset and zero-clip negatives.
+        """
+        df_modified = df_signals.copy()
         
-        for idx in thresholded_data.index:
-            first_rise = first_rise_indices.get(idx)
-            if pd.notna(first_rise):
-                # Convert to 0-based index and ensure it's an integer
-                first_rise_idx = int(first_rise) - 1
-                # Zero out everything before the first rise point
-                if first_rise_idx > 0:  # Only if there are values before first rise
-                    thresholded_data.loc[idx, thresholded_data.columns[:first_rise_idx]] = 0
-                    
-        return thresholded_data
+        for idx in df_modified.index:
+            row_values = df_modified.loc[idx].values  # to numpy array
+            offset = self.find_adaptive_baseline_offset(row_values)
+            
+            # Subtract offset
+            row_values_sub = row_values - offset
+            # Zero-clip negative
+            row_values_sub = np.where(row_values_sub < 0, 0, row_values_sub)
+            
+            # Update the dataframe
+            df_modified.loc[idx] = row_values_sub
+
+        return df_modified
+
 
     def process_file_step1_step2(self, file_path: Path) -> Tuple[pd.DataFrame, pd.DataFrame]:
         """
@@ -154,12 +191,8 @@ class TireSoundProcessor:
         # Step1: Normalize so sum of each row is 1 (keep original)
         df_step1 = df_selected.div(df_selected.sum(axis=1).replace(0, 1), axis=0)
 
-        # Step2: Apply noise threshold to normalized data before cumsum
-        if self.zero_before_threshold:
-            df_step2_base = self.apply_noise_floor_threshold(df_step1, self.noise_threshold)
-            df_step2 = df_step2_base.cumsum(axis=1)
-        else:
-            df_step2 = df_step1.cumsum(axis=1)
+        # Step2: Cumulative Sum (Step2_Sj)
+        df_step2 = df_step1.cumsum(axis=1)
 
         return df_step1, df_step2
 
@@ -353,135 +386,136 @@ class TireSoundProcessor:
 
     def calculate_dynamic_noise_threshold(self, segment_values: pd.Series) -> float:
         """
-        Calculate dynamic noise threshold with enhanced validation and parameters.
-        Uses configured parameters from config.yaml for calculations.
+        Enhanced dynamic noise threshold calculation with volatility-based adjustment.
+        Includes detailed logging for parameter tuning.
         """
         try:
-            # Get baseline using configured window size
-            baseline = segment_values.iloc[:self.baseline_window_size]
+            signal_length = len(segment_values)
+            if signal_length < self.baseline_window_size:
+                self.logger.warning("Signal too short for dynamic threshold")
+                return self.noise_threshold
+                
+            # Calculate volatility metrics
+            rolling_mean = segment_values.rolling(window=5, center=True).mean()
+            rolling_std = segment_values.rolling(window=5, center=True).std()
             
-            # Calculate baseline statistics
-            baseline_mean = baseline.mean()
-            baseline_std = baseline.std()
+            # Compute signal volatility
+            mean_value = rolling_mean.mean()
+            volatility = rolling_std.mean() / mean_value if mean_value != 0 else float('inf')
             
-            # Calculate signal statistics
+            self.logger.info(f"Signal volatility: {volatility:.4f}")
+            
+            # Multi-window threshold candidates
+            thresholds = []
+            windows = [self.baseline_window_size]
+            
+            for window_size in windows:
+                baseline = segment_values.iloc[:window_size]
+                
+                # Calculate robust statistics
+                baseline_median = baseline.median()
+                baseline_mad = np.median(np.abs(baseline - baseline_median))
+                baseline_std = baseline.std()
+                
+                # Store different threshold candidates
+                mad_threshold = baseline_median + (baseline_mad * 2.5)
+                std_threshold = baseline_median + (baseline_std * self.std_dev_multiplier)
+                
+                thresholds.extend([mad_threshold, std_threshold])
+                
+                self.logger.debug(f"""
+                    Window size: {window_size}
+                    MAD threshold: {mad_threshold:.4f}
+                    STD threshold: {std_threshold:.4f}
+                """)
+            
+            # Signal range analysis
             signal_range = segment_values.max() - segment_values.min()
+            min_range_threshold = signal_range * self.min_threshold_percentage
             
-            # Make threshold more sensitive for initial detection
-            statistical_threshold = baseline_mean + (self.std_dev_multiplier * baseline_std * 0.5)  # Reduced multiplier
-            minimum_threshold = signal_range * self.min_threshold_percentage
+            # Volatility-based threshold selection
+            if volatility > self.volatility_threshold:
+                # High volatility: use higher percentile
+                base_threshold = np.percentile(thresholds, self.high_volatility_percentile)
+                self.logger.info(f"High volatility detected, using {self.high_volatility_percentile}th percentile")
+            else:
+                # Low volatility: use lower percentile
+                base_threshold = np.percentile(thresholds, self.low_volatility_percentile)
+                self.logger.info(f"Low volatility detected, using {self.low_volatility_percentile}th percentile")
             
-            # Calculate moving average for validation
-            window_size = 3
-            moving_avg = pd.Series(segment_values).rolling(window=window_size, center=True).mean()
+            # Combine with range-based threshold
+            dynamic_threshold = max(base_threshold, min_range_threshold)
             
-            # If moving average shows significant trend, lower threshold further
-            if not moving_avg.empty and moving_avg.std() > baseline_std:
-                statistical_threshold *= 0.5
+            # Apply maximum threshold constraint
+            max_allowed = segment_values.max() * self.max_threshold_factor
+            dynamic_threshold = min(dynamic_threshold, max_allowed)
             
-            # Use the larger of the thresholds, but ensure it's not too high
-            dynamic_threshold = min(
-                max(statistical_threshold, minimum_threshold),
-                baseline_mean + (signal_range * 0.15)  # Cap at 15% of range
-            )
+            self.logger.info(f"""
+                Final threshold calculation:
+                Base threshold: {base_threshold:.4f}
+                Range-based minimum: {min_range_threshold:.4f}
+                Maximum allowed: {max_allowed:.4f}
+                Final dynamic threshold: {dynamic_threshold:.4f}
+            """)
             
             return dynamic_threshold
             
         except Exception as e:
-            self.logger.warning(f"Error calculating dynamic threshold: {e}. Falling back to default threshold.")
+            self.logger.error(f"Error in dynamic threshold calculation: {str(e)}")
             return self.noise_threshold
-
+            
     def get_first_increase_index_standalone(self, row: pd.Series) -> float:
         """
-        Enhanced first rise point detection that handles both gradual and sudden rises in signal.
-        
-        This method implements a multi-stage approach to detect the true start of a pulse:
-        1. First checks for gradual rises using slope analysis
-        2. Then looks for sustained rises above the threshold
-        3. Finally falls back to a stricter threshold if needed
-        
-        The method is particularly careful to detect soft initial rises that precede 
-        sudden increases in the signal.
+        Enhanced first rise point detection optimized for baseline-subtracted data.
+        Uses the new dynamic threshold calculation and adds validation steps.
         
         Args:
             row (pd.Series): A single segment's signal values
             
         Returns:
-            float: The index of the first rise point (1-based indexing) or np.nan if no valid rise found
+            float: The index of the first rise point (1-based indexing) or np.nan if no valid rise
         """
         try:
-            # Step 1: Calculate the dynamic noise threshold for this segment
+            # Calculate dynamic threshold
             dynamic_threshold = self.calculate_dynamic_noise_threshold(row)
             
-            # Get all points that exceed the threshold
-            indices = np.where(row.values > dynamic_threshold)[0]
+            # Convert series to numpy array for faster computation
+            values = row.values
             
-            if indices.size > 0:
-                # Convert series to numpy array for faster computation
-                values = row.values
+            # 1. Find all threshold crossings
+            above_threshold = values > dynamic_threshold
+            crossings = np.where(above_threshold)[0]
+            
+            if len(crossings) == 0:
+                return np.nan
                 
-                # Step 2: Primary analysis - Check each threshold crossing point
-                for i in range(len(indices) - (self.sustained_rise_points - 1)):
-                    first_rise_idx = indices[i]
+            # 2. Analyze potential rise points
+            for start_idx in crossings:
+                # Skip if too close to end
+                if start_idx + self.sustained_rise_points >= len(values):
+                    continue
                     
-                    # Step 2a: Gradual Rise Detection
-                    # Look backwards from threshold crossing to find potential gradual rise start
-                    if first_rise_idx > 1:
-                        # Define window to look back for gradual rise
-                        lookback_window = self.lookback_window_size 
-                        start_idx = max(0, first_rise_idx - lookback_window)
+                # Check for sustained rise
+                sustained_segment = values[start_idx:start_idx + self.sustained_rise_points]
+                if np.all(sustained_segment > dynamic_threshold):
+                    # Look back for gradual rise start
+                    if start_idx > 0:
+                        lookback_start = max(0, start_idx - self.lookback_window_size)
+                        lookback_values = values[lookback_start:start_idx + 1]
                         
-                        # Calculate slopes in the lookback window
-                        # Positive slopes indicate increasing values
-                        slopes = np.diff(values[start_idx:first_rise_idx + 1])
-                        
-                        # Check if we have a consistent increase (all slopes positive)
-                        if np.all(slopes > 0):
-                            # Verify this is actually part of the main pulse by checking
-                            # if subsequent points maintain the rise
-                            next_points = values[first_rise_idx:first_rise_idx + self.sustained_rise_points]
-                            if np.all(next_points > dynamic_threshold):
-                                # Found a valid gradual rise - return its starting point
-                                return start_idx + 1  # Convert to 1-based indexing
+                        # Check for monotonic increase in lookback window
+                        differences = np.diff(lookback_values)
+                        if np.all(differences >= 0):
+                            # Found gradual rise start
+                            return lookback_start + 1  # Convert to 1-based indexing
                     
-                    # Step 2b: Sustained Rise Detection
-                    # Check if we have the required number of consecutive points above threshold
-                    is_sustained = True
-                    for j in range(1, self.sustained_rise_points):
-                        if indices[i+j] != indices[i] + j:
-                            is_sustained = False
-                            break
-                    
-                    if is_sustained:
-                        # Additional check for any rise before this sustained rise
-                        if first_rise_idx > 1:
-                            # Look at two points before the sustained rise
-                            pre_rise_values = values[max(0, first_rise_idx-2):first_rise_idx]
-                            # If values were already increasing, start from earlier point
-                            if np.all(np.diff(pre_rise_values) > 0):
-                                return first_rise_idx - 1
-                        
-                        return first_rise_idx + 1  # Convert to 1-based indexing
-                
-                # Step 3: Fallback Analysis - Stricter Threshold
-                # If no clear rise found, use a stricter threshold as last resort
-                stricter_threshold = dynamic_threshold * 1.2
-                stricter_indices = np.where(values > stricter_threshold)[0]
-                
-                if stricter_indices.size > 0:
-                    first_strict_idx = stricter_indices[0]
-                    # Still check for gradual rise before strict threshold crossing
-                    if first_strict_idx > 1:
-                        pre_strict_values = values[max(0, first_strict_idx-2):first_strict_idx]
-                        if np.all(np.diff(pre_strict_values) > 0):
-                            return first_strict_idx - 1
-                    return first_strict_idx + 1
-                    
-            # If no valid rise point found, return NaN
+                    # If no gradual rise found, use threshold crossing point
+                    return start_idx + 1  # Convert to 1-based indexing
+            
             return np.nan
-                
+            
         except Exception as e:
-            self.logger.error(f"Error in dynamic threshold detection for segment {row.name}: {e}")
+            self.logger.error(f"Error in rise point detection: {e}")
             return np.nan
 
     def extract_standalone_metadata(self, file_name: str) -> tuple:
@@ -499,66 +533,56 @@ class TireSoundProcessor:
     def process_standalone_file(self, file_path: Path):
         """
         Processes a single standalone tire CSV file with new metadata format.
+        Incorporates adaptive baseline subtraction (if enabled).
         """
         try:
-            # Read the CSV file with metadata columns
+            # 1) Read CSV and extract metadata
             df = pd.read_csv(file_path)
             metadata_columns = ['Tire Number', 'Pressure', 'TireSize', 'Ver', 'Wear', 'Rim']
-            
-            # Extract metadata from the first row
             metadata = {col: df[col].iloc[0] for col in metadata_columns}
             
-            # Process signal values (columns after metadata)
-            signal_data = df.iloc[:, 7:]  # Skip the first 7 columns (metadata)
+            # 2) Isolate signal data
+            signal_data = df.iloc[:, 7:]  # skip the first 7 columns of metadata
             df_signals = signal_data.copy()
             df_signals.index = df['Segment ID / Value index']
-            
-            # Convert to numeric and normalize
             df_signals = df_signals.apply(pd.to_numeric, errors='coerce').fillna(0)
-            
-            # Step1: Normalize (keep original)
+
+            # 3) Step1: Normalize (sums to 1)
             step1_normalized = df_signals.div(df_signals.sum(axis=1).replace(0, 1), axis=0)
-            
-            if self.zero_before_threshold:
-                # Calculate first rise points
-                first_rise_indices = df_signals.apply(
-                    lambda row: self.get_first_increase_index_standalone(row), axis=1
-                )
-            
-                # Step2: Apply first rise point thresholding before cumsum
-                step2_base = self.apply_first_rise_threshold(step1_normalized, first_rise_indices)
-                step2_cumulative = step2_base.cumsum(axis=1)
-            else:
-                step2_cumulative = step1_normalized.cumsum(axis=1)
-            
-            # Set index names
+
+            # 4) [NEW] If we want adaptive baseline subtraction, do it here
+            if self.use_adaptive_baseline_subtraction:
+                step1_normalized = self.apply_adaptive_baseline_subtraction(step1_normalized)
+
+            # Normalize again after baseline subtraction
+            step1_normalized = step1_normalized.div(step1_normalized.sum(axis=1).replace(0, 1), axis=0)
+
+            # 5) Step2: Cumulative Sum
+            step2_cumulative = step1_normalized.cumsum(axis=1)
+
+            # Set index names
             step1_normalized.index.name = 'Segment_ID'
             step2_cumulative.index.name = 'Segment_ID'
 
-            # CSV Filename format
+            # 6) Build output file
             new_filename = f"{metadata['Tire Number']}_{metadata['TireSize']}-{metadata['Pressure']}-{metadata['Ver']}"
-
-            # Create output path
             output_xlsx_path = (self.processed_standalone_dir / new_filename).with_suffix('.xlsx')
             output_xlsx_path.parent.mkdir(parents=True, exist_ok=True)
 
-            # Write Results
             with pd.ExcelWriter(output_xlsx_path, engine='xlsxwriter') as writer:
-                # Save Step1 and Step2
                 step1_normalized.to_excel(writer, sheet_name='Step1_Data')
                 step2_cumulative.to_excel(writer, sheet_name='Step2_Sj')
-                
-                # For each intensity threshold, compute and save step3 data
+
+                # For each intensity threshold, compute Step3
                 for threshold in self.intensity_thresholds:
-                    step3_data = self.compute_standalone_step3_metrics(
-                        step2_cumulative, threshold, metadata
-                    )
+                    step3_data = self.compute_standalone_step3_metrics(step2_cumulative, threshold, metadata)
                     step3_data.to_excel(writer, sheet_name=f'Step3_DataPts_{threshold}')
 
             return output_xlsx_path
 
         except Exception as e:
             raise Exception(f"Failed to process standalone file {file_path.name}: {str(e)}")
+
 
     def compute_standalone_step3_metrics(self, df_cumulative: pd.DataFrame, 
                                       intensity_threshold: float,
@@ -608,54 +632,121 @@ class TireSoundProcessor:
     def calculate_standalone_median_pulse_width(self, excel_file_paths) -> pd.DataFrame:
         """
         Calculates the median pulse width for standalone tire data including all metadata.
+        Enhanced with detailed debugging and validation.
         """
         median_pulse_widths = []
+        total_files = len(excel_file_paths)
+        
+        self.logger.info(f"Starting median calculation with {total_files} files")
+        print(f"\nProcessing {total_files} files for median calculation...")
 
         for file_path in excel_file_paths:
             try:
                 if file_path.name.startswith('~$'):
                     continue
+                    
+                self.logger.info(f"\nProcessing file: {file_path.name}")
+                print(f"Processing: {file_path.name}")
+                
+                # Verify file exists and is readable
+                if not file_path.exists():
+                    self.logger.error(f"File does not exist: {file_path}")
+                    continue
+                    
                 xls = pd.ExcelFile(file_path)
+                
+                # Debug: Print available sheets
+                self.logger.info(f"Available sheets in {file_path.name}: {xls.sheet_names}")
 
                 for threshold in self.intensity_thresholds:
                     sheet_name = f'Step3_DataPts_{threshold}'
-                    if sheet_name not in xls.sheet_names:
-                        reason = f'Sheet {sheet_name} not found'
-                        self.add_exclusion_entry(file_path, reason)
-                        self.logger.warning(f"{file_path.name}: {reason}")
-                        continue
-
-                    df_step3 = pd.read_excel(file_path, sheet_name=sheet_name, index_col='Segment_ID')
                     
-                    valid_pulse_widths = df_step3['Pulse_Width'].dropna()
-                    if len(valid_pulse_widths) == 0:
+                    if sheet_name not in xls.sheet_names:
+                        self.logger.warning(f"Sheet {sheet_name} not found in {file_path.name}")
                         continue
 
-                    pulse_widths = valid_pulse_widths.sample(n=min(5, len(valid_pulse_widths)), random_state=42)
+                    # Read the sheet
+                    df_step3 = pd.read_excel(file_path, sheet_name=sheet_name)
+                    
+                    # Debug: Print shape and columns
+                    self.logger.info(f"Sheet {sheet_name} shape: {df_step3.shape}")
+                    self.logger.info(f"Columns: {df_step3.columns.tolist()}")
+
+                    # Ensure required columns exist
+                    required_columns = ['Pulse_Width', 'Tire_Number', 'Pressure', 'TireSize', 'Ver', 'Wear', 'Rim']
+                    missing_columns = [col for col in required_columns if col not in df_step3.columns]
+                    
+                    if missing_columns:
+                        self.logger.error(f"Missing columns in {file_path.name}: {missing_columns}")
+                        continue
+
+                    # Get valid pulse widths
+                    valid_pulse_widths = df_step3['Pulse_Width'].dropna()
+                    self.logger.info(f"Found {len(valid_pulse_widths)} valid pulse widths")
+                    
+                    if len(valid_pulse_widths) == 0:
+                        self.logger.warning(f"No valid pulse widths in {sheet_name}")
+                        continue
+
+                    # Sample pulse widths
+                    sample_size = min(5, len(valid_pulse_widths))
+                    pulse_widths = valid_pulse_widths.sample(n=sample_size, random_state=42)
                     median_pulse_width = pulse_widths.median()
 
-                    # Get all metadata from first row
-                    metadata = {
-                        'Tire_Number': df_step3['Tire_Number'].iloc[0],
-                        'Pressure': df_step3['Pressure'].iloc[0],
-                        'TireSize': df_step3['TireSize'].iloc[0],
-                        'Ver': df_step3['Ver'].iloc[0],
-                        'Wear': df_step3['Wear'].iloc[0],
-                        'Rim': df_step3['Rim'].iloc[0]
-                    }
+                    if pd.isna(median_pulse_width):
+                        self.logger.warning(f"Calculated median is NaN")
+                        continue
 
-                    median_pulse_widths.append({
-                        'File_Name': str(file_path.relative_to(self.processed_standalone_dir)),
-                        'Intensity_Threshold': threshold,
-                        'Median_Pulse_Width': median_pulse_width,
-                        **metadata
-                    })
+                    # Debug: Print median value
+                    self.logger.info(f"Calculated median pulse width: {median_pulse_width}")
+
+                    # Get metadata from first row
+                    try:
+                        metadata = {
+                            'Tire_Number': str(df_step3['Tire_Number'].iloc[0]),
+                            'Pressure': float(df_step3['Pressure'].iloc[0]),
+                            'TireSize': str(df_step3['TireSize'].iloc[0]),
+                            'Ver': str(df_step3['Ver'].iloc[0]),
+                            'Wear': str(df_step3['Wear'].iloc[0]),
+                            'Rim': str(df_step3['Rim'].iloc[0])
+                        }
+                        
+                        # Debug: Print metadata
+                        self.logger.info(f"Extracted metadata: {metadata}")
+
+                        median_pulse_widths.append({
+                            'File_Name': str(file_path.relative_to(self.processed_standalone_dir)),
+                            'Intensity_Threshold': threshold,
+                            'Median_Pulse_Width': median_pulse_width,
+                            **metadata
+                        })
+                        
+                        self.logger.info(f"Successfully added data point for {file_path.name}, threshold {threshold}")
+                        
+                    except Exception as e:
+                        self.logger.error(f"Error extracting metadata: {str(e)}")
+                        continue
 
             except Exception as e:
-                self.logger.error(f"Error processing file '{file_path.name}': {e}")
+                self.logger.error(f"Error processing file '{file_path.name}': {str(e)}")
                 continue
 
-        return pd.DataFrame(median_pulse_widths)
+        # Final validation
+        self.logger.info(f"\nTotal data points collected: {len(median_pulse_widths)}")
+        print(f"\nTotal data points collected: {len(median_pulse_widths)}")
+
+        if not median_pulse_widths:
+            self.logger.warning("No valid median pulse widths were calculated!")
+            # Return empty DataFrame with expected columns
+            return pd.DataFrame(columns=['File_Name', 'Intensity_Threshold', 'Median_Pulse_Width',
+                                    'Tire_Number', 'Pressure', 'TireSize', 'Ver', 'Wear', 'Rim'])
+        
+        # Create DataFrame and verify
+        df_result = pd.DataFrame(median_pulse_widths)
+        self.logger.info(f"Final DataFrame shape: {df_result.shape}")
+        self.logger.info(f"Columns in final DataFrame: {df_result.columns.tolist()}")
+        
+        return df_result
 
     def save_processed_data_step1_step2(self, writer: pd.ExcelWriter,
                                       step1: pd.DataFrame, step2: pd.DataFrame):
@@ -676,7 +767,7 @@ class TireSoundProcessor:
 
     def process_standalone_files(self):
         """
-        Process all standalone tire files
+        Process all standalone tire files with enhanced debugging
         """
         self.logger.info(f"Processing standalone files from: {self.standalone_dir}")
         print(f"Processing standalone files from: {self.standalone_dir}")
@@ -685,26 +776,59 @@ class TireSoundProcessor:
         csv_files = list(self.standalone_dir.glob('*.csv'))
         total_files = len(csv_files)
         
+        if total_files == 0:
+            self.logger.warning("No CSV files found in standalone directory!")
+            print("No CSV files found in standalone directory!")
+            return
+            
         self.logger.info(f"Total standalone CSV files found: {total_files}")
         print(f"Total standalone CSV files found: {total_files}")
 
         processed_files = []
         for file_path in tqdm(csv_files, desc="Processing standalone files", unit="file"):
             try:
+                if file_path.name.startswith('~$'):
+                    continue
+                    
                 output_path = self.process_standalone_file(file_path)
-                processed_files.append(output_path)
+                if output_path and output_path.exists():
+                    processed_files.append(output_path)
+                    self.logger.info(f"Successfully processed: {file_path.name} -> {output_path}")
+                else:
+                    self.logger.warning(f"Output file not created for: {file_path.name}")
+                    
             except Exception as e:
-                self.logger.error(f"Error processing standalone file '{file_path.name}': {e}")
-                print(f"Error processing standalone file '{file_path.name}': {e}")
+                self.logger.error(f"Error processing standalone file '{file_path.name}': {str(e)}")
                 continue
 
         # Calculate and save median pulse widths for standalone files
         if processed_files:
+            self.logger.info(f"Calculating median pulse widths for {len(processed_files)} processed files")
+            print(f"\nCalculating median pulse widths for {len(processed_files)} files...")
+            
             df_median_pulse_widths = self.calculate_standalone_median_pulse_width(processed_files)
-            median_pulse_widths_output = self.processed_standalone_dir / 'Median_Pulse_Widths_StandAlone.xlsx'
-            df_median_pulse_widths.to_excel(median_pulse_widths_output, index=False)
-            self.logger.info(f"Standalone median pulse widths saved to {median_pulse_widths_output}")
-            print(f"Standalone median pulse widths saved to {median_pulse_widths_output}")
+            
+            # Debug: Print DataFrame info
+            self.logger.info(f"DataFrame info: {df_median_pulse_widths.info()}")
+            print(f"\nDataFrame shape: {df_median_pulse_widths.shape}")
+            
+            if not df_median_pulse_widths.empty:
+                median_pulse_widths_output = self.processed_standalone_dir / 'Median_Pulse_Widths_StandAlone.xlsx'
+                
+                # Add a try-except block for saving
+                try:
+                    df_median_pulse_widths.to_excel(median_pulse_widths_output, index=False)
+                    self.logger.info(f"Successfully saved median pulse widths to: {median_pulse_widths_output}")
+                    print(f"\nSuccessfully saved median pulse widths to: {median_pulse_widths_output}")
+                except Exception as e:
+                    self.logger.error(f"Error saving median pulse widths: {str(e)}")
+                    print(f"\nError saving median pulse widths: {str(e)}")
+            else:
+                self.logger.warning("DataFrame is empty - no median pulse widths to save")
+                print("\nDataFrame is empty - no median pulse widths to save")
+        else:
+            self.logger.warning("No files were successfully processed - skipping median calculation")
+            print("\nNo files were successfully processed - skipping median calculation")
 
     def determine_hitting_type(self, file_path: Path) -> str:
         """
@@ -855,7 +979,16 @@ if __name__ == "__main__":
         min_threshold_percentage = config.get('pulse_width_calculator', {}).get('min_threshold_percentage', 0.01)
         sustained_rise_points = config.get('pulse_width_calculator', {}).get('sustained_rise_points', 3)
         lookback_window_size = config.get('pulse_width_calculator', {}).get('lookback_window_size', 3)
-        zero_before_threshold = config.get('pulse_width_calculator', {}).get('zero_before_threshold', False)
+        use_adaptive_baseline_subtraction = config['pulse_width_calculator'].get('use_adaptive_baseline_subtraction', True)
+        baseline_computation = config['pulse_width_calculator'].get('baseline_computation', 'median')
+        sliding_window_min_size = config['pulse_width_calculator'].get('sliding_window_min_size', 5)
+        sliding_window_max_size = config['pulse_width_calculator'].get('sliding_window_max_size', 20)
+        quietness_metric = config['pulse_width_calculator'].get('quietness_metric', 'std')
+        volatility_threshold = config['pulse_width_calculator'].get('volatility_threshold', 0.5)
+        high_volatility_percentile = config['pulse_width_calculator'].get('high_volatility_percentile', 75)
+        low_volatility_percentile = config['pulse_width_calculator'].get('low_volatility_percentile', 25)
+        max_threshold_factor = config['pulse_width_calculator'].get('max_threshold_factor', 0.3)
+
 
     except FileNotFoundError:
         print(f"Configuration file '{config_file}' not found. Using default parameters.")
@@ -867,7 +1000,15 @@ if __name__ == "__main__":
         min_threshold_percentage = 0.01
         sustained_rise_points = 3
         lookback_window_size = 3
-        zero_before_threshold = False
+        use_adaptive_baseline_subtraction = True
+        baseline_computation = 'median'
+        sliding_window_min_size = 5
+        sliding_window_max_size = 20
+        quietness_metric = 'std'
+        volatility_threshold = 0.5
+        high_volatility_percentile = 75
+        low_volatility_percentile = 25
+        max_threshold_factor = 0.3
 
     except Exception as e:
         print(f"Error reading configuration file '{config_file}': {e}")
@@ -889,7 +1030,15 @@ if __name__ == "__main__":
         min_threshold_percentage=min_threshold_percentage,
         sustained_rise_points=sustained_rise_points,
         lookback_window_size=lookback_window_size,
-        zero_before_threshold=zero_before_threshold
+        use_adaptive_baseline_subtraction=use_adaptive_baseline_subtraction,
+        baseline_computation=baseline_computation,
+        sliding_window_min_size=sliding_window_min_size,
+        sliding_window_max_size=sliding_window_max_size,
+        quietness_metric=quietness_metric,
+        volatility_threshold=volatility_threshold,
+        high_volatility_percentile=high_volatility_percentile,
+        low_volatility_percentile=low_volatility_percentile,
+        max_threshold_factor=max_threshold_factor
     )
 
     # Start the processing

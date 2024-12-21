@@ -28,25 +28,35 @@ pulse_width_calculator:
   # Multiplier for standard deviation in threshold calculation
   # If too small: More false positives (noise detected as signal)
   # If too large: More false negatives (signal detected as noise)
-  std_dev_multiplier: 2.0
+  std_dev_multiplier: 4
 
   # Minimum threshold as percentage of signal range
   # If too small: More false positives (noise detected as signal)
   # If too large: More false negatives (signal detected as noise)
-  min_threshold_percentage: 0.08
+  min_threshold_percentage: 0.085
 
   # Number of consecutive points required above threshold
   # If too small: Might include noise
   # If too large: Might miss parts of the signal
-  sustained_rise_points: 1
+  sustained_rise_points: 4
 
   # Number of points to look back when checking for gradual rises
   # Higher values detect more gradual rises but may include noise
   # Recommended range: 2-5 points
-  lookback_window_size: 4
+  lookback_window_size: 2
 
-  # Set first dimensions before the rise point or noise_threshold to zero
-  zero_before_threshold: false  # Set to true to zero out the first dimensions before the rise point or noise_threshold
+  # Parameters for adaptive baseline subtraction
+  use_adaptive_baseline_subtraction: true        # Whether to enable the new approach
+  baseline_computation: "median"                 # "median" or "mean"
+  sliding_window_min_size: 5                     # Minimum subwindow length
+  sliding_window_max_size: 20                    # Maximum subwindow length to check
+  quietness_metric: "std"                        # "std", "mean", or "mix" etc.
+
+  # Parameters for volatility handling
+  volatility_threshold: 0.5     # Threshold for high/low volatility classification
+  high_volatility_percentile: 75  # Percentile for threshold in high volatility
+  low_volatility_percentile: 25   # Percentile for threshold in low volatility
+  max_threshold_factor: 0.3      # Maximum threshold as fraction of max value
 
 # Parameters for new_visualizer.py
 new_visualizer:
