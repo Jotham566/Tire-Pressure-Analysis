@@ -19,7 +19,6 @@ class TireSoundProcessor:
                  min_threshold_percentage: float = 0.01,
                  sustained_rise_points: int = 3,
                  lookback_window_size: int = 3,
-                 #zero_before_threshold: bool = False,
                  use_adaptive_baseline_subtraction: bool = True,
                  baseline_computation: str = 'median',
                  sliding_window_min_size: int = 5,
