@@ -45,8 +45,11 @@ pulse_width_calculator:
   # Recommended range: 2-5 points
   lookback_window_size: 2
 
+  # Baseline subtraction options
+  baseline_subtraction_method: "fixed"  # Options: "adaptive", "fixed", "none"
+  fixed_baseline_value: 0.03  # Only used when method is "fixed"
+
   # Parameters for adaptive baseline subtraction
-  use_adaptive_baseline_subtraction: true        # Whether to enable the new approach
   baseline_computation: "median"                 # "median" or "mean"
   sliding_window_min_size: 5                     # Minimum subwindow length
   sliding_window_max_size: 20                    # Maximum subwindow length to check

@@ -29,6 +29,8 @@ class TireSoundProcessor:
                  high_volatility_percentile: int = 75,
                  low_volatility_percentile: int = 25,
                  max_threshold_factor: float = 0.3,
+                 baseline_subtraction_method: str = "adaptive",
+                 fixed_baseline_value: float = 0.01,
                  ):
         
         # Parameters for wavform processing 
@@ -46,6 +48,10 @@ class TireSoundProcessor:
         self.sustained_rise_points = sustained_rise_points
         self.lookback_window_size = lookback_window_size
         #self.zero_before_threshold = zero_before_threshold
+
+        # Baseline parameters
+        self.baseline_subtraction_method = baseline_subtraction_method.lower()
+        self.fixed_baseline_value = fixed_baseline_value
 
         # Parameters for Adaptive Baseline Subtraction
         self.use_adaptive_baseline_subtraction = use_adaptive_baseline_subtraction
@@ -144,6 +150,26 @@ class TireSoundProcessor:
                 best_offset = offset_candidate
 
         return best_offset
+
+    def apply_fixed_baseline_subtraction(self, df_signals: pd.DataFrame) -> pd.DataFrame:
+        """
+        Applies a fixed baseline subtraction to the signal data.
+        
+        Args:
+            df_signals (pd.DataFrame): Input signal data
+            
+        Returns:
+            pd.DataFrame: Signal data with fixed baseline subtracted and negative values clipped to zero
+        """
+        df_modified = df_signals.copy()
+        
+        # Subtract fixed value
+        df_modified = df_modified - self.fixed_baseline_value
+        
+        # Zero-clip negative values
+        df_modified = df_modified.clip(lower=0)
+        
+        return df_modified
 
     def apply_adaptive_baseline_subtraction(self, df_signals: pd.DataFrame) -> pd.DataFrame:
         """
@@ -550,12 +576,19 @@ class TireSoundProcessor:
             # 3) Step1: Normalize (sums to 1)
             step1_normalized = df_signals.div(df_signals.sum(axis=1).replace(0, 1), axis=0)
 
-            # 4) [NEW] If we want adaptive baseline subtraction, do it here
-            if self.use_adaptive_baseline_subtraction:
+            # 4) Apply baseline subtraction based on selected method
+            if self.baseline_subtraction_method == "adaptive":
+                self.logger.info("Applying adaptive baseline subtraction")
                 step1_normalized = self.apply_adaptive_baseline_subtraction(step1_normalized)
+            elif self.baseline_subtraction_method == "fixed":
+                self.logger.info(f"Applying fixed baseline subtraction: {self.fixed_baseline_value}")
+                step1_normalized = self.apply_fixed_baseline_subtraction(step1_normalized)
+            else:  # "none" or any other value
+                self.logger.info("No baseline subtraction applied")
 
-            # Normalize again after baseline subtraction
-            step1_normalized = step1_normalized.div(step1_normalized.sum(axis=1).replace(0, 1), axis=0)
+            # Normalize again after baseline subtraction if any
+            if self.baseline_subtraction_method in ["adaptive", "fixed"]:
+                step1_normalized = step1_normalized.div(step1_normalized.sum(axis=1).replace(0, 1), axis=0)
 
             # 5) Step2: Cumulative Sum
             step2_cumulative = step1_normalized.cumsum(axis=1)
@@ -988,6 +1021,8 @@ if __name__ == "__main__":
         high_volatility_percentile = config['pulse_width_calculator'].get('high_volatility_percentile', 75)
         low_volatility_percentile = config['pulse_width_calculator'].get('low_volatility_percentile', 25)
         max_threshold_factor = config['pulse_width_calculator'].get('max_threshold_factor', 0.3)
+        baseline_subtraction_method = config['pulse_width_calculator'].get('baseline_subtraction_method', 'adaptive')
+        fixed_baseline_value = config['pulse_width_calculator'].get('fixed_baseline_value', 0.01)
 
 
     except FileNotFoundError:
@@ -1009,6 +1044,8 @@ if __name__ == "__main__":
         high_volatility_percentile = 75
         low_volatility_percentile = 25
         max_threshold_factor = 0.3
+        baseline_subtraction_method = 'adaptive'
+        fixed_baseline_value = 0.01
 
     except Exception as e:
         print(f"Error reading configuration file '{config_file}': {e}")
@@ -1038,7 +1075,9 @@ if __name__ == "__main__":
         volatility_threshold=volatility_threshold,
         high_volatility_percentile=high_volatility_percentile,
         low_volatility_percentile=low_volatility_percentile,
-        max_threshold_factor=max_threshold_factor
+        max_threshold_factor=max_threshold_factor,
+        baseline_subtraction_method=baseline_subtraction_method,
+        fixed_baseline_value=fixed_baseline_value
     )
 
     # Start the processing
