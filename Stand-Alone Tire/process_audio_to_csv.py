@@ -28,13 +28,13 @@ logging.basicConfig(
 
 def parse_tire_info(full_segment_filename):
     """
-    Extract tire number, pressure, TireSize, and Ver from the full segment filename.
+    Extract tire number, pressure, TireSize, and Tire_Type from the full segment filename.
 
     Args:
         full_segment_filename (str): The name of the full segment WAV file.
 
     Returns:
-        tuple: (tire_num, pressure, tire_size, ver, wear, rim)
+        tuple: (tire_num, pressure, tire_size, tire_type, wear, rim)
 
     Raises:
         ValueError: If necessary information cannot be extracted.
@@ -48,9 +48,9 @@ def parse_tire_info(full_segment_filename):
     tire_num = parts[0]
     remaining_info = '_'.join(parts[1:])
 
-    # Regular expression to extract TireSize and Ver
+    # Regular expression to extract TireSize and Tire_Type
     # Assuming TireSize is between the first '_' and the first '-' before pressure
-    # Ver is between pressure and '_H.wav'
+    # Tire_Type is between pressure and '_H.wav'
 
     # Extract TireSize
     tire_size_pattern = r'_(.+?)-(' + '|'.join(KNOWN_PRESSURES) + r')-'
@@ -73,13 +73,13 @@ def parse_tire_info(full_segment_filename):
 
     pressure = pressure_found
 
-    # Extract Ver
-    ver_pattern = r'-' + re.escape(pressure) + r'-(.+?)_H$'
-    ver_match = re.search(ver_pattern, base)
-    if ver_match:
-        ver = ver_match.group(1)
+    # Extract Tire_Type
+    tire_type_pattern = r'-' + re.escape(pressure) + r'-(.+?)_H$'
+    tire_type_match = re.search(tire_type_pattern, base)
+    if tire_type_match:
+        tire_type = tire_type_match.group(1)
     else:
-        raise ValueError(f"Could not extract Ver from filename: {full_segment_filename}")
+        raise ValueError(f"Could not extract Tire_Type from filename: {full_segment_filename}")
 
     # Determine Rim
     rim = determine_rim(tire_num)
@@ -87,7 +87,7 @@ def parse_tire_info(full_segment_filename):
     # Determine Wear
     wear = determine_wear(full_segment_filename)
 
-    return tire_num, pressure, tire_size, ver, wear, rim
+    return tire_num, pressure, tire_size, tire_type, wear, rim
 
 def determine_rim(tire_num):
     """
@@ -238,7 +238,7 @@ def process_hit(samples, hit_segment, desired_length=DESIRED_LENGTH):
         hit_normalized = hit_padded / np.sum(hit_padded)
         return hit_normalized
 
-def save_to_csv(tire_num, pressure, tire_size, ver, wear, rim, segments, output_dir):
+def save_to_csv(tire_num, pressure, tire_size, tire_type, wear, rim, segments, output_dir):
     """
     Save the processed segments to a CSV file.
 
@@ -246,7 +246,7 @@ def save_to_csv(tire_num, pressure, tire_size, ver, wear, rim, segments, output_
         tire_num (str): Tire number.
         pressure (str): Tire pressure.
         tire_size (str): Tire size.
-        ver (str): Version.
+        tire_type (str): Tire_Type.
         wear (str): Wear level.
         rim (str): Rim type.
         segments (list of np.ndarray): List of processed hit segments.
@@ -259,7 +259,7 @@ def save_to_csv(tire_num, pressure, tire_size, ver, wear, rim, segments, output_
             "Tire Number": tire_num,
             "Pressure": pressure,
             "TireSize": tire_size,
-            "Ver": ver,
+            "Tire_Type": tire_type,
             "Wear": wear,
             "Rim": rim
         }
@@ -270,11 +270,11 @@ def save_to_csv(tire_num, pressure, tire_size, ver, wear, rim, segments, output_
 
     # Define column order
     signal_columns = [f"Signal Value {i}" for i in range(1, DESIRED_LENGTH + 1)]
-    columns = ["Segment ID / Value index", "Tire Number", "Pressure", "TireSize", "Ver", "Wear", "Rim"] + signal_columns
+    columns = ["Segment ID / Value index", "Tire Number", "Pressure", "TireSize", "Tire_Type", "Wear", "Rim"] + signal_columns
     df = pd.DataFrame(data, columns=columns)
 
     # Define CSV filename
-    filename = f"{tire_num}_{tire_size}-{pressure}-{ver}.csv"
+    filename = f"{tire_num}_{tire_size}-{pressure}-{tire_type}.csv"
     csv_path = os.path.join(output_dir, filename)
     df.to_csv(csv_path, index=False)
 
@@ -295,8 +295,8 @@ def main():
     for full_segment_filename in tqdm(full_segment_files, desc="Processing Full Segments"):
         try:
             # Parse tire information
-            tire_num, pressure, tire_size, ver, wear, rim = parse_tire_info(full_segment_filename)
-            logging.info(f"Processing file: {full_segment_filename} (Tire: {tire_num}, Pressure: {pressure}, TireSize: {tire_size}, Ver: {ver}, Wear: {wear}, Rim: {rim})")
+            tire_num, pressure, tire_size, tire_type, wear, rim = parse_tire_info(full_segment_filename)
+            logging.info(f"Processing file: {full_segment_filename} (Tire: {tire_num}, Pressure: {pressure}, TireSize: {tire_size}, Tire_Type: {tire_type}, Wear: {wear}, Rim: {rim})")
         except ValueError as ve:
             logging.warning(f"Skipping '{full_segment_filename}': {ve}")
             print(f"⚠️ Skipping '{full_segment_filename}': {ve}")
@@ -329,7 +329,7 @@ def main():
 
         # Save to CSV
         try:
-            save_to_csv(tire_num, pressure, tire_size, ver, wear, rim, processed_hits, OUTPUT_FOLDER)
+            save_to_csv(tire_num, pressure, tire_size, tire_type, wear, rim, processed_hits, OUTPUT_FOLDER)
             logging.info(f"Saved processed hits to '{tire_num}_{pressure}.csv'.")
         except Exception as e:
             logging.error(f"Failed to save CSV for '{full_segment_filename}': {e}")

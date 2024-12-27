@@ -18,8 +18,13 @@ pulse_width_calculator:
   # Determines how much of the signal to analyze after the first rise
   selected_dims_after_rise_point: 32
 
-  # Parameters for dynamic noise threshold in standalone processing:
+  # Standalone processing parameters
 
+  # Parameters for signal trimming
+  trim_signal: true  # Whether to trim the signal to N dimensions after rise point
+  trim_dims_after_rise: 32 # Number of dimensions to keep after rise point
+
+  # Parameters for dynamic noise threshold in standalone processing:
   # Number of initial points used to establish baseline noise level
   # If too small: Might not capture enough baseline noise characteristics
   # If too large: Might include part of the actual signal
@@ -28,12 +33,12 @@ pulse_width_calculator:
   # Multiplier for standard deviation in threshold calculation
   # If too small: More false positives (noise detected as signal)
   # If too large: More false negatives (signal detected as noise)
-  std_dev_multiplier: 4
+  std_dev_multiplier: 2
 
   # Minimum threshold as percentage of signal range
   # If too small: More false positives (noise detected as signal)
   # If too large: More false negatives (signal detected as noise)
-  min_threshold_percentage: 0.085
+  min_threshold_percentage: 0.05
 
   # Number of consecutive points required above threshold
   # If too small: Might include noise

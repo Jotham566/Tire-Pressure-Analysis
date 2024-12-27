@@ -30,6 +30,8 @@ class TireSoundProcessor:
                  max_threshold_factor: float = 0.3,
                  baseline_subtraction_method: str = "adaptive",
                  fixed_baseline_value: float = 0.01,
+                 trim_signal: bool = False,
+                 trim_dims_after_rise: int = 32
                  ):
         
         # Parameters for wavform processing 
@@ -64,6 +66,10 @@ class TireSoundProcessor:
         self.high_volatility_percentile = high_volatility_percentile
         self.low_volatility_percentile = low_volatility_percentile
         self.max_threshold_factor = max_threshold_factor
+
+        # Parameters for standalone signal trimming
+        self.trim_signal = trim_signal
+        self.trim_dims_after_rise = trim_dims_after_rise
 
         # Directories for different data types
         self.processed_dir = self.output_dir / 'Processed'
@@ -108,6 +114,85 @@ class TireSoundProcessor:
             return '12W'
         else:
             return 'Unknown'
+
+    def trim_signal_to_rise(self, df_signals: pd.DataFrame) -> pd.DataFrame:
+        """
+        Trims signal data preserving original numbering and handling multiple segments.
+        Finds earliest rise point across all segments and trims accordingly.
+        
+        Args:
+            df_signals (pd.DataFrame): Input signal data
+            
+        Returns:
+            pd.DataFrame: Trimmed signal data with preserved numbering
+        """
+        # Find rise points for all segments
+        rise_points = {}
+        earliest_rise = float('inf')
+        
+        # First pass: find all rise points and the earliest one
+        for idx in df_signals.index:
+            row_values = df_signals.loc[idx].values
+            dynamic_threshold = self.calculate_dynamic_noise_threshold(pd.Series(row_values))
+            rise_indices = np.where(row_values > dynamic_threshold)[0]
+            
+            if len(rise_indices) > 0:
+                rise_point = rise_indices[0]
+                rise_points[idx] = rise_point
+                earliest_rise = min(earliest_rise, rise_point)
+            else:
+                self.logger.warning(f"No rise point found for segment {idx}")
+                rise_points[idx] = None
+        
+        if earliest_rise == float('inf'):
+            self.logger.warning("No valid rise points found in any segment")
+            return df_signals
+        
+        # Calculate trimming boundaries
+        trim_start = max(0, earliest_rise - 2)  # Keep 2 points before earliest rise
+        
+        # Create new DataFrame with preserved numbering
+        df_trimmed = pd.DataFrame(index=df_signals.index)
+        
+        # Calculate the full range of columns needed
+        max_endpoint = 0
+        for idx, rise_point in rise_points.items():
+            if rise_point is not None:
+                endpoint = rise_point + self.trim_dims_after_rise
+                max_endpoint = max(max_endpoint, endpoint)
+        
+        # Create columns with preserved numbering
+        columns = [f'Signal_Value_{i+1}' for i in range(trim_start, max_endpoint)]
+        df_trimmed = df_trimmed.reindex(columns=columns)
+        
+        # Second pass: process each segment
+        for idx in df_signals.index:
+            row_values = df_signals.loc[idx].values
+            rise_point = rise_points[idx]
+            
+            if rise_point is not None:
+                # Create the trimmed values array
+                trimmed_values = np.zeros(len(columns))
+                
+                # Fill in values after this segment's rise point
+                signal_end = min(rise_point + self.trim_dims_after_rise, len(row_values))
+                values_to_keep = row_values[rise_point:signal_end]
+                
+                # Calculate where to place these values in the trimmed array
+                start_idx = rise_point - trim_start
+                end_idx = start_idx + len(values_to_keep)
+                
+                # Place the values
+                trimmed_values[start_idx:end_idx] = values_to_keep
+                df_trimmed.loc[idx] = trimmed_values
+            else:
+                # If no rise point found, fill with zeros
+                df_trimmed.loc[idx] = np.zeros(len(columns))
+        
+        self.logger.info(f"Trimmed signals from {trim_start+1} to {max_endpoint}")
+        self.logger.info(f"Earliest rise point: {earliest_rise+1}")
+        
+        return df_trimmed
 
     def find_adaptive_baseline_offset(self, row_values: np.ndarray) -> float:
         """
@@ -563,7 +648,7 @@ class TireSoundProcessor:
         try:
             # 1) Read CSV and extract metadata
             df = pd.read_csv(file_path)
-            metadata_columns = ['Tire Number', 'Pressure', 'TireSize', 'Ver', 'Wear', 'Rim']
+            metadata_columns = ['Tire Number', 'Pressure', 'TireSize', 'Tire_Type', 'Wear', 'Rim']
             metadata = {col: df[col].iloc[0] for col in metadata_columns}
             
             # 2) Isolate signal data
@@ -571,6 +656,11 @@ class TireSoundProcessor:
             df_signals = signal_data.copy()
             df_signals.index = df['Segment ID / Value index']
             df_signals = df_signals.apply(pd.to_numeric, errors='coerce').fillna(0)
+
+            # Apply signal trimming if enabled
+            if self.trim_signal:
+                self.logger.info(f"Trimming signals to {self.trim_dims_after_rise} dims after rise point")
+                df_signals = self.trim_signal_to_rise(df_signals)
 
             # 3) Step1: Normalize (sums to 1)
             step1_normalized = df_signals.div(df_signals.sum(axis=1).replace(0, 1), axis=0)
@@ -597,7 +687,7 @@ class TireSoundProcessor:
             step2_cumulative.index.name = 'Segment_ID'
 
             # 6) Build output file
-            new_filename = f"{metadata['Tire Number']}_{metadata['TireSize']}-{metadata['Pressure']}-{metadata['Ver']}"
+            new_filename = f"{metadata['Tire Number']}_{metadata['TireSize']}-{metadata['Pressure']}-{metadata['Tire_Type']}"
             output_xlsx_path = (self.processed_standalone_dir / new_filename).with_suffix('.xlsx')
             output_xlsx_path.parent.mkdir(parents=True, exist_ok=True)
 
@@ -654,7 +744,7 @@ class TireSoundProcessor:
             'Tire_Number': metadata['Tire Number'],
             'Pressure': metadata['Pressure'],
             'TireSize': metadata['TireSize'],
-            'Ver': metadata['Ver'],
+            'Tire_Type': metadata['Tire_Type'],
             'Wear': metadata['Wear'],
             'Rim': metadata['Rim']
         }, index=df_cumulative.index)
@@ -705,7 +795,7 @@ class TireSoundProcessor:
                     self.logger.info(f"Columns: {df_step3.columns.tolist()}")
 
                     # Ensure required columns exist
-                    required_columns = ['Pulse_Width', 'Tire_Number', 'Pressure', 'TireSize', 'Ver', 'Wear', 'Rim']
+                    required_columns = ['Pulse_Width', 'Tire_Number', 'Pressure', 'TireSize', 'Tire_Type', 'Wear', 'Rim']
                     missing_columns = [col for col in required_columns if col not in df_step3.columns]
                     
                     if missing_columns:
@@ -738,7 +828,7 @@ class TireSoundProcessor:
                             'Tire_Number': str(df_step3['Tire_Number'].iloc[0]),
                             'Pressure': float(df_step3['Pressure'].iloc[0]),
                             'TireSize': str(df_step3['TireSize'].iloc[0]),
-                            'Ver': str(df_step3['Ver'].iloc[0]),
+                            'Tire_Type': str(df_step3['Tire_Type'].iloc[0]),
                             'Wear': str(df_step3['Wear'].iloc[0]),
                             'Rim': str(df_step3['Rim'].iloc[0])
                         }
@@ -771,7 +861,7 @@ class TireSoundProcessor:
             self.logger.warning("No valid median pulse widths were calculated!")
             # Return empty DataFrame with expected columns
             return pd.DataFrame(columns=['File_Name', 'Intensity_Threshold', 'Median_Pulse_Width',
-                                    'Tire_Number', 'Pressure', 'TireSize', 'Ver', 'Wear', 'Rim'])
+                                    'Tire_Number', 'Pressure', 'TireSize', 'Tire_Type', 'Wear', 'Rim'])
         
         # Create DataFrame and verify
         df_result = pd.DataFrame(median_pulse_widths)
@@ -1022,6 +1112,8 @@ if __name__ == "__main__":
         max_threshold_factor = config['pulse_width_calculator'].get('max_threshold_factor', 0.3)
         baseline_subtraction_method = config['pulse_width_calculator'].get('baseline_subtraction_method', 'adaptive')
         fixed_baseline_value = config['pulse_width_calculator'].get('fixed_baseline_value', 0.01)
+        trim_signal = config['pulse_width_calculator'].get('trim_signal', False)
+        trim_dims_after_rise = config['pulse_width_calculator'].get('trim_dims_after_rise', 32)
 
 
     except FileNotFoundError:
@@ -1045,6 +1137,8 @@ if __name__ == "__main__":
         max_threshold_factor = 0.3
         baseline_subtraction_method = 'adaptive'
         fixed_baseline_value = 0.01
+        trim_signal = False
+        trim_dims_after_rise = 32
 
     except Exception as e:
         print(f"Error reading configuration file '{config_file}': {e}")
@@ -1076,7 +1170,9 @@ if __name__ == "__main__":
         low_volatility_percentile=low_volatility_percentile,
         max_threshold_factor=max_threshold_factor,
         baseline_subtraction_method=baseline_subtraction_method,
-        fixed_baseline_value=fixed_baseline_value
+        fixed_baseline_value=fixed_baseline_value,
+        trim_signal=trim_signal,
+        trim_dims_after_rise=trim_dims_after_rise
     )
 
     # Start the processing

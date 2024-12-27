@@ -853,7 +853,7 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
                     'TireSize': df_metadata['TireSize'].iloc[0],
                     'Pressure': df_metadata['Pressure'].iloc[0],
                     'Tire_Number': df_metadata['Tire_Number'].iloc[0],
-                    'Ver': df_metadata['Ver'].iloc[0],
+                    'Tire_Type': df_metadata['Tire_Type'].iloc[0],
                     'Wear': df_metadata['Wear'].iloc[0],
                     'Rim': df_metadata['Rim'].iloc[0]
                 }
