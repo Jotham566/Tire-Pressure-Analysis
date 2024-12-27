@@ -47,12 +47,11 @@ pulse_width_calculator:
 
   # Number of points to look back when checking for gradual rises
   # Higher values detect more gradual rises but may include noise
-  # Recommended range: 2-5 points
   lookback_window_size: 2
 
   # Baseline subtraction options
   baseline_subtraction_method: "fixed"  # Options: "adaptive", "fixed", "none"
-  fixed_baseline_value: 0.03  # Only used when method is "fixed"
+  fixed_baseline_value: 0.01  # Only used when method is "fixed"
 
   # Parameters for adaptive baseline subtraction
   baseline_computation: "median"                 # "median" or "mean"

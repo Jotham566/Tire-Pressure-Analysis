@@ -78,6 +78,8 @@ def parse_tire_info(full_segment_filename):
     tire_type_match = re.search(tire_type_pattern, base)
     if tire_type_match:
         tire_type = tire_type_match.group(1)
+        # Remove extra characters for specific tire types
+        tire_type = re.sub(r'バフ\d+$', '', tire_type)
     else:
         raise ValueError(f"Could not extract Tire_Type from filename: {full_segment_filename}")
 

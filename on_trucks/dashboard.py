@@ -637,13 +637,14 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
 
     # Create filtering section with columns
     st.markdown("### Data Filtering")
-    filter_col1, filter_col2, filter_col3 = st.columns(3)
+    filter_col1, filter_col2, filter_col3, filter_col4 = st.columns(4)
 
     # Primary grouping selection
     group_options = {
         'Tire Size': 'TireSize',
         'Wear': 'Wear',
-        'Rim': 'Rim'
+        'Rim': 'Rim',
+        'Tire Type': 'Tire_Type'
     }
     
     with filter_col1:
@@ -660,6 +661,7 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
     tire_size_filter = None
     wear_filter = None
     rim_filter = None
+    tire_type_filter = None
         
     with filter_col2:
         if selected_group != 'Tire Size':
@@ -674,6 +676,11 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
         if selected_group != 'Rim':
             rim_types = sorted(df['Rim'].unique())
             rim_filter = st.selectbox('Filter by Rim:', ['All'] + rim_types)
+            
+    with filter_col4:
+        if selected_group != 'Tire Type':
+            tire_types = sorted(df['Tire_Type'].unique())
+            tire_type_filter = st.selectbox('Filter by Tire Type:', ['All'] + tire_types)
 
     # Apply all filters
     df_filtered = df.copy()
@@ -686,6 +693,9 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
         
     if rim_filter and rim_filter != 'All':
         df_filtered = df_filtered[df_filtered['Rim'] == rim_filter]
+        
+    if tire_type_filter and tire_type_filter != 'All':
+        df_filtered = df_filtered[df_filtered['Tire_Type'] == tire_type_filter]
 
     # Get the column name for grouping
     group_column = group_options[selected_group]
@@ -705,6 +715,8 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
         active_filters.append(f"Wear: {wear_filter}")
     if rim_filter and rim_filter != 'All':
         active_filters.append(f"Rim: {rim_filter}")
+    if tire_type_filter and tire_type_filter != 'All':
+        active_filters.append(f"Tire Type: {tire_type_filter}")
 
     # Calculate global y-axis range
     y_min = df_filtered['Median_Pulse_Width'].min()
@@ -752,10 +764,11 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
             hover_text = [
                 f'{selected_group}: {value}<br>'
                 f'Tire Number: {tire_num}<br>'
+                f'Tire Type: {tire_type}<br>'
                 f'Air Pressure: {pressure}<br>'
                 f'Median Pulse Width: {pulse_width:.1f}'
-                for tire_num, pressure, pulse_width in 
-                zip(df_group['Tire_Number'], df_group['Pressure'], df_group['Median_Pulse_Width'])
+                for tire_num, tire_type, pressure, pulse_width in 
+                zip(df_group['Tire_Number'], df_group['Tire_Type'], df_group['Pressure'], df_group['Median_Pulse_Width'])
             ]
                 
             # Add scatter plot
@@ -767,7 +780,7 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
                 marker=dict(
                     color=color_map[value],
                     size=8,
-                    opacity=0.7
+                    opacity=0.9
                 ),
                 showlegend=(i == 1),
                 legendgroup=str(value),
@@ -792,7 +805,7 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
                     mode='lines+text',
                     name=f'Trend: {value}',
                     text=[''] * len(X) + [''] + [f'R² = {results.rsquared:.3f}'],
-                    textposition='top right',
+                    textposition='bottom right',
                     textfont=dict(color=color_map[value]),
                     line=dict(
                         color=color_map[value],
@@ -804,6 +817,38 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
                     hovertemplate='R² = ' + f'{results.rsquared:.3f}<extra></extra>'
                 )
                 fig.add_trace(trend_trace, row=1, col=i)
+                
+                # Calculate and add point P (700 kPa)
+                if min(X) <= 700 <= max(X):
+                    # Create prediction point ensuring correct shape
+                    X_700 = np.array([700]).reshape(-1, 1)
+                    X_700_const = sm.add_constant(X_700, has_constant='add')
+                    Y_700 = results.predict(X_700_const)
+                    
+                    # Add point P marker with diamond shape and larger size
+                    point_p = go.Scatter(
+                        x=[700],
+                        y=[Y_700[0]],
+                        mode='markers+text',
+                        marker=dict(
+                            symbol='diamond',
+                            size=10,
+                            color=color_map[value],
+                            line=dict(color='red', width=2),
+                            opacity=0.5 
+                        ),
+                        text=['P'],
+                        textposition='bottom left',
+                        textfont=dict(
+                            color=color_map[value],
+                            size=10,
+                            family='Arial'
+                        ),
+                        showlegend=False,
+                        legendgroup=str(value),  # Link to the same legend group as trend line
+                        hovertemplate=f'Point P<br>Pressure: 700 kPa<br>Pulse Width: %{{y:.1f}}<extra></extra>'
+                    )
+                    fig.add_trace(point_p, row=1, col=i)
 
         fig.update_xaxes(title_text='Air Pressure', row=1, col=i)
         fig.update_yaxes(title_text='Median Pulse Width', range=[y_min, y_max], row=1, col=i)
@@ -818,7 +863,7 @@ def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_
         title=title_text,
         template='plotly_white',
         height=600,
-        margin=dict(r=80, t=100),
+        margin=dict(r=80, t=100), 
         showlegend=True,
         legend=dict(
             yanchor="top",
