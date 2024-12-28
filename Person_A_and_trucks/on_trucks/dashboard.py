@@ -14,10 +14,10 @@ import statsmodels.api as sm
 import plotly.express as px
 
 # Import custom modules from new_visualizer.py
-import new_visualizer
+#import new_visualizer
 
 # Ensuring new_visualizer.py is in the same directory
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+#sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 
 @st.cache_data # Caching the data to avoid re-running the function on every page refresh
 def load_config():
@@ -48,7 +48,7 @@ def load_config():
 
 def main():
     st.set_page_config(
-        page_title="Tire Sound Data Dashboard",
+        page_title="Tire Sound Data Dashboard (Person A)",
         page_icon="🚗",
         layout="wide",
         initial_sidebar_state="expanded"
@@ -69,7 +69,7 @@ def main():
     """, unsafe_allow_html=True)
 
     st.markdown('<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">', unsafe_allow_html=True)
-    st.markdown("<h1 style='text-align: center; color: #1f77b4;'><i class='fas fa-tachometer-alt'></i> Tire Sound Data Dashboard</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='text-align: center; color: #1f77b4;'><i class='fas fa-tachometer-alt'></i> Tire Sound Data Dashboard (Person A: Tread - Strong)</h1>", unsafe_allow_html=True)
     st.markdown("<hr>", unsafe_allow_html=True)
 
     st.sidebar.title("Navigation")

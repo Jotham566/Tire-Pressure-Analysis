@@ -5,9 +5,9 @@ from pydub import AudioSegment
 from tqdm import tqdm
 
 # 📁 Constants and Configuration
-INPUT_FOLDER = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/downsampled_2k"
-METADATA_FILE = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Wavefile Data/metadata_uncleaned_wav.csv"
-FULL_SEGMENTS_OUTPUT_FOLDER = "Full_5_Strong_Tread_Hits_Segments"
+INPUT_FOLDER = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Stand Alone Waveform Data/downsampled_2k"
+METADATA_FILE = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Stand Alone Waveform Data/Person_B_Tread_Strong_TimeStamps_Metadata.csv"
+FULL_SEGMENTS_OUTPUT_FOLDER = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Stand Alone Waveform Data/Person_B_Strong_Tread_5_Hits_WAV"
 os.makedirs(FULL_SEGMENTS_OUTPUT_FOLDER, exist_ok=True)
 
 # 🔧 Helper Functions

@@ -1,233 +1,233 @@
-2024-12-27 13:18:51,358 - INFO - Processing file: 15_225-80R17.5-700-710R_H.wav (Tire: 15, Pressure: 700, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,358 - INFO - Loaded audio file '15_225-80R17.5-700-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,360 - INFO - Detected 5 hits in '15_225-80R17.5-700-710R_H.wav'.
-2024-12-27 13:18:51,367 - INFO - Saved processed hits to '15_700.csv'.
-2024-12-27 13:18:51,367 - INFO - Processing file: 52_455-55R22.5-600-716R_H.wav (Tire: 52, Pressure: 600, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,368 - INFO - Loaded audio file '52_455-55R22.5-600-716R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,368 - INFO - Detected 5 hits in '52_455-55R22.5-600-716R_H.wav'.
-2024-12-27 13:18:51,371 - INFO - Saved processed hits to '52_600.csv'.
-2024-12-27 13:18:51,371 - INFO - Processing file: 20_455-55R22.5-600-716U_H.wav (Tire: 20, Pressure: 600, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,371 - INFO - Loaded audio file '20_455-55R22.5-600-716U_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,372 - INFO - Detected 5 hits in '20_455-55R22.5-600-716U_H.wav'.
-2024-12-27 13:18:51,375 - INFO - Saved processed hits to '20_600.csv'.
-2024-12-27 13:18:51,375 - INFO - Processing file: 11_225-80R17.5-800-710R_H.wav (Tire: 11, Pressure: 800, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,375 - INFO - Loaded audio file '11_225-80R17.5-800-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,375 - INFO - Detected 5 hits in '11_225-80R17.5-800-710R_H.wav'.
-2024-12-27 13:18:51,378 - INFO - Saved processed hits to '11_800.csv'.
-2024-12-27 13:18:51,378 - INFO - Processing file: 45_225-80R17.5-700-710R_H.wav (Tire: 45, Pressure: 700, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,378 - INFO - Loaded audio file '45_225-80R17.5-700-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,379 - INFO - Detected 5 hits in '45_225-80R17.5-700-710R_H.wav'.
-2024-12-27 13:18:51,382 - INFO - Saved processed hits to '45_700.csv'.
-2024-12-27 13:18:51,382 - INFO - Processing file: 36_11R22.5-700-MY377_H.wav (Tire: 36, Pressure: 700, TireSize: 11R22.5, Tire_Type: MY377, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,382 - INFO - Loaded audio file '36_11R22.5-700-MY377_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,382 - INFO - Detected 5 hits in '36_11R22.5-700-MY377_H.wav'.
-2024-12-27 13:18:51,386 - INFO - Saved processed hits to '36_700.csv'.
-2024-12-27 13:18:51,386 - INFO - Processing file: 19_225-80R17.5-600-710R_H.wav (Tire: 19, Pressure: 600, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,387 - INFO - Loaded audio file '19_225-80R17.5-600-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,387 - INFO - Detected 5 hits in '19_225-80R17.5-600-710R_H.wav'.
-2024-12-27 13:18:51,390 - INFO - Saved processed hits to '19_600.csv'.
-2024-12-27 13:18:51,390 - INFO - Processing file: 27_11R22.5-900-903ZW_H.wav (Tire: 27, Pressure: 900, TireSize: 11R22.5, Tire_Type: 903ZW, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,391 - INFO - Loaded audio file '27_11R22.5-900-903ZW_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,391 - INFO - Detected 5 hits in '27_11R22.5-900-903ZW_H.wav'.
-2024-12-27 13:18:51,394 - INFO - Saved processed hits to '27_900.csv'.
-2024-12-27 13:18:51,394 - INFO - Processing file: 07_225-80R17.5-850-710R_H.wav (Tire: 07, Pressure: 850, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,394 - INFO - Loaded audio file '07_225-80R17.5-850-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,394 - INFO - Detected 5 hits in '07_225-80R17.5-850-710R_H.wav'.
-2024-12-27 13:18:51,397 - INFO - Saved processed hits to '07_850.csv'.
-2024-12-27 13:18:51,397 - INFO - Processing file: 47_225-80R17.5-500-710R_H.wav (Tire: 47, Pressure: 500, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,397 - INFO - Loaded audio file '47_225-80R17.5-500-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,398 - INFO - Detected 5 hits in '47_225-80R17.5-500-710R_H.wav'.
-2024-12-27 13:18:51,401 - INFO - Saved processed hits to '47_500.csv'.
-2024-12-27 13:18:51,401 - INFO - Processing file: 62_11R22.5-600-710Rバフ100_H.wav (Tire: 62, Pressure: 600, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
-2024-12-27 13:18:51,401 - INFO - Loaded audio file '62_11R22.5-600-710Rバフ100_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,401 - INFO - Detected 5 hits in '62_11R22.5-600-710Rバフ100_H.wav'.
-2024-12-27 13:18:51,404 - INFO - Saved processed hits to '62_600.csv'.
-2024-12-27 13:18:51,404 - INFO - Processing file: 02_245-70R19.5-900-710R_H.wav (Tire: 02, Pressure: 900, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,404 - INFO - Loaded audio file '02_245-70R19.5-900-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,405 - INFO - Detected 5 hits in '02_245-70R19.5-900-710R_H.wav'.
-2024-12-27 13:18:51,407 - INFO - Saved processed hits to '02_900.csv'.
-2024-12-27 13:18:51,407 - INFO - Processing file: 34_11R22.5-700-101LZ_H.wav (Tire: 34, Pressure: 700, TireSize: 11R22.5, Tire_Type: 101LZ, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,408 - INFO - Loaded audio file '34_11R22.5-700-101LZ_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,408 - INFO - Detected 5 hits in '34_11R22.5-700-101LZ_H.wav'.
-2024-12-27 13:18:51,411 - INFO - Saved processed hits to '34_700.csv'.
-2024-12-27 13:18:51,411 - INFO - Processing file: 31_11R22.5-800-903ZW_H.wav (Tire: 31, Pressure: 800, TireSize: 11R22.5, Tire_Type: 903ZW, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,411 - INFO - Loaded audio file '31_11R22.5-800-903ZW_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,411 - INFO - Detected 5 hits in '31_11R22.5-800-903ZW_H.wav'.
-2024-12-27 13:18:51,414 - INFO - Saved processed hits to '31_800.csv'.
-2024-12-27 13:18:51,414 - INFO - Processing file: 23_225-80R17.5-500-710R_H.wav (Tire: 23, Pressure: 500, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,414 - INFO - Loaded audio file '23_225-80R17.5-500-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,415 - INFO - Detected 5 hits in '23_225-80R17.5-500-710R_H.wav'.
-2024-12-27 13:18:51,418 - INFO - Saved processed hits to '23_500.csv'.
-2024-12-27 13:18:51,418 - INFO - Processing file: 59_11R22.5-900-710Rバフ100_H.wav (Tire: 59, Pressure: 900, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
-2024-12-27 13:18:51,418 - INFO - Loaded audio file '59_11R22.5-900-710Rバフ100_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,419 - INFO - Detected 5 hits in '59_11R22.5-900-710Rバフ100_H.wav'.
-2024-12-27 13:18:51,422 - INFO - Saved processed hits to '59_900.csv'.
-2024-12-27 13:18:51,422 - INFO - Processing file: 24_455-55R22.5-500-716U_H.wav (Tire: 24, Pressure: 500, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,422 - INFO - Loaded audio file '24_455-55R22.5-500-716U_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,422 - INFO - Detected 5 hits in '24_455-55R22.5-500-716U_H.wav'.
-2024-12-27 13:18:51,425 - INFO - Saved processed hits to '24_500.csv'.
-2024-12-27 13:18:51,425 - INFO - Processing file: 39_11R22.5-600-903ZW_H.wav (Tire: 39, Pressure: 600, TireSize: 11R22.5, Tire_Type: 903ZW, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,426 - INFO - Loaded audio file '39_11R22.5-600-903ZW_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,426 - INFO - Detected 5 hits in '39_11R22.5-600-903ZW_H.wav'.
-2024-12-27 13:18:51,429 - INFO - Saved processed hits to '39_600.csv'.
-2024-12-27 13:18:51,429 - INFO - Processing file: 50_455-55R22.5-800-716R_H.wav (Tire: 50, Pressure: 800, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,429 - INFO - Loaded audio file '50_455-55R22.5-800-716R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,429 - INFO - Detected 5 hits in '50_455-55R22.5-800-716R_H.wav'.
-2024-12-27 13:18:51,433 - INFO - Saved processed hits to '50_800.csv'.
-2024-12-27 13:18:51,433 - INFO - Processing file: 21_11R22.5-500-710R_H.wav (Tire: 21, Pressure: 500, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,433 - INFO - Loaded audio file '21_11R22.5-500-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,433 - INFO - Detected 5 hits in '21_11R22.5-500-710R_H.wav'.
-2024-12-27 13:18:51,436 - INFO - Saved processed hits to '21_500.csv'.
-2024-12-27 13:18:51,436 - INFO - Processing file: 51_455-55R22.5-700-716R_H.wav (Tire: 51, Pressure: 700, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,437 - INFO - Loaded audio file '51_455-55R22.5-700-716R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,437 - INFO - Detected 5 hits in '51_455-55R22.5-700-716R_H.wav'.
-2024-12-27 13:18:51,440 - INFO - Saved processed hits to '51_700.csv'.
-2024-12-27 13:18:51,440 - INFO - Processing file: 09_11R22.5-800-710R_H.wav (Tire: 09, Pressure: 800, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,440 - INFO - Loaded audio file '09_11R22.5-800-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,441 - INFO - Detected 5 hits in '09_11R22.5-800-710R_H.wav'.
-2024-12-27 13:18:51,443 - INFO - Saved processed hits to '09_800.csv'.
-2024-12-27 13:18:51,443 - INFO - Processing file: 12_455-55R22.5-800-716U_H.wav (Tire: 12, Pressure: 800, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,444 - INFO - Loaded audio file '12_455-55R22.5-800-716U_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,444 - INFO - Detected 5 hits in '12_455-55R22.5-800-716U_H.wav'.
-2024-12-27 13:18:51,448 - INFO - Saved processed hits to '12_800.csv'.
-2024-12-27 13:18:51,448 - INFO - Processing file: 16_455-55R22.5-700-716U_H.wav (Tire: 16, Pressure: 700, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,448 - INFO - Loaded audio file '16_455-55R22.5-700-716U_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,449 - INFO - Detected 5 hits in '16_455-55R22.5-700-716U_H.wav'.
-2024-12-27 13:18:51,452 - INFO - Saved processed hits to '16_700.csv'.
-2024-12-27 13:18:51,452 - INFO - Processing file: 48_455-55R22.5-900-716R_H.wav (Tire: 48, Pressure: 900, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,452 - INFO - Loaded audio file '48_455-55R22.5-900-716R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,452 - INFO - Detected 5 hits in '48_455-55R22.5-900-716R_H.wav'.
-2024-12-27 13:18:51,455 - INFO - Saved processed hits to '48_900.csv'.
-2024-12-27 13:18:51,455 - INFO - Processing file: 46_225-80R17.5-600-710R_H.wav (Tire: 46, Pressure: 600, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,455 - INFO - Loaded audio file '46_225-80R17.5-600-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,456 - INFO - Detected 5 hits in '46_225-80R17.5-600-710R_H.wav'.
-2024-12-27 13:18:51,458 - INFO - Saved processed hits to '46_600.csv'.
-2024-12-27 13:18:51,459 - INFO - Processing file: 26_11R22.5-900-101LZ_H.wav (Tire: 26, Pressure: 900, TireSize: 11R22.5, Tire_Type: 101LZ, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,459 - INFO - Loaded audio file '26_11R22.5-900-101LZ_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,459 - INFO - Detected 5 hits in '26_11R22.5-900-101LZ_H.wav'.
-2024-12-27 13:18:51,462 - INFO - Saved processed hits to '26_900.csv'.
-2024-12-27 13:18:51,462 - INFO - Processing file: 42_225-80R17.5-900-710R_H.wav (Tire: 42, Pressure: 900, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,462 - INFO - Loaded audio file '42_225-80R17.5-900-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,462 - INFO - Detected 5 hits in '42_225-80R17.5-900-710R_H.wav'.
-2024-12-27 13:18:51,465 - INFO - Saved processed hits to '42_900.csv'.
-2024-12-27 13:18:51,465 - INFO - Processing file: 13_11R22.5-700-710R_H.wav (Tire: 13, Pressure: 700, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,466 - INFO - Loaded audio file '13_11R22.5-700-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,466 - INFO - Detected 5 hits in '13_11R22.5-700-710R_H.wav'.
-2024-12-27 13:18:51,469 - INFO - Saved processed hits to '13_700.csv'.
-2024-12-27 13:18:51,469 - INFO - Processing file: 57_11R22.5-600-710Rバフ50_H.wav (Tire: 57, Pressure: 600, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
-2024-12-27 13:18:51,469 - INFO - Loaded audio file '57_11R22.5-600-710Rバフ50_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,469 - INFO - Detected 5 hits in '57_11R22.5-600-710Rバフ50_H.wav'.
-2024-12-27 13:18:51,472 - INFO - Saved processed hits to '57_600.csv'.
-2024-12-27 13:18:51,472 - INFO - Processing file: 04_455-55R22.5-900-716U_H.wav (Tire: 04, Pressure: 900, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,472 - INFO - Loaded audio file '04_455-55R22.5-900-716U_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,472 - INFO - Detected 5 hits in '04_455-55R22.5-900-716U_H.wav'.
-2024-12-27 13:18:51,475 - INFO - Saved processed hits to '04_900.csv'.
-2024-12-27 13:18:51,475 - INFO - Processing file: 55_11R22.5-800-710Rバフ50_H.wav (Tire: 55, Pressure: 800, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
-2024-12-27 13:18:51,476 - INFO - Loaded audio file '55_11R22.5-800-710Rバフ50_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,476 - INFO - Detected 5 hits in '55_11R22.5-800-710Rバフ50_H.wav'.
-2024-12-27 13:18:51,479 - INFO - Saved processed hits to '55_800.csv'.
-2024-12-27 13:18:51,479 - INFO - Processing file: 32_11R22.5-800-MY377_H.wav (Tire: 32, Pressure: 800, TireSize: 11R22.5, Tire_Type: MY377, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,479 - INFO - Loaded audio file '32_11R22.5-800-MY377_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,479 - INFO - Detected 5 hits in '32_11R22.5-800-MY377_H.wav'.
-2024-12-27 13:18:51,482 - INFO - Saved processed hits to '32_800.csv'.
-2024-12-27 13:18:51,483 - INFO - Processing file: 53_455-55R22.5-500-716R_H.wav (Tire: 53, Pressure: 500, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,483 - INFO - Loaded audio file '53_455-55R22.5-500-716R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,483 - INFO - Detected 5 hits in '53_455-55R22.5-500-716R_H.wav'.
-2024-12-27 13:18:51,486 - INFO - Saved processed hits to '53_500.csv'.
-2024-12-27 13:18:51,486 - INFO - Processing file: 17_11R22.5-600-710R_H.wav (Tire: 17, Pressure: 600, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,486 - INFO - Loaded audio file '17_11R22.5-600-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,486 - INFO - Detected 5 hits in '17_11R22.5-600-710R_H.wav'.
-2024-12-27 13:18:51,489 - INFO - Saved processed hits to '17_600.csv'.
-2024-12-27 13:18:51,489 - INFO - Processing file: 40_11R22.5-600-MY377_H.wav (Tire: 40, Pressure: 600, TireSize: 11R22.5, Tire_Type: MY377, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,490 - INFO - Loaded audio file '40_11R22.5-600-MY377_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,490 - INFO - Detected 5 hits in '40_11R22.5-600-MY377_H.wav'.
-2024-12-27 13:18:51,493 - INFO - Saved processed hits to '40_600.csv'.
-2024-12-27 13:18:51,493 - INFO - Processing file: 22_245-70R19.5-500-710R_H.wav (Tire: 22, Pressure: 500, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,493 - INFO - Loaded audio file '22_245-70R19.5-500-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,493 - INFO - Detected 5 hits in '22_245-70R19.5-500-710R_H.wav'.
-2024-12-27 13:18:51,496 - INFO - Saved processed hits to '22_500.csv'.
-2024-12-27 13:18:51,496 - INFO - Processing file: 28_11R22.5-900-MY377_H.wav (Tire: 28, Pressure: 900, TireSize: 11R22.5, Tire_Type: MY377, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,497 - INFO - Loaded audio file '28_11R22.5-900-MY377_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,497 - INFO - Detected 5 hits in '28_11R22.5-900-MY377_H.wav'.
-2024-12-27 13:18:51,499 - INFO - Saved processed hits to '28_900.csv'.
-2024-12-27 13:18:51,500 - INFO - Processing file: 08_455-55R22.5-850-716U_H.wav (Tire: 08, Pressure: 850, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,500 - INFO - Loaded audio file '08_455-55R22.5-850-716U_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,500 - INFO - Detected 5 hits in '08_455-55R22.5-850-716U_H.wav'.
-2024-12-27 13:18:51,503 - INFO - Saved processed hits to '08_850.csv'.
-2024-12-27 13:18:51,503 - INFO - Processing file: 03_225-80R17.5-900-710R_H.wav (Tire: 03, Pressure: 900, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,503 - INFO - Loaded audio file '03_225-80R17.5-900-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,503 - INFO - Detected 5 hits in '03_225-80R17.5-900-710R_H.wav'.
-2024-12-27 13:18:51,506 - INFO - Saved processed hits to '03_900.csv'.
-2024-12-27 13:18:51,506 - INFO - Processing file: 06_245-70R19.5-850-710R_H.wav (Tire: 06, Pressure: 850, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,506 - INFO - Loaded audio file '06_245-70R19.5-850-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,506 - INFO - Detected 5 hits in '06_245-70R19.5-850-710R_H.wav'.
-2024-12-27 13:18:51,509 - INFO - Saved processed hits to '06_850.csv'.
-2024-12-27 13:18:51,509 - INFO - Processing file: 56_11R22.5-700-710Rバフ50_H.wav (Tire: 56, Pressure: 700, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
-2024-12-27 13:18:51,509 - INFO - Loaded audio file '56_11R22.5-700-710Rバフ50_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,510 - INFO - Detected 5 hits in '56_11R22.5-700-710Rバフ50_H.wav'.
-2024-12-27 13:18:51,512 - INFO - Saved processed hits to '56_700.csv'.
-2024-12-27 13:18:51,512 - INFO - Processing file: 38_11R22.5-600-101LZ_H.wav (Tire: 38, Pressure: 600, TireSize: 11R22.5, Tire_Type: 101LZ, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,513 - INFO - Loaded audio file '38_11R22.5-600-101LZ_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,513 - INFO - Detected 5 hits in '38_11R22.5-600-101LZ_H.wav'.
-2024-12-27 13:18:51,516 - INFO - Saved processed hits to '38_600.csv'.
-2024-12-27 13:18:51,516 - INFO - Processing file: 18_245-70R19.5-600-710R_H.wav (Tire: 18, Pressure: 600, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,516 - INFO - Loaded audio file '18_245-70R19.5-600-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,516 - INFO - Detected 5 hits in '18_245-70R19.5-600-710R_H.wav'.
-2024-12-27 13:18:51,519 - INFO - Saved processed hits to '18_600.csv'.
-2024-12-27 13:18:51,519 - INFO - Processing file: 54_11R22.5-900-710Rバフ50_H.wav (Tire: 54, Pressure: 900, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
-2024-12-27 13:18:51,519 - INFO - Loaded audio file '54_11R22.5-900-710Rバフ50_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,520 - INFO - Detected 5 hits in '54_11R22.5-900-710Rバフ50_H.wav'.
-2024-12-27 13:18:51,523 - INFO - Saved processed hits to '54_900.csv'.
-2024-12-27 13:18:51,523 - INFO - Processing file: 05_11R22.5-850-710R_H.wav (Tire: 05, Pressure: 850, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,523 - INFO - Loaded audio file '05_11R22.5-850-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,523 - INFO - Detected 5 hits in '05_11R22.5-850-710R_H.wav'.
-2024-12-27 13:18:51,526 - INFO - Saved processed hits to '05_850.csv'.
-2024-12-27 13:18:51,526 - INFO - Processing file: 60_11R22.5-800-710Rバフ100_H.wav (Tire: 60, Pressure: 800, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
-2024-12-27 13:18:51,526 - INFO - Loaded audio file '60_11R22.5-800-710Rバフ100_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,526 - INFO - Detected 5 hits in '60_11R22.5-800-710Rバフ100_H.wav'.
-2024-12-27 13:18:51,529 - INFO - Saved processed hits to '60_800.csv'.
-2024-12-27 13:18:51,529 - INFO - Processing file: 01_11R22.5-900-710R_H.wav (Tire: 01, Pressure: 900, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,529 - INFO - Loaded audio file '01_11R22.5-900-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,530 - INFO - Detected 5 hits in '01_11R22.5-900-710R_H.wav'.
-2024-12-27 13:18:51,532 - INFO - Saved processed hits to '01_900.csv'.
-2024-12-27 13:18:51,533 - INFO - Processing file: 61_11R22.5-700-710Rバフ100_H.wav (Tire: 61, Pressure: 700, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
-2024-12-27 13:18:51,533 - INFO - Loaded audio file '61_11R22.5-700-710Rバフ100_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,533 - INFO - Detected 5 hits in '61_11R22.5-700-710Rバフ100_H.wav'.
-2024-12-27 13:18:51,536 - INFO - Saved processed hits to '61_700.csv'.
-2024-12-27 13:18:51,536 - INFO - Processing file: 43_225-80R17.5-850-710R_H.wav (Tire: 43, Pressure: 850, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,536 - INFO - Loaded audio file '43_225-80R17.5-850-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,536 - INFO - Detected 5 hits in '43_225-80R17.5-850-710R_H.wav'.
-2024-12-27 13:18:51,539 - INFO - Saved processed hits to '43_850.csv'.
-2024-12-27 13:18:51,539 - INFO - Processing file: 49_455-55R22.5-850-716R_H.wav (Tire: 49, Pressure: 850, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,539 - INFO - Loaded audio file '49_455-55R22.5-850-716R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,540 - INFO - Detected 5 hits in '49_455-55R22.5-850-716R_H.wav'.
-2024-12-27 13:18:51,542 - INFO - Saved processed hits to '49_850.csv'.
-2024-12-27 13:18:51,542 - INFO - Processing file: 63_11R22.5-500-710Rバフ100_H.wav (Tire: 63, Pressure: 500, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
-2024-12-27 13:18:51,543 - INFO - Loaded audio file '63_11R22.5-500-710Rバフ100_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,543 - INFO - Detected 5 hits in '63_11R22.5-500-710Rバフ100_H.wav'.
-2024-12-27 13:18:51,546 - INFO - Saved processed hits to '63_500.csv'.
-2024-12-27 13:18:51,546 - INFO - Processing file: 44_225-80R17.5-800-710R_H.wav (Tire: 44, Pressure: 800, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
-2024-12-27 13:18:51,546 - INFO - Loaded audio file '44_225-80R17.5-800-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,546 - INFO - Detected 5 hits in '44_225-80R17.5-800-710R_H.wav'.
-2024-12-27 13:18:51,549 - INFO - Saved processed hits to '44_800.csv'.
-2024-12-27 13:18:51,549 - INFO - Processing file: 10_245-70R19.5-800-710R_H.wav (Tire: 10, Pressure: 800, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,550 - INFO - Loaded audio file '10_245-70R19.5-800-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,550 - INFO - Detected 5 hits in '10_245-70R19.5-800-710R_H.wav'.
-2024-12-27 13:18:51,552 - INFO - Saved processed hits to '10_800.csv'.
-2024-12-27 13:18:51,553 - INFO - Processing file: 30_11R22.5-800-101LZ_H.wav (Tire: 30, Pressure: 800, TireSize: 11R22.5, Tire_Type: 101LZ, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,553 - INFO - Loaded audio file '30_11R22.5-800-101LZ_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,553 - INFO - Detected 5 hits in '30_11R22.5-800-101LZ_H.wav'.
-2024-12-27 13:18:51,556 - INFO - Saved processed hits to '30_800.csv'.
-2024-12-27 13:18:51,556 - INFO - Processing file: 58_11R22.5-500-710Rバフ50_H.wav (Tire: 58, Pressure: 500, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
-2024-12-27 13:18:51,556 - INFO - Loaded audio file '58_11R22.5-500-710Rバフ50_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,556 - INFO - Detected 5 hits in '58_11R22.5-500-710Rバフ50_H.wav'.
-2024-12-27 13:18:51,559 - INFO - Saved processed hits to '58_500.csv'.
-2024-12-27 13:18:51,559 - INFO - Processing file: 35_11R22.5-700-903ZW_H.wav (Tire: 35, Pressure: 700, TireSize: 11R22.5, Tire_Type: 903ZW, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,559 - INFO - Loaded audio file '35_11R22.5-700-903ZW_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,560 - INFO - Detected 5 hits in '35_11R22.5-700-903ZW_H.wav'.
-2024-12-27 13:18:51,562 - INFO - Saved processed hits to '35_700.csv'.
-2024-12-27 13:18:51,562 - INFO - Processing file: 14_245-70R19.5-700-710R_H.wav (Tire: 14, Pressure: 700, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
-2024-12-27 13:18:51,563 - INFO - Loaded audio file '14_245-70R19.5-700-710R_H.wav' with sample rate 2000 Hz.
-2024-12-27 13:18:51,563 - INFO - Detected 5 hits in '14_245-70R19.5-700-710R_H.wav'.
-2024-12-27 13:18:51,587 - INFO - Saved processed hits to '14_700.csv'.
-2024-12-27 13:18:51,592 - INFO - Processing complete.
+2024-12-28 21:03:29,705 - INFO - Processing file: 15_225-80R17.5-700-710R_H.wav (Tire: 15, Pressure: 700, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,706 - INFO - Loaded audio file '15_225-80R17.5-700-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,707 - INFO - Detected 5 hits in '15_225-80R17.5-700-710R_H.wav'.
+2024-12-28 21:03:29,713 - INFO - Saved processed hits to '15_700.csv'.
+2024-12-28 21:03:29,714 - INFO - Processing file: 52_455-55R22.5-600-716R_H.wav (Tire: 52, Pressure: 600, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,714 - INFO - Loaded audio file '52_455-55R22.5-600-716R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,715 - INFO - Detected 5 hits in '52_455-55R22.5-600-716R_H.wav'.
+2024-12-28 21:03:29,718 - INFO - Saved processed hits to '52_600.csv'.
+2024-12-28 21:03:29,718 - INFO - Processing file: 20_455-55R22.5-600-716U_H.wav (Tire: 20, Pressure: 600, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,718 - INFO - Loaded audio file '20_455-55R22.5-600-716U_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,718 - INFO - Detected 5 hits in '20_455-55R22.5-600-716U_H.wav'.
+2024-12-28 21:03:29,722 - INFO - Saved processed hits to '20_600.csv'.
+2024-12-28 21:03:29,722 - INFO - Processing file: 11_225-80R17.5-800-710R_H.wav (Tire: 11, Pressure: 800, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,722 - INFO - Loaded audio file '11_225-80R17.5-800-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,723 - INFO - Detected 5 hits in '11_225-80R17.5-800-710R_H.wav'.
+2024-12-28 21:03:29,726 - INFO - Saved processed hits to '11_800.csv'.
+2024-12-28 21:03:29,726 - INFO - Processing file: 45_225-80R17.5-700-710R_H.wav (Tire: 45, Pressure: 700, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,726 - INFO - Loaded audio file '45_225-80R17.5-700-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,726 - INFO - Detected 5 hits in '45_225-80R17.5-700-710R_H.wav'.
+2024-12-28 21:03:29,729 - INFO - Saved processed hits to '45_700.csv'.
+2024-12-28 21:03:29,729 - INFO - Processing file: 36_11R22.5-700-MY377_H.wav (Tire: 36, Pressure: 700, TireSize: 11R22.5, Tire_Type: MY377, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,729 - INFO - Loaded audio file '36_11R22.5-700-MY377_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,729 - INFO - Detected 5 hits in '36_11R22.5-700-MY377_H.wav'.
+2024-12-28 21:03:29,732 - INFO - Saved processed hits to '36_700.csv'.
+2024-12-28 21:03:29,732 - INFO - Processing file: 19_225-80R17.5-600-710R_H.wav (Tire: 19, Pressure: 600, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,732 - INFO - Loaded audio file '19_225-80R17.5-600-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,732 - INFO - Detected 5 hits in '19_225-80R17.5-600-710R_H.wav'.
+2024-12-28 21:03:29,735 - INFO - Saved processed hits to '19_600.csv'.
+2024-12-28 21:03:29,735 - INFO - Processing file: 27_11R22.5-900-903ZW_H.wav (Tire: 27, Pressure: 900, TireSize: 11R22.5, Tire_Type: 903ZW, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,736 - INFO - Loaded audio file '27_11R22.5-900-903ZW_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,736 - INFO - Detected 5 hits in '27_11R22.5-900-903ZW_H.wav'.
+2024-12-28 21:03:29,739 - INFO - Saved processed hits to '27_900.csv'.
+2024-12-28 21:03:29,739 - INFO - Processing file: 07_225-80R17.5-850-710R_H.wav (Tire: 07, Pressure: 850, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,739 - INFO - Loaded audio file '07_225-80R17.5-850-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,740 - INFO - Detected 5 hits in '07_225-80R17.5-850-710R_H.wav'.
+2024-12-28 21:03:29,743 - INFO - Saved processed hits to '07_850.csv'.
+2024-12-28 21:03:29,743 - INFO - Processing file: 47_225-80R17.5-500-710R_H.wav (Tire: 47, Pressure: 500, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,743 - INFO - Loaded audio file '47_225-80R17.5-500-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,743 - INFO - Detected 5 hits in '47_225-80R17.5-500-710R_H.wav'.
+2024-12-28 21:03:29,746 - INFO - Saved processed hits to '47_500.csv'.
+2024-12-28 21:03:29,746 - INFO - Processing file: 62_11R22.5-600-710Rバフ100_H.wav (Tire: 62, Pressure: 600, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
+2024-12-28 21:03:29,746 - INFO - Loaded audio file '62_11R22.5-600-710Rバフ100_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,746 - INFO - Detected 5 hits in '62_11R22.5-600-710Rバフ100_H.wav'.
+2024-12-28 21:03:29,749 - INFO - Saved processed hits to '62_600.csv'.
+2024-12-28 21:03:29,749 - INFO - Processing file: 02_245-70R19.5-900-710R_H.wav (Tire: 02, Pressure: 900, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,749 - INFO - Loaded audio file '02_245-70R19.5-900-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,750 - INFO - Detected 5 hits in '02_245-70R19.5-900-710R_H.wav'.
+2024-12-28 21:03:29,752 - INFO - Saved processed hits to '02_900.csv'.
+2024-12-28 21:03:29,752 - INFO - Processing file: 34_11R22.5-700-101LZ_H.wav (Tire: 34, Pressure: 700, TireSize: 11R22.5, Tire_Type: 101LZ, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,753 - INFO - Loaded audio file '34_11R22.5-700-101LZ_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,753 - INFO - Detected 5 hits in '34_11R22.5-700-101LZ_H.wav'.
+2024-12-28 21:03:29,756 - INFO - Saved processed hits to '34_700.csv'.
+2024-12-28 21:03:29,756 - INFO - Processing file: 31_11R22.5-800-903ZW_H.wav (Tire: 31, Pressure: 800, TireSize: 11R22.5, Tire_Type: 903ZW, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,756 - INFO - Loaded audio file '31_11R22.5-800-903ZW_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,756 - INFO - Detected 5 hits in '31_11R22.5-800-903ZW_H.wav'.
+2024-12-28 21:03:29,759 - INFO - Saved processed hits to '31_800.csv'.
+2024-12-28 21:03:29,759 - INFO - Processing file: 23_225-80R17.5-500-710R_H.wav (Tire: 23, Pressure: 500, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,759 - INFO - Loaded audio file '23_225-80R17.5-500-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,759 - INFO - Detected 5 hits in '23_225-80R17.5-500-710R_H.wav'.
+2024-12-28 21:03:29,762 - INFO - Saved processed hits to '23_500.csv'.
+2024-12-28 21:03:29,762 - INFO - Processing file: 59_11R22.5-900-710Rバフ100_H.wav (Tire: 59, Pressure: 900, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
+2024-12-28 21:03:29,763 - INFO - Loaded audio file '59_11R22.5-900-710Rバフ100_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,763 - INFO - Detected 5 hits in '59_11R22.5-900-710Rバフ100_H.wav'.
+2024-12-28 21:03:29,765 - INFO - Saved processed hits to '59_900.csv'.
+2024-12-28 21:03:29,765 - INFO - Processing file: 24_455-55R22.5-500-716U_H.wav (Tire: 24, Pressure: 500, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,766 - INFO - Loaded audio file '24_455-55R22.5-500-716U_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,766 - INFO - Detected 5 hits in '24_455-55R22.5-500-716U_H.wav'.
+2024-12-28 21:03:29,769 - INFO - Saved processed hits to '24_500.csv'.
+2024-12-28 21:03:29,769 - INFO - Processing file: 39_11R22.5-600-903ZW_H.wav (Tire: 39, Pressure: 600, TireSize: 11R22.5, Tire_Type: 903ZW, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,770 - INFO - Loaded audio file '39_11R22.5-600-903ZW_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,770 - INFO - Detected 5 hits in '39_11R22.5-600-903ZW_H.wav'.
+2024-12-28 21:03:29,773 - INFO - Saved processed hits to '39_600.csv'.
+2024-12-28 21:03:29,773 - INFO - Processing file: 50_455-55R22.5-800-716R_H.wav (Tire: 50, Pressure: 800, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,773 - INFO - Loaded audio file '50_455-55R22.5-800-716R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,774 - INFO - Detected 5 hits in '50_455-55R22.5-800-716R_H.wav'.
+2024-12-28 21:03:29,777 - INFO - Saved processed hits to '50_800.csv'.
+2024-12-28 21:03:29,777 - INFO - Processing file: 21_11R22.5-500-710R_H.wav (Tire: 21, Pressure: 500, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,777 - INFO - Loaded audio file '21_11R22.5-500-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,777 - INFO - Detected 5 hits in '21_11R22.5-500-710R_H.wav'.
+2024-12-28 21:03:29,780 - INFO - Saved processed hits to '21_500.csv'.
+2024-12-28 21:03:29,780 - INFO - Processing file: 51_455-55R22.5-700-716R_H.wav (Tire: 51, Pressure: 700, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,780 - INFO - Loaded audio file '51_455-55R22.5-700-716R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,780 - INFO - Detected 5 hits in '51_455-55R22.5-700-716R_H.wav'.
+2024-12-28 21:03:29,783 - INFO - Saved processed hits to '51_700.csv'.
+2024-12-28 21:03:29,783 - INFO - Processing file: 09_11R22.5-800-710R_H.wav (Tire: 09, Pressure: 800, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,784 - INFO - Loaded audio file '09_11R22.5-800-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,784 - INFO - Detected 5 hits in '09_11R22.5-800-710R_H.wav'.
+2024-12-28 21:03:29,787 - INFO - Saved processed hits to '09_800.csv'.
+2024-12-28 21:03:29,787 - INFO - Processing file: 12_455-55R22.5-800-716U_H.wav (Tire: 12, Pressure: 800, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,787 - INFO - Loaded audio file '12_455-55R22.5-800-716U_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,787 - INFO - Detected 5 hits in '12_455-55R22.5-800-716U_H.wav'.
+2024-12-28 21:03:29,790 - INFO - Saved processed hits to '12_800.csv'.
+2024-12-28 21:03:29,791 - INFO - Processing file: 16_455-55R22.5-700-716U_H.wav (Tire: 16, Pressure: 700, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,791 - INFO - Loaded audio file '16_455-55R22.5-700-716U_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,791 - INFO - Detected 5 hits in '16_455-55R22.5-700-716U_H.wav'.
+2024-12-28 21:03:29,794 - INFO - Saved processed hits to '16_700.csv'.
+2024-12-28 21:03:29,794 - INFO - Processing file: 48_455-55R22.5-900-716R_H.wav (Tire: 48, Pressure: 900, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,794 - INFO - Loaded audio file '48_455-55R22.5-900-716R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,794 - INFO - Detected 5 hits in '48_455-55R22.5-900-716R_H.wav'.
+2024-12-28 21:03:29,797 - INFO - Saved processed hits to '48_900.csv'.
+2024-12-28 21:03:29,797 - INFO - Processing file: 46_225-80R17.5-600-710R_H.wav (Tire: 46, Pressure: 600, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,797 - INFO - Loaded audio file '46_225-80R17.5-600-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,798 - INFO - Detected 5 hits in '46_225-80R17.5-600-710R_H.wav'.
+2024-12-28 21:03:29,800 - INFO - Saved processed hits to '46_600.csv'.
+2024-12-28 21:03:29,800 - INFO - Processing file: 26_11R22.5-900-101LZ_H.wav (Tire: 26, Pressure: 900, TireSize: 11R22.5, Tire_Type: 101LZ, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,801 - INFO - Loaded audio file '26_11R22.5-900-101LZ_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,801 - INFO - Detected 5 hits in '26_11R22.5-900-101LZ_H.wav'.
+2024-12-28 21:03:29,804 - INFO - Saved processed hits to '26_900.csv'.
+2024-12-28 21:03:29,805 - INFO - Processing file: 42_225-80R17.5-900-710R_H.wav (Tire: 42, Pressure: 900, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,805 - INFO - Loaded audio file '42_225-80R17.5-900-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,805 - INFO - Detected 5 hits in '42_225-80R17.5-900-710R_H.wav'.
+2024-12-28 21:03:29,809 - INFO - Saved processed hits to '42_900.csv'.
+2024-12-28 21:03:29,810 - INFO - Processing file: 13_11R22.5-700-710R_H.wav (Tire: 13, Pressure: 700, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,810 - INFO - Loaded audio file '13_11R22.5-700-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,810 - INFO - Detected 5 hits in '13_11R22.5-700-710R_H.wav'.
+2024-12-28 21:03:29,813 - INFO - Saved processed hits to '13_700.csv'.
+2024-12-28 21:03:29,813 - INFO - Processing file: 57_11R22.5-600-710Rバフ50_H.wav (Tire: 57, Pressure: 600, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
+2024-12-28 21:03:29,814 - INFO - Loaded audio file '57_11R22.5-600-710Rバフ50_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,814 - INFO - Detected 5 hits in '57_11R22.5-600-710Rバフ50_H.wav'.
+2024-12-28 21:03:29,817 - INFO - Saved processed hits to '57_600.csv'.
+2024-12-28 21:03:29,817 - INFO - Processing file: 04_455-55R22.5-900-716U_H.wav (Tire: 04, Pressure: 900, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,818 - INFO - Loaded audio file '04_455-55R22.5-900-716U_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,818 - INFO - Detected 5 hits in '04_455-55R22.5-900-716U_H.wav'.
+2024-12-28 21:03:29,821 - INFO - Saved processed hits to '04_900.csv'.
+2024-12-28 21:03:29,822 - INFO - Processing file: 55_11R22.5-800-710Rバフ50_H.wav (Tire: 55, Pressure: 800, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
+2024-12-28 21:03:29,822 - INFO - Loaded audio file '55_11R22.5-800-710Rバフ50_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,823 - INFO - Detected 5 hits in '55_11R22.5-800-710Rバフ50_H.wav'.
+2024-12-28 21:03:29,826 - INFO - Saved processed hits to '55_800.csv'.
+2024-12-28 21:03:29,826 - INFO - Processing file: 32_11R22.5-800-MY377_H.wav (Tire: 32, Pressure: 800, TireSize: 11R22.5, Tire_Type: MY377, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,826 - INFO - Loaded audio file '32_11R22.5-800-MY377_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,826 - INFO - Detected 5 hits in '32_11R22.5-800-MY377_H.wav'.
+2024-12-28 21:03:29,829 - INFO - Saved processed hits to '32_800.csv'.
+2024-12-28 21:03:29,829 - INFO - Processing file: 53_455-55R22.5-500-716R_H.wav (Tire: 53, Pressure: 500, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,829 - INFO - Loaded audio file '53_455-55R22.5-500-716R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,830 - INFO - Detected 5 hits in '53_455-55R22.5-500-716R_H.wav'.
+2024-12-28 21:03:29,832 - INFO - Saved processed hits to '53_500.csv'.
+2024-12-28 21:03:29,832 - INFO - Processing file: 17_11R22.5-600-710R_H.wav (Tire: 17, Pressure: 600, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,833 - INFO - Loaded audio file '17_11R22.5-600-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,833 - INFO - Detected 5 hits in '17_11R22.5-600-710R_H.wav'.
+2024-12-28 21:03:29,836 - INFO - Saved processed hits to '17_600.csv'.
+2024-12-28 21:03:29,836 - INFO - Processing file: 40_11R22.5-600-MY377_H.wav (Tire: 40, Pressure: 600, TireSize: 11R22.5, Tire_Type: MY377, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,836 - INFO - Loaded audio file '40_11R22.5-600-MY377_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,836 - INFO - Detected 5 hits in '40_11R22.5-600-MY377_H.wav'.
+2024-12-28 21:03:29,839 - INFO - Saved processed hits to '40_600.csv'.
+2024-12-28 21:03:29,839 - INFO - Processing file: 22_245-70R19.5-500-710R_H.wav (Tire: 22, Pressure: 500, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,839 - INFO - Loaded audio file '22_245-70R19.5-500-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,840 - INFO - Detected 5 hits in '22_245-70R19.5-500-710R_H.wav'.
+2024-12-28 21:03:29,842 - INFO - Saved processed hits to '22_500.csv'.
+2024-12-28 21:03:29,843 - INFO - Processing file: 28_11R22.5-900-MY377_H.wav (Tire: 28, Pressure: 900, TireSize: 11R22.5, Tire_Type: MY377, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,843 - INFO - Loaded audio file '28_11R22.5-900-MY377_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,843 - INFO - Detected 5 hits in '28_11R22.5-900-MY377_H.wav'.
+2024-12-28 21:03:29,846 - INFO - Saved processed hits to '28_900.csv'.
+2024-12-28 21:03:29,846 - INFO - Processing file: 08_455-55R22.5-850-716U_H.wav (Tire: 08, Pressure: 850, TireSize: 455-55R22.5, Tire_Type: 716U, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,846 - INFO - Loaded audio file '08_455-55R22.5-850-716U_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,846 - INFO - Detected 5 hits in '08_455-55R22.5-850-716U_H.wav'.
+2024-12-28 21:03:29,849 - INFO - Saved processed hits to '08_850.csv'.
+2024-12-28 21:03:29,849 - INFO - Processing file: 03_225-80R17.5-900-710R_H.wav (Tire: 03, Pressure: 900, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,849 - INFO - Loaded audio file '03_225-80R17.5-900-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,849 - INFO - Detected 5 hits in '03_225-80R17.5-900-710R_H.wav'.
+2024-12-28 21:03:29,852 - INFO - Saved processed hits to '03_900.csv'.
+2024-12-28 21:03:29,852 - INFO - Processing file: 06_245-70R19.5-850-710R_H.wav (Tire: 06, Pressure: 850, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,852 - INFO - Loaded audio file '06_245-70R19.5-850-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,853 - INFO - Detected 5 hits in '06_245-70R19.5-850-710R_H.wav'.
+2024-12-28 21:03:29,855 - INFO - Saved processed hits to '06_850.csv'.
+2024-12-28 21:03:29,856 - INFO - Processing file: 56_11R22.5-700-710Rバフ50_H.wav (Tire: 56, Pressure: 700, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
+2024-12-28 21:03:29,856 - INFO - Loaded audio file '56_11R22.5-700-710Rバフ50_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,856 - INFO - Detected 5 hits in '56_11R22.5-700-710Rバフ50_H.wav'.
+2024-12-28 21:03:29,859 - INFO - Saved processed hits to '56_700.csv'.
+2024-12-28 21:03:29,859 - INFO - Processing file: 38_11R22.5-600-101LZ_H.wav (Tire: 38, Pressure: 600, TireSize: 11R22.5, Tire_Type: 101LZ, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,859 - INFO - Loaded audio file '38_11R22.5-600-101LZ_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,860 - INFO - Detected 5 hits in '38_11R22.5-600-101LZ_H.wav'.
+2024-12-28 21:03:29,862 - INFO - Saved processed hits to '38_600.csv'.
+2024-12-28 21:03:29,862 - INFO - Processing file: 18_245-70R19.5-600-710R_H.wav (Tire: 18, Pressure: 600, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,863 - INFO - Loaded audio file '18_245-70R19.5-600-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,863 - INFO - Detected 5 hits in '18_245-70R19.5-600-710R_H.wav'.
+2024-12-28 21:03:29,866 - INFO - Saved processed hits to '18_600.csv'.
+2024-12-28 21:03:29,866 - INFO - Processing file: 54_11R22.5-900-710Rバフ50_H.wav (Tire: 54, Pressure: 900, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
+2024-12-28 21:03:29,866 - INFO - Loaded audio file '54_11R22.5-900-710Rバフ50_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,866 - INFO - Detected 5 hits in '54_11R22.5-900-710Rバフ50_H.wav'.
+2024-12-28 21:03:29,869 - INFO - Saved processed hits to '54_900.csv'.
+2024-12-28 21:03:29,869 - INFO - Processing file: 05_11R22.5-850-710R_H.wav (Tire: 05, Pressure: 850, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,869 - INFO - Loaded audio file '05_11R22.5-850-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,869 - INFO - Detected 5 hits in '05_11R22.5-850-710R_H.wav'.
+2024-12-28 21:03:29,872 - INFO - Saved processed hits to '05_850.csv'.
+2024-12-28 21:03:29,873 - INFO - Processing file: 60_11R22.5-800-710Rバフ100_H.wav (Tire: 60, Pressure: 800, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
+2024-12-28 21:03:29,873 - INFO - Loaded audio file '60_11R22.5-800-710Rバフ100_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,873 - INFO - Detected 5 hits in '60_11R22.5-800-710Rバフ100_H.wav'.
+2024-12-28 21:03:29,876 - INFO - Saved processed hits to '60_800.csv'.
+2024-12-28 21:03:29,876 - INFO - Processing file: 01_11R22.5-900-710R_H.wav (Tire: 01, Pressure: 900, TireSize: 11R22.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,876 - INFO - Loaded audio file '01_11R22.5-900-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,876 - INFO - Detected 5 hits in '01_11R22.5-900-710R_H.wav'.
+2024-12-28 21:03:29,879 - INFO - Saved processed hits to '01_900.csv'.
+2024-12-28 21:03:29,879 - INFO - Processing file: 61_11R22.5-700-710Rバフ100_H.wav (Tire: 61, Pressure: 700, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
+2024-12-28 21:03:29,879 - INFO - Loaded audio file '61_11R22.5-700-710Rバフ100_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,879 - INFO - Detected 5 hits in '61_11R22.5-700-710Rバフ100_H.wav'.
+2024-12-28 21:03:29,882 - INFO - Saved processed hits to '61_700.csv'.
+2024-12-28 21:03:29,882 - INFO - Processing file: 43_225-80R17.5-850-710R_H.wav (Tire: 43, Pressure: 850, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,882 - INFO - Loaded audio file '43_225-80R17.5-850-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,882 - INFO - Detected 5 hits in '43_225-80R17.5-850-710R_H.wav'.
+2024-12-28 21:03:29,885 - INFO - Saved processed hits to '43_850.csv'.
+2024-12-28 21:03:29,885 - INFO - Processing file: 49_455-55R22.5-850-716R_H.wav (Tire: 49, Pressure: 850, TireSize: 455-55R22.5, Tire_Type: 716R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,885 - INFO - Loaded audio file '49_455-55R22.5-850-716R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,886 - INFO - Detected 5 hits in '49_455-55R22.5-850-716R_H.wav'.
+2024-12-28 21:03:29,889 - INFO - Saved processed hits to '49_850.csv'.
+2024-12-28 21:03:29,889 - INFO - Processing file: 63_11R22.5-500-710Rバフ100_H.wav (Tire: 63, Pressure: 500, TireSize: 11R22.5, Tire_Type: 710R, Wear: 100%, Rim: Ir)
+2024-12-28 21:03:29,889 - INFO - Loaded audio file '63_11R22.5-500-710Rバフ100_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,889 - INFO - Detected 5 hits in '63_11R22.5-500-710Rバフ100_H.wav'.
+2024-12-28 21:03:29,892 - INFO - Saved processed hits to '63_500.csv'.
+2024-12-28 21:03:29,892 - INFO - Processing file: 44_225-80R17.5-800-710R_H.wav (Tire: 44, Pressure: 800, TireSize: 225-80R17.5, Tire_Type: 710R, Wear: 0%, Rim: Al)
+2024-12-28 21:03:29,892 - INFO - Loaded audio file '44_225-80R17.5-800-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,892 - INFO - Detected 5 hits in '44_225-80R17.5-800-710R_H.wav'.
+2024-12-28 21:03:29,895 - INFO - Saved processed hits to '44_800.csv'.
+2024-12-28 21:03:29,895 - INFO - Processing file: 10_245-70R19.5-800-710R_H.wav (Tire: 10, Pressure: 800, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,895 - INFO - Loaded audio file '10_245-70R19.5-800-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,896 - INFO - Detected 5 hits in '10_245-70R19.5-800-710R_H.wav'.
+2024-12-28 21:03:29,898 - INFO - Saved processed hits to '10_800.csv'.
+2024-12-28 21:03:29,898 - INFO - Processing file: 30_11R22.5-800-101LZ_H.wav (Tire: 30, Pressure: 800, TireSize: 11R22.5, Tire_Type: 101LZ, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,898 - INFO - Loaded audio file '30_11R22.5-800-101LZ_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,899 - INFO - Detected 5 hits in '30_11R22.5-800-101LZ_H.wav'.
+2024-12-28 21:03:29,901 - INFO - Saved processed hits to '30_800.csv'.
+2024-12-28 21:03:29,901 - INFO - Processing file: 58_11R22.5-500-710Rバフ50_H.wav (Tire: 58, Pressure: 500, TireSize: 11R22.5, Tire_Type: 710R, Wear: 50%, Rim: Ir)
+2024-12-28 21:03:29,901 - INFO - Loaded audio file '58_11R22.5-500-710Rバフ50_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,902 - INFO - Detected 5 hits in '58_11R22.5-500-710Rバフ50_H.wav'.
+2024-12-28 21:03:29,905 - INFO - Saved processed hits to '58_500.csv'.
+2024-12-28 21:03:29,905 - INFO - Processing file: 35_11R22.5-700-903ZW_H.wav (Tire: 35, Pressure: 700, TireSize: 11R22.5, Tire_Type: 903ZW, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,906 - INFO - Loaded audio file '35_11R22.5-700-903ZW_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,906 - INFO - Detected 5 hits in '35_11R22.5-700-903ZW_H.wav'.
+2024-12-28 21:03:29,908 - INFO - Saved processed hits to '35_700.csv'.
+2024-12-28 21:03:29,909 - INFO - Processing file: 14_245-70R19.5-700-710R_H.wav (Tire: 14, Pressure: 700, TireSize: 245-70R19.5, Tire_Type: 710R, Wear: 0%, Rim: Ir)
+2024-12-28 21:03:29,909 - INFO - Loaded audio file '14_245-70R19.5-700-710R_H.wav' with sample rate 2000 Hz.
+2024-12-28 21:03:29,909 - INFO - Detected 5 hits in '14_245-70R19.5-700-710R_H.wav'.
+2024-12-28 21:03:29,912 - INFO - Saved processed hits to '14_700.csv'.
+2024-12-28 21:03:29,912 - INFO - Processing complete.

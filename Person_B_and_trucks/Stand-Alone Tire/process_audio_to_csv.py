@@ -8,8 +8,8 @@ from tqdm import tqdm
 import logging
 
 # Constants and Configuration
-FULL_SEGMENTS_FOLDER = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Full_5_Strong_Tread_Hits_Segments"
-OUTPUT_FOLDER = "Processed_CSV_Files"
+FULL_SEGMENTS_FOLDER = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Stand Alone Waveform Data/Person_B_Strong_Tread_5_Hits_WAV"
+OUTPUT_FOLDER = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Person_B_and_trucks/Stand-Alone Tire/Processed_CSV_Files"
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
 # Known pressures for filename parsing

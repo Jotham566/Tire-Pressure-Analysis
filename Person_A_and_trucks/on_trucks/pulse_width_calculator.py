@@ -1084,8 +1084,8 @@ class TireSoundProcessor:
 
 if __name__ == "__main__":
     # Define directories
-    INPUT_DIRECTORY = 'Attenuation Analysis on TD data'
-    STANDALONE_DIRECTORY = '/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files'
+    INPUT_DIRECTORY = '/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/On_trucks_tires CSV data'
+    STANDALONE_DIRECTORY = '/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Person_A_and_trucks/Stand-Alone Tire/Processed_CSV_Files'
     OUTPUT_DIRECTORY = '.'
 
     # Load configuration

@@ -8,8 +8,8 @@ from tqdm import tqdm
 # -----------------------------
 # 📁 Constants and Configuration
 # -----------------------------
-INPUT_CSV_FOLDER = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Processed_CSV_Files"
-METADATA_FILE = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Stand-Alone Tire/Wavefile Data/metadata_uncleaned_wav.csv"
+INPUT_CSV_FOLDER = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Person_B_and_trucks/Stand-Alone Tire/Processed_CSV_Files"
+METADATA_FILE = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Stand Alone Waveform Data/Person_B_Tread_Strong_TimeStamps_Metadata.csv"
 RECONSTRUCTED_AUDIO_FOLDER = "reconstructed_audio"
 os.makedirs(RECONSTRUCTED_AUDIO_FOLDER, exist_ok=True)
 
