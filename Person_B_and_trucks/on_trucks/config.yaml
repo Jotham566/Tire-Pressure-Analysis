@@ -1,70 +1,40 @@
-# config.yaml
-
-# Parameters for pulse_width_calculator.py
 # Configuration file for TireSoundProcessor
-# Contains parameters for signal processing and rise point detection
+# Contains parameters for both mounted and standalone tire signal processing
 
 pulse_width_calculator:
-  # Default noise threshold for regular (non-standalone) processing
-  # Used in Processed and Processed_Trimmed directories
-  noise_threshold: 0.03
+  # Common parameters shared between mounted and standalone processing
+  intensity_thresholds: [0.5, 0.7, 0.8, 0.9]  # Thresholds for pulse analysis at different intensity levels
 
-  # Intensity thresholds for pulse analysis
-  # Used to detect different levels of signal intensity
-  # Higher values detect stronger parts of the pulse
-  intensity_thresholds: [0.5, 0.7, 0.8, 0.9]
+  # Parameters for mounted tire processing
+  mounted:
+    selected_dims_after_rise_point: 32      # Number of dimensions to keep after rise point
+    noise_threshold: 0.03                  # Noise threshold for mounted tire signal
 
-  # Number of dimensions to include after detecting rise point
-  # Determines how much of the signal to analyze after the first rise
-  selected_dims_after_rise_point: 32
+  # Parameters for standalone tire processing
+  standalone:
+    # Signal trimming configuration
+    trim_signal: true
+    trim_dims_after_rise: 32
 
-  # Standalone processing parameters
+    # Dynamic noise threshold parameters
+    baseline_window_size: 2
+    std_dev_multiplier: 2.0
+    min_threshold_percentage: 0.05
+    sustained_rise_points: 4
+    lookback_window_size: 2
 
-  # Parameters for signal trimming
-  trim_signal: true  # Whether to trim the signal to N dimensions after rise point
-  trim_dims_after_rise: 32 # Number of dimensions to keep after rise point
+    # Baseline subtraction configuration
+    baseline_subtraction_method: "fixed"
+    fixed_baseline_value: 0.01
 
-  # Parameters for dynamic noise threshold in standalone processing:
-  # Number of initial points used to establish baseline noise level
-  # If too small: Might not capture enough baseline noise characteristics
-  # If too large: Might include part of the actual signal
-  baseline_window_size: 2
+    # Adaptive baseline parameters
+    baseline_computation: "median"
+    sliding_window_min_size: 5
+    sliding_window_max_size: 20
+    quietness_metric: "std"
 
-  # Multiplier for standard deviation in threshold calculation
-  # If too small: More false positives (noise detected as signal)
-  # If too large: More false negatives (signal detected as noise)
-  std_dev_multiplier: 2
-
-  # Minimum threshold as percentage of signal range
-  # If too small: More false positives (noise detected as signal)
-  # If too large: More false negatives (signal detected as noise)
-  min_threshold_percentage: 0.05
-
-  # Number of consecutive points required above threshold
-  # If too small: Might include noise
-  # If too large: Might miss parts of the signal
-  sustained_rise_points: 4
-
-  # Number of points to look back when checking for gradual rises
-  # Higher values detect more gradual rises but may include noise
-  lookback_window_size: 2
-
-  # Baseline subtraction options
-  baseline_subtraction_method: "fixed"  # Options: "adaptive", "fixed", "none"
-  fixed_baseline_value: 0.01  # Only used when method is "fixed"
-
-  # Parameters for adaptive baseline subtraction
-  baseline_computation: "median"                 # "median" or "mean"
-  sliding_window_min_size: 5                     # Minimum subwindow length
-  sliding_window_max_size: 20                    # Maximum subwindow length to check
-  quietness_metric: "std"                        # "std", "mean", or "mix" etc.
-
-  # Parameters for volatility handling
-  volatility_threshold: 0.5     # Threshold for high/low volatility classification
-  high_volatility_percentile: 75  # Percentile for threshold in high volatility
-  low_volatility_percentile: 25   # Percentile for threshold in low volatility
-  max_threshold_factor: 0.3      # Maximum threshold as fraction of max value
-
-# Parameters for new_visualizer.py
-new_visualizer:
-  hitting_type: Both  # Options: Tread, Side, Both
+    # Volatility handling parameters
+    volatility_threshold: 0.5
+    high_volatility_percentile: 75
+    low_volatility_percentile: 25
+    max_threshold_factor: 0.3
