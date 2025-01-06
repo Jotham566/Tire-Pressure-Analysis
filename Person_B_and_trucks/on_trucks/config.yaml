@@ -7,8 +7,12 @@ pulse_width_calculator:
 
   # Parameters for mounted tire processing
   mounted:
-    selected_dims_after_rise_point: 32      # Number of dimensions to keep after rise point
-    noise_threshold: 0.03                  # Noise threshold for mounted tire signal
+    # Signal trimming configuration
+    trim_signal: true
+    trim_dims_after_rise: 32
+
+    # Fixed noise threshold for mounted tire signal
+    noise_threshold: 0.01                  # Noise threshold for mounted tire signal
 
   # Parameters for standalone tire processing
   standalone:
@@ -24,14 +28,14 @@ pulse_width_calculator:
     lookback_window_size: 2
 
     # Baseline subtraction configuration
-    baseline_subtraction_method: "fixed"
+    baseline_subtraction_method: "adaptive" # Baseline subtraction method for standalone tire signal (none, fixed, adaptive)
     fixed_baseline_value: 0.01
 
     # Adaptive baseline parameters
-    baseline_computation: "median"
+    baseline_computation: "median"        # Baseline computation method (mean, median)
     sliding_window_min_size: 5
     sliding_window_max_size: 20
-    quietness_metric: "std"
+    quietness_metric: "std"              # Metric for quietness (std, mad)
 
     # Volatility handling parameters
     volatility_threshold: 0.5

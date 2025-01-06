@@ -1,897 +1,910 @@
-2025-01-04 16:34:42,434 - INFO - Processing mounted tire data from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/On_trucks_tires CSV data
-2025-01-04 16:34:42,435 - INFO - Found 204 CSV files
-2025-01-04 16:35:15,246 - INFO - Saved mounted tire median pulse widths to: Processed_Mounted/Median_Pulse_Widths.xlsx
-2025-01-04 16:35:21,055 - INFO - Saved mounted tire trimmed median pulse widths to: Processed_Mounted_Trimmed/Median_Pulse_Widths_Trim.xlsx
-2025-01-04 16:35:21,056 - INFO - Processing standalone tire data
-2025-01-04 16:35:21,056 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Merged
-2025-01-04 16:35:21,065 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,072 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:21,072 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,072 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,099 - INFO - Successfully processed: 47_225-80R17.5-500-710R.csv
-2025-01-04 16:35:21,108 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,111 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:21,111 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,111 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,137 - INFO - Successfully processed: 39_11R22.5-600-903ZW.csv
-2025-01-04 16:35:21,145 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,149 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:21,149 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,149 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,174 - INFO - Successfully processed: 57_11R22.5-600-710R.csv
-2025-01-04 16:35:21,183 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,186 - INFO - Trimmed signals from 49 to 122
-2025-01-04 16:35:21,186 - INFO - Earliest rise point: 51
-2025-01-04 16:35:21,186 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,217 - INFO - Successfully processed: 14_245-70R19.5-700-710R.csv
-2025-01-04 16:35:21,225 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,229 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:21,229 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,229 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,256 - INFO - Successfully processed: 63_11R22.5-500-710R.csv
-2025-01-04 16:35:21,264 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,267 - INFO - Trimmed signals from 44 to 123
-2025-01-04 16:35:21,267 - INFO - Earliest rise point: 46
-2025-01-04 16:35:21,267 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,298 - INFO - Successfully processed: 48_455-55R22.5-900-716R.csv
-2025-01-04 16:35:21,307 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,310 - INFO - Trimmed signals from 87 to 122
-2025-01-04 16:35:21,310 - INFO - Earliest rise point: 89
-2025-01-04 16:35:21,310 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,336 - INFO - Successfully processed: 59_11R22.5-900-710R.csv
-2025-01-04 16:35:21,344 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,348 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:21,348 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,348 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,374 - INFO - Successfully processed: 40_11R22.5-600-MY377.csv
-2025-01-04 16:35:21,382 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,385 - INFO - Trimmed signals from 7 to 124
-2025-01-04 16:35:21,385 - INFO - Earliest rise point: 9
-2025-01-04 16:35:21,385 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,421 - INFO - Successfully processed: 12_455-55R22.5-800-716U.csv
-2025-01-04 16:35:21,430 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,433 - INFO - Trimmed signals from 88 to 122
-2025-01-04 16:35:21,433 - INFO - Earliest rise point: 90
-2025-01-04 16:35:21,433 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,459 - INFO - Successfully processed: 22_245-70R19.5-500-710R.csv
-2025-01-04 16:35:21,467 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,471 - INFO - Trimmed signals from 89 to 124
-2025-01-04 16:35:21,471 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,471 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,497 - INFO - Successfully processed: 28_11R22.5-900-MY377.csv
-2025-01-04 16:35:21,505 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,509 - INFO - Trimmed signals from 50 to 90
-2025-01-04 16:35:21,509 - INFO - Earliest rise point: 52
-2025-01-04 16:35:21,509 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,551 - INFO - Successfully processed: 03_225-80R17.5-900-710R.csv
-2025-01-04 16:35:21,560 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,564 - INFO - Trimmed signals from 43 to 123
-2025-01-04 16:35:21,564 - INFO - Earliest rise point: 45
-2025-01-04 16:35:21,564 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,595 - INFO - Successfully processed: 49_455-55R22.5-850-716R.csv
-2025-01-04 16:35:21,603 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,607 - INFO - Trimmed signals from 31 to 122
-2025-01-04 16:35:21,607 - INFO - Earliest rise point: 33
-2025-01-04 16:35:21,607 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,642 - INFO - Successfully processed: 27_11R22.5-900-903ZW.csv
-2025-01-04 16:35:21,651 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,655 - INFO - Trimmed signals from 89 to 122
-2025-01-04 16:35:21,655 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,655 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,681 - INFO - Successfully processed: 55_11R22.5-800-710R.csv
-2025-01-04 16:35:21,689 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,693 - INFO - Trimmed signals from 1 to 122
-2025-01-04 16:35:21,693 - INFO - Earliest rise point: 3
-2025-01-04 16:35:21,693 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,729 - INFO - Successfully processed: 24_455-55R22.5-500-716U.csv
-2025-01-04 16:35:21,737 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,741 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:21,741 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,741 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,767 - INFO - Successfully processed: 17_11R22.5-600-710R.csv
-2025-01-04 16:35:21,775 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,778 - INFO - Trimmed signals from 42 to 122
-2025-01-04 16:35:21,778 - INFO - Earliest rise point: 44
-2025-01-04 16:35:21,778 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,809 - INFO - Successfully processed: 19_225-80R17.5-600-710R.csv
-2025-01-04 16:35:21,818 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,821 - INFO - Trimmed signals from 88 to 122
-2025-01-04 16:35:21,821 - INFO - Earliest rise point: 90
-2025-01-04 16:35:21,821 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,847 - INFO - Successfully processed: 34_11R22.5-700-101LZ.csv
-2025-01-04 16:35:21,855 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,859 - INFO - Trimmed signals from 79 to 122
-2025-01-04 16:35:21,859 - INFO - Earliest rise point: 81
-2025-01-04 16:35:21,859 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,886 - INFO - Successfully processed: 30_11R22.5-800-101LZ.csv
-2025-01-04 16:35:21,894 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,898 - INFO - Trimmed signals from 89 to 124
-2025-01-04 16:35:21,898 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,898 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,924 - INFO - Successfully processed: 50_455-55R22.5-800-716R.csv
-2025-01-04 16:35:21,932 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,935 - INFO - Trimmed signals from 49 to 122
-2025-01-04 16:35:21,936 - INFO - Earliest rise point: 51
-2025-01-04 16:35:21,936 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:21,967 - INFO - Successfully processed: 10_245-70R19.5-800-710R.csv
-2025-01-04 16:35:21,975 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:21,978 - INFO - Trimmed signals from 89 to 122
-2025-01-04 16:35:21,978 - INFO - Earliest rise point: 91
-2025-01-04 16:35:21,978 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,004 - INFO - Successfully processed: 01_11R22.5-900-710R.csv
-2025-01-04 16:35:22,012 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,015 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:22,015 - INFO - Earliest rise point: 91
-2025-01-04 16:35:22,015 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,041 - INFO - Successfully processed: 51_455-55R22.5-700-716R.csv
-2025-01-04 16:35:22,049 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,053 - INFO - Trimmed signals from 89 to 122
-2025-01-04 16:35:22,053 - INFO - Earliest rise point: 91
-2025-01-04 16:35:22,053 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,080 - INFO - Successfully processed: 09_11R22.5-800-710R.csv
-2025-01-04 16:35:22,089 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,093 - INFO - Trimmed signals from 88 to 122
-2025-01-04 16:35:22,093 - INFO - Earliest rise point: 90
-2025-01-04 16:35:22,093 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,119 - INFO - Successfully processed: 05_11R22.5-850-710R.csv
-2025-01-04 16:35:22,127 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,130 - INFO - Trimmed signals from 48 to 90
-2025-01-04 16:35:22,130 - INFO - Earliest rise point: 50
-2025-01-04 16:35:22,130 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,159 - INFO - Successfully processed: 07_225-80R17.5-850-710R.csv
-2025-01-04 16:35:22,168 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,172 - INFO - Trimmed signals from 48 to 122
-2025-01-04 16:35:22,172 - INFO - Earliest rise point: 50
-2025-01-04 16:35:22,172 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,204 - INFO - Successfully processed: 52_455-55R22.5-600-716R.csv
-2025-01-04 16:35:22,212 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,215 - INFO - Trimmed signals from 1 to 124
-2025-01-04 16:35:22,215 - INFO - Earliest rise point: 1
-2025-01-04 16:35:22,215 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,251 - INFO - Successfully processed: 16_455-55R22.5-700-716U.csv
-2025-01-04 16:35:22,260 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,263 - INFO - Trimmed signals from 42 to 124
-2025-01-04 16:35:22,263 - INFO - Earliest rise point: 44
-2025-01-04 16:35:22,263 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,294 - INFO - Successfully processed: 46_225-80R17.5-600-710R.csv
-2025-01-04 16:35:22,302 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,306 - INFO - Trimmed signals from 52 to 122
-2025-01-04 16:35:22,306 - INFO - Earliest rise point: 54
-2025-01-04 16:35:22,306 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,337 - INFO - Successfully processed: 06_245-70R19.5-850-710R.csv
-2025-01-04 16:35:22,345 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,348 - INFO - Trimmed signals from 45 to 123
-2025-01-04 16:35:22,348 - INFO - Earliest rise point: 47
-2025-01-04 16:35:22,349 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,380 - INFO - Successfully processed: 45_225-80R17.5-700-710R.csv
-2025-01-04 16:35:22,388 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,392 - INFO - Trimmed signals from 81 to 122
-2025-01-04 16:35:22,392 - INFO - Earliest rise point: 83
-2025-01-04 16:35:22,392 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,418 - INFO - Successfully processed: 54_11R22.5-900-710R.csv
-2025-01-04 16:35:22,427 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,430 - INFO - Trimmed signals from 39 to 124
-2025-01-04 16:35:22,430 - INFO - Earliest rise point: 41
-2025-01-04 16:35:22,430 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,462 - INFO - Successfully processed: 04_455-55R22.5-900-716U.csv
-2025-01-04 16:35:22,470 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,474 - INFO - Trimmed signals from 46 to 81
-2025-01-04 16:35:22,474 - INFO - Earliest rise point: 48
-2025-01-04 16:35:22,474 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,500 - INFO - Successfully processed: 44_225-80R17.5-800-710R.csv
-2025-01-04 16:35:22,508 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,511 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:22,511 - INFO - Earliest rise point: 91
-2025-01-04 16:35:22,511 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,536 - INFO - Successfully processed: 38_11R22.5-600-101LZ.csv
-2025-01-04 16:35:22,545 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,548 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:22,548 - INFO - Earliest rise point: 91
-2025-01-04 16:35:22,548 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,574 - INFO - Successfully processed: 13_11R22.5-700-710R.csv
-2025-01-04 16:35:22,582 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,585 - INFO - Trimmed signals from 89 to 122
-2025-01-04 16:35:22,585 - INFO - Earliest rise point: 91
-2025-01-04 16:35:22,586 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,611 - INFO - Successfully processed: 62_11R22.5-600-710R.csv
-2025-01-04 16:35:22,619 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,622 - INFO - Trimmed signals from 1 to 125
-2025-01-04 16:35:22,622 - INFO - Earliest rise point: 1
-2025-01-04 16:35:22,622 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,660 - INFO - Successfully processed: 20_455-55R22.5-600-716U.csv
-2025-01-04 16:35:22,669 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,672 - INFO - Trimmed signals from 88 to 122
-2025-01-04 16:35:22,672 - INFO - Earliest rise point: 90
-2025-01-04 16:35:22,673 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,699 - INFO - Successfully processed: 18_245-70R19.5-600-710R.csv
-2025-01-04 16:35:22,707 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,710 - INFO - Trimmed signals from 48 to 122
-2025-01-04 16:35:22,710 - INFO - Earliest rise point: 50
-2025-01-04 16:35:22,711 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,741 - INFO - Successfully processed: 11_225-80R17.5-800-710R.csv
-2025-01-04 16:35:22,749 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,752 - INFO - Trimmed signals from 89 to 125
-2025-01-04 16:35:22,752 - INFO - Earliest rise point: 91
-2025-01-04 16:35:22,752 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,778 - INFO - Successfully processed: 32_11R22.5-800-MY377.csv
-2025-01-04 16:35:22,786 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,789 - INFO - Trimmed signals from 89 to 124
-2025-01-04 16:35:22,789 - INFO - Earliest rise point: 91
-2025-01-04 16:35:22,790 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,816 - INFO - Successfully processed: 36_11R22.5-700-MY377.csv
-2025-01-04 16:35:22,824 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,827 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:22,827 - INFO - Earliest rise point: 91
-2025-01-04 16:35:22,828 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,853 - INFO - Successfully processed: 23_225-80R17.5-500-710R.csv
-2025-01-04 16:35:22,861 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,865 - INFO - Trimmed signals from 48 to 92
-2025-01-04 16:35:22,865 - INFO - Earliest rise point: 50
-2025-01-04 16:35:22,865 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,892 - INFO - Successfully processed: 42_225-80R17.5-900-710R.csv
-2025-01-04 16:35:22,900 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,903 - INFO - Trimmed signals from 52 to 122
-2025-01-04 16:35:22,903 - INFO - Earliest rise point: 54
-2025-01-04 16:35:22,904 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,934 - INFO - Successfully processed: 02_245-70R19.5-900-710R.csv
-2025-01-04 16:35:22,942 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,945 - INFO - Trimmed signals from 89 to 122
-2025-01-04 16:35:22,945 - INFO - Earliest rise point: 91
-2025-01-04 16:35:22,946 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:22,971 - INFO - Successfully processed: 26_11R22.5-900-101LZ.csv
-2025-01-04 16:35:22,979 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:22,983 - INFO - Trimmed signals from 80 to 122
-2025-01-04 16:35:22,983 - INFO - Earliest rise point: 82
-2025-01-04 16:35:22,983 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,009 - INFO - Successfully processed: 60_11R22.5-800-710R.csv
-2025-01-04 16:35:23,018 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,022 - INFO - Trimmed signals from 46 to 122
-2025-01-04 16:35:23,022 - INFO - Earliest rise point: 48
-2025-01-04 16:35:23,022 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,052 - INFO - Successfully processed: 15_225-80R17.5-700-710R.csv
-2025-01-04 16:35:23,060 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,064 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:23,064 - INFO - Earliest rise point: 91
-2025-01-04 16:35:23,064 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,090 - INFO - Successfully processed: 61_11R22.5-700-710R.csv
-2025-01-04 16:35:23,098 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,101 - INFO - Trimmed signals from 29 to 122
-2025-01-04 16:35:23,101 - INFO - Earliest rise point: 31
-2025-01-04 16:35:23,101 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,134 - INFO - Successfully processed: 31_11R22.5-800-903ZW.csv
-2025-01-04 16:35:23,143 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,146 - INFO - Trimmed signals from 89 to 122
-2025-01-04 16:35:23,146 - INFO - Earliest rise point: 91
-2025-01-04 16:35:23,146 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,173 - INFO - Successfully processed: 56_11R22.5-700-710R.csv
-2025-01-04 16:35:23,182 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,185 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:23,185 - INFO - Earliest rise point: 91
-2025-01-04 16:35:23,185 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,211 - INFO - Successfully processed: 58_11R22.5-500-710R.csv
-2025-01-04 16:35:23,219 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,223 - INFO - Trimmed signals from 89 to 125
-2025-01-04 16:35:23,223 - INFO - Earliest rise point: 91
-2025-01-04 16:35:23,223 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,248 - INFO - Successfully processed: 21_11R22.5-500-710R.csv
-2025-01-04 16:35:23,257 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,260 - INFO - Trimmed signals from 45 to 123
-2025-01-04 16:35:23,260 - INFO - Earliest rise point: 47
-2025-01-04 16:35:23,261 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,292 - INFO - Successfully processed: 53_455-55R22.5-500-716R.csv
-2025-01-04 16:35:23,300 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,303 - INFO - Trimmed signals from 89 to 123
-2025-01-04 16:35:23,303 - INFO - Earliest rise point: 91
-2025-01-04 16:35:23,304 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,329 - INFO - Successfully processed: 08_455-55R22.5-850-716U.csv
-2025-01-04 16:35:23,337 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,341 - INFO - Trimmed signals from 85 to 122
-2025-01-04 16:35:23,341 - INFO - Earliest rise point: 87
-2025-01-04 16:35:23,341 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,367 - INFO - Successfully processed: 35_11R22.5-700-903ZW.csv
-2025-01-04 16:35:23,375 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 16:35:23,379 - INFO - Trimmed signals from 47 to 81
-2025-01-04 16:35:23,379 - INFO - Earliest rise point: 49
-2025-01-04 16:35:23,379 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 16:35:23,405 - INFO - Successfully processed: 43_225-80R17.5-850-710R.csv
-2025-01-04 16:35:23,405 - INFO - Starting median calculation for 58 files
-2025-01-04 16:35:24,782 - INFO - Saved median pulse widths to: Processed_Standalone/Median_Pulse_Widths_StandAlone.xlsx
-2025-01-04 16:35:24,782 - INFO - Processing completed successfully
-2025-01-04 20:00:07,910 - INFO - Processing mounted tire data from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/On_trucks_tires CSV data
-2025-01-04 20:00:07,911 - INFO - Found 204 CSV files
-2025-01-04 20:00:38,257 - INFO - Saved mounted tire median pulse widths to: Processed_Mounted/Median_Pulse_Widths.xlsx
-2025-01-04 20:00:44,657 - INFO - Saved mounted tire trimmed median pulse widths to: Processed_Mounted_Trimmed/Median_Pulse_Widths_Trim.xlsx
-2025-01-04 20:00:44,658 - INFO - Processing standalone tire data
-2025-01-04 20:00:44,658 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Merged
-2025-01-04 20:00:44,667 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:44,676 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:44,676 - INFO - Earliest rise point: 91
-2025-01-04 20:00:44,677 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:44,709 - INFO - Successfully processed: 47_225-80R17.5-500-710R.csv
-2025-01-04 20:00:44,719 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:44,722 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:44,722 - INFO - Earliest rise point: 91
-2025-01-04 20:00:44,722 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:44,747 - INFO - Successfully processed: 39_11R22.5-600-903ZW.csv
-2025-01-04 20:00:44,755 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:44,758 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:44,758 - INFO - Earliest rise point: 91
-2025-01-04 20:00:44,758 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:44,782 - INFO - Successfully processed: 57_11R22.5-600-710R.csv
-2025-01-04 20:00:44,791 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:44,794 - INFO - Trimmed signals from 49 to 122
-2025-01-04 20:00:44,794 - INFO - Earliest rise point: 51
-2025-01-04 20:00:44,794 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:44,827 - INFO - Successfully processed: 14_245-70R19.5-700-710R.csv
-2025-01-04 20:00:44,836 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:44,839 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:44,839 - INFO - Earliest rise point: 91
-2025-01-04 20:00:44,840 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:44,865 - INFO - Successfully processed: 63_11R22.5-500-710R.csv
-2025-01-04 20:00:44,873 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:44,876 - INFO - Trimmed signals from 44 to 123
-2025-01-04 20:00:44,876 - INFO - Earliest rise point: 46
-2025-01-04 20:00:44,876 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:44,908 - INFO - Successfully processed: 48_455-55R22.5-900-716R.csv
-2025-01-04 20:00:44,916 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:44,919 - INFO - Trimmed signals from 87 to 122
-2025-01-04 20:00:44,919 - INFO - Earliest rise point: 89
-2025-01-04 20:00:44,920 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:44,944 - INFO - Successfully processed: 59_11R22.5-900-710R.csv
-2025-01-04 20:00:44,952 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:44,955 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:44,955 - INFO - Earliest rise point: 91
-2025-01-04 20:00:44,955 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:44,980 - INFO - Successfully processed: 40_11R22.5-600-MY377.csv
-2025-01-04 20:00:44,987 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:44,990 - INFO - Trimmed signals from 7 to 124
-2025-01-04 20:00:44,990 - INFO - Earliest rise point: 9
-2025-01-04 20:00:44,991 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,023 - INFO - Successfully processed: 12_455-55R22.5-800-716U.csv
-2025-01-04 20:00:45,031 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,034 - INFO - Trimmed signals from 88 to 122
-2025-01-04 20:00:45,034 - INFO - Earliest rise point: 90
-2025-01-04 20:00:45,034 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,059 - INFO - Successfully processed: 22_245-70R19.5-500-710R.csv
-2025-01-04 20:00:45,067 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,070 - INFO - Trimmed signals from 89 to 124
-2025-01-04 20:00:45,070 - INFO - Earliest rise point: 91
-2025-01-04 20:00:45,070 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,094 - INFO - Successfully processed: 28_11R22.5-900-MY377.csv
-2025-01-04 20:00:45,102 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,105 - INFO - Trimmed signals from 50 to 90
-2025-01-04 20:00:45,105 - INFO - Earliest rise point: 52
-2025-01-04 20:00:45,105 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,145 - INFO - Successfully processed: 03_225-80R17.5-900-710R.csv
-2025-01-04 20:00:45,153 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,156 - INFO - Trimmed signals from 43 to 123
-2025-01-04 20:00:45,156 - INFO - Earliest rise point: 45
-2025-01-04 20:00:45,156 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,187 - INFO - Successfully processed: 49_455-55R22.5-850-716R.csv
-2025-01-04 20:00:45,194 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,198 - INFO - Trimmed signals from 31 to 122
-2025-01-04 20:00:45,198 - INFO - Earliest rise point: 33
-2025-01-04 20:00:45,198 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,228 - INFO - Successfully processed: 27_11R22.5-900-903ZW.csv
-2025-01-04 20:00:45,236 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,239 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:00:45,239 - INFO - Earliest rise point: 91
-2025-01-04 20:00:45,239 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,263 - INFO - Successfully processed: 55_11R22.5-800-710R.csv
-2025-01-04 20:00:45,271 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,274 - INFO - Trimmed signals from 1 to 122
-2025-01-04 20:00:45,274 - INFO - Earliest rise point: 3
-2025-01-04 20:00:45,274 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,308 - INFO - Successfully processed: 24_455-55R22.5-500-716U.csv
-2025-01-04 20:00:45,315 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,318 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:45,318 - INFO - Earliest rise point: 91
-2025-01-04 20:00:45,319 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,343 - INFO - Successfully processed: 17_11R22.5-600-710R.csv
-2025-01-04 20:00:45,350 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,353 - INFO - Trimmed signals from 42 to 122
-2025-01-04 20:00:45,353 - INFO - Earliest rise point: 44
-2025-01-04 20:00:45,354 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,383 - INFO - Successfully processed: 19_225-80R17.5-600-710R.csv
-2025-01-04 20:00:45,390 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,394 - INFO - Trimmed signals from 88 to 122
-2025-01-04 20:00:45,394 - INFO - Earliest rise point: 90
-2025-01-04 20:00:45,394 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,419 - INFO - Successfully processed: 34_11R22.5-700-101LZ.csv
-2025-01-04 20:00:45,427 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,430 - INFO - Trimmed signals from 79 to 122
-2025-01-04 20:00:45,430 - INFO - Earliest rise point: 81
-2025-01-04 20:00:45,430 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,457 - INFO - Successfully processed: 30_11R22.5-800-101LZ.csv
-2025-01-04 20:00:45,465 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,468 - INFO - Trimmed signals from 89 to 124
-2025-01-04 20:00:45,468 - INFO - Earliest rise point: 91
-2025-01-04 20:00:45,468 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,493 - INFO - Successfully processed: 50_455-55R22.5-800-716R.csv
-2025-01-04 20:00:45,501 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,504 - INFO - Trimmed signals from 49 to 122
-2025-01-04 20:00:45,504 - INFO - Earliest rise point: 51
-2025-01-04 20:00:45,505 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,535 - INFO - Successfully processed: 10_245-70R19.5-800-710R.csv
-2025-01-04 20:00:45,542 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,545 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:00:45,545 - INFO - Earliest rise point: 91
-2025-01-04 20:00:45,546 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,570 - INFO - Successfully processed: 01_11R22.5-900-710R.csv
-2025-01-04 20:00:45,577 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,580 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:45,580 - INFO - Earliest rise point: 91
-2025-01-04 20:00:45,581 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,605 - INFO - Successfully processed: 51_455-55R22.5-700-716R.csv
-2025-01-04 20:00:45,612 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,615 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:00:45,615 - INFO - Earliest rise point: 91
-2025-01-04 20:00:45,616 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,640 - INFO - Successfully processed: 09_11R22.5-800-710R.csv
-2025-01-04 20:00:45,648 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,651 - INFO - Trimmed signals from 88 to 122
-2025-01-04 20:00:45,651 - INFO - Earliest rise point: 90
-2025-01-04 20:00:45,651 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,676 - INFO - Successfully processed: 05_11R22.5-850-710R.csv
-2025-01-04 20:00:45,684 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,687 - INFO - Trimmed signals from 48 to 90
-2025-01-04 20:00:45,687 - INFO - Earliest rise point: 50
-2025-01-04 20:00:45,687 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,714 - INFO - Successfully processed: 07_225-80R17.5-850-710R.csv
-2025-01-04 20:00:45,722 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,725 - INFO - Trimmed signals from 48 to 122
-2025-01-04 20:00:45,725 - INFO - Earliest rise point: 50
-2025-01-04 20:00:45,726 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,755 - INFO - Successfully processed: 52_455-55R22.5-600-716R.csv
-2025-01-04 20:00:45,762 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,765 - INFO - Trimmed signals from 1 to 124
-2025-01-04 20:00:45,765 - INFO - Earliest rise point: 1
-2025-01-04 20:00:45,765 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,799 - INFO - Successfully processed: 16_455-55R22.5-700-716U.csv
-2025-01-04 20:00:45,806 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,809 - INFO - Trimmed signals from 42 to 124
-2025-01-04 20:00:45,809 - INFO - Earliest rise point: 44
-2025-01-04 20:00:45,810 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,839 - INFO - Successfully processed: 46_225-80R17.5-600-710R.csv
-2025-01-04 20:00:45,846 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,850 - INFO - Trimmed signals from 52 to 122
-2025-01-04 20:00:45,850 - INFO - Earliest rise point: 54
-2025-01-04 20:00:45,850 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,878 - INFO - Successfully processed: 06_245-70R19.5-850-710R.csv
-2025-01-04 20:00:45,886 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,889 - INFO - Trimmed signals from 45 to 123
-2025-01-04 20:00:45,889 - INFO - Earliest rise point: 47
-2025-01-04 20:00:45,889 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,919 - INFO - Successfully processed: 45_225-80R17.5-700-710R.csv
-2025-01-04 20:00:45,927 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,930 - INFO - Trimmed signals from 81 to 122
-2025-01-04 20:00:45,930 - INFO - Earliest rise point: 83
-2025-01-04 20:00:45,930 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,955 - INFO - Successfully processed: 54_11R22.5-900-710R.csv
-2025-01-04 20:00:45,962 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:45,966 - INFO - Trimmed signals from 39 to 124
-2025-01-04 20:00:45,966 - INFO - Earliest rise point: 41
-2025-01-04 20:00:45,966 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:45,996 - INFO - Successfully processed: 04_455-55R22.5-900-716U.csv
-2025-01-04 20:00:46,003 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,007 - INFO - Trimmed signals from 46 to 81
-2025-01-04 20:00:46,007 - INFO - Earliest rise point: 48
-2025-01-04 20:00:46,007 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,031 - INFO - Successfully processed: 44_225-80R17.5-800-710R.csv
-2025-01-04 20:00:46,039 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,042 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:46,042 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,042 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,070 - INFO - Successfully processed: 38_11R22.5-600-101LZ.csv
-2025-01-04 20:00:46,079 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,083 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:46,083 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,083 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,111 - INFO - Successfully processed: 13_11R22.5-700-710R.csv
-2025-01-04 20:00:46,120 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,123 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:00:46,123 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,123 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,148 - INFO - Successfully processed: 62_11R22.5-600-710R.csv
-2025-01-04 20:00:46,156 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,159 - INFO - Trimmed signals from 1 to 125
-2025-01-04 20:00:46,159 - INFO - Earliest rise point: 1
-2025-01-04 20:00:46,159 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,201 - INFO - Successfully processed: 20_455-55R22.5-600-716U.csv
-2025-01-04 20:00:46,211 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,215 - INFO - Trimmed signals from 88 to 122
-2025-01-04 20:00:46,215 - INFO - Earliest rise point: 90
-2025-01-04 20:00:46,215 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,242 - INFO - Successfully processed: 18_245-70R19.5-600-710R.csv
-2025-01-04 20:00:46,250 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,254 - INFO - Trimmed signals from 48 to 122
-2025-01-04 20:00:46,254 - INFO - Earliest rise point: 50
-2025-01-04 20:00:46,254 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,285 - INFO - Successfully processed: 11_225-80R17.5-800-710R.csv
-2025-01-04 20:00:46,294 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,298 - INFO - Trimmed signals from 89 to 125
-2025-01-04 20:00:46,298 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,298 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,326 - INFO - Successfully processed: 32_11R22.5-800-MY377.csv
-2025-01-04 20:00:46,335 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,338 - INFO - Trimmed signals from 89 to 124
-2025-01-04 20:00:46,338 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,338 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,367 - INFO - Successfully processed: 36_11R22.5-700-MY377.csv
-2025-01-04 20:00:46,375 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,379 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:46,379 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,379 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,404 - INFO - Successfully processed: 23_225-80R17.5-500-710R.csv
-2025-01-04 20:00:46,412 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,415 - INFO - Trimmed signals from 48 to 92
-2025-01-04 20:00:46,415 - INFO - Earliest rise point: 50
-2025-01-04 20:00:46,415 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,440 - INFO - Successfully processed: 42_225-80R17.5-900-710R.csv
-2025-01-04 20:00:46,450 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,453 - INFO - Trimmed signals from 52 to 122
-2025-01-04 20:00:46,453 - INFO - Earliest rise point: 54
-2025-01-04 20:00:46,453 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,484 - INFO - Successfully processed: 02_245-70R19.5-900-710R.csv
-2025-01-04 20:00:46,492 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,495 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:00:46,495 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,495 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,520 - INFO - Successfully processed: 26_11R22.5-900-101LZ.csv
-2025-01-04 20:00:46,528 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,531 - INFO - Trimmed signals from 80 to 122
-2025-01-04 20:00:46,531 - INFO - Earliest rise point: 82
-2025-01-04 20:00:46,532 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,557 - INFO - Successfully processed: 60_11R22.5-800-710R.csv
-2025-01-04 20:00:46,565 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,568 - INFO - Trimmed signals from 46 to 122
-2025-01-04 20:00:46,568 - INFO - Earliest rise point: 48
-2025-01-04 20:00:46,568 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,666 - INFO - Successfully processed: 15_225-80R17.5-700-710R.csv
-2025-01-04 20:00:46,674 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,677 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:46,677 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,678 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,702 - INFO - Successfully processed: 61_11R22.5-700-710R.csv
-2025-01-04 20:00:46,709 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,713 - INFO - Trimmed signals from 29 to 122
-2025-01-04 20:00:46,713 - INFO - Earliest rise point: 31
-2025-01-04 20:00:46,713 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,744 - INFO - Successfully processed: 31_11R22.5-800-903ZW.csv
-2025-01-04 20:00:46,751 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,755 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:00:46,755 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,755 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,779 - INFO - Successfully processed: 56_11R22.5-700-710R.csv
-2025-01-04 20:00:46,787 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,790 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:46,790 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,790 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,816 - INFO - Successfully processed: 58_11R22.5-500-710R.csv
-2025-01-04 20:00:46,824 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,827 - INFO - Trimmed signals from 89 to 125
-2025-01-04 20:00:46,827 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,828 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,854 - INFO - Successfully processed: 21_11R22.5-500-710R.csv
-2025-01-04 20:00:46,862 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,865 - INFO - Trimmed signals from 45 to 123
-2025-01-04 20:00:46,865 - INFO - Earliest rise point: 47
-2025-01-04 20:00:46,865 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,894 - INFO - Successfully processed: 53_455-55R22.5-500-716R.csv
-2025-01-04 20:00:46,902 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,905 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:00:46,905 - INFO - Earliest rise point: 91
-2025-01-04 20:00:46,905 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,929 - INFO - Successfully processed: 08_455-55R22.5-850-716U.csv
-2025-01-04 20:00:46,936 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,939 - INFO - Trimmed signals from 85 to 122
-2025-01-04 20:00:46,939 - INFO - Earliest rise point: 87
-2025-01-04 20:00:46,940 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,964 - INFO - Successfully processed: 35_11R22.5-700-903ZW.csv
-2025-01-04 20:00:46,972 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:00:46,975 - INFO - Trimmed signals from 47 to 81
-2025-01-04 20:00:46,975 - INFO - Earliest rise point: 49
-2025-01-04 20:00:46,975 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:00:46,999 - INFO - Successfully processed: 43_225-80R17.5-850-710R.csv
-2025-01-04 20:00:46,999 - INFO - Starting median calculation for 58 files
-2025-01-04 20:00:48,262 - INFO - Saved median pulse widths to: Processed_Standalone/Median_Pulse_Widths_StandAlone.xlsx
-2025-01-04 20:00:48,262 - INFO - Processing completed successfully
-2025-01-04 20:06:16,241 - INFO - Processing mounted tire data from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/On_trucks_tires CSV data
-2025-01-04 20:06:16,242 - INFO - Found 204 CSV files
-2025-01-04 20:06:46,903 - INFO - Saved mounted tire median pulse widths to: Processed_Mounted/Median_Pulse_Widths.xlsx
-2025-01-04 20:06:52,299 - INFO - Saved mounted tire trimmed median pulse widths to: Processed_Mounted_Trimmed/Median_Pulse_Widths_Trim.xlsx
-2025-01-04 20:06:52,299 - INFO - Processing standalone tire data
-2025-01-04 20:06:52,299 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Merged
-2025-01-04 20:06:52,307 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,314 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:52,314 - INFO - Earliest rise point: 91
-2025-01-04 20:06:52,314 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,339 - INFO - Successfully processed: 47_225-80R17.5-500-710R.csv
-2025-01-04 20:06:52,348 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,351 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:52,351 - INFO - Earliest rise point: 91
-2025-01-04 20:06:52,351 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,376 - INFO - Successfully processed: 39_11R22.5-600-903ZW.csv
-2025-01-04 20:06:52,383 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,386 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:52,386 - INFO - Earliest rise point: 91
-2025-01-04 20:06:52,387 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,411 - INFO - Successfully processed: 57_11R22.5-600-710R.csv
-2025-01-04 20:06:52,419 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,422 - INFO - Trimmed signals from 49 to 122
-2025-01-04 20:06:52,422 - INFO - Earliest rise point: 51
-2025-01-04 20:06:52,422 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,451 - INFO - Successfully processed: 14_245-70R19.5-700-710R.csv
-2025-01-04 20:06:52,459 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,462 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:52,462 - INFO - Earliest rise point: 91
-2025-01-04 20:06:52,462 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,487 - INFO - Successfully processed: 63_11R22.5-500-710R.csv
-2025-01-04 20:06:52,494 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,497 - INFO - Trimmed signals from 44 to 123
-2025-01-04 20:06:52,497 - INFO - Earliest rise point: 46
-2025-01-04 20:06:52,498 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,527 - INFO - Successfully processed: 48_455-55R22.5-900-716R.csv
-2025-01-04 20:06:52,535 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,538 - INFO - Trimmed signals from 87 to 122
-2025-01-04 20:06:52,538 - INFO - Earliest rise point: 89
-2025-01-04 20:06:52,538 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,563 - INFO - Successfully processed: 59_11R22.5-900-710R.csv
-2025-01-04 20:06:52,570 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,573 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:52,573 - INFO - Earliest rise point: 91
-2025-01-04 20:06:52,574 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,598 - INFO - Successfully processed: 40_11R22.5-600-MY377.csv
-2025-01-04 20:06:52,606 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,609 - INFO - Trimmed signals from 7 to 124
-2025-01-04 20:06:52,609 - INFO - Earliest rise point: 9
-2025-01-04 20:06:52,609 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,642 - INFO - Successfully processed: 12_455-55R22.5-800-716U.csv
-2025-01-04 20:06:52,650 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,653 - INFO - Trimmed signals from 88 to 122
-2025-01-04 20:06:52,653 - INFO - Earliest rise point: 90
-2025-01-04 20:06:52,653 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,678 - INFO - Successfully processed: 22_245-70R19.5-500-710R.csv
-2025-01-04 20:06:52,686 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,689 - INFO - Trimmed signals from 89 to 124
-2025-01-04 20:06:52,689 - INFO - Earliest rise point: 91
-2025-01-04 20:06:52,689 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,713 - INFO - Successfully processed: 28_11R22.5-900-MY377.csv
-2025-01-04 20:06:52,721 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,724 - INFO - Trimmed signals from 50 to 90
-2025-01-04 20:06:52,724 - INFO - Earliest rise point: 52
-2025-01-04 20:06:52,724 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,762 - INFO - Successfully processed: 03_225-80R17.5-900-710R.csv
-2025-01-04 20:06:52,770 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,773 - INFO - Trimmed signals from 43 to 123
-2025-01-04 20:06:52,773 - INFO - Earliest rise point: 45
-2025-01-04 20:06:52,774 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,804 - INFO - Successfully processed: 49_455-55R22.5-850-716R.csv
-2025-01-04 20:06:52,812 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,815 - INFO - Trimmed signals from 31 to 122
-2025-01-04 20:06:52,815 - INFO - Earliest rise point: 33
-2025-01-04 20:06:52,815 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,850 - INFO - Successfully processed: 27_11R22.5-900-903ZW.csv
-2025-01-04 20:06:52,858 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,862 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:06:52,862 - INFO - Earliest rise point: 91
-2025-01-04 20:06:52,862 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,888 - INFO - Successfully processed: 55_11R22.5-800-710R.csv
-2025-01-04 20:06:52,896 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,899 - INFO - Trimmed signals from 1 to 122
-2025-01-04 20:06:52,899 - INFO - Earliest rise point: 3
-2025-01-04 20:06:52,899 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,934 - INFO - Successfully processed: 24_455-55R22.5-500-716U.csv
-2025-01-04 20:06:52,941 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,944 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:52,944 - INFO - Earliest rise point: 91
-2025-01-04 20:06:52,945 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:52,969 - INFO - Successfully processed: 17_11R22.5-600-710R.csv
-2025-01-04 20:06:52,977 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:52,980 - INFO - Trimmed signals from 42 to 122
-2025-01-04 20:06:52,980 - INFO - Earliest rise point: 44
-2025-01-04 20:06:52,980 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,009 - INFO - Successfully processed: 19_225-80R17.5-600-710R.csv
-2025-01-04 20:06:53,017 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,021 - INFO - Trimmed signals from 88 to 122
-2025-01-04 20:06:53,021 - INFO - Earliest rise point: 90
-2025-01-04 20:06:53,021 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,046 - INFO - Successfully processed: 34_11R22.5-700-101LZ.csv
-2025-01-04 20:06:53,053 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,057 - INFO - Trimmed signals from 79 to 122
-2025-01-04 20:06:53,057 - INFO - Earliest rise point: 81
-2025-01-04 20:06:53,057 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,082 - INFO - Successfully processed: 30_11R22.5-800-101LZ.csv
-2025-01-04 20:06:53,090 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,093 - INFO - Trimmed signals from 89 to 124
-2025-01-04 20:06:53,093 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,093 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,117 - INFO - Successfully processed: 50_455-55R22.5-800-716R.csv
-2025-01-04 20:06:53,125 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,129 - INFO - Trimmed signals from 49 to 122
-2025-01-04 20:06:53,129 - INFO - Earliest rise point: 51
-2025-01-04 20:06:53,129 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,158 - INFO - Successfully processed: 10_245-70R19.5-800-710R.csv
-2025-01-04 20:06:53,165 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,168 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:06:53,168 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,168 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,192 - INFO - Successfully processed: 01_11R22.5-900-710R.csv
-2025-01-04 20:06:53,200 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,203 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:53,203 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,203 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,227 - INFO - Successfully processed: 51_455-55R22.5-700-716R.csv
-2025-01-04 20:06:53,235 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,238 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:06:53,238 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,238 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,262 - INFO - Successfully processed: 09_11R22.5-800-710R.csv
-2025-01-04 20:06:53,270 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,273 - INFO - Trimmed signals from 88 to 122
-2025-01-04 20:06:53,273 - INFO - Earliest rise point: 90
-2025-01-04 20:06:53,273 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,297 - INFO - Successfully processed: 05_11R22.5-850-710R.csv
-2025-01-04 20:06:53,305 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,308 - INFO - Trimmed signals from 48 to 90
-2025-01-04 20:06:53,308 - INFO - Earliest rise point: 50
-2025-01-04 20:06:53,309 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,335 - INFO - Successfully processed: 07_225-80R17.5-850-710R.csv
-2025-01-04 20:06:53,343 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,346 - INFO - Trimmed signals from 48 to 122
-2025-01-04 20:06:53,346 - INFO - Earliest rise point: 50
-2025-01-04 20:06:53,346 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,376 - INFO - Successfully processed: 52_455-55R22.5-600-716R.csv
-2025-01-04 20:06:53,384 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,388 - INFO - Trimmed signals from 1 to 124
-2025-01-04 20:06:53,388 - INFO - Earliest rise point: 1
-2025-01-04 20:06:53,388 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,424 - INFO - Successfully processed: 16_455-55R22.5-700-716U.csv
-2025-01-04 20:06:53,432 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,435 - INFO - Trimmed signals from 42 to 124
-2025-01-04 20:06:53,435 - INFO - Earliest rise point: 44
-2025-01-04 20:06:53,436 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,465 - INFO - Successfully processed: 46_225-80R17.5-600-710R.csv
-2025-01-04 20:06:53,473 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,477 - INFO - Trimmed signals from 52 to 122
-2025-01-04 20:06:53,477 - INFO - Earliest rise point: 54
-2025-01-04 20:06:53,477 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,506 - INFO - Successfully processed: 06_245-70R19.5-850-710R.csv
-2025-01-04 20:06:53,514 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,517 - INFO - Trimmed signals from 45 to 123
-2025-01-04 20:06:53,517 - INFO - Earliest rise point: 47
-2025-01-04 20:06:53,517 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,546 - INFO - Successfully processed: 45_225-80R17.5-700-710R.csv
-2025-01-04 20:06:53,554 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,557 - INFO - Trimmed signals from 81 to 122
-2025-01-04 20:06:53,557 - INFO - Earliest rise point: 83
-2025-01-04 20:06:53,557 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,582 - INFO - Successfully processed: 54_11R22.5-900-710R.csv
-2025-01-04 20:06:53,590 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,593 - INFO - Trimmed signals from 39 to 124
-2025-01-04 20:06:53,593 - INFO - Earliest rise point: 41
-2025-01-04 20:06:53,594 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,624 - INFO - Successfully processed: 04_455-55R22.5-900-716U.csv
-2025-01-04 20:06:53,631 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,635 - INFO - Trimmed signals from 46 to 81
-2025-01-04 20:06:53,635 - INFO - Earliest rise point: 48
-2025-01-04 20:06:53,635 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,659 - INFO - Successfully processed: 44_225-80R17.5-800-710R.csv
-2025-01-04 20:06:53,667 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,670 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:53,670 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,670 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,694 - INFO - Successfully processed: 38_11R22.5-600-101LZ.csv
-2025-01-04 20:06:53,702 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,705 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:53,705 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,705 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,730 - INFO - Successfully processed: 13_11R22.5-700-710R.csv
-2025-01-04 20:06:53,737 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,741 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:06:53,741 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,741 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,765 - INFO - Successfully processed: 62_11R22.5-600-710R.csv
-2025-01-04 20:06:53,773 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,776 - INFO - Trimmed signals from 1 to 125
-2025-01-04 20:06:53,776 - INFO - Earliest rise point: 1
-2025-01-04 20:06:53,776 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,810 - INFO - Successfully processed: 20_455-55R22.5-600-716U.csv
-2025-01-04 20:06:53,820 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,824 - INFO - Trimmed signals from 88 to 122
-2025-01-04 20:06:53,824 - INFO - Earliest rise point: 90
-2025-01-04 20:06:53,824 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,849 - INFO - Successfully processed: 18_245-70R19.5-600-710R.csv
-2025-01-04 20:06:53,857 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,860 - INFO - Trimmed signals from 48 to 122
-2025-01-04 20:06:53,860 - INFO - Earliest rise point: 50
-2025-01-04 20:06:53,861 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,889 - INFO - Successfully processed: 11_225-80R17.5-800-710R.csv
-2025-01-04 20:06:53,898 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,901 - INFO - Trimmed signals from 89 to 125
-2025-01-04 20:06:53,901 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,901 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,926 - INFO - Successfully processed: 32_11R22.5-800-MY377.csv
-2025-01-04 20:06:53,934 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,938 - INFO - Trimmed signals from 89 to 124
-2025-01-04 20:06:53,938 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,938 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,963 - INFO - Successfully processed: 36_11R22.5-700-MY377.csv
-2025-01-04 20:06:53,970 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:53,974 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:53,974 - INFO - Earliest rise point: 91
-2025-01-04 20:06:53,974 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:53,998 - INFO - Successfully processed: 23_225-80R17.5-500-710R.csv
-2025-01-04 20:06:54,005 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,008 - INFO - Trimmed signals from 48 to 92
-2025-01-04 20:06:54,008 - INFO - Earliest rise point: 50
-2025-01-04 20:06:54,008 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,034 - INFO - Successfully processed: 42_225-80R17.5-900-710R.csv
-2025-01-04 20:06:54,041 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,045 - INFO - Trimmed signals from 52 to 122
-2025-01-04 20:06:54,045 - INFO - Earliest rise point: 54
-2025-01-04 20:06:54,045 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,074 - INFO - Successfully processed: 02_245-70R19.5-900-710R.csv
-2025-01-04 20:06:54,081 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,084 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:06:54,084 - INFO - Earliest rise point: 91
-2025-01-04 20:06:54,085 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,109 - INFO - Successfully processed: 26_11R22.5-900-101LZ.csv
-2025-01-04 20:06:54,116 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,119 - INFO - Trimmed signals from 80 to 122
-2025-01-04 20:06:54,119 - INFO - Earliest rise point: 82
-2025-01-04 20:06:54,119 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,144 - INFO - Successfully processed: 60_11R22.5-800-710R.csv
-2025-01-04 20:06:54,152 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,155 - INFO - Trimmed signals from 46 to 122
-2025-01-04 20:06:54,155 - INFO - Earliest rise point: 48
-2025-01-04 20:06:54,155 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,185 - INFO - Successfully processed: 15_225-80R17.5-700-710R.csv
-2025-01-04 20:06:54,192 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,196 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:54,196 - INFO - Earliest rise point: 91
-2025-01-04 20:06:54,196 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,220 - INFO - Successfully processed: 61_11R22.5-700-710R.csv
-2025-01-04 20:06:54,228 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,231 - INFO - Trimmed signals from 29 to 122
-2025-01-04 20:06:54,231 - INFO - Earliest rise point: 31
-2025-01-04 20:06:54,231 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,262 - INFO - Successfully processed: 31_11R22.5-800-903ZW.csv
-2025-01-04 20:06:54,269 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,272 - INFO - Trimmed signals from 89 to 122
-2025-01-04 20:06:54,273 - INFO - Earliest rise point: 91
-2025-01-04 20:06:54,273 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,297 - INFO - Successfully processed: 56_11R22.5-700-710R.csv
-2025-01-04 20:06:54,305 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,308 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:54,308 - INFO - Earliest rise point: 91
-2025-01-04 20:06:54,308 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,332 - INFO - Successfully processed: 58_11R22.5-500-710R.csv
-2025-01-04 20:06:54,340 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,343 - INFO - Trimmed signals from 89 to 125
-2025-01-04 20:06:54,343 - INFO - Earliest rise point: 91
-2025-01-04 20:06:54,343 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,368 - INFO - Successfully processed: 21_11R22.5-500-710R.csv
-2025-01-04 20:06:54,375 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,379 - INFO - Trimmed signals from 45 to 123
-2025-01-04 20:06:54,379 - INFO - Earliest rise point: 47
-2025-01-04 20:06:54,379 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,409 - INFO - Successfully processed: 53_455-55R22.5-500-716R.csv
-2025-01-04 20:06:54,417 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,420 - INFO - Trimmed signals from 89 to 123
-2025-01-04 20:06:54,420 - INFO - Earliest rise point: 91
-2025-01-04 20:06:54,421 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,446 - INFO - Successfully processed: 08_455-55R22.5-850-716U.csv
-2025-01-04 20:06:54,453 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,456 - INFO - Trimmed signals from 85 to 122
-2025-01-04 20:06:54,456 - INFO - Earliest rise point: 87
-2025-01-04 20:06:54,456 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,481 - INFO - Successfully processed: 35_11R22.5-700-903ZW.csv
-2025-01-04 20:06:54,489 - INFO - Trimming signals to 32 dims after rise point
-2025-01-04 20:06:54,492 - INFO - Trimmed signals from 47 to 81
-2025-01-04 20:06:54,492 - INFO - Earliest rise point: 49
-2025-01-04 20:06:54,492 - INFO - Applying fixed baseline subtraction: 0.01
-2025-01-04 20:06:54,518 - INFO - Successfully processed: 43_225-80R17.5-850-710R.csv
-2025-01-04 20:06:54,518 - INFO - Starting median calculation for 58 files
-2025-01-04 20:06:55,722 - INFO - Saved median pulse widths to: Processed_Standalone/Median_Pulse_Widths_StandAlone.xlsx
-2025-01-04 20:06:55,723 - INFO - Processing completed successfully
+2025-01-06 14:24:59,337 - INFO - Processing mounted tire data from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/On_trucks_tires CSV data
+2025-01-06 14:24:59,338 - INFO - Found 204 CSV files
+2025-01-06 14:24:59,389 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,396 - INFO - Trimmed signals from 17 to 81
+2025-01-06 14:24:59,396 - INFO - Earliest rise point: 19
+2025-01-06 14:24:59,460 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,465 - INFO - Trimmed signals from 31 to 79
+2025-01-06 14:24:59,465 - INFO - Earliest rise point: 33
+2025-01-06 14:24:59,511 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,515 - INFO - Trimmed signals from 40 to 81
+2025-01-06 14:24:59,515 - INFO - Earliest rise point: 42
+2025-01-06 14:24:59,559 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,564 - INFO - Trimmed signals from 26 to 79
+2025-01-06 14:24:59,564 - INFO - Earliest rise point: 28
+2025-01-06 14:24:59,609 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,614 - INFO - Trimmed signals from 21 to 81
+2025-01-06 14:24:59,614 - INFO - Earliest rise point: 23
+2025-01-06 14:24:59,659 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,664 - INFO - Trimmed signals from 34 to 81
+2025-01-06 14:24:59,664 - INFO - Earliest rise point: 36
+2025-01-06 14:24:59,709 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,714 - INFO - Trimmed signals from 28 to 82
+2025-01-06 14:24:59,714 - INFO - Earliest rise point: 30
+2025-01-06 14:24:59,771 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,776 - INFO - Trimmed signals from 33 to 80
+2025-01-06 14:24:59,776 - INFO - Earliest rise point: 35
+2025-01-06 14:24:59,821 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,826 - INFO - Trimmed signals from 16 to 81
+2025-01-06 14:24:59,826 - INFO - Earliest rise point: 18
+2025-01-06 14:24:59,872 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,877 - INFO - Trimmed signals from 34 to 74
+2025-01-06 14:24:59,877 - INFO - Earliest rise point: 36
+2025-01-06 14:24:59,920 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,925 - INFO - Trimmed signals from 6 to 79
+2025-01-06 14:24:59,925 - INFO - Earliest rise point: 8
+2025-01-06 14:24:59,973 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:24:59,978 - INFO - Trimmed signals from 11 to 78
+2025-01-06 14:24:59,978 - INFO - Earliest rise point: 13
+2025-01-06 14:25:00,025 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,031 - INFO - Trimmed signals from 26 to 79
+2025-01-06 14:25:00,031 - INFO - Earliest rise point: 28
+2025-01-06 14:25:00,078 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,083 - INFO - Trimmed signals from 31 to 81
+2025-01-06 14:25:00,083 - INFO - Earliest rise point: 33
+2025-01-06 14:25:00,128 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,133 - INFO - Trimmed signals from 28 to 82
+2025-01-06 14:25:00,133 - INFO - Earliest rise point: 30
+2025-01-06 14:25:00,179 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,184 - INFO - Trimmed signals from 8 to 81
+2025-01-06 14:25:00,184 - INFO - Earliest rise point: 10
+2025-01-06 14:25:00,232 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,237 - INFO - Trimmed signals from 28 to 78
+2025-01-06 14:25:00,237 - INFO - Earliest rise point: 30
+2025-01-06 14:25:00,282 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,288 - INFO - Trimmed signals from 20 to 81
+2025-01-06 14:25:00,288 - INFO - Earliest rise point: 22
+2025-01-06 14:25:00,336 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,341 - INFO - Trimmed signals from 34 to 81
+2025-01-06 14:25:00,341 - INFO - Earliest rise point: 36
+2025-01-06 14:25:00,389 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,394 - INFO - Trimmed signals from 40 to 81
+2025-01-06 14:25:00,394 - INFO - Earliest rise point: 42
+2025-01-06 14:25:00,448 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,454 - INFO - Trimmed signals from 29 to 81
+2025-01-06 14:25:00,454 - INFO - Earliest rise point: 31
+2025-01-06 14:25:00,501 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,505 - INFO - Trimmed signals from 22 to 80
+2025-01-06 14:25:00,505 - INFO - Earliest rise point: 24
+2025-01-06 14:25:00,552 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,557 - INFO - Trimmed signals from 25 to 80
+2025-01-06 14:25:00,557 - INFO - Earliest rise point: 27
+2025-01-06 14:25:00,603 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,608 - INFO - Trimmed signals from 3 to 81
+2025-01-06 14:25:00,608 - INFO - Earliest rise point: 5
+2025-01-06 14:25:00,655 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,660 - INFO - Trimmed signals from 6 to 81
+2025-01-06 14:25:00,660 - INFO - Earliest rise point: 8
+2025-01-06 14:25:00,707 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,712 - INFO - Trimmed signals from 4 to 79
+2025-01-06 14:25:00,712 - INFO - Earliest rise point: 6
+2025-01-06 14:25:00,760 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,765 - INFO - Trimmed signals from 33 to 73
+2025-01-06 14:25:00,765 - INFO - Earliest rise point: 35
+2025-01-06 14:25:00,810 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,815 - INFO - Trimmed signals from 29 to 81
+2025-01-06 14:25:00,815 - INFO - Earliest rise point: 31
+2025-01-06 14:25:00,864 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,869 - INFO - Trimmed signals from 29 to 81
+2025-01-06 14:25:00,869 - INFO - Earliest rise point: 31
+2025-01-06 14:25:00,918 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,923 - INFO - Trimmed signals from 24 to 80
+2025-01-06 14:25:00,923 - INFO - Earliest rise point: 26
+2025-01-06 14:25:00,970 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:00,975 - INFO - Trimmed signals from 38 to 81
+2025-01-06 14:25:00,975 - INFO - Earliest rise point: 40
+2025-01-06 14:25:01,020 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,025 - INFO - Trimmed signals from 22 to 79
+2025-01-06 14:25:01,025 - INFO - Earliest rise point: 24
+2025-01-06 14:25:01,076 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,081 - INFO - Trimmed signals from 45 to 82
+2025-01-06 14:25:01,081 - INFO - Earliest rise point: 47
+2025-01-06 14:25:01,126 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,132 - INFO - Trimmed signals from 22 to 80
+2025-01-06 14:25:01,132 - INFO - Earliest rise point: 24
+2025-01-06 14:25:01,226 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,232 - INFO - Trimmed signals from 46 to 81
+2025-01-06 14:25:01,232 - INFO - Earliest rise point: 48
+2025-01-06 14:25:01,276 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,282 - INFO - Trimmed signals from 26 to 80
+2025-01-06 14:25:01,282 - INFO - Earliest rise point: 28
+2025-01-06 14:25:01,329 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,334 - INFO - Trimmed signals from 19 to 79
+2025-01-06 14:25:01,334 - INFO - Earliest rise point: 21
+2025-01-06 14:25:01,382 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,388 - INFO - Trimmed signals from 1 to 79
+2025-01-06 14:25:01,388 - INFO - Earliest rise point: 3
+2025-01-06 14:25:01,437 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,442 - INFO - Trimmed signals from 22 to 81
+2025-01-06 14:25:01,442 - INFO - Earliest rise point: 24
+2025-01-06 14:25:01,489 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,495 - INFO - Trimmed signals from 22 to 82
+2025-01-06 14:25:01,495 - INFO - Earliest rise point: 24
+2025-01-06 14:25:01,543 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,547 - INFO - Trimmed signals from 31 to 78
+2025-01-06 14:25:01,548 - INFO - Earliest rise point: 33
+2025-01-06 14:25:01,594 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,600 - INFO - Trimmed signals from 37 to 81
+2025-01-06 14:25:01,600 - INFO - Earliest rise point: 39
+2025-01-06 14:25:01,646 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,651 - INFO - Trimmed signals from 38 to 81
+2025-01-06 14:25:01,651 - INFO - Earliest rise point: 40
+2025-01-06 14:25:01,697 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,702 - INFO - Trimmed signals from 22 to 81
+2025-01-06 14:25:01,702 - INFO - Earliest rise point: 24
+2025-01-06 14:25:01,749 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,754 - INFO - Trimmed signals from 22 to 79
+2025-01-06 14:25:01,754 - INFO - Earliest rise point: 24
+2025-01-06 14:25:01,810 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,818 - INFO - Trimmed signals from 45 to 82
+2025-01-06 14:25:01,818 - INFO - Earliest rise point: 47
+2025-01-06 14:25:01,879 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,886 - INFO - Trimmed signals from 22 to 81
+2025-01-06 14:25:01,887 - INFO - Earliest rise point: 24
+2025-01-06 14:25:01,950 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:01,955 - INFO - Trimmed signals from 1 to 81
+2025-01-06 14:25:01,955 - INFO - Earliest rise point: 3
+2025-01-06 14:25:02,005 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,010 - INFO - Trimmed signals from 26 to 81
+2025-01-06 14:25:02,010 - INFO - Earliest rise point: 28
+2025-01-06 14:25:02,057 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,062 - INFO - Trimmed signals from 31 to 78
+2025-01-06 14:25:02,062 - INFO - Earliest rise point: 33
+2025-01-06 14:25:02,107 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,112 - INFO - Trimmed signals from 33 to 81
+2025-01-06 14:25:02,112 - INFO - Earliest rise point: 35
+2025-01-06 14:25:02,158 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,162 - INFO - Trimmed signals from 7 to 80
+2025-01-06 14:25:02,163 - INFO - Earliest rise point: 9
+2025-01-06 14:25:02,210 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,215 - INFO - Trimmed signals from 35 to 81
+2025-01-06 14:25:02,215 - INFO - Earliest rise point: 37
+2025-01-06 14:25:02,260 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,265 - INFO - Trimmed signals from 19 to 81
+2025-01-06 14:25:02,265 - INFO - Earliest rise point: 21
+2025-01-06 14:25:02,313 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,318 - INFO - Trimmed signals from 6 to 80
+2025-01-06 14:25:02,318 - INFO - Earliest rise point: 8
+2025-01-06 14:25:02,366 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,372 - INFO - Trimmed signals from 26 to 81
+2025-01-06 14:25:02,372 - INFO - Earliest rise point: 28
+2025-01-06 14:25:02,418 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,423 - INFO - Trimmed signals from 31 to 82
+2025-01-06 14:25:02,423 - INFO - Earliest rise point: 33
+2025-01-06 14:25:02,469 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,474 - INFO - Trimmed signals from 23 to 81
+2025-01-06 14:25:02,474 - INFO - Earliest rise point: 25
+2025-01-06 14:25:02,520 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,525 - INFO - Trimmed signals from 17 to 80
+2025-01-06 14:25:02,525 - INFO - Earliest rise point: 19
+2025-01-06 14:25:02,572 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,577 - INFO - Trimmed signals from 24 to 81
+2025-01-06 14:25:02,577 - INFO - Earliest rise point: 26
+2025-01-06 14:25:02,635 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,640 - INFO - Trimmed signals from 48 to 82
+2025-01-06 14:25:02,640 - INFO - Earliest rise point: 50
+2025-01-06 14:25:02,685 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,690 - INFO - Trimmed signals from 30 to 81
+2025-01-06 14:25:02,690 - INFO - Earliest rise point: 32
+2025-01-06 14:25:02,736 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,741 - INFO - Trimmed signals from 46 to 81
+2025-01-06 14:25:02,741 - INFO - Earliest rise point: 48
+2025-01-06 14:25:02,784 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,789 - INFO - Trimmed signals from 48 to 82
+2025-01-06 14:25:02,790 - INFO - Earliest rise point: 50
+2025-01-06 14:25:02,834 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,838 - INFO - Trimmed signals from 31 to 81
+2025-01-06 14:25:02,838 - INFO - Earliest rise point: 33
+2025-01-06 14:25:02,885 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,890 - INFO - Trimmed signals from 48 to 82
+2025-01-06 14:25:02,890 - INFO - Earliest rise point: 50
+2025-01-06 14:25:02,936 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,941 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:02,941 - INFO - Earliest rise point: 32
+2025-01-06 14:25:02,986 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:02,991 - INFO - Trimmed signals from 27 to 82
+2025-01-06 14:25:02,991 - INFO - Earliest rise point: 29
+2025-01-06 14:25:03,038 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,043 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:03,043 - INFO - Earliest rise point: 32
+2025-01-06 14:25:03,088 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,093 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:03,093 - INFO - Earliest rise point: 32
+2025-01-06 14:25:03,140 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,145 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:03,145 - INFO - Earliest rise point: 32
+2025-01-06 14:25:03,191 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,196 - INFO - Trimmed signals from 48 to 82
+2025-01-06 14:25:03,196 - INFO - Earliest rise point: 50
+2025-01-06 14:25:03,241 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,246 - INFO - Trimmed signals from 48 to 82
+2025-01-06 14:25:03,246 - INFO - Earliest rise point: 50
+2025-01-06 14:25:03,298 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,303 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:03,303 - INFO - Earliest rise point: 32
+2025-01-06 14:25:03,349 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,354 - INFO - Trimmed signals from 29 to 82
+2025-01-06 14:25:03,354 - INFO - Earliest rise point: 31
+2025-01-06 14:25:03,401 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,405 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:03,405 - INFO - Earliest rise point: 50
+2025-01-06 14:25:03,449 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,455 - INFO - Trimmed signals from 46 to 82
+2025-01-06 14:25:03,455 - INFO - Earliest rise point: 48
+2025-01-06 14:25:03,499 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,504 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:03,504 - INFO - Earliest rise point: 32
+2025-01-06 14:25:03,551 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,556 - INFO - Trimmed signals from 46 to 82
+2025-01-06 14:25:03,556 - INFO - Earliest rise point: 48
+2025-01-06 14:25:03,600 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,605 - INFO - Trimmed signals from 46 to 82
+2025-01-06 14:25:03,605 - INFO - Earliest rise point: 48
+2025-01-06 14:25:03,648 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,653 - INFO - Trimmed signals from 42 to 82
+2025-01-06 14:25:03,653 - INFO - Earliest rise point: 44
+2025-01-06 14:25:03,699 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,704 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:03,704 - INFO - Earliest rise point: 32
+2025-01-06 14:25:03,751 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,756 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:03,756 - INFO - Earliest rise point: 32
+2025-01-06 14:25:03,802 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,807 - INFO - Trimmed signals from 30 to 81
+2025-01-06 14:25:03,807 - INFO - Earliest rise point: 32
+2025-01-06 14:25:03,853 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,857 - INFO - Trimmed signals from 48 to 82
+2025-01-06 14:25:03,857 - INFO - Earliest rise point: 50
+2025-01-06 14:25:03,901 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,906 - INFO - Trimmed signals from 48 to 82
+2025-01-06 14:25:03,906 - INFO - Earliest rise point: 50
+2025-01-06 14:25:03,949 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:03,956 - INFO - Trimmed signals from 48 to 82
+2025-01-06 14:25:03,956 - INFO - Earliest rise point: 50
+2025-01-06 14:25:04,010 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,016 - INFO - Trimmed signals from 46 to 82
+2025-01-06 14:25:04,016 - INFO - Earliest rise point: 48
+2025-01-06 14:25:04,060 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,065 - INFO - Trimmed signals from 46 to 82
+2025-01-06 14:25:04,065 - INFO - Earliest rise point: 48
+2025-01-06 14:25:04,110 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,115 - INFO - Trimmed signals from 43 to 82
+2025-01-06 14:25:04,115 - INFO - Earliest rise point: 45
+2025-01-06 14:25:04,160 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,165 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:04,165 - INFO - Earliest rise point: 32
+2025-01-06 14:25:04,211 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,216 - INFO - Trimmed signals from 48 to 82
+2025-01-06 14:25:04,216 - INFO - Earliest rise point: 50
+2025-01-06 14:25:04,260 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,265 - INFO - Trimmed signals from 47 to 82
+2025-01-06 14:25:04,265 - INFO - Earliest rise point: 49
+2025-01-06 14:25:04,308 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,313 - INFO - Trimmed signals from 30 to 82
+2025-01-06 14:25:04,313 - INFO - Earliest rise point: 32
+2025-01-06 14:25:04,359 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,364 - INFO - Trimmed signals from 47 to 81
+2025-01-06 14:25:04,364 - INFO - Earliest rise point: 49
+2025-01-06 14:25:04,409 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,414 - INFO - Trimmed signals from 46 to 82
+2025-01-06 14:25:04,415 - INFO - Earliest rise point: 48
+2025-01-06 14:25:04,460 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,465 - INFO - Trimmed signals from 45 to 82
+2025-01-06 14:25:04,465 - INFO - Earliest rise point: 47
+2025-01-06 14:25:04,510 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,515 - INFO - Trimmed signals from 29 to 82
+2025-01-06 14:25:04,515 - INFO - Earliest rise point: 31
+2025-01-06 14:25:04,560 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,565 - INFO - Trimmed signals from 46 to 82
+2025-01-06 14:25:04,565 - INFO - Earliest rise point: 48
+2025-01-06 14:25:04,609 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,614 - INFO - Trimmed signals from 29 to 81
+2025-01-06 14:25:04,614 - INFO - Earliest rise point: 31
+2025-01-06 14:25:04,669 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,674 - INFO - Trimmed signals from 25 to 77
+2025-01-06 14:25:04,674 - INFO - Earliest rise point: 27
+2025-01-06 14:25:04,721 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,726 - INFO - Trimmed signals from 41 to 81
+2025-01-06 14:25:04,726 - INFO - Earliest rise point: 43
+2025-01-06 14:25:04,771 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,774 - INFO - Trimmed signals from 35 to 80
+2025-01-06 14:25:04,774 - INFO - Earliest rise point: 37
+2025-01-06 14:25:04,817 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,822 - INFO - Trimmed signals from 10 to 77
+2025-01-06 14:25:04,822 - INFO - Earliest rise point: 12
+2025-01-06 14:25:04,869 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,874 - INFO - Trimmed signals from 34 to 78
+2025-01-06 14:25:04,874 - INFO - Earliest rise point: 36
+2025-01-06 14:25:04,919 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,924 - INFO - Trimmed signals from 2 to 81
+2025-01-06 14:25:04,924 - INFO - Earliest rise point: 4
+2025-01-06 14:25:04,974 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:04,978 - INFO - Trimmed signals from 22 to 81
+2025-01-06 14:25:04,978 - INFO - Earliest rise point: 24
+2025-01-06 14:25:05,024 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,029 - INFO - Trimmed signals from 23 to 77
+2025-01-06 14:25:05,029 - INFO - Earliest rise point: 25
+2025-01-06 14:25:05,076 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,081 - INFO - Trimmed signals from 8 to 78
+2025-01-06 14:25:05,081 - INFO - Earliest rise point: 10
+2025-01-06 14:25:05,129 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,134 - INFO - Trimmed signals from 39 to 81
+2025-01-06 14:25:05,134 - INFO - Earliest rise point: 41
+2025-01-06 14:25:05,178 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,183 - INFO - Trimmed signals from 4 to 77
+2025-01-06 14:25:05,183 - INFO - Earliest rise point: 6
+2025-01-06 14:25:05,231 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,236 - INFO - Trimmed signals from 11 to 81
+2025-01-06 14:25:05,236 - INFO - Earliest rise point: 13
+2025-01-06 14:25:05,284 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,289 - INFO - Trimmed signals from 11 to 81
+2025-01-06 14:25:05,289 - INFO - Earliest rise point: 13
+2025-01-06 14:25:05,345 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,350 - INFO - Trimmed signals from 20 to 81
+2025-01-06 14:25:05,350 - INFO - Earliest rise point: 22
+2025-01-06 14:25:05,397 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,402 - INFO - Trimmed signals from 11 to 81
+2025-01-06 14:25:05,402 - INFO - Earliest rise point: 13
+2025-01-06 14:25:05,450 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,454 - INFO - Trimmed signals from 46 to 80
+2025-01-06 14:25:05,454 - INFO - Earliest rise point: 48
+2025-01-06 14:25:05,498 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,503 - INFO - Trimmed signals from 41 to 81
+2025-01-06 14:25:05,503 - INFO - Earliest rise point: 43
+2025-01-06 14:25:05,548 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,553 - INFO - Trimmed signals from 13 to 81
+2025-01-06 14:25:05,553 - INFO - Earliest rise point: 15
+2025-01-06 14:25:05,601 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,605 - INFO - Trimmed signals from 46 to 80
+2025-01-06 14:25:05,605 - INFO - Earliest rise point: 48
+2025-01-06 14:25:05,648 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,653 - INFO - Trimmed signals from 11 to 81
+2025-01-06 14:25:05,653 - INFO - Earliest rise point: 13
+2025-01-06 14:25:05,700 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,705 - INFO - Trimmed signals from 41 to 81
+2025-01-06 14:25:05,705 - INFO - Earliest rise point: 43
+2025-01-06 14:25:05,749 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,754 - INFO - Trimmed signals from 9 to 77
+2025-01-06 14:25:05,754 - INFO - Earliest rise point: 11
+2025-01-06 14:25:05,800 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,805 - INFO - Trimmed signals from 1 to 82
+2025-01-06 14:25:05,805 - INFO - Earliest rise point: 1
+2025-01-06 14:25:05,854 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,859 - INFO - Trimmed signals from 29 to 71
+2025-01-06 14:25:05,859 - INFO - Earliest rise point: 31
+2025-01-06 14:25:05,903 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,908 - INFO - Trimmed signals from 24 to 69
+2025-01-06 14:25:05,908 - INFO - Earliest rise point: 26
+2025-01-06 14:25:05,953 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:05,958 - INFO - Trimmed signals from 24 to 81
+2025-01-06 14:25:05,958 - INFO - Earliest rise point: 26
+2025-01-06 14:25:06,009 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,013 - INFO - Trimmed signals from 2 to 81
+2025-01-06 14:25:06,013 - INFO - Earliest rise point: 4
+2025-01-06 14:25:06,069 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,074 - INFO - Trimmed signals from 35 to 78
+2025-01-06 14:25:06,074 - INFO - Earliest rise point: 37
+2025-01-06 14:25:06,119 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,123 - INFO - Trimmed signals from 35 to 78
+2025-01-06 14:25:06,124 - INFO - Earliest rise point: 37
+2025-01-06 14:25:06,167 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,171 - INFO - Trimmed signals from 1 to 80
+2025-01-06 14:25:06,171 - INFO - Earliest rise point: 3
+2025-01-06 14:25:06,216 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,221 - INFO - Trimmed signals from 23 to 81
+2025-01-06 14:25:06,221 - INFO - Earliest rise point: 25
+2025-01-06 14:25:06,267 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,272 - INFO - Trimmed signals from 24 to 75
+2025-01-06 14:25:06,272 - INFO - Earliest rise point: 26
+2025-01-06 14:25:06,317 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,322 - INFO - Trimmed signals from 34 to 76
+2025-01-06 14:25:06,322 - INFO - Earliest rise point: 36
+2025-01-06 14:25:06,364 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,368 - INFO - Trimmed signals from 27 to 80
+2025-01-06 14:25:06,368 - INFO - Earliest rise point: 29
+2025-01-06 14:25:06,413 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,418 - INFO - Trimmed signals from 9 to 81
+2025-01-06 14:25:06,418 - INFO - Earliest rise point: 11
+2025-01-06 14:25:06,466 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,471 - INFO - Trimmed signals from 12 to 81
+2025-01-06 14:25:06,471 - INFO - Earliest rise point: 14
+2025-01-06 14:25:06,518 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,523 - INFO - Trimmed signals from 35 to 80
+2025-01-06 14:25:06,523 - INFO - Earliest rise point: 37
+2025-01-06 14:25:06,565 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,570 - INFO - Trimmed signals from 10 to 81
+2025-01-06 14:25:06,570 - INFO - Earliest rise point: 12
+2025-01-06 14:25:06,617 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,622 - INFO - Trimmed signals from 1 to 81
+2025-01-06 14:25:06,622 - INFO - Earliest rise point: 3
+2025-01-06 14:25:06,669 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,674 - INFO - Trimmed signals from 34 to 81
+2025-01-06 14:25:06,674 - INFO - Earliest rise point: 36
+2025-01-06 14:25:06,727 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,732 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:06,732 - INFO - Earliest rise point: 50
+2025-01-06 14:25:06,776 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,781 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:06,781 - INFO - Earliest rise point: 50
+2025-01-06 14:25:06,824 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,829 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:06,829 - INFO - Earliest rise point: 50
+2025-01-06 14:25:06,872 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,877 - INFO - Trimmed signals from 1 to 81
+2025-01-06 14:25:06,877 - INFO - Earliest rise point: 3
+2025-01-06 14:25:06,926 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,931 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:06,931 - INFO - Earliest rise point: 50
+2025-01-06 14:25:06,976 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:06,980 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:06,980 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,026 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,031 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,031 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,074 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,079 - INFO - Trimmed signals from 43 to 81
+2025-01-06 14:25:07,079 - INFO - Earliest rise point: 45
+2025-01-06 14:25:07,123 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,128 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,128 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,172 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,176 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,177 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,219 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,224 - INFO - Trimmed signals from 46 to 81
+2025-01-06 14:25:07,224 - INFO - Earliest rise point: 48
+2025-01-06 14:25:07,266 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,271 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,271 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,314 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,319 - INFO - Trimmed signals from 38 to 81
+2025-01-06 14:25:07,319 - INFO - Earliest rise point: 40
+2025-01-06 14:25:07,370 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,375 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,375 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,419 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,424 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,424 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,467 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,472 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,472 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,516 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,521 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,521 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,563 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,568 - INFO - Trimmed signals from 47 to 81
+2025-01-06 14:25:07,568 - INFO - Earliest rise point: 49
+2025-01-06 14:25:07,612 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,618 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,618 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,661 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,665 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,665 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,708 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,713 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,713 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,757 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,762 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,762 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,806 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,811 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,811 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,853 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,858 - INFO - Trimmed signals from 48 to 81
+2025-01-06 14:25:07,858 - INFO - Earliest rise point: 50
+2025-01-06 14:25:07,902 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,907 - INFO - Trimmed signals from 39 to 79
+2025-01-06 14:25:07,907 - INFO - Earliest rise point: 41
+2025-01-06 14:25:07,951 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:07,956 - INFO - Trimmed signals from 31 to 80
+2025-01-06 14:25:07,956 - INFO - Earliest rise point: 33
+2025-01-06 14:25:08,009 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,014 - INFO - Trimmed signals from 13 to 79
+2025-01-06 14:25:08,014 - INFO - Earliest rise point: 15
+2025-01-06 14:25:08,065 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,071 - INFO - Trimmed signals from 1 to 73
+2025-01-06 14:25:08,071 - INFO - Earliest rise point: 3
+2025-01-06 14:25:08,117 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,122 - INFO - Trimmed signals from 16 to 78
+2025-01-06 14:25:08,122 - INFO - Earliest rise point: 18
+2025-01-06 14:25:08,169 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,174 - INFO - Trimmed signals from 1 to 78
+2025-01-06 14:25:08,174 - INFO - Earliest rise point: 3
+2025-01-06 14:25:08,222 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,227 - INFO - Trimmed signals from 32 to 80
+2025-01-06 14:25:08,227 - INFO - Earliest rise point: 34
+2025-01-06 14:25:08,307 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,311 - INFO - Trimmed signals from 38 to 78
+2025-01-06 14:25:08,311 - INFO - Earliest rise point: 40
+2025-01-06 14:25:08,354 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,359 - INFO - Trimmed signals from 1 to 79
+2025-01-06 14:25:08,359 - INFO - Earliest rise point: 3
+2025-01-06 14:25:08,408 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,413 - INFO - Trimmed signals from 32 to 74
+2025-01-06 14:25:08,413 - INFO - Earliest rise point: 34
+2025-01-06 14:25:08,458 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,463 - INFO - Trimmed signals from 38 to 76
+2025-01-06 14:25:08,463 - INFO - Earliest rise point: 40
+2025-01-06 14:25:08,507 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,512 - INFO - Trimmed signals from 32 to 74
+2025-01-06 14:25:08,512 - INFO - Earliest rise point: 34
+2025-01-06 14:25:08,557 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,562 - INFO - Trimmed signals from 37 to 80
+2025-01-06 14:25:08,562 - INFO - Earliest rise point: 39
+2025-01-06 14:25:08,606 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,611 - INFO - Trimmed signals from 27 to 78
+2025-01-06 14:25:08,611 - INFO - Earliest rise point: 29
+2025-01-06 14:25:08,657 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,662 - INFO - Trimmed signals from 14 to 80
+2025-01-06 14:25:08,662 - INFO - Earliest rise point: 16
+2025-01-06 14:25:08,708 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,713 - INFO - Trimmed signals from 36 to 80
+2025-01-06 14:25:08,713 - INFO - Earliest rise point: 38
+2025-01-06 14:25:08,767 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,772 - INFO - Trimmed signals from 9 to 79
+2025-01-06 14:25:08,772 - INFO - Earliest rise point: 11
+2025-01-06 14:25:08,819 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,824 - INFO - Trimmed signals from 27 to 78
+2025-01-06 14:25:08,824 - INFO - Earliest rise point: 29
+2025-01-06 14:25:08,870 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,875 - INFO - Trimmed signals from 37 to 80
+2025-01-06 14:25:08,875 - INFO - Earliest rise point: 39
+2025-01-06 14:25:08,920 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,924 - INFO - Trimmed signals from 32 to 80
+2025-01-06 14:25:08,925 - INFO - Earliest rise point: 34
+2025-01-06 14:25:08,969 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:08,974 - INFO - Trimmed signals from 32 to 68
+2025-01-06 14:25:08,974 - INFO - Earliest rise point: 34
+2025-01-06 14:25:09,018 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,023 - INFO - Trimmed signals from 8 to 76
+2025-01-06 14:25:09,023 - INFO - Earliest rise point: 10
+2025-01-06 14:25:09,070 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,075 - INFO - Trimmed signals from 32 to 80
+2025-01-06 14:25:09,075 - INFO - Earliest rise point: 34
+2025-01-06 14:25:09,121 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,126 - INFO - Trimmed signals from 7 to 78
+2025-01-06 14:25:09,126 - INFO - Earliest rise point: 9
+2025-01-06 14:25:09,176 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,181 - INFO - Trimmed signals from 45 to 82
+2025-01-06 14:25:09,181 - INFO - Earliest rise point: 47
+2025-01-06 14:25:09,226 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,231 - INFO - Trimmed signals from 38 to 82
+2025-01-06 14:25:09,231 - INFO - Earliest rise point: 40
+2025-01-06 14:25:09,275 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,280 - INFO - Trimmed signals from 38 to 81
+2025-01-06 14:25:09,280 - INFO - Earliest rise point: 40
+2025-01-06 14:25:09,324 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,329 - INFO - Trimmed signals from 39 to 82
+2025-01-06 14:25:09,329 - INFO - Earliest rise point: 41
+2025-01-06 14:25:09,374 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,379 - INFO - Trimmed signals from 47 to 82
+2025-01-06 14:25:09,379 - INFO - Earliest rise point: 49
+2025-01-06 14:25:09,432 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,436 - INFO - Trimmed signals from 43 to 82
+2025-01-06 14:25:09,436 - INFO - Earliest rise point: 45
+2025-01-06 14:25:09,480 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,486 - INFO - Trimmed signals from 45 to 82
+2025-01-06 14:25:09,486 - INFO - Earliest rise point: 47
+2025-01-06 14:25:09,529 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,534 - INFO - Trimmed signals from 43 to 80
+2025-01-06 14:25:09,534 - INFO - Earliest rise point: 45
+2025-01-06 14:25:09,578 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,583 - INFO - Trimmed signals from 41 to 79
+2025-01-06 14:25:09,583 - INFO - Earliest rise point: 43
+2025-01-06 14:25:09,626 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,631 - INFO - Trimmed signals from 42 to 82
+2025-01-06 14:25:09,631 - INFO - Earliest rise point: 44
+2025-01-06 14:25:09,676 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,681 - INFO - Trimmed signals from 42 to 82
+2025-01-06 14:25:09,681 - INFO - Earliest rise point: 44
+2025-01-06 14:25:09,725 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,730 - INFO - Trimmed signals from 38 to 82
+2025-01-06 14:25:09,730 - INFO - Earliest rise point: 40
+2025-01-06 14:25:09,774 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,779 - INFO - Trimmed signals from 42 to 82
+2025-01-06 14:25:09,779 - INFO - Earliest rise point: 44
+2025-01-06 14:25:09,823 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,828 - INFO - Trimmed signals from 47 to 82
+2025-01-06 14:25:09,828 - INFO - Earliest rise point: 49
+2025-01-06 14:25:09,873 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,878 - INFO - Trimmed signals from 35 to 82
+2025-01-06 14:25:09,878 - INFO - Earliest rise point: 37
+2025-01-06 14:25:09,924 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:09,930 - INFO - Trimmed signals from 37 to 81
+2025-01-06 14:25:09,930 - INFO - Earliest rise point: 39
+2025-01-06 14:25:14,260 - INFO - Saved mounted tire median pulse widths to: Processed_Mounted/Median_Pulse_Widths.xlsx
+2025-01-06 14:25:14,260 - INFO - Processing standalone tire data
+2025-01-06 14:25:14,260 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Merged
+2025-01-06 14:25:14,269 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,272 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:14,273 - INFO - Earliest rise point: 91
+2025-01-06 14:25:14,273 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,300 - INFO - Successfully processed: 47_225-80R17.5-500-710R.csv
+2025-01-06 14:25:14,308 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,311 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:14,311 - INFO - Earliest rise point: 91
+2025-01-06 14:25:14,311 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,338 - INFO - Successfully processed: 39_11R22.5-600-903ZW.csv
+2025-01-06 14:25:14,346 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,349 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:14,349 - INFO - Earliest rise point: 91
+2025-01-06 14:25:14,349 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,376 - INFO - Successfully processed: 57_11R22.5-600-710R.csv
+2025-01-06 14:25:14,384 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,387 - INFO - Trimmed signals from 49 to 122
+2025-01-06 14:25:14,387 - INFO - Earliest rise point: 51
+2025-01-06 14:25:14,387 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,419 - INFO - Successfully processed: 14_245-70R19.5-700-710R.csv
+2025-01-06 14:25:14,426 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,430 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:14,430 - INFO - Earliest rise point: 91
+2025-01-06 14:25:14,430 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,457 - INFO - Successfully processed: 63_11R22.5-500-710R.csv
+2025-01-06 14:25:14,465 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,468 - INFO - Trimmed signals from 44 to 123
+2025-01-06 14:25:14,468 - INFO - Earliest rise point: 46
+2025-01-06 14:25:14,468 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,500 - INFO - Successfully processed: 48_455-55R22.5-900-716R.csv
+2025-01-06 14:25:14,508 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,512 - INFO - Trimmed signals from 87 to 122
+2025-01-06 14:25:14,512 - INFO - Earliest rise point: 89
+2025-01-06 14:25:14,512 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,540 - INFO - Successfully processed: 59_11R22.5-900-710R.csv
+2025-01-06 14:25:14,547 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,551 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:14,551 - INFO - Earliest rise point: 91
+2025-01-06 14:25:14,551 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,578 - INFO - Successfully processed: 40_11R22.5-600-MY377.csv
+2025-01-06 14:25:14,586 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,589 - INFO - Trimmed signals from 7 to 124
+2025-01-06 14:25:14,590 - INFO - Earliest rise point: 9
+2025-01-06 14:25:14,590 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,627 - INFO - Successfully processed: 12_455-55R22.5-800-716U.csv
+2025-01-06 14:25:14,635 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,638 - INFO - Trimmed signals from 88 to 122
+2025-01-06 14:25:14,638 - INFO - Earliest rise point: 90
+2025-01-06 14:25:14,638 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,665 - INFO - Successfully processed: 22_245-70R19.5-500-710R.csv
+2025-01-06 14:25:14,673 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,676 - INFO - Trimmed signals from 89 to 124
+2025-01-06 14:25:14,676 - INFO - Earliest rise point: 91
+2025-01-06 14:25:14,676 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,704 - INFO - Successfully processed: 28_11R22.5-900-MY377.csv
+2025-01-06 14:25:14,711 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,714 - INFO - Trimmed signals from 50 to 90
+2025-01-06 14:25:14,714 - INFO - Earliest rise point: 52
+2025-01-06 14:25:14,714 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,741 - INFO - Successfully processed: 03_225-80R17.5-900-710R.csv
+2025-01-06 14:25:14,749 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,753 - INFO - Trimmed signals from 43 to 123
+2025-01-06 14:25:14,753 - INFO - Earliest rise point: 45
+2025-01-06 14:25:14,753 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,785 - INFO - Successfully processed: 49_455-55R22.5-850-716R.csv
+2025-01-06 14:25:14,792 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,795 - INFO - Trimmed signals from 31 to 122
+2025-01-06 14:25:14,795 - INFO - Earliest rise point: 33
+2025-01-06 14:25:14,796 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,830 - INFO - Successfully processed: 27_11R22.5-900-903ZW.csv
+2025-01-06 14:25:14,838 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,841 - INFO - Trimmed signals from 89 to 122
+2025-01-06 14:25:14,841 - INFO - Earliest rise point: 91
+2025-01-06 14:25:14,841 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,878 - INFO - Successfully processed: 55_11R22.5-800-710R.csv
+2025-01-06 14:25:14,908 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,912 - INFO - Trimmed signals from 1 to 122
+2025-01-06 14:25:14,912 - INFO - Earliest rise point: 3
+2025-01-06 14:25:14,912 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:14,950 - INFO - Successfully processed: 24_455-55R22.5-500-716U.csv
+2025-01-06 14:25:14,972 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:14,975 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:14,975 - INFO - Earliest rise point: 91
+2025-01-06 14:25:14,976 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,003 - INFO - Successfully processed: 17_11R22.5-600-710R.csv
+2025-01-06 14:25:15,011 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,014 - INFO - Trimmed signals from 42 to 122
+2025-01-06 14:25:15,014 - INFO - Earliest rise point: 44
+2025-01-06 14:25:15,015 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,047 - INFO - Successfully processed: 19_225-80R17.5-600-710R.csv
+2025-01-06 14:25:15,055 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,058 - INFO - Trimmed signals from 88 to 122
+2025-01-06 14:25:15,058 - INFO - Earliest rise point: 90
+2025-01-06 14:25:15,058 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,086 - INFO - Successfully processed: 34_11R22.5-700-101LZ.csv
+2025-01-06 14:25:15,094 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,097 - INFO - Trimmed signals from 79 to 122
+2025-01-06 14:25:15,097 - INFO - Earliest rise point: 81
+2025-01-06 14:25:15,097 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,125 - INFO - Successfully processed: 30_11R22.5-800-101LZ.csv
+2025-01-06 14:25:15,133 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,136 - INFO - Trimmed signals from 89 to 124
+2025-01-06 14:25:15,136 - INFO - Earliest rise point: 91
+2025-01-06 14:25:15,137 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,164 - INFO - Successfully processed: 50_455-55R22.5-800-716R.csv
+2025-01-06 14:25:15,172 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,175 - INFO - Trimmed signals from 49 to 122
+2025-01-06 14:25:15,175 - INFO - Earliest rise point: 51
+2025-01-06 14:25:15,175 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,207 - INFO - Successfully processed: 10_245-70R19.5-800-710R.csv
+2025-01-06 14:25:15,214 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,218 - INFO - Trimmed signals from 89 to 122
+2025-01-06 14:25:15,218 - INFO - Earliest rise point: 91
+2025-01-06 14:25:15,218 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,247 - INFO - Successfully processed: 01_11R22.5-900-710R.csv
+2025-01-06 14:25:15,255 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,258 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:15,258 - INFO - Earliest rise point: 91
+2025-01-06 14:25:15,259 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,286 - INFO - Successfully processed: 51_455-55R22.5-700-716R.csv
+2025-01-06 14:25:15,294 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,297 - INFO - Trimmed signals from 89 to 122
+2025-01-06 14:25:15,297 - INFO - Earliest rise point: 91
+2025-01-06 14:25:15,297 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,325 - INFO - Successfully processed: 09_11R22.5-800-710R.csv
+2025-01-06 14:25:15,333 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,336 - INFO - Trimmed signals from 88 to 122
+2025-01-06 14:25:15,336 - INFO - Earliest rise point: 90
+2025-01-06 14:25:15,337 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,364 - INFO - Successfully processed: 05_11R22.5-850-710R.csv
+2025-01-06 14:25:15,372 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,375 - INFO - Trimmed signals from 48 to 90
+2025-01-06 14:25:15,375 - INFO - Earliest rise point: 50
+2025-01-06 14:25:15,375 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,403 - INFO - Successfully processed: 07_225-80R17.5-850-710R.csv
+2025-01-06 14:25:15,411 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,414 - INFO - Trimmed signals from 48 to 122
+2025-01-06 14:25:15,414 - INFO - Earliest rise point: 50
+2025-01-06 14:25:15,415 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,447 - INFO - Successfully processed: 52_455-55R22.5-600-716R.csv
+2025-01-06 14:25:15,455 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,458 - INFO - Trimmed signals from 1 to 124
+2025-01-06 14:25:15,458 - INFO - Earliest rise point: 1
+2025-01-06 14:25:15,458 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,495 - INFO - Successfully processed: 16_455-55R22.5-700-716U.csv
+2025-01-06 14:25:15,503 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,506 - INFO - Trimmed signals from 42 to 124
+2025-01-06 14:25:15,506 - INFO - Earliest rise point: 44
+2025-01-06 14:25:15,506 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,538 - INFO - Successfully processed: 46_225-80R17.5-600-710R.csv
+2025-01-06 14:25:15,546 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,549 - INFO - Trimmed signals from 52 to 122
+2025-01-06 14:25:15,549 - INFO - Earliest rise point: 54
+2025-01-06 14:25:15,549 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,581 - INFO - Successfully processed: 06_245-70R19.5-850-710R.csv
+2025-01-06 14:25:15,588 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,592 - INFO - Trimmed signals from 45 to 123
+2025-01-06 14:25:15,592 - INFO - Earliest rise point: 47
+2025-01-06 14:25:15,592 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,624 - INFO - Successfully processed: 45_225-80R17.5-700-710R.csv
+2025-01-06 14:25:15,631 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,634 - INFO - Trimmed signals from 81 to 122
+2025-01-06 14:25:15,634 - INFO - Earliest rise point: 83
+2025-01-06 14:25:15,635 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,662 - INFO - Successfully processed: 54_11R22.5-900-710R.csv
+2025-01-06 14:25:15,670 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,673 - INFO - Trimmed signals from 39 to 124
+2025-01-06 14:25:15,673 - INFO - Earliest rise point: 41
+2025-01-06 14:25:15,673 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,706 - INFO - Successfully processed: 04_455-55R22.5-900-716U.csv
+2025-01-06 14:25:15,713 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,716 - INFO - Trimmed signals from 46 to 81
+2025-01-06 14:25:15,717 - INFO - Earliest rise point: 48
+2025-01-06 14:25:15,717 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,744 - INFO - Successfully processed: 44_225-80R17.5-800-710R.csv
+2025-01-06 14:25:15,751 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,754 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:15,755 - INFO - Earliest rise point: 91
+2025-01-06 14:25:15,755 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,781 - INFO - Successfully processed: 38_11R22.5-600-101LZ.csv
+2025-01-06 14:25:15,790 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,793 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:15,793 - INFO - Earliest rise point: 91
+2025-01-06 14:25:15,793 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,821 - INFO - Successfully processed: 13_11R22.5-700-710R.csv
+2025-01-06 14:25:15,828 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,831 - INFO - Trimmed signals from 89 to 122
+2025-01-06 14:25:15,831 - INFO - Earliest rise point: 91
+2025-01-06 14:25:15,832 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,859 - INFO - Successfully processed: 62_11R22.5-600-710R.csv
+2025-01-06 14:25:15,867 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,870 - INFO - Trimmed signals from 1 to 125
+2025-01-06 14:25:15,870 - INFO - Earliest rise point: 1
+2025-01-06 14:25:15,871 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,907 - INFO - Successfully processed: 20_455-55R22.5-600-716U.csv
+2025-01-06 14:25:15,915 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,919 - INFO - Trimmed signals from 88 to 122
+2025-01-06 14:25:15,919 - INFO - Earliest rise point: 90
+2025-01-06 14:25:15,919 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,946 - INFO - Successfully processed: 18_245-70R19.5-600-710R.csv
+2025-01-06 14:25:15,954 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:15,957 - INFO - Trimmed signals from 48 to 122
+2025-01-06 14:25:15,957 - INFO - Earliest rise point: 50
+2025-01-06 14:25:15,957 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:15,990 - INFO - Successfully processed: 11_225-80R17.5-800-710R.csv
+2025-01-06 14:25:15,998 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,001 - INFO - Trimmed signals from 89 to 125
+2025-01-06 14:25:16,001 - INFO - Earliest rise point: 91
+2025-01-06 14:25:16,001 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,029 - INFO - Successfully processed: 32_11R22.5-800-MY377.csv
+2025-01-06 14:25:16,036 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,040 - INFO - Trimmed signals from 89 to 124
+2025-01-06 14:25:16,040 - INFO - Earliest rise point: 91
+2025-01-06 14:25:16,040 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,068 - INFO - Successfully processed: 36_11R22.5-700-MY377.csv
+2025-01-06 14:25:16,076 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,080 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:16,080 - INFO - Earliest rise point: 91
+2025-01-06 14:25:16,080 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,107 - INFO - Successfully processed: 23_225-80R17.5-500-710R.csv
+2025-01-06 14:25:16,115 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,118 - INFO - Trimmed signals from 48 to 92
+2025-01-06 14:25:16,118 - INFO - Earliest rise point: 50
+2025-01-06 14:25:16,118 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,146 - INFO - Successfully processed: 42_225-80R17.5-900-710R.csv
+2025-01-06 14:25:16,154 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,158 - INFO - Trimmed signals from 52 to 122
+2025-01-06 14:25:16,158 - INFO - Earliest rise point: 54
+2025-01-06 14:25:16,158 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,189 - INFO - Successfully processed: 02_245-70R19.5-900-710R.csv
+2025-01-06 14:25:16,197 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,200 - INFO - Trimmed signals from 89 to 122
+2025-01-06 14:25:16,200 - INFO - Earliest rise point: 91
+2025-01-06 14:25:16,200 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,226 - INFO - Successfully processed: 26_11R22.5-900-101LZ.csv
+2025-01-06 14:25:16,234 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,237 - INFO - Trimmed signals from 80 to 122
+2025-01-06 14:25:16,237 - INFO - Earliest rise point: 82
+2025-01-06 14:25:16,237 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,264 - INFO - Successfully processed: 60_11R22.5-800-710R.csv
+2025-01-06 14:25:16,272 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,275 - INFO - Trimmed signals from 46 to 122
+2025-01-06 14:25:16,275 - INFO - Earliest rise point: 48
+2025-01-06 14:25:16,276 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,308 - INFO - Successfully processed: 15_225-80R17.5-700-710R.csv
+2025-01-06 14:25:16,316 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,319 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:16,319 - INFO - Earliest rise point: 91
+2025-01-06 14:25:16,319 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,346 - INFO - Successfully processed: 61_11R22.5-700-710R.csv
+2025-01-06 14:25:16,354 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,357 - INFO - Trimmed signals from 29 to 122
+2025-01-06 14:25:16,357 - INFO - Earliest rise point: 31
+2025-01-06 14:25:16,357 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,390 - INFO - Successfully processed: 31_11R22.5-800-903ZW.csv
+2025-01-06 14:25:16,398 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,402 - INFO - Trimmed signals from 89 to 122
+2025-01-06 14:25:16,402 - INFO - Earliest rise point: 91
+2025-01-06 14:25:16,402 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,429 - INFO - Successfully processed: 56_11R22.5-700-710R.csv
+2025-01-06 14:25:16,437 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,440 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:16,440 - INFO - Earliest rise point: 91
+2025-01-06 14:25:16,440 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,467 - INFO - Successfully processed: 58_11R22.5-500-710R.csv
+2025-01-06 14:25:16,474 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,477 - INFO - Trimmed signals from 89 to 125
+2025-01-06 14:25:16,477 - INFO - Earliest rise point: 91
+2025-01-06 14:25:16,478 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,504 - INFO - Successfully processed: 21_11R22.5-500-710R.csv
+2025-01-06 14:25:16,512 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,515 - INFO - Trimmed signals from 45 to 123
+2025-01-06 14:25:16,515 - INFO - Earliest rise point: 47
+2025-01-06 14:25:16,515 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,547 - INFO - Successfully processed: 53_455-55R22.5-500-716R.csv
+2025-01-06 14:25:16,554 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,558 - INFO - Trimmed signals from 89 to 123
+2025-01-06 14:25:16,558 - INFO - Earliest rise point: 91
+2025-01-06 14:25:16,558 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,584 - INFO - Successfully processed: 08_455-55R22.5-850-716U.csv
+2025-01-06 14:25:16,592 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,595 - INFO - Trimmed signals from 85 to 122
+2025-01-06 14:25:16,595 - INFO - Earliest rise point: 87
+2025-01-06 14:25:16,595 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,622 - INFO - Successfully processed: 35_11R22.5-700-903ZW.csv
+2025-01-06 14:25:16,630 - INFO - Trimming signals to 32 dims after rise point
+2025-01-06 14:25:16,633 - INFO - Trimmed signals from 47 to 81
+2025-01-06 14:25:16,633 - INFO - Earliest rise point: 49
+2025-01-06 14:25:16,633 - INFO - Applying adaptive baseline subtraction
+2025-01-06 14:25:16,660 - INFO - Successfully processed: 43_225-80R17.5-850-710R.csv
+2025-01-06 14:25:16,660 - INFO - Starting median calculation for 58 files
+2025-01-06 14:25:17,917 - INFO - Saved median pulse widths to: Processed_Standalone/Median_Pulse_Widths_StandAlone.xlsx
+2025-01-06 14:25:17,917 - INFO - Processing completed successfully

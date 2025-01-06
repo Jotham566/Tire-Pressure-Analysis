@@ -37,7 +37,8 @@ def get_default_config() -> dict:
             'intensity_thresholds': [0.5, 0.7, 0.8, 0.9]
         },
         'mounted': {
-            'selected_dims_after_rise_point': 32,
+            'trim_signal': False,
+            'trim_dims_after_rise': 32,
             'noise_threshold': 0.03
         },
         'standalone': {
@@ -67,10 +68,11 @@ class TireSoundProcessor:
              intensity_thresholds: list = [0.5, 0.7, 0.8, 0.9],
              # Mounted tire parameters
              noise_threshold: float = 0.03,
-             selected_dims_after_rise_point: int = 32,
-             # Standalone parameters
              trim_signal: bool = False,
              trim_dims_after_rise: int = 32,
+             # Standalone parameters
+             trim_signal_standalone: bool = False,
+             trim_dims_after_rise_standalone: int = 32,
              baseline_window_size: int = 10,
              std_dev_multiplier: float = 3.0,
              min_threshold_percentage: float = 0.01,
@@ -93,11 +95,12 @@ class TireSoundProcessor:
         
         # Mounted tire parameters
         self.noise_threshold = noise_threshold
-        self.selected_dims_after_rise_point = selected_dims_after_rise_point
-        
-        # Standalone parameters
         self.trim_signal = trim_signal
         self.trim_dims_after_rise = trim_dims_after_rise
+        
+        # Standalone parameters
+        self.trim_signal_standalone = trim_signal_standalone
+        self.trim_dims_after_rise_standalone = trim_dims_after_rise_standalone
         self.baseline_window_size = baseline_window_size
         self.std_dev_multiplier = std_dev_multiplier
         self.min_threshold_percentage = min_threshold_percentage
@@ -121,11 +124,10 @@ class TireSoundProcessor:
         
         # Output directories
         self.processed_dir = self.output_dir / 'Processed_Mounted'
-        self.processed_trimmed_dir = self.output_dir / 'Processed_Mounted_Trimmed'
         self.processed_standalone_dir = self.output_dir / 'Processed_Standalone'
 
         # Create all output directories at initialization
-        for directory in [self.processed_dir, self.processed_trimmed_dir, self.processed_standalone_dir]:
+        for directory in [self.processed_dir, self.processed_standalone_dir]:
             directory.mkdir(parents=True, exist_ok=True)
         
         # Configure logging
@@ -199,12 +201,18 @@ class TireSoundProcessor:
         
         Args:
             file_path: Input CSV file path
-            output_paths: Dictionary with 'full' and 'trimmed' output paths
+            output_paths: Dictionary with 'full' output path
         """
         try:
             # Process base data
             step1_normalized, step2_cumulative = self.process_file_step1_step2(file_path)
-            step2sj_trim = self.create_step2sj_trim(step1_normalized, step2_cumulative)
+
+            # Apply signal trimming if enabled
+            if self.trim_signal:
+                self.logger.info(f"Trimming signals to {self.trim_dims_after_rise} dims after rise point")
+                step1_normalized = self.trim_signal_to_rise(step1_normalized)
+                step1_normalized = step1_normalized.div(step1_normalized.sum(axis=1).replace(0, 1), axis=0)
+                step2_cumulative = step1_normalized.cumsum(axis=1)
 
             # Prepare full data sheets
             full_data = {
@@ -217,23 +225,11 @@ class TireSoundProcessor:
                 step3_data = self.compute_step3_metrics(step2_cumulative, threshold, file_path)
                 full_data[f'Step3_DataPts_{threshold}'] = step3_data
 
-            # Prepare trimmed data sheets
-            trimmed_data = {
-                'Step1_Data': step1_normalized,
-                'Step2_Sj': step2_cumulative,
-                'Step2sj_Trim': step2sj_trim
-            }
-            
-            # Add Step3 sheets for trimmed data
-            for threshold in self.intensity_thresholds:
-                step3_trim_data = self.compute_step3_metrics(step2sj_trim, threshold, file_path)
-                trimmed_data[f'Step3_Trim_DataPts_{threshold}'] = step3_trim_data
 
-            # Save both files
+            # Save full files
             full_success = self._save_to_excel(output_paths['full'], full_data)
-            trim_success = self._save_to_excel(output_paths['trimmed'], trimmed_data)
             
-            if not (full_success and trim_success):
+            if not full_success:
                 raise Exception("Failed to save one or more output files")
                 
             return True
@@ -432,77 +428,6 @@ class TireSoundProcessor:
 
         return df_step1, df_step2
 
-    def create_step2sj_trim(self, step1_data: pd.DataFrame, step2_data: pd.DataFrame) -> pd.DataFrame:
-        # Identify first rise point index for each segment
-        first_increase_index = step2_data.apply(lambda row: self.get_first_increase_index(row, self.noise_threshold), axis=1)
-
-        # Drop segments with no rise point if any
-        valid_fii = first_increase_index.dropna()
-        if valid_fii.empty:
-            return pd.DataFrame()
-
-        # Determine the earliest first rise point (minimum fii)
-        min_fii = int(valid_fii.min())
-
-        # Determine the maximum endpoint for uniform length
-        max_endpoint = 0
-        for idx, fii_val in first_increase_index.items():
-            if pd.isna(fii_val):
-                fii_val = min_fii
-            fii_val = int(fii_val)
-            endpoint = fii_val - 1 + self.selected_dims_after_rise_point
-            if endpoint > max_endpoint:
-                max_endpoint = endpoint
-
-        trimmed_data_list = []
-        for idx, row in step1_data.iterrows():
-            fii = first_increase_index.loc[idx]
-            if pd.isna(fii):
-                fii = min_fii
-            fii = int(fii)
-
-            start_idx = fii - 1
-            end_idx = start_idx + self.selected_dims_after_rise_point
-            row_values = row.values
-
-            if start_idx >= len(row_values):
-                trimmed_segment = np.array([])
-            else:
-                trimmed_segment = row_values[start_idx:end_idx]
-
-            seg_sum = trimmed_segment.sum()
-            if seg_sum == 0:
-                normalized_segment = trimmed_segment
-            else:
-                normalized_segment = trimmed_segment / seg_sum
-
-            leading_zeros_count = (fii - min_fii)
-            if leading_zeros_count < 0:
-                leading_zeros_count = 0
-
-            leading_zeros = np.zeros(leading_zeros_count)
-
-            segment_length = len(normalized_segment)
-            total_length = (max_endpoint - min_fii + 1)
-            trailing_zeros_count = total_length - (leading_zeros_count + segment_length)
-            if trailing_zeros_count < 0:
-                trailing_zeros_count = 0
-            trailing_zeros = np.zeros(trailing_zeros_count)
-
-            full_row_values = np.concatenate([leading_zeros, normalized_segment, trailing_zeros])
-
-            columns = [f"Signal_Value_{col_idx}" for col_idx in range(min_fii, max_endpoint+1)]
-
-            df_segment = pd.DataFrame([full_row_values], index=[idx], columns=columns)
-            trimmed_data_list.append(df_segment)
-
-        df_trimmed = pd.concat(trimmed_data_list)
-        df_trimmed.index.name = 'Segment_ID'
-
-        df_step2sj_trim = df_trimmed.cumsum(axis=1)
-        df_step2sj_trim.index.name = 'Segment_ID'
-        return df_step2sj_trim
-
     def get_first_increase_index(self, row: pd.Series, noise_threshold: float) -> float:
         indices = np.where(row.values > noise_threshold)[0]
         return indices[0] + 1 if indices.size > 0 else np.nan
@@ -562,9 +487,9 @@ class TireSoundProcessor:
         step3_data_points.set_index('Segment_ID', inplace=True)
         return step3_data_points
 
-    def calculate_median_pulse_width(self, excel_file_paths, trimmed=False) -> pd.DataFrame:
+    def calculate_median_pulse_width(self, excel_file_paths) -> pd.DataFrame:
         median_pulse_widths = []
-        prefix = 'Step3_Trim_DataPts' if trimmed else 'Step3_DataPts'
+        prefix = 'Step3_DataPts'
 
         for file_path in excel_file_paths:
             try:
@@ -599,7 +524,7 @@ class TireSoundProcessor:
                     tire_position = df_step3['Tire_Position'].iloc[0] if len(df_step3) > 0 else 'Unknown'
                     wheel_type = df_step3['Wheel_Type'].iloc[0] if len(df_step3) > 0 else 'Unknown'
                     tire_id = f"{wheel_type}_{hitting_type}_{tire_position}"
-                    relative_path = file_path.relative_to(self.trimmed_dir(file_path) if trimmed else self.processed_dir)
+                    relative_path = file_path.relative_to(self.processed_dir)
 
                     median_pulse_widths.append({
                         'File_Name': str(relative_path),
@@ -747,8 +672,8 @@ class TireSoundProcessor:
             df_signals = df_signals.apply(pd.to_numeric, errors='coerce').fillna(0)
 
             # Apply signal trimming if enabled
-            if self.trim_signal:
-                self.logger.info(f"Trimming signals to {self.trim_dims_after_rise} dims after rise point")
+            if self.trim_signal_standalone:
+                self.logger.info(f"Trimming signals to {self.trim_dims_after_rise_standalone} dims after rise point")
                 df_signals = self.trim_signal_to_rise(df_signals)
 
             # 3) Step1: Normalize (sums to 1)
@@ -778,7 +703,7 @@ class TireSoundProcessor:
             # 6) Build output file
             new_filename = f"{metadata['Tire Number']}_{metadata['TireSize']}-{metadata['Pressure']}-{metadata['Tire_Type']}"
             output_xlsx_path = (self.processed_standalone_dir / new_filename).with_suffix('.xlsx')
-            output_xlsx_path.parent.mkdir(parents=True, exist_ok=True)
+            output_xlsx_path.parent.mkdir(parents=True, exist_ok= True)
 
             with pd.ExcelWriter(output_xlsx_path, engine='xlsxwriter') as writer:
                 step1_normalized.to_excel(writer, sheet_name='Step1_Data')
@@ -926,11 +851,11 @@ class TireSoundProcessor:
         step2.to_excel(writer, sheet_name='Step2_Sj')
 
     def save_processed_data_step3(self, writer: pd.ExcelWriter,
-                                step3: pd.DataFrame, intensity_threshold: float, trimmed: bool = False):
+                                step3: pd.DataFrame, intensity_threshold: float):
         """
-        Saves Step3_DataPts or Step3_Trim_DataPts sheet.
+        Saves Step3_DataPts sheet.
         """
-        prefix = 'Step3_Trim_DataPts' if trimmed else 'Step3_DataPts'
+        prefix = 'Step3_DataPts'
         sheet_name = f'{prefix}_{intensity_threshold}'
         step3.to_excel(writer, sheet_name=sheet_name)
 
@@ -987,12 +912,6 @@ class TireSoundProcessor:
         else:
             return 'Unknown'
 
-    def trimmed_dir(self, file_path: Path) -> Path:
-        """
-        Helper method to determine the appropriate directory for relative paths
-        """
-        return self.processed_trimmed_dir if 'Processed_Mounted_Trimmed' in file_path.parts else self.processed_dir
-
     def add_exclusion_entry(self, file_path: Path, reason: str):
         """
         Adds an entry to the exclusions list with the reason for exclusion.
@@ -1033,7 +952,6 @@ class TireSoundProcessor:
             relative_path = file_path.relative_to(self.input_dir)
             output_paths = {
                 'full': (self.processed_dir / relative_path.parent / file_path.stem).with_suffix('.xlsx'),
-                'trimmed': (self.processed_trimmed_dir / relative_path.parent / file_path.stem).with_suffix('.xlsx')
             }
 
             # Create output directories
@@ -1043,8 +961,14 @@ class TireSoundProcessor:
             try:
                 # Process base data
                 step1_normalized, step2_cumulative = self.process_file_step1_step2(file_path)
-                step2sj_trim = self.create_step2sj_trim(step1_normalized, step2_cumulative)
 
+                # Apply signal trimming if enabled
+                if self.trim_signal:
+                    self.logger.info(f"Trimming signals to {self.trim_dims_after_rise} dims after rise point")
+                    step1_normalized = self.trim_signal_to_rise(step1_normalized)
+                    step1_normalized = step1_normalized.div(step1_normalized.sum(axis=1).replace(0, 1), axis=0)
+                    step2_cumulative = step1_normalized.cumsum(axis=1)
+                    
                 # Save full data results
                 with pd.ExcelWriter(output_paths['full'], engine='xlsxwriter') as writer:
                     self.save_processed_data_step1_step2(writer, step1_normalized, step2_cumulative)
@@ -1052,15 +976,6 @@ class TireSoundProcessor:
                         step3_data = self.compute_step3_metrics(step2_cumulative, threshold, file_path)
                         self.save_processed_data_step3(writer, step3_data, threshold)
 
-                # Save trimmed results
-                with pd.ExcelWriter(output_paths['trimmed'], engine='xlsxwriter') as writer:
-                    step1_normalized.to_excel(writer, sheet_name='Step1_Data')
-                    step2_cumulative.to_excel(writer, sheet_name='Step2_Sj')
-                    step2sj_trim.to_excel(writer, sheet_name='Step2sj_Trim')
-                    
-                    for threshold in self.intensity_thresholds:
-                        step3_trim_data = self.compute_step3_metrics(step2sj_trim, threshold, file_path)
-                        self.save_processed_data_step3(writer, step3_trim_data, threshold, trimmed=True)
 
             except Exception as e:
                 self.logger.error(f"Error processing '{file_path.name}': {str(e)}")
@@ -1089,15 +1004,7 @@ class TireSoundProcessor:
             output_path = self.processed_dir / 'Median_Pulse_Widths.xlsx'
             df_median.to_excel(output_path, index=False)
             self.logger.info(f"Saved mounted tire median pulse widths to: {output_path}")
-        
-        # For trimmed data
-        excel_files_trim = [f for f in self.processed_trimmed_dir.rglob('*.xlsx')
-                        if not f.name.startswith('~$') and f.name != 'Median_Pulse_Widths_Trim.xlsx']
-        if excel_files_trim:
-            df_median_trim = self.calculate_median_pulse_width(excel_files_trim, trimmed=True)
-            output_path = self.processed_trimmed_dir / 'Median_Pulse_Widths_Trim.xlsx'
-            df_median_trim.to_excel(output_path, index=False)
-            self.logger.info(f"Saved mounted tire trimmed median pulse widths to: {output_path}")
+
 
 if __name__ == "__main__":
     # Define directories
@@ -1117,10 +1024,11 @@ if __name__ == "__main__":
         intensity_thresholds=config['common']['intensity_thresholds'],
         # Mounted tire parameters
         noise_threshold=config['mounted']['noise_threshold'],
-        selected_dims_after_rise_point=config['mounted']['selected_dims_after_rise_point'],
+        trim_signal=config['mounted']['trim_signal'],
+        trim_dims_after_rise=config['mounted']['trim_dims_after_rise'],
         # Standalone parameters
-        trim_signal=config['standalone']['trim_signal'],
-        trim_dims_after_rise=config['standalone']['trim_dims_after_rise'],
+        trim_signal_standalone=config['standalone']['trim_signal'],
+        trim_dims_after_rise_standalone=config['standalone']['trim_dims_after_rise'],
         baseline_window_size=config['standalone']['baseline_window_size'],
         std_dev_multiplier=config['standalone']['std_dev_multiplier'],
         min_threshold_percentage=config['standalone']['min_threshold_percentage'],
