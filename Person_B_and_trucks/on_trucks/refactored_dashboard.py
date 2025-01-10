@@ -1,5 +1,3 @@
-# dashboard.py
-
 import streamlit as st
 import pandas as pd
 import numpy as np
@@ -77,7 +75,7 @@ def main():
     # Data type selection
     data_type = st.sidebar.radio(
         "Select Data Type",
-        ["Truck-full", "Truck-trim", "St-Alone"]
+        ["Truck-Mounted", "St-Alone"]
     )
 
     menu = ["Home", "Tire Analysis"]
@@ -88,23 +86,12 @@ def main():
     processed_dir = Path.cwd() / 'Processed_Mounted'
     processed_trimmed_dir = Path.cwd() / 'Processed_Mounted_Trimmed'
 
-    if data_type == "Truck-full":
+    if data_type == "Truck-Mounted":
         data_dir = Path.cwd() / 'Processed_Mounted'
         median_pulse_widths_file = data_dir / 'Median_Pulse_Widths.xlsx'
         step3_prefix = 'Step3_DataPts'
         step2sj_name = 'Step2_Sj'
         selected_dims_after_rise_point = 32
-    elif data_type == "Truck-trim":
-        data_dir = Path.cwd() / 'Processed_Mounted_Trimmed'
-        median_pulse_widths_file = data_dir / 'Median_Pulse_Widths_Trim.xlsx'
-        step3_prefix = 'Step3_Trim_DataPts'
-        step2sj_name = 'Step2sj_Trim'
-        try:
-            with open('config.yaml', 'r') as f:
-                config = yaml.safe_load(f)
-            selected_dims_after_rise_point = config.get('pulse_width_calculator', {}).get('selected_dims_after_rise_point', 32)
-        except:
-            selected_dims_after_rise_point = 32
     else:  # St-Alone
         data_dir = Path.cwd() / 'Processed_Standalone'
         median_pulse_widths_file = data_dir / 'Median_Pulse_Widths_StandAlone.xlsx'
@@ -126,7 +113,7 @@ def main():
                 median_pulse_widths_file, 
                 step3_prefix, 
                 step2sj_name, 
-                data_type == "Truck-trim", 
+                False, # trim option set to False as Truck-Trim removed
                 selected_dims_after_rise_point
             )
 
@@ -184,6 +171,333 @@ def display_home_page():
             <li>Trend lines for specified tire pairings per wheel type.</li>
         </ul>
         """, unsafe_allow_html=True)
+
+def get_file_pattern(pressure: int, pos: int, hitting_type: str) -> str:
+    """Create consistent file pattern."""
+    return f"Strong {hitting_type} Time Domain segment {pressure}-POS-POS{pos}.xlsx"
+
+def get_signal_points(file_path: Path, seg_id: str, step3_prefix: str, intensity_threshold_filter: list):
+    """
+    Extract rise points and intensity threshold points for both visualizations.
+    """
+    try:
+        points = {
+            'rise_point': None,
+            'intensity_points': {},
+            'cumulative_values': {}
+        }
+        
+        # Get rise point and cumulative value from base threshold (0.5)
+        df_base = pd.read_excel(file_path, sheet_name=f'{step3_prefix}_0.5', index_col='Segment_ID')
+        if seg_id in df_base.index:
+            points['rise_point'] = int(df_base.loc[seg_id, 'First_Noticeable_Increase_Index'])
+            points['rise_cumulative'] = float(df_base.loc[seg_id, 'First_Noticeable_Increase_Cumulative_Value'])
+        
+        # Get points for each intensity threshold
+        for threshold in intensity_threshold_filter:
+            df_threshold = pd.read_excel(file_path, sheet_name=f'{step3_prefix}_{threshold}', index_col='Segment_ID')
+            if seg_id in df_threshold.index:
+                points['intensity_points'][threshold] = int(df_threshold.loc[seg_id, 'Point_Exceeds_Index'])
+                points['cumulative_values'][threshold] = float(df_threshold.loc[seg_id, 'Point_Exceeds_Cumulative_Value'])
+                
+        return points
+    except Exception as e:
+        st.error(f"Error extracting points: {e}")
+        return None
+
+def plot_waveforms_and_cumulative(data_dir, wheel_directory, hitting_directory, pair, selected_hitting_type,
+                              selected_pressure, selected_segment, step3_prefix, step2sj_name, intensity_threshold_filter):
+    """
+    Enhanced waveform and cumulative segment visualization for tire pairs
+    
+    Args:
+        data_dir: Path to data directory
+        wheel_directory: Directory for wheel type
+        hitting_directory: Directory for hitting type
+        pair: List of tire position pairs
+        selected_hitting_type: Type of hitting (Side/Tread)
+        selected_pressure: Selected pressure level
+        selected_segment: Selected segment number
+        step3_prefix: Prefix for Step3 data
+        step2sj_name: Name of Step2 sheet
+        intensity_threshold_filter: List of intensity thresholds
+    """
+    directory = data_dir / wheel_directory / hitting_directory
+    
+    # Store data for both visualizations
+    data_store = {}
+    
+    # First, collect all necessary data
+    for pos in pair:
+        file_pattern = get_file_pattern(selected_pressure, pos, selected_hitting_type)
+        files = list(directory.glob(file_pattern))
+        
+        if not files:
+            st.warning(f"No file found for Pressure {selected_pressure}, POS {pos}")
+            continue
+            
+        file_path = files[0]
+        seg_id = f"signal segment {selected_segment}"
+        
+        try:
+            # Read waveform data
+            df_waveform = pd.read_excel(file_path, sheet_name='Step1_Data', index_col='Segment_ID')
+            if seg_id not in df_waveform.index:
+                st.warning(f"{seg_id} not found in {file_path.name}")
+                continue
+                
+            # Read cumulative data
+            df_cumulative = pd.read_excel(file_path, sheet_name=step2sj_name, index_col='Segment_ID')
+            if seg_id not in df_cumulative.index:
+                st.warning(f"{seg_id} not found in cumulative data")
+                continue
+            
+            # Get points for both visualizations
+            points = get_signal_points(file_path, seg_id, step3_prefix, intensity_threshold_filter)
+            if not points:
+                continue
+                
+            # Store all data
+            data_store[pos] = {
+                'waveform': df_waveform.loc[seg_id].values,
+                'cumulative': df_cumulative.loc[seg_id].values,
+                'points': points,
+                'file_path': file_path
+            }
+            
+        except Exception as e:
+            st.error(f"Error reading data for position {pos}: {e}")
+            continue
+    
+    if not data_store:
+        st.warning("No data available for visualization")
+        return
+        
+    # Waveform visualization
+    fig_waveform = make_subplots(
+        rows=1,
+        cols=len(pair),
+        subplot_titles=[f"Tire Position {p}" for p in pair]
+    )
+
+    for idx_p, pos in enumerate(pair):
+        if pos not in data_store:
+            continue
+            
+        data = data_store[pos]
+        signal_data = data['waveform']
+        points = data['points']
+        
+        # Calculate axis ranges
+        non_zero_indices = np.nonzero(signal_data)[0]
+        if len(non_zero_indices) > 0:
+            first_non_zero = max(0, non_zero_indices[0] - 10)
+            last_non_zero = min(len(signal_data), non_zero_indices[-1] + 10)
+        else:
+            first_non_zero = 0
+            last_non_zero = len(signal_data)
+
+        # Add base waveform
+        fig_waveform.add_trace(
+            go.Scatter(
+                y=signal_data,
+                mode='lines',
+                name=f"Position {pos}",
+                line=dict(width=2),
+                legendgroup=f"Position {pos}",
+                hovertemplate='Index: %{x}<br>Value: %{y:.4f}<extra></extra>'
+            ),
+            row=1, col=idx_p+1
+        )
+
+        # Add rise point
+        if points['rise_point']:
+            rise_index = points['rise_point']
+            fig_waveform.add_shape(
+                type='line',
+                x0=rise_index, x1=rise_index,
+                y0=min(signal_data), y1=max(signal_data),
+                line=dict(color='red', dash='dot'),
+                row=1, col=idx_p+1
+            )
+            fig_waveform.add_annotation(
+                x=rise_index,
+                y=max(signal_data),
+                text=f"Rise at {rise_index}",
+                showarrow=True,
+                arrowhead=2,
+                font=dict(color='red'),
+                arrowcolor='red',
+                row=1, col=idx_p+1
+            )
+
+        # Add intensity threshold points
+        colors = ['blue', 'green', 'purple', 'orange']
+        for threshold, color in zip(intensity_threshold_filter, colors):
+            if threshold in points['intensity_points']:
+                point_index = points['intensity_points'][threshold]
+                fig_waveform.add_shape(
+                    type='line',
+                    x0=point_index, x1=point_index,
+                    y0=min(signal_data), y1=max(signal_data),
+                    line=dict(color=color, dash='dot'),
+                    row=1, col=idx_p+1
+                )
+                fig_waveform.add_annotation(
+                    x=point_index,
+                    y=max(signal_data) * (0.9 - (intensity_threshold_filter.index(threshold) * 0.15)),
+                    text=f"{int(threshold*100)}th point<br>at {point_index}",
+                    showarrow=True,
+                    arrowhead=2,
+                    font=dict(color=color),
+                    arrowcolor=color,
+                    row=1, col=idx_p+1
+                )
+
+        fig_waveform.update_xaxes(range=[first_non_zero, last_non_zero], row=1, col=idx_p+1)
+        fig_waveform.update_yaxes(title_text='Normalized Signal Value', row=1, col=idx_p+1)
+        fig_waveform.update_xaxes(title_text='Signal Value', row=1, col=idx_p+1)
+
+    fig_waveform.update_layout(
+        title=(
+            f"Waveforms for Tire Positions {pair[0]} & {pair[1]}<br>"
+            f"<span style='font-size:12px;'>Hitting Type: {selected_hitting_type}, "
+            f"Pressure: {selected_pressure}, Segment: {selected_segment}</span>"
+        ),
+        template='plotly_white',
+        height=500,
+        showlegend=True
+    )
+    st.plotly_chart(fig_waveform, use_container_width=True)
+
+    # Cumulative visualization
+    st.markdown("#### Cumulative Segments")
+    tabs = st.tabs([f"Intensity Threshold {th}" for th in intensity_threshold_filter])
+
+    for tab, threshold in zip(tabs, intensity_threshold_filter):
+        with tab:
+            fig_cumulative = make_subplots(
+                rows=1,
+                cols=len(pair),
+                subplot_titles=[f"Tire Position {p}" for p in pair]
+            )
+
+            for idx_p, pos in enumerate(pair):
+                if pos not in data_store:
+                    continue
+                    
+                data = data_store[pos]
+                cum_values = data['cumulative']
+                points = data['points']
+                
+                x_values = list(range(1, len(cum_values) + 1))
+
+                # Calculate proper axis ranges
+                non_zero_indices = np.nonzero(cum_values)[0]
+                if len(non_zero_indices) > 0:
+                    first_non_zero = max(0, non_zero_indices[0] - 5)
+                    last_non_zero = min(len(cum_values), non_zero_indices[-1] + 5)
+                else:
+                    first_non_zero = 0
+                    last_non_zero = len(cum_values)
+
+                # Add cumulative trace
+                fig_cumulative.add_trace(
+                    go.Scatter(
+                        x=x_values,
+                        y=cum_values,
+                        mode='lines',
+                        name=f'Position {pos}',
+                        line=dict(width=2),
+                        legendgroup=f"Position {pos}",
+                        hovertemplate='Signal Value: %{x}<br>Cumulative: %{y:.4f}<extra></extra>',
+                        showlegend=True
+                    ),
+                    row=1, col=idx_p+1
+                )
+
+                # Add rise point
+                if points['rise_point']:
+                    rise_index = points['rise_point']
+                    rise_value = points['rise_cumulative']
+                    
+                    fig_cumulative.add_trace(
+                        go.Scatter(
+                            x=[rise_index],
+                            y=[rise_value],
+                            mode='markers',
+                            marker=dict(color='red', size=10),
+                            showlegend=False,
+                            hoverinfo='skip'
+                        ),
+                        row=1, col=idx_p+1
+                    )
+                    fig_cumulative.add_annotation(
+                        x=rise_index,
+                        y=rise_value,
+                        text=f"First Increase<br>({rise_index}, {rise_value:.4f})",
+                        showarrow=True,
+                        arrowhead=2,
+                        ax=0,
+                        ay=-40,
+                        font=dict(color='red'),
+                        arrowcolor='red',
+                        row=1, col=idx_p+1
+                    )
+
+                # Add threshold point
+                if threshold in points['intensity_points']:
+                    point_index = points['intensity_points'][threshold]
+                    point_value = points['cumulative_values'][threshold]
+                    
+                    fig_cumulative.add_trace(
+                        go.Scatter(
+                            x=[point_index],
+                            y=[point_value],
+                            mode='markers',
+                            marker=dict(color='green', size=10),
+                            showlegend=False,
+                            hoverinfo='skip'
+                        ),
+                        row=1, col=idx_p+1
+                    )
+                    fig_cumulative.add_annotation(
+                        x=point_index,
+                        y=point_value,
+                        text=f"Exceeds {threshold}<br>({point_index}, {point_value:.4f})",
+                        showarrow=True,
+                        arrowhead=2,
+                        ax=0,
+                        ay=40,
+                        font=dict(color='green'),
+                        arrowcolor='green',
+                        row=1, col=idx_p+1
+                    )
+
+                fig_cumulative.update_xaxes(range=[first_non_zero, last_non_zero], row=1, col=idx_p+1)
+                
+                y_min = min(cum_values[first_non_zero:last_non_zero])
+                y_max = max(cum_values[first_non_zero:last_non_zero])
+                y_padding = (y_max - y_min) * 0.1
+                fig_cumulative.update_yaxes(
+                    range=[max(0, y_min - y_padding), y_max + y_padding],
+                    row=1, col=idx_p+1
+                )
+
+                fig_cumulative.update_xaxes(title_text='Signal Value', row=1, col=idx_p+1)
+                fig_cumulative.update_yaxes(title_text='Denoised Cumulative Sum (Sj)', row=1, col=idx_p+1)
+
+            fig_cumulative.update_layout(
+                title=(
+                    f"Cumulative Segments for Positions {pair[0]} & {pair[1]}<br>"
+                    f"<span style='font-size:12px;'>Threshold: {threshold}, "
+                    f"Pressure: {selected_pressure}, Segment: {selected_segment}</span>"
+                ),
+                template='plotly_white',
+                height=500,
+                showlegend=True
+            )
+            st.plotly_chart(fig_cumulative, use_container_width=True)
 
 def plot_median_pulse_width_by_tire_pairing(data_dir, hitting_type_filter, intensity_threshold_filter, median_pulse_widths_file, step3_prefix, step2sj_name, trim_option, selected_dims_after_rise_point):
     st.markdown("<h2 style='color: #1f77b4;'>Median Pulse Width vs Air Pressure by Tire Pairing</h2>", unsafe_allow_html=True)
@@ -252,29 +566,43 @@ def plot_median_pulse_width_by_tire_pairing(data_dir, hitting_type_filter, inten
 
     @st.cache_data
     def get_available_pressures_and_segments(data_dir, wheel_directory, hitting_directory, pair, selected_hitting_type):
+        """
+        Get available pressures and segments from mounted tire files.
+        """
         directory = data_dir / wheel_directory / hitting_directory
-        files = list(directory.glob("*.xlsx"))
         available_pressures = set()
         segment_numbers = set()
-        pattern = rf"Strong {re.escape(selected_hitting_type)} Time Domain segment (\d+)-POS-(\d+)\s*\.xlsx"
 
-        for file_path in files:
-            file_name = file_path.name
-            match = re.match(pattern, file_name)
-            if match:
-                pressure = int(match.group(1))
-                pos = int(match.group(2))
-                if pos in pair:
-                    available_pressures.add(pressure)
+        for pos in pair:
+            try:
+                # Updated pattern to match "POS-POS{number}"
+                file_pattern = f"Strong Tread Time Domain segment *-POS-POS{pos}.xlsx"
+                matching_files = list(directory.glob(file_pattern))
+                
+                for file_path in matching_files:
                     try:
-                        df_waveform = pd.read_excel(file_path, sheet_name='Step1_Data', index_col='Segment_ID')
-                    except:
+                        # Extract pressure from filename
+                        pressure_match = re.search(r'segment (\d+)-POS-', str(file_path.name))
+                        if pressure_match:
+                            pressure = int(pressure_match.group(1))
+                            available_pressures.add(pressure)
+                            
+                            # Read the Excel file to get segment numbers
+                            df = pd.read_excel(file_path, sheet_name='Step1_Data')
+                            for segment_id in df['Segment_ID']:
+                                if isinstance(segment_id, str):
+                                    segment_match = re.match(r'signal segment (\d+)', segment_id)
+                                    if segment_match:
+                                        segment_number = int(segment_match.group(1))
+                                        segment_numbers.add(segment_number)
+                    except Exception as e:
+                        st.warning(f"Error processing file {file_path.name}: {e}")
                         continue
-                    for seg_id in df_waveform.index:
-                        seg_match = re.match(r'signal segment (\d+)', seg_id, re.IGNORECASE)
-                        if seg_match:
-                            segment_number = int(seg_match.group(1))
-                            segment_numbers.add(segment_number)
+
+            except Exception as e:
+                st.warning(f"Error accessing directory {directory}: {e}")
+                continue
+
         return sorted(available_pressures), sorted(segment_numbers)
 
     for tab, pair in zip(tabs, position_pairs):
@@ -357,10 +685,13 @@ def plot_median_pulse_width_by_tire_pairing(data_dir, hitting_type_filter, inten
 
             # Waveforms and cumulative segments visualization
             with st.expander(f"View Waveforms and Cumulative Segments for Tire Positions {pair[0]} & {pair[1]}"):
-                st.markdown("#### Waveform Visualization")
+                st.markdown("#### Select Data to Visualize")
+                
+                # Get available pressures and segments
                 available_pressures, segment_numbers = get_available_pressures_and_segments(
                     data_dir, wheel_directory, hitting_directory, pair, selected_hitting_type
                 )
+                
                 if not available_pressures:
                     st.warning("No available pressures.")
                     continue
@@ -368,255 +699,66 @@ def plot_median_pulse_width_by_tire_pairing(data_dir, hitting_type_filter, inten
                     st.warning("No segments found.")
                     continue
 
-                selected_pressure = st.selectbox("Select Pressure Level:", available_pressures, key=f"press_{pair}")
-                selected_segment = st.slider(
-                    "Select Signal Segment:",
-                    min_value=min(segment_numbers),
-                    max_value=max(segment_numbers),
-                    value=min(segment_numbers),
-                    key=f"seg_{pair}"
-                )
+                # Create two columns for selection controls
+                sel_col1, sel_col2 = st.columns(2)
+                
+                with sel_col1:
+                    selected_pressure = st.selectbox(
+                        "Select Pressure Level:", 
+                        available_pressures,
+                        key=f"press_{pair}"
+                    )
+                    
+                with sel_col2:
+                    selected_segment = st.slider(
+                        "Select Signal Segment:",
+                        min_value=min(segment_numbers),
+                        max_value=max(segment_numbers),
+                        value=min(segment_numbers),
+                        key=f"seg_{pair}"
+                    )
 
                 if selected_pressure and selected_segment:
-                    # Waveform visualization
-                    fig_waveform = make_subplots(
-                        rows=1,
-                        cols=len(pair),
-                        subplot_titles=[f"Tire Position {p}" for p in pair]
-                    )
-                    waveforms_loaded = False
-
-                    file_pattern = f"Strong {selected_hitting_type} Time Domain segment {selected_pressure}-POS-{{pos}}*.xlsx"
-                    for idx_p, pos in enumerate(pair):
-                        files = list((data_dir / wheel_directory / hitting_directory).glob(file_pattern.format(pos=pos)))
-                        if not files:
-                            st.warning(f"No file found for Pressure {selected_pressure}, POS {pos}")
-                            continue
-                        file_path = files[0]
-                        try:
-                            df_waveform = pd.read_excel(file_path, sheet_name='Step1_Data', index_col='Segment_ID')
-                        except Exception as e:
-                            st.error(f"Error reading waveform: {e}")
-                            continue
-
-                        seg_id = f"signal segment {selected_segment}"
-                        if seg_id not in df_waveform.index:
-                            st.warning(f"{seg_id} not found in {file_path.name}")
-                            continue
-
-                        signal_data = df_waveform.loc[seg_id].values
-                        waveforms_loaded = True
-
-                        fig_waveform.add_trace(
-                            go.Scatter(
-                                y=signal_data,
-                                mode='lines',
-                                name=f"Pressure {selected_pressure}, Segment {selected_segment}",
-                                legendgroup=f"Pressure {selected_pressure}",
-                                hovertemplate='Index: %{x}<br>Value: %{y:.4f}<extra></extra>'
-                            ),
-                            row=1, col=idx_p+1
-                        )
-
-                        fig_waveform.update_yaxes(title_text='Normalized Signal Value', row=1, col=idx_p+1)
-                        fig_waveform.update_xaxes(title_text='Signal Value', row=1, col=idx_p+1)
-
-                        # Annotate first rise and max trim if Trim = Yes
-                        if trim_option:
-                            threshold_to_check = intensity_threshold_filter[0]
-                            sheet_name_3 = f"{step3_prefix}_{threshold_to_check}"
-                            try:
-                                df_step3_check = pd.read_excel(file_path, sheet_name=sheet_name_3, index_col='Segment_ID')
-                            except:
-                                df_step3_check = pd.DataFrame()
-
-                            if seg_id in df_step3_check.index:
-                                fii = df_step3_check.loc[seg_id, 'First_Noticeable_Increase_Index']
-                                if not pd.isna(fii):
-                                    # Annotate first noticeable increase
-                                    fig_waveform.add_shape(
-                                        type='line',
-                                        x0=fii, x1=fii, y0=0, y1=max(signal_data),
-                                        line=dict(color='red', dash='dot'),
-                                        row=1, col=idx_p+1
-                                    )
-                                    fig_waveform.add_annotation(
-                                        x=fii, y=max(signal_data),
-                                        text=f"Rise at {int(fii)}",
-                                        showarrow=True, arrowhead=2,
-                                        font=dict(color='red'),
-                                        arrowcolor='red',
-                                        row=1, col=idx_p+1
-                                    )
-                                    # Annotate max trimmed point
-                                    max_trim_index = fii + selected_dims_after_rise_point
-                                    if max_trim_index > len(signal_data):
-                                        max_trim_index = len(signal_data)
-
-                                    fig_waveform.add_shape(
-                                        type='line',
-                                        x0=max_trim_index, x1=max_trim_index, y0=0, y1=max(signal_data),
-                                        line=dict(color='green', dash='dot'),
-                                        row=1, col=idx_p+1
-                                    )
-                                    fig_waveform.add_annotation(
-                                        x=max_trim_index, y=max(signal_data),
-                                        text=f"Trim at {int(max_trim_index)}",
-                                        showarrow=True, arrowhead=2,
-                                        font=dict(color='green'),
-                                        arrowcolor='green',
-                                        row=1, col=idx_p+1
-                                    )
-
-                    if waveforms_loaded:
-                        fig_waveform.update_layout(
-                            title=(
-                                f"Waveforms for Tire Positions {pair[0]} & {pair[1]}<br>"
-                                f"<span style='font-size:12px;'>Hitting Type: {selected_hitting_type}</span>"
-                            ),
-                            template='plotly_white',
-                            height=500,
-                            showlegend=True
-                        )
-                        st.plotly_chart(fig_waveform, use_container_width=True)
-                    else:
-                        st.info("No waveforms loaded.")
-
-                    st.markdown("#### Cumulative Segment Visualization")
-                    tabs_cumulative = st.tabs([f"Intensity Threshold {th}" for th in intensity_threshold_filter])
-
-                    for tab_cum, threshold in zip(tabs_cumulative, intensity_threshold_filter):
-                        with tab_cum:
-                            st.write(f"**Intensity Threshold: {threshold}**")
-                            fig_cumulative = make_subplots(
-                                rows=1,
-                                cols=len(pair),
-                                subplot_titles=[f"Tire Position {p}" for p in pair]
-                            )
-                            data_loaded = False
-
-                            file_pattern_cum = f"Strong {selected_hitting_type} Time Domain segment {selected_pressure}-POS-{{pos}}*.xlsx"
-                            for idx_p, pos in enumerate(pair):
-                                files_cum = list((data_dir / wheel_directory / hitting_directory).glob(file_pattern_cum.format(pos=pos)))
-                                if not files_cum:
-                                    continue
-                                file_path_cum = files_cum[0]
-
+                    # Display metadata for selected files
+                    st.markdown("#### Selected Data Information")
+                    metadata_cols = st.columns(len(pair))
+                    
+                    for idx, (col, pos) in enumerate(zip(metadata_cols, pair)):
+                        with col:
+                            st.markdown(f"**Position {pos} Details:**")
+                            # Updated pattern to match POS-POS{number}
+                            file_pattern = f"Strong {selected_hitting_type} Time Domain segment {selected_pressure}-POS-POS{pos}.xlsx"
+                            files = list((data_dir / wheel_directory / hitting_directory).glob(file_pattern))
+                            
+                            if files:
+                                file_path = files[0]
                                 try:
-                                    df_cumulative = pd.read_excel(file_path_cum, sheet_name=step2sj_name, index_col='Segment_ID')
-                                    df_step3_cum = pd.read_excel(file_path_cum, sheet_name=f"{step3_prefix}_{threshold}", index_col='Segment_ID')
-                                except:
-                                    continue
-
-                                seg_id = f"signal segment {selected_segment}"
-                                if seg_id not in df_cumulative.index:
-                                    continue
-
-                                cum_values = df_cumulative.loc[seg_id].values
-
-                                # Determine x-values based on trim option
-                                if trim_option:
-                                    # Use actual indices from column names for trimmed data
-                                    x_vals = [int(col.split('_')[-1]) for col in df_cumulative.columns]
-                                else:
-                                    # Use sequential indices for full data
-                                    x_vals = list(range(1, len(cum_values) + 1))
-
-                                fig_cumulative.add_trace(
-                                    go.Scatter(
-                                        x=x_vals,
-                                        y=cum_values,
-                                        mode='lines',
-                                        name=f'Segment {selected_segment}',
-                                        line=dict(width=2),
-                                        legendgroup=seg_id,
-                                        hovertemplate='Segment: %{text}<br>Signal Value: %{x}<br>Cumulative: %{y:.4f}<extra></extra>',
-                                        text=[seg_id]*len(x_vals),
-                                        showlegend=(idx_p == 0)
-                                    ),
-                                    row=1, col=idx_p+1
-                                )
-                                data_loaded = True
-
-                                # Add annotations for key points
-                                if seg_id in df_step3_cum.index:
-                                    fi_val = df_step3_cum.loc[seg_id, 'First_Noticeable_Increase_Cumulative_Value']
-                                    pe_val = df_step3_cum.loc[seg_id, 'Point_Exceeds_Cumulative_Value']
-                                    x_fi = df_step3_cum.loc[seg_id, 'First_Noticeable_Increase_Index']
-                                    x_pe = df_step3_cum.loc[seg_id, 'Point_Exceeds_Index']
-
-                                    # First increase point
-                                    if not pd.isna(x_fi) and not pd.isna(fi_val):
-                                        fig_cumulative.add_trace(
-                                            go.Scatter(
-                                                x=[x_fi],
-                                                y=[fi_val],
-                                                mode='markers',
-                                                marker=dict(color='red', size=10),
-                                                showlegend=False,
-                                                hoverinfo='skip'
-                                            ),
-                                            row=1, col=idx_p+1
-                                        )
-                                        fig_cumulative.add_annotation(
-                                            x=x_fi,
-                                            y=fi_val,
-                                            text=f"First Increase<br>({int(x_fi)}, {fi_val:.4f})",
-                                            showarrow=True,
-                                            arrowhead=2,
-                                            ax=0,
-                                            ay=-40,
-                                            font=dict(color='red'),
-                                            arrowcolor='red',
-                                            xref=f'x{idx_p+1}',
-                                            yref=f'y{idx_p+1}'
-                                        )
-
-                                    # Exceeds threshold point
-                                    if not pd.isna(x_pe) and not pd.isna(pe_val):
-                                        fig_cumulative.add_trace(
-                                            go.Scatter(
-                                                x=[x_pe],
-                                                y=[pe_val],
-                                                mode='markers',
-                                                marker=dict(color='green', size=10),
-                                                showlegend=False,
-                                                hoverinfo='skip'
-                                            ),
-                                            row=1, col=idx_p+1
-                                        )
-                                        fig_cumulative.add_annotation(
-                                            x=x_pe,
-                                            y=pe_val,
-                                            text=f"Exceeds {threshold}<br>({int(x_pe)}, {pe_val:.4f})",
-                                            showarrow=True,
-                                            arrowhead=2,
-                                            ax=0,
-                                            ay=40,
-                                            font=dict(color='green'),
-                                            arrowcolor='green',
-                                            xref=f'x{idx_p+1}',
-                                            yref=f'y{idx_p+1}'
-                                        )
-
-                                fig_cumulative.update_xaxes(title_text='Signal Value', row=1, col=idx_p+1)
-                                fig_cumulative.update_yaxes(title_text='Denoised Cumulative Sum (Sj)', row=1, col=idx_p+1)
-
-                            if data_loaded:
-                                fig_cumulative.update_layout(
-                                    title=(
-                                        f"Cumulative Segments for Positions {pair[0]} & {pair[1]}<br>"
-                                        f"<span style='font-size:12px;'>Threshold: {threshold}</span>"
-                                    ),
-                                    template='plotly_white',
-                                    height=500,
-                                    showlegend=True
-                                )
-                                st.plotly_chart(fig_cumulative, use_container_width=True)
+                                    # Read metadata from Step3_DataPts_0.5 (base threshold)
+                                    df_meta = pd.read_excel(file_path, sheet_name='Step3_DataPts_0.5', nrows=1)
+                                    st.write(f"File: {file_path.name}")
+                                    st.write(f"Pressure: {selected_pressure} kPa")
+                                    st.write(f"Hitting Type: {selected_hitting_type}")
+                                except Exception as e:
+                                    st.error(f"Error reading metadata: {e}")
                             else:
-                                st.info("No cumulative segments loaded.")
-                else:
-                    st.info("Please select a pressure level and a segment to proceed.")
+                                st.warning(f"No file found for position {pos}")
+                    
+                    # Add a separator before visualizations
+                    st.markdown("---")
+                    
+                    # Plot enhanced visualizations using the consolidated function
+                    plot_waveforms_and_cumulative(
+                        data_dir=data_dir,
+                        wheel_directory=wheel_directory,
+                        hitting_directory=hitting_directory,
+                        pair=pair,
+                        selected_hitting_type=selected_hitting_type,
+                        selected_pressure=selected_pressure,
+                        selected_segment=selected_segment,
+                        step3_prefix=step3_prefix,
+                        step2sj_name=step2sj_name,
+                        intensity_threshold_filter=intensity_threshold_filter
+                    )
 
 def plot_standalone_analysis(data_dir, intensity_threshold_filter, median_pulse_widths_file, 
                            step3_prefix, step2sj_name):

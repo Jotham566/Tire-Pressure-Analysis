@@ -39,7 +39,22 @@ def get_default_config() -> dict:
         'mounted': {
             'trim_signal': False,
             'trim_dims_after_rise': 32,
-            'noise_threshold': 0.03
+             'noise_threshold': 0.03,
+            'baseline_window_size': 10,
+            'std_dev_multiplier': 3.0,
+            'min_threshold_percentage': 0.01,
+            'sustained_rise_points': 3,
+            'lookback_window_size': 3,
+            'baseline_subtraction_method': 'adaptive',
+            'fixed_baseline_value': 0.01,
+            'baseline_computation': 'median',
+            'sliding_window_min_size': 5,
+            'sliding_window_max_size': 20,
+            'quietness_metric': 'std',
+            'volatility_threshold': 0.5,
+            'high_volatility_percentile': 75,
+            'low_volatility_percentile': 25,
+            'max_threshold_factor': 0.3
         },
         'standalone': {
             'trim_signal': False,
@@ -70,6 +85,21 @@ class TireSoundProcessor:
              noise_threshold: float = 0.03,
              trim_signal: bool = False,
              trim_dims_after_rise: int = 32,
+            baseline_window_size_mounted: int = 10,
+            std_dev_multiplier_mounted: float = 3.0,
+            min_threshold_percentage_mounted: float = 0.01,
+            sustained_rise_points_mounted: int = 3,
+            lookback_window_size_mounted: int = 3,
+            baseline_subtraction_method_mounted: str = "adaptive",
+            fixed_baseline_value_mounted: float = 0.01,
+            baseline_computation_mounted: str = 'median',
+            sliding_window_min_size_mounted: int = 5,
+            sliding_window_max_size_mounted: int = 20,
+            quietness_metric_mounted: str = 'std',
+            volatility_threshold_mounted: float = 0.5,
+            high_volatility_percentile_mounted: int = 75,
+            low_volatility_percentile_mounted: int = 25,
+            max_threshold_factor_mounted: float = 0.3,
              # Standalone parameters
              trim_signal_standalone: bool = False,
              trim_dims_after_rise_standalone: int = 32,
@@ -97,6 +127,21 @@ class TireSoundProcessor:
         self.noise_threshold = noise_threshold
         self.trim_signal = trim_signal
         self.trim_dims_after_rise = trim_dims_after_rise
+        self.baseline_window_size_mounted = baseline_window_size_mounted
+        self.std_dev_multiplier_mounted = std_dev_multiplier_mounted
+        self.min_threshold_percentage_mounted = min_threshold_percentage_mounted
+        self.sustained_rise_points_mounted = sustained_rise_points_mounted
+        self.lookback_window_size_mounted = lookback_window_size_mounted
+        self.baseline_subtraction_method_mounted = baseline_subtraction_method_mounted.lower()
+        self.fixed_baseline_value_mounted = fixed_baseline_value_mounted
+        self.baseline_computation_mounted = baseline_computation_mounted
+        self.sliding_window_min_size_mounted = sliding_window_min_size_mounted
+        self.sliding_window_max_size_mounted = sliding_window_max_size_mounted
+        self.quietness_metric_mounted = quietness_metric_mounted
+        self.volatility_threshold_mounted = volatility_threshold_mounted
+        self.high_volatility_percentile_mounted = high_volatility_percentile_mounted
+        self.low_volatility_percentile_mounted = low_volatility_percentile_mounted
+        self.max_threshold_factor_mounted = max_threshold_factor_mounted
         
         # Standalone parameters
         self.trim_signal_standalone = trim_signal_standalone
@@ -207,6 +252,20 @@ class TireSoundProcessor:
             # Process base data
             step1_normalized, step2_cumulative = self.process_file_step1_step2(file_path)
 
+            # Apply baseline subtraction
+            if self.baseline_subtraction_method_mounted == "adaptive":
+                self.logger.info("Applying adaptive baseline subtraction for mounted data")
+                step1_normalized = self.apply_adaptive_baseline_subtraction(step1_normalized, mounted=True)
+            elif self.baseline_subtraction_method_mounted == "fixed":
+                self.logger.info(f"Applying fixed baseline subtraction: {self.fixed_baseline_value_mounted} for mounted data")
+                step1_normalized = self.apply_fixed_baseline_subtraction(step1_normalized, mounted=True)
+            else:  # "none" or any other value
+                self.logger.info("No baseline subtraction applied for mounted data")
+
+            # Normalize after baseline subtraction
+            if self.baseline_subtraction_method_mounted in ["adaptive", "fixed"]:
+                step1_normalized = step1_normalized.div(step1_normalized.sum(axis=1).replace(0, 1), axis=0)
+
             # Apply signal trimming if enabled
             if self.trim_signal:
                 self.logger.info(f"Trimming signals to {self.trim_dims_after_rise} dims after rise point")
@@ -256,7 +315,7 @@ class TireSoundProcessor:
         # First pass: find all rise points and the earliest one
         for idx in df_signals.index:
             row_values = df_signals.loc[idx].values
-            dynamic_threshold = self.calculate_dynamic_noise_threshold(pd.Series(row_values))
+            dynamic_threshold = self.calculate_dynamic_noise_threshold(pd.Series(row_values), mounted=True)
             rise_indices = np.where(row_values > dynamic_threshold)[0]
             
             if len(rise_indices) > 0:
@@ -317,16 +376,21 @@ class TireSoundProcessor:
         
         return df_trimmed
 
-    def find_adaptive_baseline_offset(self, row_values: np.ndarray) -> float:
+    def find_adaptive_baseline_offset(self, row_values: np.ndarray, mounted:bool = False) -> float:
         """
         Finds a baseline offset using a sliding window approach.
         Scans subwindows near the start of the row to find the "quietest" segment.
         Returns the median of that chosen subwindow.
         """
+        if mounted:
+            n_samples = len(row_values)
+            min_size = min(self.sliding_window_min_size_mounted, n_samples)
+            max_size = min(self.sliding_window_max_size_mounted, n_samples)
+        else:
+            n_samples = len(row_values)
+            min_size = min(self.sliding_window_min_size, n_samples)
+            max_size = min(self.sliding_window_max_size, n_samples)
 
-        n_samples = len(row_values)
-        min_size = min(self.sliding_window_min_size, n_samples)
-        max_size = min(self.sliding_window_max_size, n_samples)
 
         best_metric = float('inf')
         best_offset = 0.0
@@ -337,16 +401,16 @@ class TireSoundProcessor:
             subwindow = row_values[start_idx:end_idx]
 
             # Compute the baseline offset candidate (median or mean)
-            if self.baseline_computation.lower() == 'median':
+            if (mounted and self.baseline_computation_mounted.lower() == 'median') or (not mounted and self.baseline_computation.lower() == 'median'):
                 offset_candidate = np.median(subwindow)
             else:
                 offset_candidate = np.mean(subwindow)
             
             # Evaluate "quietness" based on self.quietness_metric
-            if self.quietness_metric.lower() == 'std':
+            if (mounted and self.quietness_metric_mounted.lower() == 'std') or (not mounted and self.quietness_metric.lower() == 'std'):
                 metric_val = np.std(subwindow)
-            elif self.quietness_metric.lower() == 'mean':
-                metric_val = np.mean(subwindow)
+            elif (mounted and self.quietness_metric_mounted.lower() == 'mad') or (not mounted and self.quietness_metric.lower() == 'mad'):
+                metric_val = np.median(np.abs(subwindow - np.median(subwindow)))
             else:
                 # Example: a mix, or fallback to std
                 metric_val = np.std(subwindow)
@@ -358,7 +422,7 @@ class TireSoundProcessor:
 
         return best_offset
 
-    def apply_fixed_baseline_subtraction(self, df_signals: pd.DataFrame) -> pd.DataFrame:
+    def apply_fixed_baseline_subtraction(self, df_signals: pd.DataFrame, mounted: bool = False) -> pd.DataFrame:
         """
         Applies a fixed baseline subtraction to the signal data.
         
@@ -371,14 +435,17 @@ class TireSoundProcessor:
         df_modified = df_signals.copy()
         
         # Subtract fixed value
-        df_modified = df_modified - self.fixed_baseline_value
+        if mounted:
+          df_modified = df_modified - self.fixed_baseline_value_mounted
+        else:
+          df_modified = df_modified - self.fixed_baseline_value
         
         # Zero-clip negative values
         df_modified = df_modified.clip(lower=0)
         
         return df_modified
 
-    def apply_adaptive_baseline_subtraction(self, df_signals: pd.DataFrame) -> pd.DataFrame:
+    def apply_adaptive_baseline_subtraction(self, df_signals: pd.DataFrame, mounted: bool = False) -> pd.DataFrame:
         """
         For each row in df_signals, find a baseline offset using a sliding
         window "quietness" check. Subtract that offset and zero-clip negatives.
@@ -387,7 +454,7 @@ class TireSoundProcessor:
         
         for idx in df_modified.index:
             row_values = df_modified.loc[idx].values  # to numpy array
-            offset = self.find_adaptive_baseline_offset(row_values)
+            offset = self.find_adaptive_baseline_offset(row_values, mounted)
             
             # Subtract offset
             row_values_sub = row_values - offset
@@ -399,38 +466,74 @@ class TireSoundProcessor:
 
         return df_modified
 
-    def process_file_step1_step2(self, file_path: Path) -> Tuple[pd.DataFrame, pd.DataFrame]:
+    def process_file_step1_step2(self, file_path: Path) -> Tuple[pd.DataFrame, pd.DataFrame, dict]:
         """
-        Processes a single CSV file by selecting the first 256 signal values,
+        Processes a single CSV file by extracting metadata and signal values,
         normalizing (Step1_Data), and creating the cumulative sum (Step2_Sj).
-        Step2_Sj will have values before noise threshold set to zero.
+        Considers configuration parameters for processing.
         """
         try:
-            df = pd.read_csv(file_path, header=None, skiprows=1, dtype=str)
+            # Read the CSV file with the first row as header
+            df = pd.read_csv(file_path)
+            
+            # Extract metadata columns
+            metadata_columns = [
+                'Segment ID / Value index', 'Tire Number', 'Pressure', 
+                'TireSize', 'Tire_Type', 'Truck_Load'
+            ]
+            metadata = df[metadata_columns].copy()
+            
+            # Extract signal data (columns after metadata)
+            signal_columns = [col for col in df.columns if col not in metadata_columns]
+            df_signals = df[signal_columns].copy()
+            
+            # Convert signal values to numeric
+            df_signals = df_signals.apply(pd.to_numeric, errors='coerce').fillna(0)
+            
+            # Set index using Segment ID
+            df_signals.index = metadata['Segment ID / Value index']
+            
+            # Apply baseline subtraction based on configuration
+            if self.baseline_subtraction_method_mounted == "adaptive":
+                self.logger.info("Applying adaptive baseline subtraction for mounted data")
+                df_signals = self.apply_adaptive_baseline_subtraction(df_signals, mounted=True)
+            elif self.baseline_subtraction_method_mounted == "fixed":
+                self.logger.info(f"Applying fixed baseline subtraction: {self.fixed_baseline_value_mounted}")
+                df_signals = self.apply_fixed_baseline_subtraction(df_signals, mounted=True)
+            
+            # Apply signal trimming if enabled in config
+            if self.trim_signal:
+                self.logger.info(f"Trimming signals to {self.trim_dims_after_rise} dimensions after rise point")
+                df_signals = self.trim_signal_to_rise(df_signals)
+            
+            # Step1: Normalize so sum of each row is 1
+            df_step1 = df_signals.div(df_signals.sum(axis=1).replace(0, 1), axis=0)
+            
+            # Step2: Cumulative Sum
+            df_step2 = df_step1.cumsum(axis=1)
+            
+            # Set index names
+            df_step1.index.name = 'Segment_ID'
+            df_step2.index.name = 'Segment_ID'
+            
+            # Store metadata for later use
+            metadata_dict = metadata.set_index('Segment ID / Value index').to_dict('index')
+            
+            return df_step1, df_step2, metadata_dict
+
         except Exception as e:
-            raise Exception(f"Failed to read CSV: {e}")
+            self.logger.error(f"Error processing file {file_path}: {str(e)}")
+            raise Exception(f"Failed to process CSV: {e}")
 
-        df.rename(columns={0: 'Segment_ID'}, inplace=True)
-        if df.shape[1] < 257:
-            raise ValueError(f"Expected at least 257 columns, found {df.shape[1]}")
+    def get_first_increase_index(self, row: pd.Series, noise_threshold: float = None, mounted:bool = False) -> float:
+      
+      if mounted:
+        dynamic_threshold = self.calculate_dynamic_noise_threshold(row, mounted=True)
+        indices = np.where(row.values > dynamic_threshold)[0]
+      else:
+        indices = np.where(row.values > (noise_threshold if noise_threshold is not None else self.noise_threshold))[0]
 
-        signal_columns = [f'Signal_Value_{i}' for i in range(1, 257)]
-        df_selected = df[['Segment_ID'] + list(range(1, 257))].copy()
-        df_selected.columns = ['Segment_ID'] + signal_columns
-        df_selected[signal_columns] = df_selected[signal_columns].apply(pd.to_numeric, errors='coerce').fillna(0)
-        df_selected.set_index('Segment_ID', inplace=True)
-
-        # Step1: Normalize so sum of each row is 1 (keep original)
-        df_step1 = df_selected.div(df_selected.sum(axis=1).replace(0, 1), axis=0)
-
-        # Step2: Cumulative Sum (Step2_Sj)
-        df_step2 = df_step1.cumsum(axis=1)
-
-        return df_step1, df_step2
-
-    def get_first_increase_index(self, row: pd.Series, noise_threshold: float) -> float:
-        indices = np.where(row.values > noise_threshold)[0]
-        return indices[0] + 1 if indices.size > 0 else np.nan
+      return indices[0] + 1 if indices.size > 0 else np.nan
 
     def get_point_exceeds_index(self, row: pd.Series, threshold: float) -> float:
         indices = np.where(row.values > threshold)[0]
@@ -445,46 +548,62 @@ class TireSoundProcessor:
         else:
             return np.nan
 
-    def compute_step3_metrics(self, df_cumulative: pd.DataFrame, intensity_threshold: float, file_path: Path) -> pd.DataFrame:
+    def compute_step3_metrics(self, df_cumulative: pd.DataFrame, 
+                         intensity_threshold: float, 
+                         file_path: Path,
+                         metadata_dict: dict) -> pd.DataFrame:
+        """
+        Compute Step3 metrics including metadata from the original file.
+        """
         air_pressure = self.extract_air_pressure(file_path.name)
         tire_position = self.extract_tire_position(file_path.name)
         wheel_type = self.extract_vehicle_type(file_path)
         hitting_type = self.determine_hitting_type(file_path)
 
-        first_increase_index = df_cumulative.apply(lambda row: self.get_first_increase_index(row, self.noise_threshold), axis=1)
-        point_exceeds_index = df_cumulative.apply(lambda row: self.get_point_exceeds_index(row, threshold=intensity_threshold), axis=1)
-
-        def positional_to_original_index(pos_idx, columns):
-            if pd.isna(pos_idx):
-                return np.nan
-            col_name = columns[int(pos_idx)-1]
-            return int(col_name.split('_')[-1])
-
-        first_increase_index_original = first_increase_index.apply(lambda x: positional_to_original_index(x, df_cumulative.columns))
-        point_exceeds_index_original = point_exceeds_index.apply(lambda x: positional_to_original_index(x, df_cumulative.columns))
+        first_increase_index = df_cumulative.apply(
+            lambda row: self.get_first_increase_index(row, self.noise_threshold, mounted=True), 
+            axis=1
+        )
+        point_exceeds_index = df_cumulative.apply(
+            lambda row: self.get_point_exceeds_index(row, threshold=intensity_threshold), 
+            axis=1
+        )
 
         first_increase_cumulative_value = df_cumulative.apply(
-            lambda row: self.get_cumulative_value_at_index(row, first_increase_index[row.name]), axis=1)
+            lambda row: self.get_cumulative_value_at_index(row, first_increase_index[row.name]), 
+            axis=1
+        )
         point_exceeds_cumulative_value = df_cumulative.apply(
-            lambda row: self.get_cumulative_value_at_index(row, point_exceeds_index[row.name]), axis=1)
+            lambda row: self.get_cumulative_value_at_index(row, point_exceeds_index[row.name]), 
+            axis=1
+        )
 
-        pulse_width_original = point_exceeds_index_original - first_increase_index_original
+        pulse_width = point_exceeds_index - first_increase_index
 
+        # Create DataFrame with metrics and metadata
         step3_data_points = pd.DataFrame({
             'Intensity_Threshold': intensity_threshold,
-            'First_Noticeable_Increase_Index': first_increase_index_original,
-            'Point_Exceeds_Index': point_exceeds_index_original,
+            'First_Noticeable_Increase_Index': first_increase_index,
+            'Point_Exceeds_Index': point_exceeds_index,
             'First_Noticeable_Increase_Cumulative_Value': first_increase_cumulative_value,
             'Point_Exceeds_Cumulative_Value': point_exceeds_cumulative_value,
-            'Pulse_Width': pulse_width_original,
+            'Pulse_Width': pulse_width,
             'Air_Pressure': air_pressure,
             'Tire_Position': tire_position,
             'Wheel_Type': wheel_type,
             'Hitting_Type': hitting_type
         }, index=df_cumulative.index)
 
-        step3_data_points.reset_index(inplace=True)
-        step3_data_points.set_index('Segment_ID', inplace=True)
+        # Add original metadata
+        for idx in step3_data_points.index:
+            if idx in metadata_dict:
+                metadata = metadata_dict[idx]
+                step3_data_points.loc[idx, 'Tire Number'] = metadata['Tire Number']
+                step3_data_points.loc[idx, 'Pressure'] = metadata['Pressure']
+                step3_data_points.loc[idx, 'TireSize'] = metadata['TireSize']
+                step3_data_points.loc[idx, 'Tire_Type'] = metadata['Tire_Type']
+                step3_data_points.loc[idx, 'Truck_Load'] = metadata['Truck_Load']
+
         return step3_data_points
 
     def calculate_median_pulse_width(self, excel_file_paths) -> pd.DataFrame:
@@ -545,27 +664,48 @@ class TireSoundProcessor:
 
         return pd.DataFrame(median_pulse_widths)
 
-    def calculate_dynamic_noise_threshold(self, segment_values: pd.Series) -> float:
+    def calculate_dynamic_noise_threshold(self, segment_values: pd.Series, mounted: bool = False) -> float:
         """
-        Enhanced dynamic noise threshold calculation with volatility-based adjustment.
+        Enhanced dynamic noise threshold calculation with configuration-based parameters.
         """
         try:
             signal_length = len(segment_values)
-            if signal_length < self.baseline_window_size:
-                self.logger.warning("Signal too short for dynamic threshold")
-                return self.noise_threshold
+            
+            if mounted:
+                # Use mounted tire parameters
+                if signal_length < self.baseline_window_size_mounted:
+                    self.logger.warning("Signal too short for dynamic threshold (mounted)")
+                    return self.noise_threshold
+                    
+                rolling_mean = segment_values.rolling(window=self.sliding_window_min_size_mounted, center=True).mean()
+                rolling_std = segment_values.rolling(window=self.sliding_window_min_size_mounted, center=True).std()
                 
-            # Calculate volatility metrics
-            rolling_mean = segment_values.rolling(window=5, center=True).mean()
-            rolling_std = segment_values.rolling(window=5, center=True).std()
+            else:
+                # Use standalone parameters
+                if signal_length < self.baseline_window_size:
+                    self.logger.warning("Signal too short for dynamic threshold (standalone)")
+                    return self.noise_threshold
+                    
+                rolling_mean = segment_values.rolling(window=self.sliding_window_min_size, center=True).mean()
+                rolling_std = segment_values.rolling(window=self.sliding_window_min_size, center=True).std()
             
             # Compute signal volatility
             mean_value = rolling_mean.mean()
             volatility = rolling_std.mean() / mean_value if mean_value != 0 else float('inf')
             
+            # Get window sizes based on configuration
+            if mounted:
+                baseline_window = self.baseline_window_size_mounted
+                min_window = self.sliding_window_min_size_mounted
+                max_window = self.sliding_window_max_size_mounted
+            else:
+                baseline_window = self.baseline_window_size
+                min_window = self.sliding_window_min_size
+                max_window = self.sliding_window_max_size
+            
             # Multi-window threshold candidates
             thresholds = []
-            windows = [self.baseline_window_size]
+            windows = [baseline_window]
             
             for window_size in windows:
                 baseline = segment_values.iloc[:window_size]
@@ -573,32 +713,49 @@ class TireSoundProcessor:
                 baseline_mad = np.median(np.abs(baseline - baseline_median))
                 baseline_std = baseline.std()
                 
-                thresholds.extend([
-                    baseline_median + (baseline_mad * 2.5),
-                    baseline_median + (baseline_std * self.std_dev_multiplier)
-                ])
+                if mounted:
+                    thresholds.extend([
+                        baseline_median + (baseline_mad * 2.5),
+                        baseline_median + (baseline_std * self.std_dev_multiplier_mounted)
+                    ])
+                else:
+                    thresholds.extend([
+                        baseline_median + (baseline_mad * 2.5),
+                        baseline_median + (baseline_std * self.std_dev_multiplier)
+                    ])
             
-            # Signal range analysis
+            # Signal range analysis with configuration parameters
             signal_range = segment_values.max() - segment_values.min()
-            min_range_threshold = signal_range * self.min_threshold_percentage
+            if mounted:
+                min_range_threshold = signal_range * self.min_threshold_percentage_mounted
+                volatility_threshold = self.volatility_threshold_mounted
+                high_percentile = self.high_volatility_percentile_mounted
+                low_percentile = self.low_volatility_percentile_mounted
+                max_factor = self.max_threshold_factor_mounted
+            else:
+                min_range_threshold = signal_range * self.min_threshold_percentage
+                volatility_threshold = self.volatility_threshold
+                high_percentile = self.high_volatility_percentile
+                low_percentile = self.low_volatility_percentile
+                max_factor = self.max_threshold_factor
             
             # Volatility-based threshold selection
             base_threshold = np.percentile(
                 thresholds, 
-                self.high_volatility_percentile if volatility > self.volatility_threshold else self.low_volatility_percentile
+                high_percentile if volatility > volatility_threshold else low_percentile
             )
             
             # Combine with range-based threshold and apply maximum constraint
             dynamic_threshold = min(
                 max(base_threshold, min_range_threshold),
-                segment_values.max() * self.max_threshold_factor
+                segment_values.max() * max_factor
             )
             
             return dynamic_threshold
-            
+                
         except Exception as e:
             self.logger.error(f"Error in dynamic threshold calculation: {str(e)}")
-            return self.noise_threshold
+            return self.noise_threshold if mounted else self.noise_threshold
             
     def get_first_increase_index_standalone(self, row: pd.Series) -> float:
         """
@@ -939,7 +1096,7 @@ class TireSoundProcessor:
         """
         Process both mounted and standalone tire data.
         """
-        # Process mounted tire data
+         # Process mounted tire data
         self.logger.info(f"Processing mounted tire data from: {self.input_dir}")
         
         csv_files = list(Path(self.input_dir).rglob('*.csv'))
@@ -959,23 +1116,19 @@ class TireSoundProcessor:
                 path.parent.mkdir(parents=True, exist_ok=True)
 
             try:
-                # Process base data
-                step1_normalized, step2_cumulative = self.process_file_step1_step2(file_path)
+                # Process base data with metadata
+                step1_normalized, step2_cumulative, metadata_dict = self.process_file_step1_step2(file_path)
+                
+                # [Rest of the processing code remains the same until saving]
 
-                # Apply signal trimming if enabled
-                if self.trim_signal:
-                    self.logger.info(f"Trimming signals to {self.trim_dims_after_rise} dims after rise point")
-                    step1_normalized = self.trim_signal_to_rise(step1_normalized)
-                    step1_normalized = step1_normalized.div(step1_normalized.sum(axis=1).replace(0, 1), axis=0)
-                    step2_cumulative = step1_normalized.cumsum(axis=1)
-                    
                 # Save full data results
                 with pd.ExcelWriter(output_paths['full'], engine='xlsxwriter') as writer:
                     self.save_processed_data_step1_step2(writer, step1_normalized, step2_cumulative)
                     for threshold in self.intensity_thresholds:
-                        step3_data = self.compute_step3_metrics(step2_cumulative, threshold, file_path)
+                        step3_data = self.compute_step3_metrics(
+                            step2_cumulative, threshold, file_path, metadata_dict
+                        )
                         self.save_processed_data_step3(writer, step3_data, threshold)
-
 
             except Exception as e:
                 self.logger.error(f"Error processing '{file_path.name}': {str(e)}")
@@ -1008,7 +1161,7 @@ class TireSoundProcessor:
 
 if __name__ == "__main__":
     # Define directories
-    INPUT_DIRECTORY = '/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/On_trucks_tires CSV data'
+    INPUT_DIRECTORY = '/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Mounted/Processed_CSV_Files'
     STANDALONE_DIRECTORY = '/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Merged'
     OUTPUT_DIRECTORY = '.'
 
@@ -1023,27 +1176,42 @@ if __name__ == "__main__":
         # Common parameters
         intensity_thresholds=config['common']['intensity_thresholds'],
         # Mounted tire parameters
-        noise_threshold=config['mounted']['noise_threshold'],
-        trim_signal=config['mounted']['trim_signal'],
-        trim_dims_after_rise=config['mounted']['trim_dims_after_rise'],
+        noise_threshold=config['mounted'].get('noise_threshold', 0.03),
+        trim_signal=config['mounted'].get('trim_signal', False),
+        trim_dims_after_rise=config['mounted'].get('trim_dims_after_rise', 32),
+        baseline_window_size_mounted = config['mounted'].get('baseline_window_size', 10),
+        std_dev_multiplier_mounted = config['mounted'].get('std_dev_multiplier', 3.0),
+        min_threshold_percentage_mounted = config['mounted'].get('min_threshold_percentage', 0.01),
+        sustained_rise_points_mounted = config['mounted'].get('sustained_rise_points', 3),
+        lookback_window_size_mounted = config['mounted'].get('lookback_window_size', 3),
+        baseline_subtraction_method_mounted = config['mounted'].get('baseline_subtraction_method', 'adaptive'),
+        fixed_baseline_value_mounted = config['mounted'].get('fixed_baseline_value', 0.01),
+        baseline_computation_mounted = config['mounted'].get('baseline_computation', 'median'),
+        sliding_window_min_size_mounted = config['mounted'].get('sliding_window_min_size', 5),
+        sliding_window_max_size_mounted = config['mounted'].get('sliding_window_max_size', 20),
+        quietness_metric_mounted = config['mounted'].get('quietness_metric', 'std'),
+        volatility_threshold_mounted = config['mounted'].get('volatility_threshold', 0.5),
+        high_volatility_percentile_mounted = config['mounted'].get('high_volatility_percentile', 75),
+        low_volatility_percentile_mounted = config['mounted'].get('low_volatility_percentile', 25),
+        max_threshold_factor_mounted = config['mounted'].get('max_threshold_factor', 0.3),
         # Standalone parameters
-        trim_signal_standalone=config['standalone']['trim_signal'],
-        trim_dims_after_rise_standalone=config['standalone']['trim_dims_after_rise'],
-        baseline_window_size=config['standalone']['baseline_window_size'],
-        std_dev_multiplier=config['standalone']['std_dev_multiplier'],
-        min_threshold_percentage=config['standalone']['min_threshold_percentage'],
-        sustained_rise_points=config['standalone']['sustained_rise_points'],
-        lookback_window_size=config['standalone']['lookback_window_size'],
-        baseline_subtraction_method=config['standalone']['baseline_subtraction_method'],
-        fixed_baseline_value=config['standalone']['fixed_baseline_value'],
-        baseline_computation=config['standalone']['baseline_computation'],
-        sliding_window_min_size=config['standalone']['sliding_window_min_size'],
-        sliding_window_max_size=config['standalone']['sliding_window_max_size'],
-        quietness_metric=config['standalone']['quietness_metric'],
-        volatility_threshold=config['standalone']['volatility_threshold'],
-        high_volatility_percentile=config['standalone']['high_volatility_percentile'],
-        low_volatility_percentile=config['standalone']['low_volatility_percentile'],
-        max_threshold_factor=config['standalone']['max_threshold_factor']
+        trim_signal_standalone=config['standalone'].get('trim_signal', False),
+        trim_dims_after_rise_standalone=config['standalone'].get('trim_dims_after_rise', 32),
+        baseline_window_size=config['standalone'].get('baseline_window_size', 10),
+        std_dev_multiplier=config['standalone'].get('std_dev_multiplier', 3.0),
+        min_threshold_percentage=config['standalone'].get('min_threshold_percentage', 0.01),
+        sustained_rise_points=config['standalone'].get('sustained_rise_points', 3),
+        lookback_window_size=config['standalone'].get('lookback_window_size', 3),
+        baseline_subtraction_method=config['standalone'].get('baseline_subtraction_method', 'adaptive'),
+        fixed_baseline_value=config['standalone'].get('fixed_baseline_value', 0.01),
+        baseline_computation=config['standalone'].get('baseline_computation', 'median'),
+        sliding_window_min_size=config['standalone'].get('sliding_window_min_size', 5),
+        sliding_window_max_size=config['standalone'].get('sliding_window_max_size', 20),
+        quietness_metric=config['standalone'].get('quietness_metric', 'std'),
+        volatility_threshold=config['standalone'].get('volatility_threshold', 0.5),
+        high_volatility_percentile=config['standalone'].get('high_volatility_percentile', 75),
+        low_volatility_percentile=config['standalone'].get('low_volatility_percentile', 25),
+        max_threshold_factor=config['standalone'].get('max_threshold_factor', 0.3)
     )
 
     # Start the processing
