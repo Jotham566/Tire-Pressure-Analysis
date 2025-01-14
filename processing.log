@@ -1,0 +1,164 @@
+2025-01-10 16:53:43,520 - INFO - Processing mounted tire data from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Mounted/Processed_CSV_Files
+2025-01-10 16:53:43,520 - INFO - Found 40 CSV files
+2025-01-10 16:53:43,549 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:43,625 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:43,676 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:43,727 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:43,775 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:43,825 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:43,875 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:43,925 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:43,975 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,025 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,074 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,124 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,178 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,227 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,276 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,326 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,374 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,424 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,474 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,532 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,582 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,631 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,688 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,761 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,814 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,864 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,914 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:44,963 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,012 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,061 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,111 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,159 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,209 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,259 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,307 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,358 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,407 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,455 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,504 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:45,554 - INFO - Applying adaptive baseline subtraction for mounted data
+2025-01-10 16:53:46,635 - INFO - Saved mounted tire median pulse widths to: Processed_Mounted/Median_Pulse_Widths.xlsx
+2025-01-10 16:53:46,635 - INFO - Processing standalone tire data
+2025-01-10 16:53:46,635 - INFO - Processing standalone files from: /Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Merged
+2025-01-10 16:53:46,646 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:46,700 - INFO - Successfully processed: 47_225-80R17.5-500-710R.csv
+2025-01-10 16:53:46,709 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:46,773 - INFO - Successfully processed: 39_11R22.5-600-903ZW.csv
+2025-01-10 16:53:46,782 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:46,835 - INFO - Successfully processed: 57_11R22.5-600-710R.csv
+2025-01-10 16:53:46,843 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:46,925 - INFO - Successfully processed: 14_245-70R19.5-700-710R.csv
+2025-01-10 16:53:46,934 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:46,989 - INFO - Successfully processed: 63_11R22.5-500-710R.csv
+2025-01-10 16:53:46,997 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,051 - INFO - Successfully processed: 48_455-55R22.5-900-716R.csv
+2025-01-10 16:53:47,059 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,114 - INFO - Successfully processed: 59_11R22.5-900-710R.csv
+2025-01-10 16:53:47,122 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,176 - INFO - Successfully processed: 40_11R22.5-600-MY377.csv
+2025-01-10 16:53:47,183 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,240 - INFO - Successfully processed: 12_455-55R22.5-800-716U.csv
+2025-01-10 16:53:47,248 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,302 - INFO - Successfully processed: 22_245-70R19.5-500-710R.csv
+2025-01-10 16:53:47,310 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,364 - INFO - Successfully processed: 28_11R22.5-900-MY377.csv
+2025-01-10 16:53:47,372 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,426 - INFO - Successfully processed: 03_225-80R17.5-900-710R.csv
+2025-01-10 16:53:47,434 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,488 - INFO - Successfully processed: 49_455-55R22.5-850-716R.csv
+2025-01-10 16:53:47,496 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,550 - INFO - Successfully processed: 27_11R22.5-900-903ZW.csv
+2025-01-10 16:53:47,558 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,612 - INFO - Successfully processed: 55_11R22.5-800-710R.csv
+2025-01-10 16:53:47,620 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,673 - INFO - Successfully processed: 24_455-55R22.5-500-716U.csv
+2025-01-10 16:53:47,681 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,736 - INFO - Successfully processed: 17_11R22.5-600-710R.csv
+2025-01-10 16:53:47,745 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,817 - INFO - Successfully processed: 19_225-80R17.5-600-710R.csv
+2025-01-10 16:53:47,828 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,889 - INFO - Successfully processed: 34_11R22.5-700-101LZ.csv
+2025-01-10 16:53:47,897 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:47,952 - INFO - Successfully processed: 30_11R22.5-800-101LZ.csv
+2025-01-10 16:53:47,960 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,016 - INFO - Successfully processed: 50_455-55R22.5-800-716R.csv
+2025-01-10 16:53:48,024 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,078 - INFO - Successfully processed: 10_245-70R19.5-800-710R.csv
+2025-01-10 16:53:48,086 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,162 - INFO - Successfully processed: 01_11R22.5-900-710R.csv
+2025-01-10 16:53:48,170 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,225 - INFO - Successfully processed: 51_455-55R22.5-700-716R.csv
+2025-01-10 16:53:48,233 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,288 - INFO - Successfully processed: 09_11R22.5-800-710R.csv
+2025-01-10 16:53:48,296 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,350 - INFO - Successfully processed: 05_11R22.5-850-710R.csv
+2025-01-10 16:53:48,369 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,424 - INFO - Successfully processed: 07_225-80R17.5-850-710R.csv
+2025-01-10 16:53:48,432 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,486 - INFO - Successfully processed: 52_455-55R22.5-600-716R.csv
+2025-01-10 16:53:48,495 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,551 - INFO - Successfully processed: 16_455-55R22.5-700-716U.csv
+2025-01-10 16:53:48,560 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,613 - INFO - Successfully processed: 46_225-80R17.5-600-710R.csv
+2025-01-10 16:53:48,621 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,675 - INFO - Successfully processed: 06_245-70R19.5-850-710R.csv
+2025-01-10 16:53:48,683 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,737 - INFO - Successfully processed: 45_225-80R17.5-700-710R.csv
+2025-01-10 16:53:48,745 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,800 - INFO - Successfully processed: 54_11R22.5-900-710R.csv
+2025-01-10 16:53:48,808 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,861 - INFO - Successfully processed: 04_455-55R22.5-900-716U.csv
+2025-01-10 16:53:48,869 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,924 - INFO - Successfully processed: 44_225-80R17.5-800-710R.csv
+2025-01-10 16:53:48,932 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:48,986 - INFO - Successfully processed: 38_11R22.5-600-101LZ.csv
+2025-01-10 16:53:48,994 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,051 - INFO - Successfully processed: 13_11R22.5-700-710R.csv
+2025-01-10 16:53:49,059 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,114 - INFO - Successfully processed: 62_11R22.5-600-710R.csv
+2025-01-10 16:53:49,122 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,176 - INFO - Successfully processed: 20_455-55R22.5-600-716U.csv
+2025-01-10 16:53:49,184 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,238 - INFO - Successfully processed: 18_245-70R19.5-600-710R.csv
+2025-01-10 16:53:49,247 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,301 - INFO - Successfully processed: 11_225-80R17.5-800-710R.csv
+2025-01-10 16:53:49,309 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,363 - INFO - Successfully processed: 32_11R22.5-800-MY377.csv
+2025-01-10 16:53:49,371 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,425 - INFO - Successfully processed: 36_11R22.5-700-MY377.csv
+2025-01-10 16:53:49,433 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,486 - INFO - Successfully processed: 23_225-80R17.5-500-710R.csv
+2025-01-10 16:53:49,494 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,549 - INFO - Successfully processed: 42_225-80R17.5-900-710R.csv
+2025-01-10 16:53:49,556 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,610 - INFO - Successfully processed: 02_245-70R19.5-900-710R.csv
+2025-01-10 16:53:49,619 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,674 - INFO - Successfully processed: 26_11R22.5-900-101LZ.csv
+2025-01-10 16:53:49,682 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,736 - INFO - Successfully processed: 60_11R22.5-800-710R.csv
+2025-01-10 16:53:49,744 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,799 - INFO - Successfully processed: 15_225-80R17.5-700-710R.csv
+2025-01-10 16:53:49,806 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,860 - INFO - Successfully processed: 61_11R22.5-700-710R.csv
+2025-01-10 16:53:49,868 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,923 - INFO - Successfully processed: 31_11R22.5-800-903ZW.csv
+2025-01-10 16:53:49,931 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:49,986 - INFO - Successfully processed: 56_11R22.5-700-710R.csv
+2025-01-10 16:53:49,994 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:50,060 - INFO - Successfully processed: 58_11R22.5-500-710R.csv
+2025-01-10 16:53:50,068 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:50,122 - INFO - Successfully processed: 21_11R22.5-500-710R.csv
+2025-01-10 16:53:50,130 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:50,185 - INFO - Successfully processed: 53_455-55R22.5-500-716R.csv
+2025-01-10 16:53:50,193 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:50,248 - INFO - Successfully processed: 08_455-55R22.5-850-716U.csv
+2025-01-10 16:53:50,257 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:50,311 - INFO - Successfully processed: 35_11R22.5-700-903ZW.csv
+2025-01-10 16:53:50,319 - INFO - Applying adaptive baseline subtraction
+2025-01-10 16:53:50,374 - INFO - Successfully processed: 43_225-80R17.5-850-710R.csv
+2025-01-10 16:53:50,374 - INFO - Starting median calculation for 58 files
+2025-01-10 16:53:51,775 - INFO - Saved median pulse widths to: Processed_Standalone/Median_Pulse_Widths_StandAlone.xlsx
+2025-01-10 16:53:51,775 - INFO - Processing completed successfully

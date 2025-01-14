@@ -96,7 +96,7 @@ def batch_downsample_wav_files(input_folder, output_folder, target_sample_rate=2
 
 # Main execution
 def main():
-    input_folder = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Mounted/07_Audio data_24bit-48kHz＠D-PARC" # Folder containing WAV files
+    input_folder = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Mounted/abcd@10輪車-打音" # Folder containing WAV files
     output_folder = "downsampled_2k"  # Folder to save downsampled files
     
     # Perform downsampling

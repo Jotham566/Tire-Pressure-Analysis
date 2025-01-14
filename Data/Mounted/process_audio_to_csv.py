@@ -9,7 +9,7 @@ import logging
 from typing import Dict, List
 
 # Constants and Configuration
-FULL_SEGMENTS_FOLDER = "full_5_hits_tread_weak_person_a"
+FULL_SEGMENTS_FOLDER = "full_5_hits_tread_strong_person_a"
 BASE_OUTPUT_FOLDER = "Processed_CSV_Files"
 TRUCK_WHEEL_FOLDERS = {
     '6W': "6 wheels",
@@ -71,7 +71,8 @@ def parse_filename(filename: str) -> Dict[str, str]:
         truck_load = parts[3].replace('.wav', '')
         
         # Determine tire type based on truck wheel
-        tire_type = "702ZE-i" if truck_wheel == "10W" else ""
+        # tire_type = "702ZE-i" if truck_wheel == "10W" else ""
+        tire_type = "" if truck_wheel == "10W" else ""
         
         return {
             'tire_number': tire_number,

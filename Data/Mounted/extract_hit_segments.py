@@ -7,8 +7,8 @@ from typing import Tuple, Dict
 
 # Constants and Configuration
 INPUT_FOLDER = "downsampled_2k"
-METADATA_FILE = "Person_A_Tread_Weak_TimeStamps_Metadata.csv"
-FULL_SEGMENTS_OUTPUT_FOLDER = "full_5_hits_tread_weak_person_a"
+METADATA_FILE = "Person_A_Tread_Strong_TimeStamps_MetadataV2csv.csv"
+FULL_SEGMENTS_OUTPUT_FOLDER = "full_5_hits_tread_strong_person_a"
 os.makedirs(FULL_SEGMENTS_OUTPUT_FOLDER, exist_ok=True)
 
 # Valid configurations

@@ -13,20 +13,20 @@ pulse_width_calculator:
 
     # Dynamic noise threshold parameters
     baseline_window_size: 2
-    std_dev_multiplier: 2.0
-    min_threshold_percentage: 0.01
-    sustained_rise_points: 2
-    lookback_window_size: 5
+    std_dev_multiplier: 2
+    min_threshold_percentage: 0.08
+    sustained_rise_points: 4
+    lookback_window_size: 2
 
     # Baseline subtraction configuration
     baseline_subtraction_method: "adaptive" # Baseline subtraction method for mounted tire signal (none, fixed, adaptive)
-    fixed_baseline_value: 0.03
+    fixed_baseline_value: 0.01
 
      # Adaptive baseline parameters
     baseline_computation: "median" # Baseline computation method (mean, median)
     sliding_window_min_size: 5 
     sliding_window_max_size: 20
-    quietness_metric: "std" # Metric for quietness (std, mad)
+    quietness_metric: "std" # Metric for quietness (std, mad, mix)
 
 
     # Volatility handling parameters
