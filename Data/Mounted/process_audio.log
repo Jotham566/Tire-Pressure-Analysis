@@ -1,82 +1,50 @@
-2025-01-10 16:43:11,780 - INFO - Processing file: 116_10W-275-80R22.5-POS7_800_Empty.wav
-2025-01-10 16:43:11,789 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS7.csv'
-2025-01-10 16:43:11,789 - INFO - Processing file: 139_10W-275-80R22.5-POS10_600_Empty.wav
-2025-01-10 16:43:11,793 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS10.csv'
-2025-01-10 16:43:11,793 - INFO - Processing file: 119_10W-275-80R22.5-POS10_800_Empty.wav
-2025-01-10 16:43:11,796 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS10.csv'
-2025-01-10 16:43:11,796 - INFO - Processing file: 134_10W-275-80R22.5-POS5_600_Empty.wav
-2025-01-10 16:43:11,799 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS5.csv'
-2025-01-10 16:43:11,799 - INFO - Processing file: 105_10W-275-80R22.5-POS6_900_Empty.wav
-2025-01-10 16:43:11,802 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS6.csv'
-2025-01-10 16:43:11,802 - INFO - Processing file: 124_10W-275-80R22.5-POS5_700_Empty.wav
-2025-01-10 16:43:11,805 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS5.csv'
-2025-01-10 16:43:11,805 - INFO - Processing file: 115_10W-275-80R22.5-POS6_800_Empty.wav
-2025-01-10 16:43:11,808 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS6.csv'
-2025-01-10 16:43:11,808 - INFO - Processing file: 106_10W-275-80R22.5-POS7_900_Empty.wav
-2025-01-10 16:43:11,811 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS7.csv'
-2025-01-10 16:43:11,811 - INFO - Processing file: 136_10W-275-80R22.5-POS7_600_Empty.wav
-2025-01-10 16:43:11,814 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS7.csv'
-2025-01-10 16:43:11,814 - INFO - Processing file: 125_10W-275-80R22.5-POS6_700_Empty.wav
-2025-01-10 16:43:11,817 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS6.csv'
-2025-01-10 16:43:11,817 - INFO - Processing file: 114_10W-275-80R22.5-POS5_800_Empty.wav
-2025-01-10 16:43:11,820 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS5.csv'
-2025-01-10 16:43:11,820 - INFO - Processing file: 135_10W-275-80R22.5-POS6_600_Empty.wav
-2025-01-10 16:43:11,823 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS6.csv'
-2025-01-10 16:43:11,823 - INFO - Processing file: 104_10W-275-80R22.5-POS5_900_Empty.wav
-2025-01-10 16:43:11,826 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS5.csv'
-2025-01-10 16:43:11,826 - INFO - Processing file: 126_10W-275-80R22.5-POS7_700_Empty.wav
-2025-01-10 16:43:11,829 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS7.csv'
-2025-01-10 16:43:11,829 - INFO - Processing file: 102_10W-275-80R22.5-POS3_900_Empty.wav
-2025-01-10 16:43:11,832 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS3.csv'
-2025-01-10 16:43:11,832 - INFO - Processing file: 133_10W-275-80R22.5-POS4_600_Empty.wav
-2025-01-10 16:43:11,835 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS4.csv'
-2025-01-10 16:43:11,835 - INFO - Processing file: 118_10W-275-80R22.5-POS9_800_Empty.wav
-2025-01-10 16:43:11,838 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS9.csv'
-2025-01-10 16:43:11,838 - INFO - Processing file: 120_10W-275-80R22.5-POS1_700_Empty.wav
-2025-01-10 16:43:11,840 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS1.csv'
-2025-01-10 16:43:11,840 - INFO - Processing file: 137_10W-275-80R22.5-POS8_600_Empty.wav
-2025-01-10 16:43:11,843 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS8.csv'
-2025-01-10 16:43:11,843 - INFO - Processing file: 129_10W-275-80R22.5-POS10_700_Empty.wav
-2025-01-10 16:43:11,846 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS10.csv'
-2025-01-10 16:43:11,846 - INFO - Processing file: 111_10W-275-80R22.5-POS2_800_Empty.wav
-2025-01-10 16:43:11,849 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS2.csv'
-2025-01-10 16:43:11,849 - INFO - Processing file: 109_10W-275-80R22.5-POS10_900_Empty.wav
-2025-01-10 16:43:11,852 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS10.csv'
-2025-01-10 16:43:11,852 - INFO - Processing file: 130_10W-275-80R22.5-POS1_600_Empty.wav
-2025-01-10 16:43:11,855 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS1.csv'
-2025-01-10 16:43:11,855 - INFO - Processing file: 127_10W-275-80R22.5-POS8_700_Empty.wav
-2025-01-10 16:43:11,857 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS8.csv'
-2025-01-10 16:43:11,858 - INFO - Processing file: 101_10W-275-80R22.5-POS2_900_Empty.wav
-2025-01-10 16:43:11,860 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS2.csv'
-2025-01-10 16:43:11,860 - INFO - Processing file: 123_10W-275-80R22.5-POS4_700_Empty.wav
-2025-01-10 16:43:11,863 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS4.csv'
-2025-01-10 16:43:11,863 - INFO - Processing file: 112_10W-275-80R22.5-POS3_800_Empty.wav
-2025-01-10 16:43:11,866 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS3.csv'
-2025-01-10 16:43:11,866 - INFO - Processing file: 108_10W-275-80R22.5-POS9_900_Empty.wav
-2025-01-10 16:43:11,869 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS9.csv'
-2025-01-10 16:43:11,870 - INFO - Processing file: 138_10W-275-80R22.5-POS9_600_Empty.wav
-2025-01-10 16:43:11,872 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS9.csv'
-2025-01-10 16:43:11,872 - INFO - Processing file: 122_10W-275-80R22.5-POS3_700_Empty.wav
-2025-01-10 16:43:11,875 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS3.csv'
-2025-01-10 16:43:11,876 - INFO - Processing file: 113_10W-275-80R22.5-POS4_800_Empty.wav
-2025-01-10 16:43:11,878 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS4.csv'
-2025-01-10 16:43:11,878 - INFO - Processing file: 131_10W-275-80R22.5-POS2_600_Empty.wav
-2025-01-10 16:43:11,881 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS2.csv'
-2025-01-10 16:43:11,881 - INFO - Processing file: 117_10W-275-80R22.5-POS8_800_Empty.wav
-2025-01-10 16:43:11,884 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS8.csv'
-2025-01-10 16:43:11,884 - INFO - Processing file: 100_10W-275-80R22.5-POS1_900_Empty.wav
-2025-01-10 16:43:11,887 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS1.csv'
-2025-01-10 16:43:11,887 - INFO - Processing file: 121_10W-275-80R22.5-POS2_700_Empty.wav
-2025-01-10 16:43:11,890 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS2.csv'
-2025-01-10 16:43:11,890 - INFO - Processing file: 107_10W-275-80R22.5-POS8_900_Empty.wav
-2025-01-10 16:43:11,893 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS8.csv'
-2025-01-10 16:43:11,893 - INFO - Processing file: 110_10W-275-80R22.5-POS1_800_Empty.wav
-2025-01-10 16:43:11,896 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 800-POS-POS1.csv'
-2025-01-10 16:43:11,897 - INFO - Processing file: 128_10W-275-80R22.5-POS9_700_Empty.wav
-2025-01-10 16:43:11,899 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 700-POS-POS9.csv'
-2025-01-10 16:43:11,900 - INFO - Processing file: 103_10W-275-80R22.5-POS4_900_Empty.wav
-2025-01-10 16:43:11,903 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 900-POS-POS4.csv'
-2025-01-10 16:43:11,903 - INFO - Processing file: 132_10W-275-80R22.5-POS3_600_Empty.wav
-2025-01-10 16:43:11,906 - INFO - Saved processed hits to 'Processed_CSV_Files/10 wheels/Strong-Tread Time-Domain Segments/Strong Tread Time Domain segment 600-POS-POS3.csv'
-2025-01-10 16:43:11,907 - INFO - Generated 40 CSV files for 10 wheels
-2025-01-10 16:43:11,907 - INFO - Processing complete.
+2025-01-17 20:52:36,661 - INFO - Processing file: 116_10W-275-80R22.5-POS7_800_Empty.wav
+2025-01-17 20:52:36,670 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 800-POS-POS7.csv'
+2025-01-17 20:52:36,670 - INFO - Processing file: 139_10W-275-80R22.5-POS10_600_Empty.wav
+2025-01-17 20:52:36,675 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 600-POS-POS10.csv'
+2025-01-17 20:52:36,675 - INFO - Processing file: 119_10W-275-80R22.5-POS10_800_Empty.wav
+2025-01-17 20:52:36,680 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 800-POS-POS10.csv'
+2025-01-17 20:52:36,680 - INFO - Processing file: 105_10W-275-80R22.5-POS6_900_Empty.wav
+2025-01-17 20:52:36,684 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 900-POS-POS6.csv'
+2025-01-17 20:52:36,684 - INFO - Processing file: 115_10W-275-80R22.5-POS6_800_Empty.wav
+2025-01-17 20:52:36,688 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 800-POS-POS6.csv'
+2025-01-17 20:52:36,688 - INFO - Processing file: 106_10W-275-80R22.5-POS7_900_Empty.wav
+2025-01-17 20:52:36,692 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 900-POS-POS7.csv'
+2025-01-17 20:52:36,692 - INFO - Processing file: 136_10W-275-80R22.5-POS7_600_Empty.wav
+2025-01-17 20:52:36,696 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 600-POS-POS7.csv'
+2025-01-17 20:52:36,696 - INFO - Processing file: 125_10W-275-80R22.5-POS6_700_Empty.wav
+2025-01-17 20:52:36,700 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 700-POS-POS6.csv'
+2025-01-17 20:52:36,700 - INFO - Processing file: 135_10W-275-80R22.5-POS6_600_Empty.wav
+2025-01-17 20:52:36,704 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 600-POS-POS6.csv'
+2025-01-17 20:52:36,704 - INFO - Processing file: 126_10W-275-80R22.5-POS7_700_Empty.wav
+2025-01-17 20:52:36,707 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 700-POS-POS7.csv'
+2025-01-17 20:52:36,707 - INFO - Processing file: 102_10W-275-80R22.5-POS3_900_Empty.wav
+2025-01-17 20:52:36,711 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 900-POS-POS3.csv'
+2025-01-17 20:52:36,711 - INFO - Processing file: 120_10W-275-80R22.5-POS1_700_Empty.wav
+2025-01-17 20:52:36,715 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 700-POS-POS1.csv'
+2025-01-17 20:52:36,715 - INFO - Processing file: 129_10W-275-80R22.5-POS10_700_Empty.wav
+2025-01-17 20:52:36,719 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 700-POS-POS10.csv'
+2025-01-17 20:52:36,719 - INFO - Processing file: 111_10W-275-80R22.5-POS2_800_Empty.wav
+2025-01-17 20:52:36,722 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 800-POS-POS2.csv'
+2025-01-17 20:52:36,722 - INFO - Processing file: 109_10W-275-80R22.5-POS10_900_Empty.wav
+2025-01-17 20:52:36,726 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 900-POS-POS10.csv'
+2025-01-17 20:52:36,726 - INFO - Processing file: 130_10W-275-80R22.5-POS1_600_Empty.wav
+2025-01-17 20:52:36,729 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 600-POS-POS1.csv'
+2025-01-17 20:52:36,729 - INFO - Processing file: 101_10W-275-80R22.5-POS2_900_Empty.wav
+2025-01-17 20:52:36,733 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 900-POS-POS2.csv'
+2025-01-17 20:52:36,733 - INFO - Processing file: 112_10W-275-80R22.5-POS3_800_Empty.wav
+2025-01-17 20:52:36,736 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 800-POS-POS3.csv'
+2025-01-17 20:52:36,736 - INFO - Processing file: 122_10W-275-80R22.5-POS3_700_Empty.wav
+2025-01-17 20:52:36,740 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 700-POS-POS3.csv'
+2025-01-17 20:52:36,740 - INFO - Processing file: 131_10W-275-80R22.5-POS2_600_Empty.wav
+2025-01-17 20:52:36,744 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 600-POS-POS2.csv'
+2025-01-17 20:52:36,744 - INFO - Processing file: 100_10W-275-80R22.5-POS1_900_Empty.wav
+2025-01-17 20:52:36,748 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 900-POS-POS1.csv'
+2025-01-17 20:52:36,748 - INFO - Processing file: 121_10W-275-80R22.5-POS2_700_Empty.wav
+2025-01-17 20:52:36,752 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 700-POS-POS2.csv'
+2025-01-17 20:52:36,752 - INFO - Processing file: 110_10W-275-80R22.5-POS1_800_Empty.wav
+2025-01-17 20:52:36,755 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 800-POS-POS1.csv'
+2025-01-17 20:52:36,756 - INFO - Processing file: 132_10W-275-80R22.5-POS3_600_Empty.wav
+2025-01-17 20:52:36,759 - INFO - Saved processed hits to 'Processed_CSV_Files(abcd@10_SideStrong-Best)/10 wheels/Strong-Side Time-Domain Segments/Strong Side Time Domain segment 600-POS-POS3.csv'
+2025-01-17 20:52:36,759 - INFO - Generated 24 CSV files for 10 wheels
+2025-01-17 20:52:36,759 - INFO - Processing complete.

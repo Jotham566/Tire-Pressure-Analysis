@@ -1,12 +1,21 @@
-# Configuration file for TireSoundProcessor
-# Contains parameters for both mounted and standalone tire signal processing
-
 pulse_width_calculator:
+  directories:
+    input_dir: "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Mounted/Processed_CSV_Files(abcd@10_SideStrong-Best)"
+    standalone_dir: "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Merged"
+    output_dir: "."
+    output_mounted_subdir: "Processed_Mounted(abcd@10_SIDEStrong-Best)"
+    output_standalone_subdir: "Processed_Standalone"
+
   # Common parameters shared between mounted and standalone processing
-  intensity_thresholds: [0.5, 0.7, 0.8, 0.9]  # Thresholds for pulse analysis at different intensity levels
+  common:
+    intensity_thresholds: [0.5, 0.7, 0.8, 0.9]  # Thresholds for pulse analysis
 
   # Parameters for mounted tire processing
   mounted:
+    # Signal detection parameters
+    noise_threshold: 0.001  # Base threshold for signal detection
+    noise_detection_method: "dynamic"  # Options: "dynamic", "fixed"
+    
     # Signal trimming configuration
     trim_signal: true
     trim_dims_after_rise: 32
@@ -14,20 +23,19 @@ pulse_width_calculator:
     # Dynamic noise threshold parameters
     baseline_window_size: 2
     std_dev_multiplier: 2
-    min_threshold_percentage: 0.08
+    min_threshold_percentage: 0.05
     sustained_rise_points: 4
     lookback_window_size: 2
 
     # Baseline subtraction configuration
-    baseline_subtraction_method: "adaptive" # Baseline subtraction method for mounted tire signal (none, fixed, adaptive)
-    fixed_baseline_value: 0.01
-
-     # Adaptive baseline parameters
-    baseline_computation: "median" # Baseline computation method (mean, median)
+    baseline_subtraction_method: "none"  # Options: "none", "fixed", "adaptive"
+    fixed_baseline_value: 0.02
+    
+    # Adaptive baseline parameters
+    baseline_computation: "median"  # Options: "mean", "median"
     sliding_window_min_size: 5 
     sliding_window_max_size: 20
-    quietness_metric: "std" # Metric for quietness (std, mad, mix)
-
+    quietness_metric: "std"  # Options: "std", "mad", "mix"
 
     # Volatility handling parameters
     volatility_threshold: 0.5
@@ -37,46 +45,33 @@ pulse_width_calculator:
 
   # Parameters for standalone tire processing
   standalone:
-    trim_signal: true  # Whether to trim the signal to N dimensions after rise point
-    trim_dims_after_rise: 32 # Number of dimensions to keep after rise point
+    # Signal detection parameters
+    noise_threshold: 0.001  # Base threshold for signal detection
+    noise_detection_method: "dynamic"  # Options: "dynamic", "fixed"
+    
+    # Signal trimming configuration
+    trim_signal: true
+    trim_dims_after_rise: 32
 
-    # Parameters for dynamic noise threshold in standalone processing:
-    # Number of initial points used to establish baseline noise level
-    # If too small: Might not capture enough baseline noise characteristics
-    # If too large: Might include part of the actual signal
+    # Dynamic noise threshold parameters
     baseline_window_size: 2
-
-    # Multiplier for standard deviation in threshold calculation
-    # If too small: More false positives (noise detected as signal)
-    # If too large: More false negatives (signal detected as noise)
     std_dev_multiplier: 2
-
-    # Minimum threshold as percentage of signal range
-    # If too small: More false positives (noise detected as signal)
-    # If too large: More false negatives (signal detected as noise)
     min_threshold_percentage: 0.05
-
-    # Number of consecutive points required above threshold
-    # If too small: Might include noise
-    # If too large: Might miss parts of the signal
     sustained_rise_points: 4
-
-    # Number of points to look back when checking for gradual rises
-    # Higher values detect more gradual rises but may include noise
     lookback_window_size: 2
 
-    # Baseline subtraction options
-    baseline_subtraction_method: "adaptive"  # Options: "adaptive", "fixed", "none"
-    fixed_baseline_value: 0.01  # Only used when method is "fixed"
+    # Baseline subtraction configuration
+    baseline_subtraction_method: "fixed"  # Options: "none", "fixed", "adaptive"
+    fixed_baseline_value: 0.03
 
-    # Parameters for adaptive baseline subtraction
-    baseline_computation: "median"                 # "median" or "mean"
-    sliding_window_min_size: 5                     # Minimum subwindow length
-    sliding_window_max_size: 20                    # Maximum subwindow length to check
-    quietness_metric: "std"                        # "std", "mean", or "mix" etc.
+    # Adaptive baseline parameters
+    baseline_computation: "median"  # Options: "mean", "median"
+    sliding_window_min_size: 5
+    sliding_window_max_size: 20
+    quietness_metric: "std"  # Options: "std", "mad", "mix"
 
-    # Parameters for volatility handling
-    volatility_threshold: 0.5     # Threshold for high/low volatility classification
-    high_volatility_percentile: 75  # Percentile for threshold in high volatility
-    low_volatility_percentile: 25   # Percentile for threshold in low volatility
-    max_threshold_factor: 0.3      # Maximum threshold as fraction of max value
+    # Volatility handling parameters
+    volatility_threshold: 0.5
+    high_volatility_percentile: 75
+    low_volatility_percentile: 25
+    max_threshold_factor: 0.3

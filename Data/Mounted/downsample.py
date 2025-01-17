@@ -15,7 +15,7 @@ def custom_downsample(input_path, output_path, target_sample_rate=2000, averagin
     input_path (str): Path to the input WAV file
     output_path (str): Path to save the downsampled WAV file
     target_sample_rate (int): Desired sample rate (default 2000 Hz)
-    averaging_window (int): Number of data points to average (default 24)
+    averaging_window (int): Number of data points to average (default 24) Calculated by dividing the original sample rate by the target sample rate (e.g., 48000 / 2000 = 24)
     """
     # Read the audio file using soundfile for numpy array
     data, sample_rate = sf.read(input_path)
@@ -34,7 +34,7 @@ def custom_downsample(input_path, output_path, target_sample_rate=2000, averagin
     downsampled_data = reshaped_data.mean(axis=1)
     
     # Save downsampled audio
-    sf.write(output_path, downsampled_data, target_sample_rate)
+    sf.write(output_path, downsampled_data, target_sample_rate, subtype='PCM_24')
 
 def batch_downsample_wav_files(input_folder, output_folder, target_sample_rate=2000, averaging_window=24):
     """
@@ -97,14 +97,14 @@ def batch_downsample_wav_files(input_folder, output_folder, target_sample_rate=2
 # Main execution
 def main():
     input_folder = "/Users/jothamwambi/Projects/tire_pressure_analysis/Pulse_Width_Analysis/Data/Mounted/abcd@10輪車-打音" # Folder containing WAV files
-    output_folder = "downsampled_2k"  # Folder to save downsampled files
+    output_folder = "abcd@10輪車-打音_downsampled_8k"  # Folder to save downsampled files
     
     # Perform downsampling
     results = batch_downsample_wav_files(
         input_folder, 
         output_folder, 
-        target_sample_rate=2000,  # 2 kHz
-        averaging_window=24  # Average every 24 data points
+        target_sample_rate=8000,  # 8 kHz
+        averaging_window=6  # (48000 Hz / 8000 Hz)
     )
 
 # Run the main function
