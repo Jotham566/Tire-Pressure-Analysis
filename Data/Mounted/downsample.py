@@ -104,7 +104,7 @@ def main():
         input_folder, 
         output_folder, 
         target_sample_rate=8000,  # 8 kHz
-        averaging_window=6  # (48000 Hz / 8000 Hz)
+        averaging_window=6 # 48000 / 8000 = 6    
     )
 
 # Run the main function

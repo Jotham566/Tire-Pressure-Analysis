@@ -29,7 +29,7 @@ def count_files_in_directory(directory):
 KNOWN_PRESSURES = ['500', '600', '700', '800', '850', '900']
 
 # Desired number of samples per hit for CSV
-DESIRED_LENGTH = 256 # Upto 256 samples per hit
+DESIRED_LENGTH = 1024 # for 8kHz sample rate (256 for 2kHz)
 
 # Setup Logging
 logging.basicConfig(
@@ -168,7 +168,7 @@ def detect_hits(samples, sample_rate, num_hits=5):
     if len(peaks) < num_hits:
         # Try with lower threshold
         peaks, _ = find_peaks(smoothed_signal, 
-                              height=np.mean(smoothed_signal) * 0.5, 
+                              height=np.mean(smoothed_signal) * 0.8, 
                               distance=int(sample_rate * 0.05),
                               prominence=np.std(smoothed_signal) * 0.5)
 
